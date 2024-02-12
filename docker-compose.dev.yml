@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine3.19
+    container_name: spencer-cms-db-dev
+    environment:
+      POSTGRES_DB: spencer-cms
+      POSTGRES_USER: spencer-web
+      POSTGRES_PASSWORD: spencer-web
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

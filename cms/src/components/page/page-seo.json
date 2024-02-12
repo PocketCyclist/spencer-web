@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_page_seos",
+  "info": {
+    "displayName": "Page SEO",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "minLength": 64
+    }
+  }
+}
