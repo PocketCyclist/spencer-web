@@ -6,8 +6,10 @@ export default ({ env }: TConfigInput) => ({
       provider: 'aws-s3',
       providerOptions: {
         s3Options: {
-          accessKeyId: env('DO_SPACE_ACCESS_KEY'),
-          secretAccessKey: env('DO_SPACE_ACCESS_SECRET'),
+          credentials: {
+            accessKeyId: env('DO_SPACE_ACCESS_KEY'),
+            secretAccessKey: env('DO_SPACE_ACCESS_SECRET'),
+          },
           endpoint: env('DO_SPACE_ENDPOINT', 'https://ams3.digitaloceanspaces.com'),
           region: env('DO_SPACE_REGION', 'ams3'),
           params: {
