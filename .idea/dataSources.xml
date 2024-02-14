@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5433/spencer-cms</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="spencer-cms@monorail.proxy.rlwy.net" uuid="66e10d17-8d2c-42ce-a176-700ed44b21b0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://monorail.proxy.rlwy.net:47317/spencer-cms</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
