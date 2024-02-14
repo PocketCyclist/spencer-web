@@ -2406,6 +2406,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@spencer-web/cms@workspace:cms":
+  version: 0.0.0-use.local
+  resolution: "@spencer-web/cms@workspace:cms"
+  dependencies:
+    "@strapi/plugin-cloud": "npm:4.20.0"
+    "@strapi/plugin-documentation": "npm:^4.20.0"
+    "@strapi/plugin-i18n": "npm:4.20.0"
+    "@strapi/plugin-users-permissions": "npm:4.20.0"
+    "@strapi/strapi": "npm:4.20.0"
+    pg: "npm:8.8.0"
+    react: "npm:^18.0.0"
+    react-dom: "npm:^18.0.0"
+    react-router-dom: "npm:5.3.4"
+    styled-components: "npm:5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@spencer-web/frontend@workspace:frontend":
+  version: 0.0.0-use.local
+  resolution: "@spencer-web/frontend@workspace:frontend"
+  dependencies:
+    "@types/node": "npm:^20.11.16"
+    "@types/react": "npm:^18.2.55"
+    "@types/react-dom": "npm:^18.2.19"
+    autoprefixer: "npm:^10.4.17"
+    eslint: "npm:^8.56.0"
+    eslint-config-next: "npm:14.1.0"
+    next: "npm:14.1.0"
+    postcss: "npm:^8.4.35"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@spencer-web/monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@spencer-web/monorepo@workspace:."
+  languageName: unknown
+  linkType: soft
+
 "@strapi/admin@npm:4.20.0":
   version: 4.20.0
   resolution: "@strapi/admin@npm:4.20.0"
@@ -14090,48 +14132,6 @@ __metadata:
   checksum: 10c0/d5bfafd5721a1d5300be03f1f3dead419fcec715103dcfd72a1cb85d64a7fae1afaf7e5c80b974a44a4550eafa01ae034e0dbddb50be1dba3a58c9241ee8de54
   languageName: node
   linkType: hard
-
-"spencer-web-cms@workspace:cms":
-  version: 0.0.0-use.local
-  resolution: "spencer-web-cms@workspace:cms"
-  dependencies:
-    "@strapi/plugin-cloud": "npm:4.20.0"
-    "@strapi/plugin-documentation": "npm:^4.20.0"
-    "@strapi/plugin-i18n": "npm:4.20.0"
-    "@strapi/plugin-users-permissions": "npm:4.20.0"
-    "@strapi/strapi": "npm:4.20.0"
-    pg: "npm:8.8.0"
-    react: "npm:^18.0.0"
-    react-dom: "npm:^18.0.0"
-    react-router-dom: "npm:5.3.4"
-    styled-components: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
-"spencer-web-frontend@workspace:frontend":
-  version: 0.0.0-use.local
-  resolution: "spencer-web-frontend@workspace:frontend"
-  dependencies:
-    "@types/node": "npm:^20.11.16"
-    "@types/react": "npm:^18.2.55"
-    "@types/react-dom": "npm:^18.2.19"
-    autoprefixer: "npm:^10.4.17"
-    eslint: "npm:^8.56.0"
-    eslint-config-next: "npm:14.1.0"
-    next: "npm:14.1.0"
-    postcss: "npm:^8.4.35"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.3.3"
-  languageName: unknown
-  linkType: soft
-
-"spencer-web@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "spencer-web@workspace:."
-  languageName: unknown
-  linkType: soft
 
 "split-string@npm:^3.0.1, split-string@npm:^3.0.2":
   version: 3.1.0

@@ -1,11 +1,20 @@
 {
-  "name": "spencer-web",
+  "name": "@spencer-web/monorepo",
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "yarn@4.1.0",
   "workspaces": [
     "frontend",
     "cms"
   ],
-  "packageManager": "yarn@4.1.0"
+  "scripts": {
+    "cms:dev": "yarn db:upd && yarn workspace @spencer-web/cms start",
+    "cms:build": "yarn workspace @spencer-web/cms build",
+    "cms:start": "yarn workspace @spencer-web/cms start",
+    "frontend:dev": "yarn db:upd && yarn workspace @spencer-web/frontend dev",
+    "frontend:build": "yarn workspace @spencer-web/frontend build",
+    "frontend:start": "yarn workspace @spencer-web/frontend start",
+    "db:upd": "docker compose -f docker-compose.dev.yml up -d"
+  }
 }
