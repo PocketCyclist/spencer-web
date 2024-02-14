@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_big_events",
+  "info": {
+    "displayName": "BigEvent",
+    "icon": "plane"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "videoUrl": {
+      "type": "string",
+      "required": true,
+      "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  }
+}

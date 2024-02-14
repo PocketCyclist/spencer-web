@@ -1,24 +1,24 @@
 {
-  "collectionName": "components_component_links",
+  "collectionName": "components_block_events",
   "info": {
-    "displayName": "Link",
-    "icon": "earth",
+    "displayName": "Event",
+    "icon": "plane",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "url": {
+    "heading": {
       "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
       "required": true
     },
-    "label": {
-      "type": "string",
-      "required": true
-    },
-    "icon": {
+    "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]

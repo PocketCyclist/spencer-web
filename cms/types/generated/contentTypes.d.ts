@@ -379,13 +379,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
     };
   };
   attributes: {
-    about: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     socials: Attribute.DynamicZone<['component.link']> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -440,7 +433,17 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
           localized: true;
         };
       }>;
-    blocks: Attribute.DynamicZone<['block.quote', 'block.video']> &
+    blocks: Attribute.DynamicZone<
+      [
+        'block.quote',
+        'block.video',
+        'block.about',
+        'block.big-event',
+        'block.cymbal',
+        'block.event',
+        'block.logo-hero'
+      ]
+    > &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -466,6 +469,67 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       'api::landing-page.landing-page',
       'oneToMany',
       'api::landing-page.landing-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
+  collectionName: 'projects_pages';
+  info: {
+    singularName: 'projects-page';
+    pluralName: 'projects-pages';
+    displayName: 'Projects page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'page.page-seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroImage: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::projects-page.projects-page',
+      'oneToMany',
+      'api::projects-page.projects-page'
     >;
     locale: Attribute.String;
   };
@@ -902,6 +966,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::footer.footer': ApiFooterFooter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

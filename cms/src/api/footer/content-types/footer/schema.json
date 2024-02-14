@@ -16,15 +16,6 @@
     }
   },
   "attributes": {
-    "about": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": true
-    },
     "socials": {
       "pluginOptions": {
         "i18n": {

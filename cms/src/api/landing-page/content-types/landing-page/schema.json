@@ -36,7 +36,12 @@
       "type": "dynamiczone",
       "components": [
         "block.quote",
-        "block.video"
+        "block.video",
+        "block.about",
+        "block.big-event",
+        "block.cymbal",
+        "block.event",
+        "block.logo-hero"
       ],
       "required": true
     }

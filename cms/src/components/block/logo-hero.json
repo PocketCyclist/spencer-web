@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_logo_heroes",
+  "info": {
+    "displayName": "LogoHero",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

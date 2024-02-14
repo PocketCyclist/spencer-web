@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_block_cymbals",
+  "info": {
+    "displayName": "cymbal"
+  },
+  "options": {},
+  "attributes": {
+    "right": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
