@@ -9,7 +9,7 @@
     "cms"
   ],
   "scripts": {
-    "cms:dev": "yarn db:upd && yarn workspace @spencer-web/cms start",
+    "cms:dev": "yarn db:upd && yarn workspace @spencer-web/cms dev",
     "cms:build": "yarn workspace @spencer-web/cms build",
     "cms:start": "yarn workspace @spencer-web/cms start",
     "frontend:dev": "yarn db:upd && yarn workspace @spencer-web/frontend dev",
