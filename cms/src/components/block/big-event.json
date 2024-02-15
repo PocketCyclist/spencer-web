@@ -2,13 +2,14 @@
   "collectionName": "components_block_big_events",
   "info": {
     "displayName": "BigEvent",
-    "icon": "plane"
+    "icon": "plane",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "heading": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "description": {
       "type": "text",

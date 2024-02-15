@@ -21,9 +21,10 @@ export interface BlockBigEvent extends Schema.Component {
   info: {
     displayName: 'BigEvent';
     icon: 'plane';
+    description: '';
   };
   attributes: {
-    heading: Attribute.String & Attribute.Required;
+    heading: Attribute.String;
     description: Attribute.Text & Attribute.Required;
     videoUrl: Attribute.String &
       Attribute.Required &
