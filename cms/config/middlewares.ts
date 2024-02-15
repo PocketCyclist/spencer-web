@@ -30,7 +30,17 @@ export default [
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
-  'strapi::body',
+  {
+    name: "strapi::body",
+    config: {
+      formLimit: "128mb", // modify form body
+      jsonLimit: "128mb", // modify JSON body
+      textLimit: "128mb", // modify text body
+      formidable: {
+        maxFileSize: 120 * 1024 * 1024, // multipart data, modify here limit of uploaded file size
+      },
+    },
+  },
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
