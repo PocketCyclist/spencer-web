@@ -973,6 +973,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: 'project';
     pluralName: 'projects';
     displayName: 'Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1000,7 +1001,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1033,6 +1034,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
     singularName: 'projects-page';
     pluralName: 'projects-pages';
     displayName: 'Projects page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1061,7 +1063,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
