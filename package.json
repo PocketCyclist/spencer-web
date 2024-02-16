@@ -16,5 +16,8 @@
     "frontend:build": "yarn workspace @spencer-web/frontend build",
     "frontend:start": "yarn workspace @spencer-web/frontend start",
     "db:upd": "docker compose -f docker-compose.dev.yml up -d"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0"
   }
 }
