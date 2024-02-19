@@ -17,6 +17,12 @@ const config: Config = {
       },
     },
     extend: {
+      colors: {
+        background: 'rgb(var(--background) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground) / <alpha-value>)',
+        yellow: 'rgb(var(--yellow) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+      },
       fontFamily: {
         sans: ['var(--font-mulish)', ...defaultTheme.fontFamily.sans],
         serif: [
@@ -24,13 +30,13 @@ const config: Config = {
           ...defaultTheme.fontFamily.serif,
         ],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      spacing: {
+        header: '10rem',
+        'mobile-header': '5.875rem',
+      }
     },
   },
   plugins: [],
 }
-export default config
+
+export default config;

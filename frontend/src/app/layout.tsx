@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { mulish, oldStandardTT } from '@/lib/fonts'
 
-import './globals.css'
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${mulish.variable} ${oldStandardTT.variable}`}>
+      <body className={`${mulish.variable} ${oldStandardTT.variable} font-foreground font-sans antialiased`}>
         {children}
       </body>
     </html>
