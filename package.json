@@ -15,6 +15,14 @@
     "frontend:dev": "yarn db:upd && yarn workspace @spencer-web/frontend dev",
     "frontend:build": "yarn workspace @spencer-web/frontend build",
     "frontend:start": "yarn workspace @spencer-web/frontend start",
-    "db:upd": "docker compose -f docker-compose.dev.yml up -d"
+    "frontend:lint": "yarn workspace @spencer-web/frontend lint",
+    "frontend:prettier:fix": "yarn workspace @spencer-web/frontend prettier:fix",
+    "db:upd": "docker compose -f docker-compose.dev.yml up -d",
+    "postinstall": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
   }
 }

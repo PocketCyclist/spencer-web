@@ -1,4 +1,4 @@
-import { Mulish, Old_Standard_TT } from 'next/font/google';
+import { Mulish, Old_Standard_TT } from 'next/font/google'
 
 export const oldStandardTT = Old_Standard_TT({
   weight: ['400', '700'],
@@ -6,7 +6,7 @@ export const oldStandardTT = Old_Standard_TT({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-old-standard-tt',
-});
+})
 
 export const mulish = Mulish({
   weight: ['400', '700'],
@@ -14,4 +14,4 @@ export const mulish = Mulish({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-mulish',
-});
+})
