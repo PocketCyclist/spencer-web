@@ -781,6 +781,78 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAlbumAlbum extends Schema.CollectionType {
+  collectionName: 'albums';
+  info: {
+    singularName: 'album';
+    pluralName: 'albums';
+    displayName: 'Album';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cover: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    videoUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
+    buyUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::album.album',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::album.album',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::album.album',
+      'oneToMany',
+      'api::album.album'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -1108,6 +1180,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::album.album': ApiAlbumAlbum;
       'api::event.event': ApiEventEvent;
       'api::footer.footer': ApiFooterFooter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
