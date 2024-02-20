@@ -22,7 +22,7 @@ export default function RootLayout({
         className={`${mulish.variable} ${oldStandardTT.variable} bg-background text-foreground font-sans antialiased`}
       >
         <Header />
-        <main className="pt-mobile-header lg:header">{children}</main>
+        <main className="pt-mobile-header lg:pt-header">{children}</main>
         <Footer />
       </body>
     </html>
