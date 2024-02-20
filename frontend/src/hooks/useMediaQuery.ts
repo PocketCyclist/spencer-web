@@ -1,28 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 const getMatchQueryMatches = (query: string): boolean => {
-  return typeof window !== 'undefined' && window.matchMedia(query).matches;
-};
+  return typeof window !== 'undefined' && window.matchMedia(query).matches
+}
 
 export const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState<boolean>(() =>
-    getMatchQueryMatches(query)
-  );
+    getMatchQueryMatches(query),
+  )
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(query);
+    const mediaQueryList = window.matchMedia(query)
 
     const handleMediaQueryChange = () => {
-      setMatches(getMatchQueryMatches(query));
-    };
+      setMatches(getMatchQueryMatches(query))
+    }
 
-    handleMediaQueryChange();
+    handleMediaQueryChange()
 
-    mediaQueryList.addEventListener('change', handleMediaQueryChange);
+    mediaQueryList.addEventListener('change', handleMediaQueryChange)
 
     return () =>
-      mediaQueryList.removeEventListener('change', handleMediaQueryChange);
-  }, [query]);
+      mediaQueryList.removeEventListener('change', handleMediaQueryChange)
+  }, [query])
 
-  return matches;
-};
+  return matches
+}

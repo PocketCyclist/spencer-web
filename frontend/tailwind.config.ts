@@ -33,10 +33,10 @@ const config: Config = {
       spacing: {
         header: '10rem',
         'mobile-header': '5.875rem',
-      }
+      },
     },
   },
   plugins: [],
 }
 
-export default config;
+export default config

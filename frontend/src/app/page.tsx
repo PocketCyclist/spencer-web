@@ -12,7 +12,7 @@ const Home = async () => {
   return (
     <>
       <Header />
-      <main className='pt-mobile-header lg:header'>
+      <main className="pt-mobile-header lg:header">
         <StrapiBlocks blocks={blocks} />
         {/*<pre>*/}
         {/*  {JSON.stringify(pageData, null, 2)}*/}
