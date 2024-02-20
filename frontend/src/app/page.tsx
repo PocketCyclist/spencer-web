@@ -1,13 +1,14 @@
 import { strapiGet } from '@/data/strapi/common'
-import {
-  StrapiBlocks,
-  TStrapiBlock,
-} from '@/components/strapi/StrapiBlocks/StrapiBlocks'
+import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
+import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
+import { TStrapiLandingPage } from '@/data/strapi/types/landing'
 
 const Home = async () => {
-  const pageData = await strapiGet('landing-page')
+  const pageData = await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>(
+    'landing-page',
+  ).then((r) => r.data)
   console.log(pageData)
-  const blocks = pageData.data.attributes.blocks as TStrapiBlock[]
+  const blocks = pageData.attributes.blocks
   return (
     <>
       <StrapiBlocks blocks={blocks} />

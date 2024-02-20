@@ -4,17 +4,24 @@ export type TStrapiGetParams = {
 }
 export type TStrapiResource = string
 
-export const strapiGet = (
+export const strapiGet = async <T>(
   resource: TStrapiResource,
   { query, deepPopulate }: TStrapiGetParams = { query: {}, deepPopulate: true },
-) => {
+): Promise<T> => {
   const url = new URL(buildResourceUrl(resource))
   url.search = new URLSearchParams({
     ...(deepPopulate ? { populate: 'deep' } : {}),
     ...query,
   }).toString()
 
-  console.log('params', url.toString())
+  // console.log(
+  //   'params',
+  //   new URLSearchParams({
+  //     ...(deepPopulate ? { populate: 'deep' } : {}),
+  //     ...query,
+  //   }),
+  //   url.toString(),
+  // )
 
   const controller = new AbortController()
   const timeoutId = setTimeout(() => controller.abort(), 10000) // Set the timeout to 10 seconds (adjust as needed)
@@ -30,7 +37,7 @@ export const strapiGet = (
       if (!response.ok) {
         throw new Error(`Strapi HTTP error! Status: ${response.status}`)
       }
-      return response.json()
+      return response.json() as T
     })
     .catch((error) => {
       if (error.name === 'AbortError') {
@@ -38,6 +45,7 @@ export const strapiGet = (
       } else {
         console.error('Error:', error.message || 'An unknown error occurred')
       }
+      throw error
     })
     .finally(() => clearTimeout(timeoutId))
 }

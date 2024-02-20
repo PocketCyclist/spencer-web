@@ -1,23 +1,13 @@
 import Image from 'next/image'
-
 import { strapiGet } from '@/data/strapi/common'
-
-export type TStrapiSocial = {
-  id: number
-  url: string
-  label: string
-  icon: {
-    data: {
-      attributes: {
-        url: string
-      }
-    }
-  }
-} & Record<string, any>
+import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
+import { TStrapiFooter } from '@/data/strapi/types/footer'
 
 export const FooterSocials = async () => {
-  const footerData = await strapiGet('footer')
-  const socials = footerData.data.attributes.socials as TStrapiSocial[]
+  const footerData = await strapiGet<TStrapiSingleResponse<TStrapiFooter>>(
+    'footer',
+  ).then((r) => r.data)
+  const socials = footerData.attributes.socials
 
   return (
     <div>

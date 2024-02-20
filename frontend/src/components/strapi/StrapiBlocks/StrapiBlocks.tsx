@@ -1,10 +1,5 @@
 import { Quote } from '@/components/strapi/blocks/Quote/Quote'
-
-export type TBlockComponent = string
-export type TStrapiBlock = {
-  id: number
-  __component: TBlockComponent
-} & Record<string, any>
+import { TStrapiBlock } from '@/data/strapi/types/common/blocks'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
