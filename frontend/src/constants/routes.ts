@@ -12,7 +12,7 @@ export const routesMap = {
     title: 'Discography',
   },
   musicProjects: {
-    url: '/music-projects',
+    url: '/projects',
     title: 'Music Projects',
   },
   events: {
