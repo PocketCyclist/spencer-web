@@ -1,5 +1,24 @@
-export type TBlockComponent = string
-export type TStrapiBlock = {
+export type TBlockComponent = 'block.quote' | 'block.logo-hero'
+type TBlockCommon = {
   id: number
   __component: TBlockComponent
-} & Record<string, any>
+}
+
+type TBlockQuote = {
+  __component: 'block.quote'
+  text: string
+  author: string
+} & TBlockCommon
+
+type TBlockLogoHero = {
+  __component: 'block.logo-hero'
+  backgroundImage: {
+    data: {
+      attributes: {
+        url: string
+      }
+    }
+  }
+} & TBlockCommon
+
+export type TStrapiBlock = TBlockQuote | TBlockLogoHero
