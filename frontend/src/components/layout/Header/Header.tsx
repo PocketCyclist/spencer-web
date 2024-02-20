@@ -10,7 +10,6 @@ import { cn } from '@/lib/cn'
 
 const ITEMS = [
   {
-    isActive: true,
     url: '/',
     title: 'Home',
   },
@@ -97,7 +96,7 @@ export const Header = () => {
                   href={item.url}
                   title={item.title}
                 >
-                  {item.isActive && (
+                  {pathname === item.url && (
                     <CapaIcon className="absolute -left-2 top-1/2 text-yellow -translate-y-1/2 lg:-left-[1.125rem]" />
                   )}
                   <span className="relative">{item.title}</span>

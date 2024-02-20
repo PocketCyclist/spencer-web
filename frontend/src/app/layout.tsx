@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${mulish.variable} ${oldStandardTT.variable} font-foreground font-sans antialiased`}
+        className={`${mulish.variable} ${oldStandardTT.variable} bg-background text-foreground font-sans antialiased`}
       >
         {children}
       </body>

@@ -4,6 +4,7 @@ import {
   TStrapiBlock,
 } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { Header } from '@/components/layout/Header/Header'
+import { Footer } from '@/components/layout/Footer/Footer'
 
 const Home = async () => {
   const pageData = await strapiGet('landing-page')
@@ -18,6 +19,7 @@ const Home = async () => {
         {/*  {JSON.stringify(pageData, null, 2)}*/}
         {/*</pre>*/}
       </main>
+      <Footer />
     </>
   )
 }
