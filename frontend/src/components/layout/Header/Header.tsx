@@ -4,31 +4,17 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { routesMap } from '@/constants/routes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 
 const ITEMS = [
-  {
-    url: '/',
-    title: 'Home',
-  },
-  {
-    url: '/discography',
-    title: 'Discography',
-  },
-  {
-    url: '/music-projects',
-    title: 'Music Projects',
-  },
-  {
-    url: '/events',
-    title: 'Events',
-  },
-  {
-    url: '/news',
-    title: 'News',
-  },
+  routesMap.home,
+  routesMap.discography,
+  routesMap.musicProjects,
+  routesMap.events,
+  routesMap.news,
 ]
 
 export const Header = () => {
