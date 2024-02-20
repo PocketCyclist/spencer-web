@@ -4,10 +4,10 @@ export type TStrapiGetParams = {
 }
 export type TStrapiResource = string
 
-export const strapiGet = async <T>(
+export const strapiGet = async <T extends { data: any }>(
   resource: TStrapiResource,
   { query, deepPopulate }: TStrapiGetParams = { query: {}, deepPopulate: true },
-): Promise<T> => {
+): Promise<T['data']> => {
   const url = new URL(buildResourceUrl(resource))
   url.search = new URLSearchParams({
     ...(deepPopulate ? { populate: 'deep' } : {}),
@@ -35,10 +35,13 @@ export const strapiGet = async <T>(
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`Strapi HTTP error! Status: ${response.status}`)
+        throw new Error(
+          `Strapi HTTP error! Url: ${url} Status: ${response.status}`,
+        )
       }
-      return response.json() as T
+      return response.json()
     })
+    .then((r) => r.data as T['data'])
     .catch((error) => {
       if (error.name === 'AbortError') {
         console.error('Request timed out:', error)

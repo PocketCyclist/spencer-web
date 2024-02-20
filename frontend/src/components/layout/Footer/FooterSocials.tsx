@@ -4,9 +4,8 @@ import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { TStrapiFooter } from '@/data/strapi/types/footer'
 
 export const FooterSocials = async () => {
-  const footerData = await strapiGet<TStrapiSingleResponse<TStrapiFooter>>(
-    'footer',
-  ).then((r) => r.data)
+  const footerData =
+    await strapiGet<TStrapiSingleResponse<TStrapiFooter>>('footer')
   const socials = footerData.attributes.socials
 
   return (

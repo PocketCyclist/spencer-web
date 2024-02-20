@@ -9,9 +9,8 @@ import {
 } from '@/data/strapi/types/projects'
 
 const Projects = async () => {
-  const pageData = await strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>(
-    'projects-page',
-  ).then((r) => r.data)
+  const pageData =
+    await strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page')
   const projects = await strapiGet<TStrapiListResponse<TStrapiProject>>(
     'projects',
     {
@@ -19,7 +18,7 @@ const Projects = async () => {
         populate: '*', // TODO: deep is not working for projects resource?
       },
     },
-  ).then((r) => r.data)
+  )
   console.log(pageData, projects)
 
   return (

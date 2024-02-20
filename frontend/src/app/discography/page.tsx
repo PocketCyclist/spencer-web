@@ -5,10 +5,8 @@ import { TStrapiAlbum } from '@/data/strapi/types/albums'
 const Discography = async () => {
   // const pageData = await strapiGet<TStrapiSingleResponse<any>>(
   //   'discography-page',
-  // ).then((r) => r.data) // TODO
-  const albums = await strapiGet<TStrapiListResponse<TStrapiAlbum>>(
-    'albums',
-  ).then((r) => r.data)
+  // ) // TODO
+  const albums = await strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums')
   return (
     <>
       {albums.map((album) => (

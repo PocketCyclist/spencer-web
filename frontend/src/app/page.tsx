@@ -4,9 +4,8 @@ import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { TStrapiLandingPage } from '@/data/strapi/types/landing'
 
 const Home = async () => {
-  const pageData = await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>(
-    'landing-page',
-  ).then((r) => r.data)
+  const pageData =
+    await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>('landing-page')
   console.log(pageData)
   const blocks = pageData.attributes.blocks
   return (
