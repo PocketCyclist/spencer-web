@@ -9,7 +9,7 @@ export const Footer = () => (
     <div className="container pt-16 pb-4 grid grid-cols-1 gap-y-14 sm:pb-8 lg:py-[4.5rem]">
       <div>
         <Image
-          className="w-[180px] h-[82px] lg:w-[292px] lg:h-[133px]"
+          className="w-[180px] lg:w-[292px]"
           alt="The Gerard Spencer Project - Handpan performances classes & wellbeing"
           src="/images/footer-logo.png"
           width={292}
