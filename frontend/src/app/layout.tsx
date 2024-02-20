@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { Header } from '@/components/layout/Header/Header'
+import { Footer } from '@/components/layout/Footer/Footer'
 import { mulish, oldStandardTT } from '@/lib/fonts'
 
 import '@/styles/globals.css'
@@ -19,7 +21,9 @@ export default function RootLayout({
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-background text-foreground font-sans antialiased`}
       >
-        {children}
+        <Header />
+        <main className="pt-mobile-header lg:header">{children}</main>
+        <Footer />
       </body>
     </html>
   )
