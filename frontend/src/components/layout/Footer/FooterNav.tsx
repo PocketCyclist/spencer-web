@@ -2,18 +2,19 @@
 
 import { usePathname } from 'next/navigation'
 
+import { routesMap } from '@/constants/routes'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 
 const ITEMS = [
-  { url: '/about', title: 'About' },
-  { url: '/discography', title: 'Discography' },
-  { url: '/music-projects', title: 'Music Projects' },
-  { url: '/events', title: 'Events' },
-  { url: '/news', title: 'News' },
-  { url: '/my-course', title: 'My course' },
-  { url: '/contact', title: 'Contact' },
-  { url: '/handpan-academy', title: 'Handpan Academy' },
+  routesMap.about,
+  routesMap.discography,
+  routesMap.musicProjects,
+  routesMap.events,
+  routesMap.news,
+  routesMap.myCourse,
+  routesMap.contact,
+  routesMap.handpanAcademy,
 ]
 
 export const FooterNav = () => {
