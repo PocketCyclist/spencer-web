@@ -62,7 +62,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-convert-px-to-rem'),
+    require('tailwindcss-animate'),
+  ],
 }
 
 export default config
