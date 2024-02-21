@@ -10,6 +10,12 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
     container: {
       center: true,
       padding: {
@@ -37,6 +43,7 @@ const config: Config = {
         background: 'rgb(var(--background) / <alpha-value>)',
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
         yellow: 'rgb(var(--yellow) / <alpha-value>)',
+        red: 'rgb(var(--red) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
         input: 'rgb(var(--input) / <alpha-value>)',
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
