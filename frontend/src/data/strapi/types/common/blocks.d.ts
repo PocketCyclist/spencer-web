@@ -1,4 +1,4 @@
-export type TBlockComponent = 'block.quote' | 'block.logo-hero'
+export type TBlockComponent = 'block.quote' | 'block.logo-hero' | 'block.video'
 type TBlockCommon = {
   id: number
   __component: TBlockComponent
@@ -21,4 +21,9 @@ type TBlockLogoHero = {
   }
 } & TBlockCommon
 
-export type TStrapiBlock = TBlockQuote | TBlockLogoHero
+type TBlockVideo = {
+  __component: 'block.video'
+  url: string
+} & TBlockCommon
+
+export type TStrapiBlock = TBlockQuote | TBlockLogoHero | TBlockVideo
