@@ -8,15 +8,15 @@ type QuoteProps = {
 export const Quote = ({ text, author }: QuoteProps) => (
   <section className="bg-yellow font-serif">
     <div className="container py-[5.375rem] xl:py-[11.5rem]">
-      <div className="max-w-[987px]">
-        <p className="text-[36px] leading-[44.5px] lg:text-[64px] lg:leading-[79.1px]">
+      <div className="rem:max-w-[987px]">
+        <p className="rem:text-[36px] rem:leading-[44.5px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
           {text}
         </p>
         {author && (
-          <p className="mt-6 flex justify-end font-serif text-[24px] leading-[29.66px] lg:mt-8">
+          <p className="mt-6 flex justify-end font-serif rem:text-[24px] rem:leading-[29.66px] lg:mt-8">
             <span className="relative py-7 pl-[1.625rem]">
               <CapaIcon
-                className="w-[82.07px] h-[85px] absolute top-1/2 left-0 -translate-y-1/2 text-background"
+                className="rem:w-[82.07px] rem:h-[85px] absolute top-1/2 left-0 -translate-y-1/2 text-background"
                 viewBox="0 0 39 40"
               />
               <span className="relative">— {author}</span>

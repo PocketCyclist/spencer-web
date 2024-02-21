@@ -39,7 +39,7 @@ export const Header = () => {
       <div className="container h-full flex justify-between items-center gap-y-4">
         <div>
           <Image
-            className="w-[152px] lg:w-[264px]"
+            className="rem:w-[152px] lg:rem:w-[264px]"
             alt="Gerard Spencer - Handpan performances classes & wellbeing"
             src="/images/logo.png"
             width={264}

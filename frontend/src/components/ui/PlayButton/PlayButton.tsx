@@ -8,7 +8,7 @@ type PlayButtonProps = HTMLAttributes<HTMLButtonElement>
 export const PlayButton = ({ className, ...props }: PlayButtonProps) => (
   <button
     className={cn(
-      'size-[88px] inline-flex justify-center items-center text-red xl:size-[237px]',
+      'rem:size-[88px] inline-flex justify-center items-center text-red xl:rem:size-[237px]',
       className,
     )}
     type="button"

@@ -4976,6 +4976,7 @@ __metadata:
     tailwind-merge: "npm:^2.2.1"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
+    tailwindcss-convert-px-to-rem: "npm:^1.0.4"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -15338,7 +15339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.11, postcss@npm:^8.4.23, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
+"postcss@npm:^8.3.11, postcss@npm:^8.4.13, postcss@npm:^8.4.23, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
   version: 8.4.35
   resolution: "postcss@npm:8.4.35"
   dependencies:
@@ -17831,7 +17832,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.1":
+"tailwindcss-convert-px-to-rem@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "tailwindcss-convert-px-to-rem@npm:1.0.4"
+  dependencies:
+    postcss: "npm:^8.4.13"
+    tailwindcss: "npm:^3.0.24"
+  checksum: 10c0/100147b79b2eb1418c733a05879ce3f64964317f121cb3c05fe42d0f75f727515470db757786e796dd1acc8a580f07c307ac638d0f19e1dde365a87ef73186f9
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:^3.0.24, tailwindcss@npm:^3.4.1":
   version: 3.4.1
   resolution: "tailwindcss@npm:3.4.1"
   dependencies:
