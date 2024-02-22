@@ -118,7 +118,7 @@ export interface PagePageSeo extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        minLength: 64;
+        minLength: 32;
       }>;
   };
 }

@@ -12,7 +12,7 @@
     },
     "description": {
       "type": "text",
-      "minLength": 64
+      "minLength": 32
     }
   }
 }
