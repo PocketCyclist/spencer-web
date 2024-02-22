@@ -853,6 +853,60 @@ export interface ApiAlbumAlbum extends Schema.CollectionType {
   };
 }
 
+export interface ApiDiscographyPageDiscographyPage extends Schema.SingleType {
+  collectionName: 'discography_pages';
+  info: {
+    singularName: 'discography-page';
+    pluralName: 'discography-pages';
+    displayName: 'Discography-page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    seo: Attribute.Component<'page.page-seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    backgroundImage: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::discography-page.discography-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::discography-page.discography-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::discography-page.discography-page',
+      'oneToMany',
+      'api::discography-page.discography-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -1194,6 +1248,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::album.album': ApiAlbumAlbum;
+      'api::discography-page.discography-page': ApiDiscographyPageDiscographyPage;
       'api::event.event': ApiEventEvent;
       'api::footer.footer': ApiFooterFooter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
