@@ -4,7 +4,7 @@
   "info": {
     "singularName": "discography-page",
     "pluralName": "discography-pages",
-    "displayName": "Discography-page",
+    "displayName": "Discography page",
     "description": ""
   },
   "options": {
@@ -28,17 +28,17 @@
       "required": true
     },
     "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "required": true
+      }
     }
   }
 }

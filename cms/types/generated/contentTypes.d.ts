@@ -858,7 +858,7 @@ export interface ApiDiscographyPageDiscographyPage extends Schema.SingleType {
   info: {
     singularName: 'discography-page';
     pluralName: 'discography-pages';
-    displayName: 'Discography-page';
+    displayName: 'Discography page';
     description: '';
   };
   options: {
