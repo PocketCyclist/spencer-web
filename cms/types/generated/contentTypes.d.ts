@@ -1277,13 +1277,6 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    images: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     promoImage: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1295,6 +1288,13 @@ export interface ApiPostPost extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    media: Attribute.DynamicZone<['component.video', 'component.image']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;

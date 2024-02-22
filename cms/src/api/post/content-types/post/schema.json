@@ -43,31 +43,18 @@
       "type": "text",
       "required": true
     },
-    "images": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
     "promoImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "required": true
+      }
     },
     "seo": {
       "type": "component",
@@ -78,6 +65,19 @@
         }
       },
       "component": "page.page-seo"
+    },
+    "media": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "component.video",
+        "component.image"
+      ],
+      "required": true
     }
   }
 }
