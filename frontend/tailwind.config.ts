@@ -56,6 +56,10 @@ const config: Config = {
           ...defaultTheme.fontFamily.serif,
         ],
       },
+      minHeight: {
+        'screen-minus-header': `calc(100vh - ${toRem(160)})`,
+        'screen-minus-mobile-header': `calc(100vh - ${toRem(94)})`,
+      },
       spacing: {
         header: toRem(160),
         'mobile-header': toRem(94),
