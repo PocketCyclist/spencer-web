@@ -991,7 +991,7 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
@@ -1025,7 +1025,6 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::landing-page.landing-page',
       'oneToOne',
@@ -1124,7 +1123,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
@@ -1155,7 +1154,6 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::projects-page.projects-page',
       'oneToOne',
