@@ -1,4 +1,6 @@
 import { About } from '@/components/strapi/blocks/About/About'
+import { BigEvent } from '@/components/strapi/blocks/BigEvent/BigEvent'
+import { Event } from '@/components/strapi/blocks/Event/Event'
 import { LogoHero } from '@/components/strapi/blocks/LogoHero/LogoHero'
 import { Quote } from '@/components/strapi/blocks/Quote/Quote'
 import { Video } from '@/components/strapi/blocks/Video/Video'
@@ -30,6 +32,23 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
             author={block.author}
             firstImage={extractImageAttrs(block.firstImage.data.attributes)}
             secondImage={extractImageAttrs(block.secondImage.data.attributes)}
+          />
+        )
+      case 'block.big-event':
+        return (
+          <BigEvent
+            heading={block.heading}
+            description={block.description}
+            // videoPoster={extractImageAttrs(block.videoPoster.data.attributes)}
+            videoSrc={block.videoUrl}
+          />
+        )
+      case 'block.event':
+        return (
+          <Event
+            heading={block.heading}
+            description={block.description}
+            image={extractImageAttrs(block.image.data.attributes)}
           />
         )
       default:

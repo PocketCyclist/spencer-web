@@ -5,6 +5,8 @@ export type TBlockComponent =
   | 'block.logo-hero'
   | 'block.video'
   | 'block.about'
+  | 'block.big-event'
+  | 'block.event'
 type TBlockCommon = {
   id: number
   __component: TBlockComponent
@@ -34,10 +36,32 @@ type TBlockAbout = {
   description: string
   quote: string
   author: string
-} & Record<'firstImage' | 'secondImage', { data: TStrapiImageAttachmentEntity }>
+} & TBlockCommon &
+  Record<'firstImage' | 'secondImage', { data: TStrapiImageAttachmentEntity }>
+
+type TBlockBigEvent = {
+  __component: 'block.big-event'
+  heading: string
+  description: string
+  videoPoster: {
+    data: TStrapiImageAttachmentEntity
+  }
+  videoUrl: string
+} & TBlockCommon
+
+type TBlockEvent = {
+  __component: 'block.event'
+  heading: string
+  description: string
+  image: {
+    data: TStrapiImageAttachmentEntity
+  }
+} & TBlockCommon
 
 export type TStrapiBlock =
   | TBlockQuote
   | TBlockLogoHero
   | TBlockVideo
   | TBlockAbout
+  | TBlockBigEvent
+  | TBlockEvent
