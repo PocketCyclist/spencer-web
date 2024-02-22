@@ -128,7 +128,7 @@ export interface ComponentVideo extends Schema.Component {
     url: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
-    previewImage: Attribute.Media;
+    previewImage: Attribute.Media & Attribute.Required;
   };
 }
 
