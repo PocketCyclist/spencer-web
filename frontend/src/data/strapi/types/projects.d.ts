@@ -1,8 +1,5 @@
 import { TStrapiSeoComponent } from '@/data/strapi/types/common/seo'
-import {
-  TStrapiEntity,
-  TStrapiImageField,
-} from '@/data/strapi/types/common/api'
+import { TStrapiImageField } from '@/data/strapi/types/common/api'
 
 export type TStrapiProject = {
   title: string
