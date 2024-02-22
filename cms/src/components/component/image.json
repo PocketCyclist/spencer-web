@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_component_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

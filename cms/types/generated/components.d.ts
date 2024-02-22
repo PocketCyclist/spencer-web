@@ -91,6 +91,17 @@ export interface BlockVideo extends Schema.Component {
   };
 }
 
+export interface ComponentImage extends Schema.Component {
+  collectionName: 'components_component_images';
+  info: {
+    displayName: 'Image';
+    icon: 'briefcase';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ComponentLink extends Schema.Component {
   collectionName: 'components_component_links';
   info: {
@@ -145,6 +156,7 @@ declare module '@strapi/types' {
       'block.logo-hero': BlockLogoHero;
       'block.quote': BlockQuote;
       'block.video': BlockVideo;
+      'component.image': ComponentImage;
       'component.link': ComponentLink;
       'component.video': ComponentVideo;
       'page.page-seo': PagePageSeo;
