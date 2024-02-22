@@ -4961,6 +4961,7 @@ __metadata:
   resolution: "@spencer-web/frontend@workspace:frontend"
   dependencies:
     "@radix-ui/react-dialog": "npm:^1.0.5"
+    "@radix-ui/react-slot": "npm:^1.0.2"
     "@svgr/webpack": "npm:^8.1.0"
     "@types/node": "npm:^20.11.16"
     "@types/react": "npm:^18.2.55"
