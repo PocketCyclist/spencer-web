@@ -13,7 +13,7 @@ export const Video = ({ cover, src }: VideoProps) => (
         <VideoDialog
           src={src}
           trigger={
-            <PlayButton className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <PlayButton className="rem:size-[104px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:rem:size-[237px]" />
           }
         />
       </div>
