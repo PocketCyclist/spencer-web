@@ -1,3 +1,5 @@
+import qs from 'qs'
+
 export type TStrapiGetParams = {
   query?: Record<string, any>
   deepPopulate?: boolean
@@ -9,19 +11,12 @@ export const strapiGet = async <T extends { data: any }>(
   { query, deepPopulate }: TStrapiGetParams = { query: {}, deepPopulate: true },
 ): Promise<T['data']> => {
   const url = new URL(buildResourceUrl(resource))
-  url.search = new URLSearchParams({
+  url.search = qs.stringify({
     ...(deepPopulate ? { populate: 'deep' } : {}),
     ...query,
-  }).toString()
+  })
 
-  // console.log(
-  //   'params',
-  //   new URLSearchParams({
-  //     ...(deepPopulate ? { populate: 'deep' } : {}),
-  //     ...query,
-  //   }),
-  //   url.toString(),
-  // )
+  // console.log('params', url.toString())
 
   const controller = new AbortController()
   const timeoutId = setTimeout(() => controller.abort(), 10000) // Set the timeout to 10 seconds (adjust as needed)
