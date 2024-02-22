@@ -4,12 +4,12 @@ import {
   TStrapiImageField,
 } from '@/data/strapi/types/common/api'
 
-export type TStrapiProject = TStrapiEntity<{
+export type TStrapiProject = {
   title: string
   content: string
   coverImage: TStrapiImageField
   seo: TStrapiSeoComponent
-}>
+}
 
 export type TStrapiProjectsPage = {
   title: string
