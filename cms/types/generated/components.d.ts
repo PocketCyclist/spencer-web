@@ -87,10 +87,7 @@ export interface BlockVideo extends Schema.Component {
     description: '';
   };
   attributes: {
-    url: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
-    previewImage: Attribute.Media & Attribute.Required;
+    video: Attribute.Component<'component.video'> & Attribute.Required;
   };
 }
 
@@ -105,6 +102,21 @@ export interface ComponentLink extends Schema.Component {
     url: Attribute.String & Attribute.Required;
     label: Attribute.String & Attribute.Required;
     icon: Attribute.Media;
+  };
+}
+
+export interface ComponentVideo extends Schema.Component {
+  collectionName: 'components_component_videos';
+  info: {
+    displayName: 'Video';
+    icon: 'play';
+    description: '';
+  };
+  attributes: {
+    url: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
+    previewImage: Attribute.Media;
   };
 }
 
@@ -134,6 +146,7 @@ declare module '@strapi/types' {
       'block.quote': BlockQuote;
       'block.video': BlockVideo;
       'component.link': ComponentLink;
+      'component.video': ComponentVideo;
       'page.page-seo': PagePageSeo;
     }
   }
