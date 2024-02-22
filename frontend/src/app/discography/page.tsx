@@ -3,21 +3,31 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/Button/Button'
 import { strapiGet } from '@/data/strapi/common'
-import { TStrapiAlbum } from '@/data/strapi/types/albums'
+import {
+  TStrapiAlbum,
+  TStrapiDiscographyPage,
+} from '@/data/strapi/types/albums'
 import {
   TStrapiListResponse,
-  // TStrapiSingleResponse,
+  TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
 
 const Discography = async () => {
-  // const pageData =
-  //   await strapiGet<TStrapiSingleResponse<any>>('discography-page') // TODO
+  const pageData =
+    await strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
+      'discography-page',
+    )
   const albums = await strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums')
 
   return (
     <section className="rem:min-h-[600px] relative flex flex-col justify-center">
       <div className="absolute inset-0 -z-[1] after:absolute after:inset-0 after:bg-black/40">
-        {/* <Image alt="alt" className="object-cover" fill src="src" /> */}
+        <Image
+          alt="alt"
+          className="object-cover"
+          fill
+          src={pageData.attributes.backgroundImage.data.attributes.url}
+        />
       </div>
       <div className="rem:py-[232px] container max-w-full flex snap-x snap-mandatory overflow-x-auto">
         <div className="min-w-px" />

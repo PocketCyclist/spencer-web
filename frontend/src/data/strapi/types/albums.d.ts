@@ -1,7 +1,5 @@
-import {
-  TStrapiEntity,
-  TStrapiImageField,
-} from '@/data/strapi/types/common/api'
+import { TStrapiImageField } from '@/data/strapi/types/common/api'
+import { TStrapiSeoComponent } from '@/data/strapi/types/common/seo'
 
 export type TStrapiAlbum = {
   title: string
@@ -9,4 +7,9 @@ export type TStrapiAlbum = {
   videoUrl: string
   buyUrl: string
   cover: TStrapiImageField
+}
+
+export type TStrapiDiscographyPage = {
+  backgroundImage: TStrapiImageField
+  seo: TStrapiSeoComponent
 }
