@@ -25,9 +25,9 @@ export const About = ({
   secondImage,
 }: AboutProps) => (
   <div className="space-y-16 lg:space-y-0">
-    <section>
+    <section className="overflow-hidden">
       <div className="container lg:py-12 lg:flex lg:flex-row-reverse lg:justify-end">
-        <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:w-[calc(50vw-20px)] lg:rem:h-[529px] lg:flex-shrink-0 lg:left-0 lg:translate-x-0 xl:w-[calc(50vw-53px-88px)]">
+        <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:rem:max-w-[821px] lg:w-[calc(50vw-20px)] lg:rem:h-[529px] lg:flex-shrink-0 lg:left-0 lg:translate-x-0 xl:w-[calc(50vw-53px-88px)]">
           <Image
             alt={firstImage.alt}
             className="object-cover"
@@ -46,7 +46,7 @@ export const About = ({
     </section>
 
     {secondImage && quote && author && (
-      <section>
+      <section className="overflow-hidden">
         <div className="container lg:py-28 lg:flex">
           <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:rem:w-[445px] lg:rem:h-[674px] lg:mr-6 lg:flex-shrink-0 lg:left-0 lg:translate-x-0">
             <Image

@@ -1,16 +1,19 @@
 import Image from 'next/image'
 
 type LogoHeroProps = {
-  bgSrc: string
+  bgImage: {
+    alt: string
+    src: string
+  }
 }
 
-export const LogoHero = ({ bgSrc }: LogoHeroProps) => (
+export const LogoHero = ({ bgImage }: LogoHeroProps) => (
   <section className="rem:h-[500px] relative text-white lg:rem:h-[600px] xl:rem:h-[800px]">
     <Image
-      alt=""
+      alt={bgImage.alt}
       className="object-cover object-[70%,100%] lg:object-center"
       fill
-      src={bgSrc}
+      src={bgImage.src}
     />
     <Image
       alt="The Gerard Spencer Project - Handpan performances classes & wellbeing"

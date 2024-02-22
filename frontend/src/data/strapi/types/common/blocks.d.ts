@@ -1,10 +1,15 @@
-import { TStrapiImageAttachmentEntity } from '@/data/strapi/types/common/api'
+import {
+  TStrapiImageAttachmentEntity,
+  TStrapiImageField,
+} from '@/data/strapi/types/common/api'
 
 export type TBlockComponent =
   | 'block.quote'
   | 'block.logo-hero'
   | 'block.video'
   | 'block.about'
+  | 'block.big-event'
+  | 'block.event'
 type TBlockCommon = {
   id: number
   __component: TBlockComponent
@@ -18,9 +23,7 @@ type TBlockQuote = {
 
 type TBlockLogoHero = {
   __component: 'block.logo-hero'
-  backgroundImage: {
-    data: TStrapiImageAttachmentEntity
-  }
+  backgroundImage: TStrapiImageField
 } & TBlockCommon
 
 type TBlockVideo = {
@@ -34,10 +37,29 @@ type TBlockAbout = {
   description: string
   quote: string
   author: string
-} & Record<'firstImage' | 'secondImage', { data: TStrapiImageAttachmentEntity }>
+  firstImage: TStrapiImageField
+  secondImage: TStrapiImageField
+} & TBlockCommon
+
+type TBlockBigEvent = {
+  __component: 'block.big-event'
+  heading: string
+  description: string
+  videoPoster: TStrapiImageField
+  videoUrl: string
+} & TBlockCommon
+
+type TBlockEvent = {
+  __component: 'block.event'
+  heading: string
+  description: string
+  image: TStrapiImageField
+} & TBlockCommon
 
 export type TStrapiBlock =
   | TBlockQuote
   | TBlockLogoHero
   | TBlockVideo
   | TBlockAbout
+  | TBlockBigEvent
+  | TBlockEvent
