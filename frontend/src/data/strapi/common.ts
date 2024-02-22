@@ -25,6 +25,7 @@ export const strapiGet = async <T extends { data: any }>(
     method: 'GET',
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_TOKEN as string}`,
+      accept: 'application/json',
     },
     signal: controller.signal, // Pass the signal option to the fetch call
     next: { revalidate: 1200 },
