@@ -1,7 +1,8 @@
 {
   "collectionName": "components_block_cymbals",
   "info": {
-    "displayName": "cymbal"
+    "displayName": "Cymbal",
+    "description": ""
   },
   "options": {},
   "attributes": {

@@ -35,7 +35,8 @@ export interface BlockBigEvent extends Schema.Component {
 export interface BlockCymbal extends Schema.Component {
   collectionName: 'components_block_cymbals';
   info: {
-    displayName: 'cymbal';
+    displayName: 'Cymbal';
+    description: '';
   };
   attributes: {
     right: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
