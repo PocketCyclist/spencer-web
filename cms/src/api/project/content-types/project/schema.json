@@ -56,6 +56,19 @@
       },
       "component": "page.page-seo",
       "required": true
+    },
+    "media": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "component.video",
+        "component.image"
+      ],
+      "required": true
     }
   }
 }
