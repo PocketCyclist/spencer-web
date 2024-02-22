@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -37,7 +38,7 @@ export const Header = () => {
   return (
     <header className="w-full h-mobile-header fixed top-0 left-0 z-10 bg-background lg:h-header">
       <div className="container h-full flex justify-between items-center gap-y-4">
-        <div>
+        <Link href="/" title="Home">
           <Image
             className="rem:w-[152px] lg:rem:w-[264px]"
             alt="Gerard Spencer - Handpan performances classes & wellbeing"
@@ -45,7 +46,7 @@ export const Header = () => {
             width={264}
             height={79}
           />
-        </div>
+        </Link>
 
         <button
           aria-expanded={isMenuOpen}
