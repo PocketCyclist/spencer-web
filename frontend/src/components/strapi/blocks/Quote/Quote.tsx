@@ -6,10 +6,10 @@ type QuoteProps = {
 }
 
 export const Quote = ({ text, author }: QuoteProps) => (
-  <section className="bg-yellow font-serif">
+  <section className="bg-yellow">
     <div className="container py-[5.375rem] xl:py-[11.5rem]">
       <div className="rem:max-w-[987px]">
-        <p className="rem:text-[36px] rem:leading-[44.5px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
+        <p className="font-serif rem:text-[36px] rem:leading-[44.5px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79.1px]">
           {text}
         </p>
         {author && (
