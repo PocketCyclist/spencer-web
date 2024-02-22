@@ -56,6 +56,11 @@ type TBlockEvent = {
   image: TStrapiImageField
 } & TBlockCommon
 
+type TBlockCymbal = {
+  __component: 'block.cymbal'
+  right: boolean // ignore it
+}
+
 export type TStrapiBlock =
   | TBlockQuote
   | TBlockLogoHero
@@ -63,3 +68,4 @@ export type TStrapiBlock =
   | TBlockAbout
   | TBlockBigEvent
   | TBlockEvent
+  | TBlockCymbal

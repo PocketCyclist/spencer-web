@@ -44,6 +44,8 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
             image={extractImageAttrs(block.image)}
           />
         )
+      case 'block.cymbal':
+        return <></>
       default:
         return (
           <div>
