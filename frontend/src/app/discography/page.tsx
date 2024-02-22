@@ -24,7 +24,9 @@ const Discography = async () => {
     <section className="min-h-screen-minus-mobile-header relative flex flex-col justify-center lg:min-h-screen-minus-header">
       <div className="absolute inset-0 -z-[1] after:absolute after:inset-0 after:bg-black/40">
         <Image
-          alt="alt"
+          alt={
+            pageData.attributes.backgroundImage.data.attributes.alternativeText
+          }
           className="object-cover"
           fill
           src={pageData.attributes.backgroundImage.data.attributes.url}
