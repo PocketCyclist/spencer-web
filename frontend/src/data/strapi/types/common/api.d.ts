@@ -47,3 +47,4 @@ export type TStrapiImageAttachmentEntity = TStrapiEntity<{
 }>
 
 export type TStrapiImageField = TStrapiData<TStrapiImageAttachmentEntity>
+export type TStrapiImagesField = TStrapiData<TStrapiImageAttachmentEntity[]>
