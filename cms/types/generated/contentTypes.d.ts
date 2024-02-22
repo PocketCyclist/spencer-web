@@ -989,6 +989,73 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiEventsPageEventsPage extends Schema.SingleType {
+  collectionName: 'events_pages';
+  info: {
+    singularName: 'events-page';
+    pluralName: 'events-pages';
+    displayName: 'Events page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroImage: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    seo: Attribute.Component<'page.page-seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToMany',
+      'api::events-page.events-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -1095,6 +1162,72 @@ export interface ApiLandingPageLandingPage extends Schema.SingleType {
       'api::landing-page.landing-page',
       'oneToMany',
       'api::landing-page.landing-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiNewsPageNewsPage extends Schema.SingleType {
+  collectionName: 'news_pages';
+  info: {
+    singularName: 'news-page';
+    pluralName: 'news-pages';
+    displayName: 'News page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroImage: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    seo: Attribute.Component<'page.page-seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-page.news-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-page.news-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::news-page.news-page',
+      'oneToMany',
+      'api::news-page.news-page'
     >;
     locale: Attribute.String;
   };
@@ -1250,8 +1383,10 @@ declare module '@strapi/types' {
       'api::album.album': ApiAlbumAlbum;
       'api::discography-page.discography-page': ApiDiscographyPageDiscographyPage;
       'api::event.event': ApiEventEvent;
+      'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::footer.footer': ApiFooterFooter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::project.project': ApiProjectProject;
       'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
     }
