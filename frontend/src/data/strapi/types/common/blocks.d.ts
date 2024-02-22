@@ -10,6 +10,7 @@ export type TBlockComponent =
   | 'block.about'
   | 'block.big-event'
   | 'block.event'
+  | 'block.cymbal'
 type TBlockCommon = {
   id: number
   __component: TBlockComponent
@@ -59,7 +60,7 @@ type TBlockEvent = {
 type TBlockCymbal = {
   __component: 'block.cymbal'
   right: boolean // ignore it
-}
+} & TBlockCommon
 
 export type TStrapiBlock =
   | TBlockQuote

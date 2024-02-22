@@ -1,5 +1,6 @@
 import { About } from '@/components/strapi/blocks/About/About'
 import { BigEvent } from '@/components/strapi/blocks/BigEvent/BigEvent'
+import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { Event } from '@/components/strapi/blocks/Event/Event'
 import { LogoHero } from '@/components/strapi/blocks/LogoHero/LogoHero'
 import { Quote } from '@/components/strapi/blocks/Quote/Quote'
@@ -45,7 +46,7 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
           />
         )
       case 'block.cymbal':
-        return <></>
+        return <Cymbal right={block.right} />
       default:
         return (
           <div>
