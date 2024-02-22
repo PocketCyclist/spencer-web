@@ -21,7 +21,7 @@ const Discography = async () => {
   ])
 
   return (
-    <section className="rem:min-h-[600px] relative flex flex-col justify-center">
+    <section className="min-h-screen-minus-mobile-header relative flex flex-col justify-center lg:min-h-screen-minus-header">
       <div className="absolute inset-0 -z-[1] after:absolute after:inset-0 after:bg-black/40">
         <Image
           alt="alt"
@@ -30,14 +30,14 @@ const Discography = async () => {
           src={pageData.attributes.backgroundImage.data.attributes.url}
         />
       </div>
-      <div className="rem:py-[232px] container max-w-full flex snap-x snap-mandatory overflow-x-auto">
+      <div className="py-8 container max-w-full flex snap-x snap-mandatory overflow-x-auto">
         <div className="min-w-px" />
         {albums.map((item) => (
           <div
             key={item.id}
-            className="max-w-[95%] pl-4 group flex flex-col flex-shrink-0 snap-start sm:[&:nth-child(2)]:pl-[calc((100vw-(640px-2rem*2))/2)] md:pl-10 md:[&:nth-child(2)]:pl-[calc((100vw-(768px-2rem*2))/2)] xl:rem:pl-[100px] lg:[&:nth-child(2)]:pl-[calc((100vw-(1024px-2rem*2))/2)] xl:[&:nth-child(2)]:pl-[calc((100vw-(1280px-4.125rem*2))/2)]"
+            className="max-w-[95%] pl-4 flex flex-col flex-shrink-0 snap-start sm:[&:nth-child(2)]:pl-[calc((100vw-(640px-2rem*2))/2)] md:pl-10 md:[&:nth-child(2)]:pl-[calc((100vw-(768px-2rem*2))/2)] xl:rem:pl-[100px] lg:[&:nth-child(2)]:pl-[calc((100vw-(1024px-2rem*2))/2)] xl:[&:nth-child(2)]:pl-[calc((100vw-(1280px-4.125rem*2))/2)]"
           >
-            <article className="rem:max-w-[580px] flex flex-col flex-1 bg-[rgb(217_217_217/100%)]">
+            <article className="rem:max-w-[580px] group flex flex-col flex-1 bg-[rgb(217_217_217/100%)]">
               <div className="rem:h-[318px] relative">
                 {item.attributes.cover && (
                   <Image
