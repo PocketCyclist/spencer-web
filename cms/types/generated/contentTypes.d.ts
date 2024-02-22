@@ -931,13 +931,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    images: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     description: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -966,6 +959,13 @@ export interface ApiEventEvent extends Schema.CollectionType {
         };
       }>;
     media: Attribute.DynamicZone<['component.video', 'component.image']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    promoImage: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
