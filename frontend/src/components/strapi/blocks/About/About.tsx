@@ -66,7 +66,7 @@ export const About = ({
               height={100}
             />
             <div className="pl-16 lg:rem:pl-[100px]">
-              <p className="font-serif rem:text-[30px] rem:leading-[37.08px] lg:rem:text-[36px] lg:rem:leading-[44.5px]">
+              <p className="font-serif rem:text-[30px] rem:leading-[37.08px] sm:whitespace-break-spaces lg:rem:text-[36px] lg:rem:leading-[44.5px]">
                 {quote}
               </p>
               <p className="mt-6 flex justify-end font-serif rem:text-[24px] rem:leading-[29.66px] lg:mt-16">
