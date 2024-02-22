@@ -84,11 +84,13 @@ export interface BlockVideo extends Schema.Component {
   collectionName: 'components_block_videos';
   info: {
     displayName: 'Video';
+    description: '';
   };
   attributes: {
     url: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
+    previewImage: Attribute.Media & Attribute.Required;
   };
 }
 

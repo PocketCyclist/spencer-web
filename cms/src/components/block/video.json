@@ -1,7 +1,8 @@
 {
   "collectionName": "components_block_videos",
   "info": {
-    "displayName": "Video"
+    "displayName": "Video",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,6 +10,14 @@
       "type": "string",
       "required": true,
       "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    "previewImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
