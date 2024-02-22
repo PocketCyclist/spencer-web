@@ -995,6 +995,7 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
     singularName: 'events-page';
     pluralName: 'events-pages';
     displayName: 'Events page';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1013,7 +1014,6 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         };
       }>;
     description: Attribute.Text &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1318,7 +1318,7 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
     };
   };
   attributes: {
-    title: Attribute.Text &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1337,6 +1337,12 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;

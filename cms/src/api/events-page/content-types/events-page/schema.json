@@ -4,7 +4,8 @@
   "info": {
     "singularName": "events-page",
     "pluralName": "events-pages",
-    "displayName": "Events page"
+    "displayName": "Events page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -31,20 +32,20 @@
         }
       },
       "type": "text",
-      "required": true
+      "required": false
     },
     "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "required": true
+      }
     },
     "seo": {
       "type": "component",
