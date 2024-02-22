@@ -30,7 +30,7 @@ const Discography = async () => {
           src={pageData.attributes.backgroundImage.data.attributes.url}
         />
       </div>
-      <div className="py-8 container max-w-full flex snap-x snap-mandatory overflow-x-auto">
+      <div className="py-8 container max-w-full flex snap-x snap-mandatory overflow-x-auto no-scrollbar">
         <div className="min-w-px" />
         {albums.map((item) => (
           <div

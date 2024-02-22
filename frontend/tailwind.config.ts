@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import plugin from 'tailwindcss/plugin'
 
 const toRem = (px: number) => `${px / 16}rem`
 
@@ -69,6 +70,22 @@ const config: Config = {
   plugins: [
     require('tailwindcss-convert-px-to-rem'),
     require('tailwindcss-animate'),
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.no-scrollbar': {
+          scrollbarWidth: 'none',
+          '-ms-overflow-style': 'none',
+          '&::-webkit-scrollbar': {
+            width: '0',
+            height: '0',
+            display: 'none',
+          },
+        },
+        '.text-balance': {
+          textWrap: 'balance',
+        },
+      })
+    }),
   ],
 }
 
