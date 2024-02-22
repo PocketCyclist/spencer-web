@@ -13,11 +13,12 @@ import {
 } from '@/data/strapi/types/common/api'
 
 const Discography = async () => {
-  const pageData =
-    await strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
+  const [pageData, albums] = await Promise.all([
+    strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
       'discography-page',
-    )
-  const albums = await strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums')
+    ),
+    strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums'),
+  ])
 
   return (
     <section className="rem:min-h-[600px] relative flex flex-col justify-center">
