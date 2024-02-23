@@ -19,7 +19,7 @@ ENV NODE_ENV=production
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
 WORKDIR /opt/cms
-COPY --from=build /opt/cms/node_modules ./node_modules
+#COPY --from=build /opt/cms/node_modules ./node_modules
 COPY --from=build /opt/cms ./
 
 RUN chown -R node:node /opt/cms
