@@ -18,7 +18,7 @@ RUN apk add --no-cache vips-dev
 ENV NODE_ENV=production
 WORKDIR /opt/
 COPY package.json yarn.lock .yarnrc.yml ./
-COPY --from=build .yarn ./.yarn
+COPY --from=build /opt/.yarn ./.yarn
 COPY --from=build /opt/node_modules ./node_modules
 WORKDIR /opt/cms
 #COPY --from=build /opt/cms/node_modules ./node_modules
