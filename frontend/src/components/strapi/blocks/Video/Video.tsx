@@ -7,13 +7,14 @@ type VideoProps = { poster?: { alt: string; src: string }; src: string }
 
 export const Video = ({ poster, src }: VideoProps) => (
   <section className="rem:h-[500px] relative overflow-hidden bg-red lg:rem:h-[600px] xl:rem:h-[800px]">
-    <div className="w-full min-h-full overflow-hidden bg-background md:w-3/4 md:absolute md:right-0 md:top-1/2 md:max-w-[calc(50%+550px-175px)] md:ml-auto md:rounded-l-full md:-translate-y-1/2 md:before:block md:before:pt-[100%]">
+    <div className="w-full min-h-full overflow-hidden bg-background md:w-3/4 md:max-w-[calc(50%+550px-175px)] md:absolute md:right-0 md:top-1/2 md:rounded-l-full md:-translate-y-1/2 md:before:block md:before:pt-[120%]">
       <div className="w-full rem:h-[500px] absolute top-1/2 -translate-y-1/2 lg:rem:h-[600px] xl:rem:h-[800px]">
         {poster && (
           <Image
             alt={poster.alt}
             className="object-cover"
             fill
+            sizes="(min-width: 768px) 75vw, 100vw"
             src={poster.src}
           />
         )}
