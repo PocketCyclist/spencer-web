@@ -29,7 +29,10 @@ type TBlockLogoHero = {
 
 type TBlockVideo = {
   __component: 'block.video'
-  url: string
+  video: {
+    url: string
+    previewImage: TStrapiImageField
+  }
 } & TBlockCommon
 
 type TBlockAbout = {

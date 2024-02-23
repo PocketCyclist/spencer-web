@@ -16,7 +16,12 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
       case 'block.logo-hero':
         return <LogoHero bgImage={extractImageAttrs(block.backgroundImage)} />
       case 'block.video':
-        return <Video src={block.url} />
+        return (
+          <Video
+            poster={extractImageAttrs(block.video.previewImage)}
+            src={block.video.url}
+          />
+        )
       case 'block.about':
         return (
           <About
