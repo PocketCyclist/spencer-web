@@ -1,17 +1,19 @@
 import Image from 'next/image'
+import { cn } from '@/lib/cn'
 
 type CymbalProps = {
+  className?: string
   right: boolean
 }
 
-export const Cymbal = ({ right }: CymbalProps) => {
+export const Cymbal = ({ className, right }: CymbalProps) => {
   if (!right) {
     return null
   }
 
   return (
     <div
-      className="hidden relative -z-[1] select-none 2xl:flex"
+      className={cn('hidden relative -z-[1] select-none 2xl:flex', className)}
       role="presentation"
     >
       <Image

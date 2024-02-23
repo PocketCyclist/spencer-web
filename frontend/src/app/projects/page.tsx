@@ -38,6 +38,8 @@ const Projects = async () => {
   return (
     <>
       <Hero
+        className="lg:py-0"
+        contentClassName="py-8 lg:justify-center"
         bgImage={extractImageAttrs(pageData.attributes.heroImage)}
         title={pageData.attributes.title}
       />

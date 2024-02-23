@@ -27,7 +27,6 @@ export const About = ({
 }: AboutProps) => (
   <div className="space-y-16 lg:space-y-0">
     <Hero
-      className="lg:py-12"
       contentClassName="lg:justify-center"
       bgImage={firstImage}
       title={title}
