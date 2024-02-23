@@ -7,7 +7,6 @@ import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 
 const ITEMS = [
-  routesMap.about,
   routesMap.discography,
   routesMap.musicProjects,
   routesMap.events,
