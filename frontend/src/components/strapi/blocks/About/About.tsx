@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { Hero } from '@/components/common/Hero/Hero'
 import { CapaIcon } from '@/icons'
 
 type TAboutImage = {
@@ -25,25 +26,13 @@ export const About = ({
   secondImage,
 }: AboutProps) => (
   <div className="space-y-16 lg:space-y-0">
-    <section className="overflow-hidden">
-      <div className="container lg:py-12 lg:flex lg:flex-row-reverse lg:justify-end">
-        <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:rem:max-w-[821px] lg:w-[calc(50vw-20px)] lg:rem:h-[529px] lg:flex-shrink-0 lg:left-0 lg:translate-x-0 xl:w-[calc(50vw-53px-88px)]">
-          <Image
-            alt={firstImage.alt}
-            className="object-cover"
-            fill
-            sizes="(min-width: 1920px) 821px, (min-width: 1024px) 50vw, 100vw"
-            src={firstImage.src}
-          />
-        </div>
-        <div className="py-16 flex flex-col lg:py-12 lg:w-[calc(50%-20px)] lg:mr-10 lg:flex lg:flex-col lg:flex-shrink-0 lg:justify-center xl:w-[calc(50%+53px)] xl:mr-[88px]">
-          <h1 className="mb-6 font-serif rem:text-[48px] rem:leading-[59.33px] lg:mb-8 lg:rem:text-[88px] lg:rem:leading-[108.77px]">
-            {title}
-          </h1>
-          <p>{description}</p>
-        </div>
-      </div>
-    </section>
+    <Hero
+      className="lg:py-12"
+      contentClassName="lg:justify-center"
+      bgImage={firstImage}
+      title={title}
+      description={description}
+    />
 
     {secondImage && quote && author && (
       <section className="overflow-hidden">

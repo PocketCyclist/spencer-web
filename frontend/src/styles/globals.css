@@ -14,6 +14,8 @@
   --input: 250 250 250;
   --input-border: 226 212 199;
   --input-placeholder: 173 173 173;
+
+  --arrow: 133 133 133;
 }
 
 @media (min-width: 1024px) and (max-width: 1535px) {

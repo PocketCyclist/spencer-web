@@ -57,6 +57,7 @@ const config: Config = {
         input: 'rgb(var(--input) / <alpha-value>)',
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
         'input-placeholder': 'rgb(var(--input-placeholder) / <alpha-value>)',
+        arrow: 'rgb(var(--arrow) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-mulish)', ...defaultTheme.fontFamily.sans],
