@@ -17,6 +17,7 @@ import {
 } from '@/data/strapi/types/projects'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
+import { CapaIcon } from '@/icons'
 
 const Projects = async () => {
   const [pageData, projects] = await Promise.all([
@@ -96,6 +97,28 @@ const Projects = async () => {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="hidden relative -z-[1] select-none 2xl:flex"
+        role="presentation"
+      >
+        <div className="container relative">
+          <div className="absolute right-full rem:bottom-[35px]">
+            <CapaIcon
+              className="rem:w-[290px] rem:h-[300px] absolute rem:right-[250px] rem:bottom-[435px] text-blue"
+              viewBox="0 0 39 40"
+            />
+            <CapaIcon
+              className="rem:w-[216px] rem:h-[223px] absolute rem:-right-[42px] rem:bottom-[326px] text-yellow"
+              viewBox="0 0 39 40"
+            />
+            <CapaIcon
+              className="rem:w-[274px] rem:h-[283px] absolute rem:right-[100px] rem:bottom-[36px] text-red"
+              viewBox="0 0 39 40"
+            />
           </div>
         </div>
       </div>

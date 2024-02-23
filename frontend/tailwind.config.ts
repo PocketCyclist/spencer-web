@@ -53,6 +53,7 @@ const config: Config = {
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
         yellow: 'rgb(var(--yellow) / <alpha-value>)',
         red: 'rgb(var(--red) / <alpha-value>)',
+        blue: 'rgb(var(--blue) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
         input: 'rgb(var(--input) / <alpha-value>)',
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
