@@ -32,7 +32,7 @@ export const About = ({
             alt={firstImage.alt}
             className="object-cover"
             fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            sizes="(min-width: 1920px) 821px, (min-width: 1024px) 50vw, 100vw"
             src={firstImage.src}
           />
         </div>

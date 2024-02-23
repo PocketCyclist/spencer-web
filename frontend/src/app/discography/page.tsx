@@ -46,6 +46,7 @@ const Discography = async () => {
                     alt={item.attributes.cover.data.attributes.alternativeText}
                     className="object-cover"
                     fill
+                    sizes="(min-width: 640px) 580px, 95vw"
                     src={item.attributes.cover.data.attributes.url}
                   />
                 )}

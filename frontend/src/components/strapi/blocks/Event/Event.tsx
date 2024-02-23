@@ -27,7 +27,7 @@ export const Event = ({ heading, description, image }: EventProps) => (
               alt={image.alt}
               className="object-cover"
               fill
-              sizes="(min-width: 1024px) 100vw, 533px"
+              sizes="(min-width: 1024px) 533px, 100vw"
               src={image.src}
             />
           )}
