@@ -7,7 +7,7 @@ WORKDIR /opt/
 COPY .yarn ./.yarn
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY cms/package.json ./cms/
-RUN yarn workspaces focus @spencer-web/cms
+RUN yarn workspaces focus @spencer-web/cms --production
 ENV STRAPI_TELEMETRY_DISABLED true
 WORKDIR /opt/cms
 COPY ./cms .
