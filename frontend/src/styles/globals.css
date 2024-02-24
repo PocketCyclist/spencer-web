@@ -9,12 +9,18 @@
   --yellow: 255 199 66;
   --red: 214 65 0;
   --blue: 13 70 117;
+  --green: 5 109 64;
 
   --border: 217 216 216;
 
   --input: 250 250 250;
   --input-border: 226 212 199;
   --input-placeholder: 173 173 173;
+  --input-hover-placeholder: 132 132 132;
+  --input-error-border: var(--red);
+  --input-success-border: var(--green);
+  --input-disabled-border: 243 233 225;
+  --input-disabled-placeholder: 202 202 202;
 
   --arrow: 133 133 133;
 

@@ -58,6 +58,15 @@ const config: Config = {
         input: 'rgb(var(--input) / <alpha-value>)',
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
         'input-placeholder': 'rgb(var(--input-placeholder) / <alpha-value>)',
+        'input-hover-placeholder':
+          'rgb(var(--input-hover-placeholder) / <alpha-value>)',
+        'input-error-border': 'rgb(var(--input-error-border) / <alpha-value>)',
+        'input-success-border':
+          'rgb(var(--input-success-border) / <alpha-value>)',
+        'input-disabled-border':
+          'rgb(var(--input-disabled-border) / <alpha-value>)',
+        'input-disabled-placeholder':
+          'rgb(var(--input-disabled-placeholder) / <alpha-value>)',
         arrow: 'rgb(var(--arrow) / <alpha-value>)',
         'button-primary': 'rgb(var(--button-primary) / <alpha-value>)',
         'button-primary-hover':
