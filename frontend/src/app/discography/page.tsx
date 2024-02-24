@@ -58,7 +58,7 @@ const Discography = async () => {
                 </h5>
                 <p>{item.attributes.description}</p>
                 <div className="mt-auto pt-9 flex flex-col gap-y-4 sm:flex-row sm:gap-y-0 sm:gap-x-4">
-                  <Button asChild className="sm:flex-1" variant="red">
+                  <Button asChild className="sm:flex-1" variant="primary">
                     <Link
                       href={item.attributes.buyUrl}
                       target="_blank"
@@ -67,7 +67,7 @@ const Discography = async () => {
                       Buy
                     </Link>
                   </Button>
-                  <Button asChild className="sm:flex-1" variant="white">
+                  <Button asChild className="sm:flex-1" variant="secondary">
                     <Link
                       href={item.attributes.videoUrl}
                       target="_blank"

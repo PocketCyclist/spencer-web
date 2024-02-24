@@ -17,6 +17,13 @@
   --input-placeholder: 173 173 173;
 
   --arrow: 133 133 133;
+
+  --button-primary: var(--red);
+  --button-primary-hover: 234 85 20;
+  --button-primary-disabled: 229 133 92;
+  --button-secondary: 255 255 255;
+  --button-secondary-hover: 254 253 252;
+  --button-secondary-disabled: 254 253 252;
 }
 
 @media (min-width: 1024px) and (max-width: 1535px) {

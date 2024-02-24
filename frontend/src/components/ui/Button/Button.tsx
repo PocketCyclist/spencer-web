@@ -5,12 +5,14 @@ import { cn } from '@/lib/cn'
 
 type ButtonProps = {
   asChild?: boolean
-  variant: 'red' | 'white'
+  variant: 'primary' | 'secondary'
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 const VARIANT_CLASSES_MAP = {
-  red: 'bg-red text-white hover:bg-red/90',
-  white: 'bg-white text-black hover:bg-[rgb(240_240_240/100%)]',
+  primary:
+    'bg-button-primary text-white hover:bg-button-primary-hover disabled:bg-button-primary-disabled disabled:text-white/80',
+  secondary:
+    'bg-button-secondary text-black hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
 } as const
 
 export const Button = ({
@@ -25,7 +27,7 @@ export const Button = ({
   return (
     <Component
       className={cn(
-        'rem:h-[60px] rem:px-[26px] inline-flex justify-center items-center font-bold rem:text-[20px] rem:leading-[25.1px] transition-colors',
+        'rem:h-[60px] rem:px-[26px] inline-flex justify-center items-center font-bold rem:text-[20px] rem:leading-[25.1px] transition-colors disabled:pointer-events-none',
         VARIANT_CLASSES_MAP[variant],
         className,
       )}

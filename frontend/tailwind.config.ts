@@ -59,6 +59,16 @@ const config: Config = {
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
         'input-placeholder': 'rgb(var(--input-placeholder) / <alpha-value>)',
         arrow: 'rgb(var(--arrow) / <alpha-value>)',
+        'button-primary': 'rgb(var(--button-primary) / <alpha-value>)',
+        'button-primary-hover':
+          'rgb(var(--button-primary-hover) / <alpha-value>)',
+        'button-primary-disabled':
+          'rgb(var(--button-primary-disabled) / <alpha-value>)',
+        'button-secondary': 'rgb(var(--button-secondary) / <alpha-value>)',
+        'button-secondary-hover':
+          'rgb(var(--button-secondary-hover) / <alpha-value>)',
+        'button-secondary-disabled':
+          'rgb(var(--button-secondary-disabled) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-mulish)', ...defaultTheme.fontFamily.sans],
