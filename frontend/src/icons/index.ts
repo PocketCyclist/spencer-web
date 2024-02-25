@@ -1,6 +1,7 @@
 export { default as ArrowLeftLongIcon } from './arrow-left-long.svg'
 export { default as ArrowLeftIcon } from './arrow-left.svg'
 export { default as ArrowRightLongIcon } from './arrow-right-long.svg'
+export { default as ArrowRightSmallIcon } from './arrow-right-small.svg'
 export { default as ArrowRightIcon } from './arrow-right.svg'
 export { default as CapaIcon } from './capa.svg'
 export { default as PlayIcon } from './play.svg'

@@ -10,6 +10,7 @@
   --red: 214 65 0;
   --blue: 13 70 117;
   --green: 5 109 64;
+  --gold: 187 102 0;
 
   --border: 217 216 216;
 
@@ -36,4 +37,8 @@
   html {
     font-size: 14px;
   }
+}
+
+textarea {
+  resize: none;
 }
