@@ -10,7 +10,6 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
   const post = await strapiGet<TStrapiSingleResponse<TStrapiPost>>(
     `posts/${slug}`,
   ).catch(() => notFound())
-  console.log(post)
 
   return (
     <>

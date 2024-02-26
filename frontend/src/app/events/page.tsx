@@ -34,7 +34,6 @@ const Events = async () => {
       },
     }),
   ])
-  console.log({ pageData, futureEvents, pastEvents })
 
   return (
     <>

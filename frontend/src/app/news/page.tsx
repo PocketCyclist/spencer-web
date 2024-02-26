@@ -11,8 +11,6 @@ const News = async () => {
     strapiGet<TStrapiListResponse<TStrapiPost>>('posts'),
   ])
 
-  console.log(pageData, posts)
-
   return (
     <>
       <div className="my-4 bg-cyan-50">
