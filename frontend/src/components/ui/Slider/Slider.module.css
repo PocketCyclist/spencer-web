@@ -10,7 +10,7 @@
 }
 
 .root :global(.swiper-horizontal) {
-  @apply pb-28 lg:pb-40;
+  @apply w-screen pb-28 left-1/2 -translate-x-1/2 sm:w-full lg:pb-40 sm:left-0 sm:translate-x-0;
 }
 
 .root :global(.swiper-wrapper) {

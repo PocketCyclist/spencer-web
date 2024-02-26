@@ -22,7 +22,7 @@ export const SlideNavigation = ({
       <button
         aria-disabled={isBeginning}
         aria-label="Previous slide"
-        className="pl-10 absolute rem:top-[472px] left-0 inline-flex items-center transition-opacity aria-disabled:opacity-0 lg:rem:pl-[72px] lg:rem:top-[689px]"
+        className="pl-10 absolute rem:top-[472px] left-4 inline-flex items-center transition-opacity aria-disabled:opacity-0 sm:left-0 lg:rem:pl-[72px] lg:rem:top-[689px]"
         type="button"
         onClick={() => swiper.slidePrev()}
       >
@@ -36,7 +36,7 @@ export const SlideNavigation = ({
       <button
         aria-disabled={isEnd}
         aria-label="Next slide"
-        className="pr-10 absolute rem:top-[472px] right-0 inline-flex items-center transition-opacity aria-disabled:opacity-0 lg:rem:pr-[72px] lg:rem:top-[689px]"
+        className="pr-10 absolute rem:top-[472px] right-4 inline-flex items-center transition-opacity aria-disabled:opacity-0 sm:right-0 lg:rem:pr-[72px] lg:rem:top-[689px]"
         type="button"
         onClick={() => swiper.slideNext()}
       >
