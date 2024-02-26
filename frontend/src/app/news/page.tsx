@@ -15,7 +15,12 @@ import { TStrapiEventsPage } from '@/data/strapi/types/events'
 const News = async () => {
   const [pageData, posts] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page'),
-    strapiGet<TStrapiListResponse<TStrapiPost>>('posts'),
+    strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+      query: {
+        populate: 'deep',
+        sort: 'publishedAt:desc',
+      },
+    }),
   ])
 
   return (
