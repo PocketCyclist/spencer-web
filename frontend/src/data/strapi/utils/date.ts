@@ -1,3 +1,6 @@
+import { parseISO } from 'date-fns/parseISO'
+import { format } from 'date-fns/format'
+
 export const getTodayDate = () => {
   const today = new Date()
   const year = today.getFullYear()
@@ -5,4 +8,17 @@ export const getTodayDate = () => {
   const day = String(today.getDate()).padStart(2, '0')
 
   return `${year}-${month}-${day}`
+}
+
+export const parseDateToWords = (inputDate?: string) => {
+  if (!inputDate) return { month: undefined, date: undefined }
+  const dateObj = parseISO(inputDate)
+
+  const month = format(dateObj, 'MMM')
+  const day = format(dateObj, 'do MMMM')
+
+  return {
+    month,
+    date: day,
+  }
 }

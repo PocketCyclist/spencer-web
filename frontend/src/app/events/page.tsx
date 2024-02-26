@@ -98,6 +98,7 @@ const Events = async () => {
                       className={
                         pastEvents.length > 1 ? 'w-[252px]' : undefined
                       }
+                      date={event.attributes.date}
                       image={extractImageAttrs(event.attributes.promoImage)}
                       title={event.attributes.title}
                       description={event.attributes.description}
