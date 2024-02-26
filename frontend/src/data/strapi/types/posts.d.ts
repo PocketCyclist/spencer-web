@@ -3,15 +3,16 @@ import {
   TStrapiImageField,
   TStrapiImagesField,
 } from '@/data/strapi/types/common/api'
+import { TStrapiProjectMediaItem } from '@/data/strapi/types/projects'
 
 export type TStrapiPost = {
   title: string
   promoText: string
   content: string
   promoImage: TStrapiImageField
-  images: TStrapiImagesField
   seo: TStrapiSeoComponent
   publishedAt: string
+  media: TStrapiProjectMediaItem[]
 }
 
 export type TStrapiNewsPage = {
