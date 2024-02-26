@@ -9,7 +9,7 @@
   --swiper-pagination-bullet-inactive-opacity: 1;
 }
 
-.root :global(.swiper-horizontal) {
+.root :global(.swiper) {
   @apply w-screen pb-28 left-1/2 -translate-x-1/2 sm:w-full lg:pb-40 sm:left-0 sm:translate-x-0;
 }
 
