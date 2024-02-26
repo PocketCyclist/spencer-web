@@ -42,3 +42,8 @@
 textarea {
   resize: none;
 }
+
+.youtube-video-container iframe {
+  width: 100%;
+  height: 100%;
+}
