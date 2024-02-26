@@ -49,8 +49,10 @@ type TBlockBigEvent = {
   __component: 'block.big-event'
   heading: string
   description: string
-  videoPoster: TStrapiImageField
-  videoUrl: string
+  video: {
+    url: string
+    previewImage: TStrapiImageField
+  }
 } & TBlockCommon
 
 type TBlockEvent = {

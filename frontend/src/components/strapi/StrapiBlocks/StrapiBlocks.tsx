@@ -38,8 +38,8 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
           <BigEvent
             heading={block.heading}
             description={block.description}
-            // videoPoster={extractImageAttrs(block.videoPoster)}
-            videoSrc={block.videoUrl}
+            videoPoster={extractImageAttrs(block.video.previewImage)}
+            videoSrc={block.video.url}
           />
         )
       case 'block.event':
