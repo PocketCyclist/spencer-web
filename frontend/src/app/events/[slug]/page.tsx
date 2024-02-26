@@ -29,7 +29,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
           {parsedDate.dayOfWeek} {parsedDate.date}
         </h3>
         <MediaSlider media={event.attributes.media} />
-        <p className="mt-[88px] mb-12 whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
+        <p className="mt-[88px] mb-12 whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
           {event.attributes.description}
         </p>
         <Button asChild className="sm:flex-1" variant="primary">
