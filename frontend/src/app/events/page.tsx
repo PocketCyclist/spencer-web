@@ -40,15 +40,15 @@ const Events = async () => {
     <>
       <Hero
         bgImage={extractImageAttrs(pageData.attributes.heroImage)}
-        contentAdditionalComponent={
-          <Link
-            className="underline underline-offset-2 hover:no-underline max-w-fit"
-            href="#"
-            title="Details"
-          >
-            Details
-          </Link>
-        }
+        // contentAdditionalComponent={
+        //   <Link
+        //     className="underline underline-offset-2 hover:no-underline max-w-fit"
+        //     href="#"
+        //     title="Details"
+        //   >
+        //     Details
+        //   </Link>
+        // }
         title={pageData.attributes.title}
         description={pageData.attributes.description}
       />
@@ -61,14 +61,14 @@ const Events = async () => {
                 Upcoming events
               </h2>
               <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 md:grid-cols-3 md:gap-y-16">
-                {futureEvents.map((futureEvent) => (
+                {futureEvents.map((event) => (
                   <EventCard
-                    key={futureEvent.id}
-                    date={futureEvent.attributes.date}
-                    image={extractImageAttrs(futureEvent.attributes.promoImage)}
-                    title={futureEvent.attributes.title}
-                    description={futureEvent.attributes.description}
-                    url="#"
+                    key={event.id}
+                    date={event.attributes.date}
+                    image={extractImageAttrs(event.attributes.promoImage)}
+                    title={event.attributes.title}
+                    description={event.attributes.description}
+                    url={`/events/${event.id}`}
                   />
                 ))}
               </div>
@@ -89,19 +89,19 @@ const Events = async () => {
                     '-mx-4 px-4 flex snap-x snap-mandatory overflow-x-auto no-scrollbar',
                 )}
               >
-                {pastEvents.map((pastEvent) => (
+                {pastEvents.map((event) => (
                   <div
-                    key={pastEvent.id}
+                    key={event.id}
                     className={pastEvents.length > 1 ? 'pl-4' : undefined}
                   >
                     <EventCard
                       className={
                         pastEvents.length > 1 ? 'w-[252px]' : undefined
                       }
-                      image={extractImageAttrs(pastEvent.attributes.promoImage)}
-                      title={pastEvent.attributes.title}
-                      description={pastEvent.attributes.description}
-                      url="#"
+                      image={extractImageAttrs(event.attributes.promoImage)}
+                      title={event.attributes.title}
+                      description={event.attributes.description}
+                      url={`/events/${event.id}`}
                     />
                   </div>
                 ))}
