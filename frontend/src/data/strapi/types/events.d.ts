@@ -3,6 +3,7 @@ import {
   TStrapiImageField,
   TStrapiImagesField,
 } from '@/data/strapi/types/common/api'
+import { TStrapiProjectMediaItem } from '@/data/strapi/types/projects'
 
 export type TStrapiEvent = {
   title: string
@@ -11,6 +12,7 @@ export type TStrapiEvent = {
   buyUrl: string
   images: TStrapiImagesField
   promoImage: TStrapiImageField
+  media: TStrapiProjectMediaItem[]
   seo: TStrapiSeoComponent
 }
 
