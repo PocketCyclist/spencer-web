@@ -17,6 +17,8 @@ import { SmallMediaImage } from '@/app/projects/components/SmallMediaImage/Small
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
+import { Metadata, ResolvingMetadata } from 'next'
+import { TStrapiEventsPage } from '@/data/strapi/types/events'
 
 const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
   const [pageData, projects, project] = await Promise.all([
@@ -142,4 +144,20 @@ export const generateStaticParams = async () => {
         slug: project.id.toString(),
       })),
   )
+}
+
+export const generateMetadata = async (
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const slug = params.slug
+  const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
+    `projects/${slug}`,
+    { query: { populate: 'seo' } },
+  ).catch(() => notFound())
+
+  return {
+    // ...((await parent) as Metadata),
+    ...project.attributes.seo,
+  }
 }

@@ -2,6 +2,7 @@ import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { Button } from '@/components/ui/Button/Button'
 import { Input } from '@/components/ui/Input/Input'
 import { ArrowRightSmallIcon, CapaIcon } from '@/icons'
+import { Metadata, ResolvingMetadata } from 'next'
 
 const Contact = () => (
   <>
@@ -60,3 +61,19 @@ const Contact = () => (
 )
 
 export default Contact
+
+export const generateMetadata = async (
+  {},
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  // const page = await strapiGet<TStrapiSingleResponse<TStrapiContactPage>>(
+  //   `contact-page`,
+  //   { query: { populate: 'seo' } },
+  // ).catch(() => notFound())
+
+  return {
+    // ...((await parent) as Metadata),
+    // ...page.attributes.seo,
+    title: 'Contact Us - The Gerard Spencer Project',
+  }
+}

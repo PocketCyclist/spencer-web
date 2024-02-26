@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Hero } from '@/components/common/Hero/Hero'
 import { strapiGet } from '@/data/strapi/common'
 import {
@@ -12,6 +10,8 @@ import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { EventCard } from '@/components/common/EventCard/EventCard'
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { cn } from '@/lib/cn'
+import { Metadata, ResolvingMetadata } from 'next'
+import { notFound } from 'next/navigation'
 
 const Events = async () => {
   const today = getTodayDate()
@@ -110,25 +110,23 @@ const Events = async () => {
           </div>
         </section>
       </div>
-
-      {/* <div className="my-4 bg-cyan-50">
-        <pre>{JSON.stringify(pageData, null, 2)}</pre>
-      </div>
-      <div>future events:</div>
-      {futureEvents.map((event) => (
-        <div key={event.id} className="my-4 bg-amber-50">
-          <pre>{JSON.stringify(event, null, 2)}</pre>
-        </div>
-      ))}
-      <hr />
-      <div>past events:</div>
-      {pastEvents.map((event) => (
-        <div key={event.id} className="my-4 bg-amber-50">
-          <pre>{JSON.stringify(event, null, 2)}</pre>
-        </div>
-      ))} */}
     </>
   )
 }
 
 export default Events
+
+export const generateMetadata = async (
+  {},
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
+    `events-page`,
+    { query: { populate: 'seo' } },
+  ).catch(() => notFound())
+
+  return {
+    // ...((await parent) as Metadata),
+    ...page.attributes.seo,
+  }
+}

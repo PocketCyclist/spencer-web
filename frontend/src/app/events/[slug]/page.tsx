@@ -10,6 +10,7 @@ import { MediaSlider } from '@/components/ui/Slider/MediaSlider'
 import { Button } from '@/components/ui/Button/Button'
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import Link from 'next/link'
+import { Metadata, ResolvingMetadata } from 'next'
 
 const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
   const event = await strapiGet<TStrapiSingleResponse<TStrapiEvent>>(
@@ -18,7 +19,6 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
 
   const parsedDate = parseDateToWords(event.attributes.date, true)
 
-  console.log(event.attributes.media)
   return (
     <>
       <section className="container pt-12">
@@ -26,7 +26,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
           {event.attributes.title}
         </h1>
         <h3 className="mb-12">
-          {parsedDate.date} {parsedDate.dayOfWeek}
+          {parsedDate.dayOfWeek} {parsedDate.date}
         </h3>
         <MediaSlider media={event.attributes.media} />
         <p className="mt-[88px] mb-12 whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
@@ -55,4 +55,25 @@ export const generateStaticParams = async () => {
       slug: event.id.toString(),
     })),
   )
+}
+
+export const generateMetadata = async (
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const slug = params.slug
+
+  const event = await strapiGet<TStrapiSingleResponse<TStrapiEvent>>(
+    `events/${slug}`,
+    {
+      query: {
+        populate: 'seo',
+      },
+    },
+  ).catch(() => notFound())
+
+  return {
+    // ...((await parent) as Metadata),
+    ...event.attributes.seo,
+  }
 }

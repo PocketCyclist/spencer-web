@@ -18,6 +18,8 @@ import {
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
 import { CapaIcon } from '@/icons'
+import { Metadata, ResolvingMetadata } from 'next'
+import { TStrapiEventsPage } from '@/data/strapi/types/events'
 
 const Projects = async () => {
   const [pageData, projects] = await Promise.all([
@@ -135,3 +137,18 @@ const Projects = async () => {
 }
 
 export default Projects
+
+export const generateMetadata = async (
+  {},
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
+    `projects-page`,
+    { query: { populate: 'seo' } },
+  )
+
+  return {
+    // ...((await parent) as Metadata),
+    ...page.attributes.seo,
+  }
+}

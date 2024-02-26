@@ -11,6 +11,9 @@ import {
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
+import { Metadata, ResolvingMetadata } from 'next'
+import { TStrapiEventsPage } from '@/data/strapi/types/events'
+import { notFound } from 'next/navigation'
 
 const Discography = async () => {
   const [pageData, albums] = await Promise.all([
@@ -87,3 +90,18 @@ const Discography = async () => {
 }
 
 export default Discography
+
+export const generateMetadata = async (
+  {},
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
+    `discography-page`,
+    { query: { populate: 'seo' } },
+  ).catch(() => notFound())
+
+  return {
+    // ...((await parent) as Metadata),
+    ...page.attributes.seo,
+  }
+}
