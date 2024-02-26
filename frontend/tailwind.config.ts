@@ -56,6 +56,7 @@ const config: Config = {
         green: 'rgb(var(--green) / <alpha-value>)',
         blue: 'rgb(var(--blue) / <alpha-value>)',
         gold: 'rgb(var(--gold) / <alpha-value>)',
+        sand: 'rgb(var(--sand) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
         input: 'rgb(var(--input) / <alpha-value>)',
         'input-border': 'rgb(var(--input-border) / <alpha-value>)',
