@@ -38,19 +38,19 @@ export const EventCard = ({
       <div className="mb-8 relative aspect-[252/137] lg:mb-8 overflow-hidden">
         <Image alt={image.alt} fill src={image.src} />
         {date && (
-          <span
-            className={cn(
-              'mw-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end z-0',
-              dateType === 'past' && 'text-white',
-            )}
-          >
+          <span className="w-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end z-0">
             <CapaIcon
               className={cn(
-                'rem:w-[156px] rem:h-[162px] absolute top-2.5 left-2.5 text-yellow',
+                'rem:w-[156px] rem:h-[162px] absolute top-0 left-0 text-yellow',
                 dateType === 'past' && 'text-red',
               )}
             />
-            <span className="p-6 pr-4 pb-4 rem:text-[14px] rem:leading-[17.57px] text-right text-foreground z-10">
+            <span
+              className={cn(
+                'p-1.5 rem:text-[14px] rem:leading-[17.57px] text-right z-10',
+                dateType === 'past' ? 'text-white' : 'text-foreground',
+              )}
+            >
               <span className="mb-0.5 font-bold uppercase">
                 {parsedDate.dayOfWeek}
               </span>
