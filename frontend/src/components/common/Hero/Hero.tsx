@@ -23,7 +23,7 @@ export const Hero = ({
   title,
   description,
 }: HeroProps) => (
-  <section className={cn('lg:py-12 overflow-hidden', className)}>
+  <section className={cn('overflow-hidden', className)}>
     <div className="container lg:flex lg:flex-row-reverse lg:justify-end">
       <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:rem:max-w-[821px] lg:w-[calc(50vw-20px)] lg:rem:h-[529px] lg:flex-shrink-0 lg:left-0 lg:translate-x-0 xl:w-[calc(50vw-53px-88px)]">
         <Image
@@ -36,7 +36,7 @@ export const Hero = ({
       </div>
       <div
         className={cn(
-          'py-16 space-y-6 flex flex-col lg:py-0 lg:space-y-8 lg:w-[calc(50%-20px)] lg:mr-10 lg:flex lg:flex-col lg:flex-shrink-0 xl:w-[calc(50%+53px)] xl:mr-[88px]',
+          'py-16 space-y-6 flex flex-col lg:py-4 lg:space-y-8 lg:w-[calc(50%-20px)] lg:mr-10 lg:flex lg:flex-col lg:flex-shrink-0 xl:w-[calc(50%+53px)] xl:mr-[88px]',
           contentClassName,
         )}
       >
