@@ -40,19 +40,19 @@ export const EventCard = ({
         {date && (
           <span
             className={cn(
-              'mw-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end',
+              'mw-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end z-0',
               dateType === 'past' && 'text-white',
             )}
           >
             <CapaIcon
               className={cn(
-                'rem:w-[156px] rem:h-[162px] absolute top-2.5 left-2.5 text-yellow z-20',
+                'rem:w-[156px] rem:h-[162px] absolute top-2.5 left-2.5 text-yellow',
                 dateType === 'past' && 'text-red',
               )}
             />
-            <span className="p-6 pr-4 pb-4 rem:text-[14px] rem:leading-[17.57px] text-right text-foreground z-50">
+            <span className="p-6 pr-4 pb-4 rem:text-[14px] rem:leading-[17.57px] text-right text-foreground z-10">
               <span className="mb-0.5 font-bold uppercase">
-                {parsedDate.month}
+                {parsedDate.dayOfWeek}
               </span>
               <br />
               {parsedDate.date}

@@ -10,15 +10,17 @@ export const getTodayDate = () => {
   return `${year}-${month}-${day}`
 }
 
-export const parseDateToWords = (inputDate?: string) => {
-  if (!inputDate) return { month: undefined, date: undefined }
+export const parseDateToWords = (
+  inputDate?: string,
+): { dayOfWeek?: string; date?: string } => {
+  if (!inputDate) return { dayOfWeek: undefined, date: undefined }
   const dateObj = parseISO(inputDate)
 
-  const month = format(dateObj, 'MMM')
+  const dayOfWeek = format(dateObj, 'EEE')
   const day = format(dateObj, 'do MMMM')
 
   return {
-    month,
+    dayOfWeek,
     date: day,
   }
 }
