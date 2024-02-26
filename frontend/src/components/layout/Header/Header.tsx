@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
 import { routesMap } from '@/constants/routes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
@@ -12,6 +11,7 @@ import { cn } from '@/lib/cn'
 
 const ITEMS = [
   routesMap.home,
+  routesMap.about,
   routesMap.discography,
   routesMap.musicProjects,
   routesMap.events,
@@ -73,23 +73,27 @@ export const Header = () => {
           id="menu"
         >
           <ul className="space-y-10 lg:flex lg:items-center lg:space-x-8 lg:space-y-0">
-            {ITEMS.map((item, index) => (
-              <li key={index}>
-                <a
-                  aria-current={pathname === item.url ? 'page' : undefined}
-                  className={cn(
-                    pathname === item.url && 'relative pointer-events-none',
-                  )}
-                  href={item.url}
-                  title={item.title}
-                >
-                  {pathname === item.url && (
-                    <CapaIcon className="absolute -left-2 top-1/2 text-yellow -translate-y-1/2 lg:-left-[1.125rem]" />
-                  )}
-                  <span className="relative">{item.title}</span>
-                </a>
-              </li>
-            ))}
+            {ITEMS.map((item, index) => {
+              const isActive =
+                item.url === '/'
+                  ? pathname === '/'
+                  : pathname.startsWith(item.url)
+              return (
+                <li key={index}>
+                  <a
+                    aria-current={isActive ? 'page' : undefined}
+                    className="relative"
+                    href={item.url}
+                    title={item.title}
+                  >
+                    {isActive && (
+                      <CapaIcon className="absolute -left-2 top-1/2 text-yellow -translate-y-1/2 lg:-left-[1.125rem]" />
+                    )}
+                    <span className="relative">{item.title}</span>
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </div>

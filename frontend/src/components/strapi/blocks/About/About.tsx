@@ -25,7 +25,8 @@ export const About = ({
   firstImage,
   secondImage,
 }: AboutProps) => (
-  <div className="space-y-16 lg:space-y-0">
+  <div className="py-16 lg:py-0 relative">
+    <div className={'absolute top-[-160px]'} id="about" />
     <Hero
       contentClassName="lg:justify-center"
       bgImage={firstImage}

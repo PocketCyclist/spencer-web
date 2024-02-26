@@ -3,6 +3,10 @@ export const routesMap = {
     url: '/',
     title: 'Home',
   },
+  about: {
+    url: '/#about',
+    title: 'About',
+  },
   discography: {
     url: '/discography',
     title: 'Discography',
