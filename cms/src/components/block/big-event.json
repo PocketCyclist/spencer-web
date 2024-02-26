@@ -15,10 +15,11 @@
       "type": "text",
       "required": true
     },
-    "videoUrl": {
-      "type": "string",
-      "required": true,
-      "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.video",
+      "required": true
     }
   }
 }

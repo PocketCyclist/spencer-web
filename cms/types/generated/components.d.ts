@@ -26,9 +26,7 @@ export interface BlockBigEvent extends Schema.Component {
   attributes: {
     heading: Attribute.String;
     description: Attribute.Text & Attribute.Required;
-    videoUrl: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'https://www.youtube.com/watch?v=dQw4w9WgXcQ'>;
+    video: Attribute.Component<'component.video'> & Attribute.Required;
   };
 }
 
