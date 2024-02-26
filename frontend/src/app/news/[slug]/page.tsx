@@ -12,11 +12,23 @@ import { TStrapiPost } from '@/data/strapi/types/posts'
 import { notFound } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiProject } from '@/data/strapi/types/projects'
+import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 
 const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const post = await strapiGet<TStrapiSingleResponse<TStrapiPost>>(
-    `posts/${slug}`,
-  ).catch(() => notFound())
+  const [post, latestPosts] = await Promise.all([
+    strapiGet<TStrapiSingleResponse<TStrapiPost>>(`posts/${slug}`).catch(() =>
+      notFound(),
+    ),
+    strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+      query: {
+        populate: 'promoImage',
+        sort: 'publishedAt:desc',
+        pagination: {
+          pageSize: 4,
+        },
+      },
+    }).then((posts) => posts.filter((post) => post.id.toString() !== slug)),
+  ])
 
   return (
     <>
@@ -46,37 +58,26 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
       </section>
       <Cymbal className="[&>*]:-translate-y-[68%]" right />
 
-      <section>
-        <div className="container py-16 lg:rem:py-[88px]">
-          <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
-            Other news
-          </h2>
-          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
-            <PostCard
-              description="The Gerard Spencer Project is the consecration of the Handpan, The Gerard Spencer Project is the consecration of the Handpan..."
-              image={{ alt: '', src: '' }}
-              title="Some Post Title Goes Here"
-              url="#"
-            />
-            <PostCard
-              description="The Gerard Spencer Project is the consecration of the Handpan, The Gerard Spencer Project is the consecration of the Handpan..."
-              image={{ alt: '', src: '' }}
-              title="Some Post Title Goes Here"
-              url="#"
-            />
-            <PostCard
-              description="The Gerard Spencer Project is the consecration of the Handpan, The Gerard Spencer Project is the consecration of the Handpan..."
-              image={{ alt: '', src: '' }}
-              title="Some Post Title Goes Here"
-              url="#"
-            />
+      {latestPosts.length > 0 && (
+        <section>
+          <div className="container py-16 lg:rem:py-[88px]">
+            <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
+              Other news
+            </h2>
+            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
+              {latestPosts.map((post) => (
+                <PostCard
+                  key={post.id}
+                  description={post.attributes.promoText}
+                  image={extractImageAttrs(post.attributes.promoImage)}
+                  title={post.attributes.title}
+                  url={`/news/${post.id}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* <div className="my-4 bg-amber-50">
-        <pre>{JSON.stringify(post, null, 2)}</pre>
-      </div> */}
+        </section>
+      )}
     </>
   )
 }
