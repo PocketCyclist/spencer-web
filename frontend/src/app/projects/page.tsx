@@ -47,12 +47,18 @@ const Projects = async () => {
       <PrevNextNavigation
         prev={
           prevProject
-            ? { title: prevProject?.attributes.title, url: '#' }
+            ? {
+                title: prevProject?.attributes.title,
+                url: `/projects/${prevProject.id}` || '#',
+              }
             : undefined
         }
         next={
           nextProject
-            ? { title: nextProject.attributes.title, url: '#' }
+            ? {
+                title: nextProject.attributes.title,
+                url: `/projects/${nextProject.id}` || '#',
+              }
             : undefined
         }
       />
