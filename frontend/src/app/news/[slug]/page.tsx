@@ -85,7 +85,13 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Post
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiPost>>('posts').then((posts) =>
+  return strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+    query: {
+      pagination: {
+        pageSize: 100,
+      },
+    },
+  }).then((posts) =>
     posts.map((post) => ({
       slug: post.id.toString(),
     })),

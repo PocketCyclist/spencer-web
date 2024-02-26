@@ -18,18 +18,26 @@ const Events = async () => {
   const [pageData, futureEvents, pastEvents] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>('events-page'),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
-      deepPopulate: true,
       query: {
+        populate: 'deep',
         filters: {
           date: { $gte: today },
+        },
+        sort: 'date:desc',
+        pagination: {
+          pageSize: 100,
         },
       },
     }),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
-      deepPopulate: true,
       query: {
+        populate: 'deep',
         filters: {
           date: { $lt: today },
+        },
+        sort: 'date:desc',
+        pagination: {
+          pageSize: 100,
         },
       },
     }),

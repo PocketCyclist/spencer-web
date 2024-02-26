@@ -27,6 +27,9 @@ const Projects = async () => {
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
       query: {
         fields: ['title'],
+        pagination: {
+          pageSize: 100,
+        },
       },
     }),
   ])

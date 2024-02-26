@@ -26,6 +26,9 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
       query: {
         fields: ['title'],
+        pagination: {
+          pageSize: 100,
+        },
       },
     }),
     strapiGet<TStrapiSingleResponse<TStrapiProject>>(`projects/${slug}`).catch(
@@ -138,11 +141,16 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Project
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiProject>>('projects').then(
-    (projects) =>
-      projects.map((project) => ({
-        slug: project.id.toString(),
-      })),
+  return strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
+    query: {
+      pagination: {
+        pageSize: 100,
+      },
+    },
+  }).then((projects) =>
+    projects.map((project) => ({
+      slug: project.id.toString(),
+    })),
   )
 }
 

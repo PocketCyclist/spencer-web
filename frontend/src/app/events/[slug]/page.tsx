@@ -50,7 +50,13 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Event
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiEvent>>('events').then((events) =>
+  return strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
+    query: {
+      pagination: {
+        pageSize: 100,
+      },
+    },
+  }).then((events) =>
     events.map((event) => ({
       slug: event.id.toString(),
     })),

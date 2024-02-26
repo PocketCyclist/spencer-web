@@ -19,6 +19,9 @@ const News = async () => {
       query: {
         populate: 'deep',
         sort: 'publishedAt:desc',
+        pagination: {
+          pageSize: 100,
+        },
       },
     }),
   ])

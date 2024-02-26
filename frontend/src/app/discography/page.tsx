@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-import { Button } from '@/components/ui/Button/Button'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiAlbum,
@@ -22,7 +20,14 @@ const Discography = async () => {
     strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
       'discography-page',
     ),
-    strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums'),
+    strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums', {
+      query: {
+        populate: 'deep',
+        pagination: {
+          pageSize: 100,
+        },
+      },
+    }),
   ])
 
   return (
