@@ -4976,6 +4976,7 @@ __metadata:
     qs: "npm:^6.11.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    swiper: "npm:^11.0.6"
     tailwind-merge: "npm:^2.2.1"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
@@ -17822,6 +17823,13 @@ __metadata:
     lower-case: "npm:^1.1.1"
     upper-case: "npm:^1.1.1"
   checksum: 10c0/0fb57c2427cec53c85cab0dd85f243b8b84b68e039eb550c50e01340cfa43a62e5276e04d088e9066b89073f781b258eeb97bf2c22d6232e005feeca2a11d6bc
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.0.6":
+  version: 11.0.6
+  resolution: "swiper@npm:11.0.6"
+  checksum: 10c0/efdf2a207fb4534aced2db42c14b249eebba76ad497e14d6bd0a07019e2afe2509e02602e2e51167b362f65e27e4ab9c4f86e23764dbeba341745549a6f28ff3
   languageName: node
   linkType: hard
 
