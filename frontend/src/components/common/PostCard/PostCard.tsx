@@ -34,7 +34,7 @@ export const PostCard = ({
         isLarge ? 'lg:mb-14 lg:aspect-[557/350]' : 'lg:mb-8',
       )}
     >
-      <Image alt={image.alt} fill src={image.src} />
+      <Image className="object-cover" alt={image.alt} fill src={image.src} />
     </div>
     <div className="grid grid-cols-1 gap-y-4 lg:gap-y-6">
       <h5 className="font-serif rem:text-[28px] leading-none lg:rem:text-[40px]">
