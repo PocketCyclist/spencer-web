@@ -36,7 +36,7 @@ export const EventCard = ({
       title={title}
     >
       <div className="mb-8 relative aspect-[252/137] lg:mb-8 overflow-hidden">
-        <Image alt={image.alt} fill src={image.src} />
+        <Image alt={image.alt} fill src={image.src} className="object-cover" />
         {date && (
           <span className="w-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end z-0">
             <CapaIcon
