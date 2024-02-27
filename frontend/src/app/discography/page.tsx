@@ -71,7 +71,7 @@ const Discography = async () => {
                     rel="noopener noreferrer"
                     className="absolute top-4 right-4"
                   >
-                    <VideoIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
+                    <CartIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
                   </Link>
                 )}
                 {item.attributes.videoUrl && (
@@ -79,7 +79,7 @@ const Discography = async () => {
                     src={item.attributes.videoUrl}
                     trigger={
                       <button className="absolute bottom-4 right-4">
-                        <CartIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
+                        <VideoIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
                       </button>
                     }
                   />
