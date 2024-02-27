@@ -8,6 +8,7 @@ import { routesMap } from '@/constants/routes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
+import { isActiveRoute } from '@/lib/navigation'
 
 const ITEMS = [
   routesMap.home,
@@ -74,10 +75,7 @@ export const Header = () => {
         >
           <ul className="space-y-10 lg:flex lg:items-center lg:space-x-8 lg:space-y-0">
             {ITEMS.map((item, index) => {
-              const isActive =
-                item.url === '/'
-                  ? pathname === '/'
-                  : pathname.startsWith(item.url)
+              const isActive = isActiveRoute(pathname, item.url)
               return (
                 <li key={index}>
                   <a
