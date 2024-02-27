@@ -27,7 +27,9 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
           pageSize: 4,
         },
       },
-    }).then((posts) => posts.filter((post) => post.id.toString() !== slug)),
+    }).then((posts) =>
+      posts.filter((post) => post.id.toString() !== slug).slice(0, 3),
+    ),
   ])
 
   return (
