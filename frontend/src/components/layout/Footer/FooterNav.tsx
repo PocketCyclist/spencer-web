@@ -1,11 +1,9 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-
 import { routesMap } from '@/constants/routes'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
-import { isActiveRoute } from '@/lib/navigation'
+import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
 
 const ITEMS = [
   routesMap.about,
@@ -19,7 +17,7 @@ const ITEMS = [
 ]
 
 export const FooterNav = () => {
-  const pathname = usePathname()
+  const pathname = usePathnameWithHash()
 
   return (
     <nav>

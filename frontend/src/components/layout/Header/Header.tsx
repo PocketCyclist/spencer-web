@@ -8,7 +8,7 @@ import { routesMap } from '@/constants/routes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
-import { isActiveRoute } from '@/lib/navigation'
+import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
 
 const ITEMS = [
   routesMap.home,
@@ -20,7 +20,7 @@ const ITEMS = [
 ]
 
 export const Header = () => {
-  const pathname = usePathname()
+  const pathname = usePathnameWithHash()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isDesktopScreen = useMediaQuery('(min-width: 1024px)')
 
