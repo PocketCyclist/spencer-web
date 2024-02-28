@@ -29,7 +29,7 @@ export const Footer = () => (
         </div>
       </div>
       <p className="pt-6 border-t border-border text-footer-copy text-center">
-        &copy; 2022 The Gerard Spencer Project
+        &copy; {new Date().getFullYear()} The Gerard Spencer Project
       </p>
     </div>
   </footer>
