@@ -11,6 +11,7 @@ export type TStrapiEvent = {
   date: string
   buyUrl: string
   images: TStrapiImagesField
+  promoText?: string
   promoImage: TStrapiImageField
   media: TStrapiProjectMediaItem[]
   seo: TStrapiSeoComponent

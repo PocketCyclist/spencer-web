@@ -74,7 +74,7 @@ const Events = async () => {
                     date={event.attributes.date}
                     image={extractImageAttrs(event.attributes.promoImage)}
                     title={event.attributes.title}
-                    description={event.attributes.description}
+                    description={event.attributes.promoText}
                     url={`/events/${event.id}`}
                   />
                 ))}
@@ -109,7 +109,7 @@ const Events = async () => {
                       dateType="past"
                       image={extractImageAttrs(event.attributes.promoImage)}
                       title={event.attributes.title}
-                      description={event.attributes.description}
+                      description={event.attributes.promoText}
                       url={`/events/${event.id}`}
                     />
                   </div>

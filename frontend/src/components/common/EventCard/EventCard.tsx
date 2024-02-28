@@ -15,7 +15,7 @@ type EventCardProps = {
     src: string
   }
   title: string
-  description: string
+  description?: string
   url: string
 }
 

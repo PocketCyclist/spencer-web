@@ -113,7 +113,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
                     date={event.attributes.date}
                     image={extractImageAttrs(event.attributes.promoImage)}
                     title={event.attributes.title}
-                    description={event.attributes.description}
+                    description={event.attributes.promoText}
                     url={`/events/${event.id}`}
                   />
                 </div>
