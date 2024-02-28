@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { FooterNav } from './FooterNav'
 import { FooterSocials } from './FooterSocials'
+import { FooterSubscribe } from '@/components/layout/Footer/FooterSubscribe'
 // import { FooterSubscribe } from './FooterSubscribe'
 
 export const Footer = () => (
@@ -20,9 +21,9 @@ export const Footer = () => (
         <div className="lg:rem:basis-[300px]">
           <FooterNav />
         </div>
-        {/* <div className="lg:rem:basis-[300px]">
+        <div className="lg:rem:basis-[300px]">
           <FooterSubscribe />
-        </div> */}
+        </div>
         <div className="lg:rem:basis-[300px] lg:text-right">
           <FooterSocials />
         </div>
