@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
-import { SmallMediaImage } from '@/app/projects/components/SmallMediaImage/SmallMediaImage'
 import { Hero } from '@/components/common/Hero/Hero'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
@@ -20,6 +19,7 @@ import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
+import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 
 const Projects = async () => {
   const [pageData, projects] = await Promise.all([

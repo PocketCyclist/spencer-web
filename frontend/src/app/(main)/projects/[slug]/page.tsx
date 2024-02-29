@@ -13,12 +13,12 @@ import { Hero } from '@/components/common/Hero/Hero'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
 import Image from 'next/image'
-import { SmallMediaImage } from '@/app/projects/components/SmallMediaImage/SmallMediaImage'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
+import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 
 const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
   const [pageData, projects, project] = await Promise.all([
