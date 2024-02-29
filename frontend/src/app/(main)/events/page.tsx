@@ -12,6 +12,7 @@ import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { cn } from '@/lib/cn'
 import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
 const Events = async () => {
   const today = getTodayDate()
@@ -43,21 +44,37 @@ const Events = async () => {
     }),
   ])
 
+  const featuredEvent = futureEvents[futureEvents.length - 1]
+
   return (
     <>
       <Hero
-        bgImage={extractImageAttrs(pageData.attributes.heroImage)}
-        // contentAdditionalComponent={
-        //   <Link
-        //     className="underline underline-offset-2 hover:no-underline max-w-fit"
-        //     href="#"
-        //     title="Details"
-        //   >
-        //     Details
-        //   </Link>
-        // }
-        title={pageData.attributes.title}
-        description={pageData.attributes.description}
+        bgImage={extractImageAttrs(
+          featuredEvent
+            ? featuredEvent.attributes.promoImage
+            : pageData.attributes.heroImage,
+        )}
+        title={
+          featuredEvent
+            ? featuredEvent.attributes.title
+            : pageData.attributes.title
+        }
+        description={
+          featuredEvent
+            ? featuredEvent.attributes.promoText
+            : pageData.attributes.description
+        }
+        contentAdditionalComponent={
+          featuredEvent ? (
+            <Link
+              className="underline underline-offset-2 hover:no-underline max-w-fit"
+              href={`/events/${featuredEvent.id}`}
+              title="Details"
+            >
+              details
+            </Link>
+          ) : undefined
+        }
       />
 
       <div className="py-16 space-y-16 lg:py-28 lg:space-y-[7.375rem]">
