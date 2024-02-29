@@ -24,7 +24,7 @@ export const routesMap = {
     title: 'News',
   },
   myCourse: {
-    url: '/my-course',
+    url: '/online-course',
     title: 'My course',
   },
   contact: {
