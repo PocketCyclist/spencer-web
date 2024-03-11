@@ -12,9 +12,9 @@ export const Footer = () => (
         <Image
           className="rem:w-[180px] lg:rem:w-[292px]"
           alt="The Gerard Spencer Project - Handpan performances classes & wellbeing"
-          src="/images/footer-logo.png"
+          src="/images/logo.png"
           width={292}
-          height={133}
+          height={88}
         />
       </div>
       <div className="grid grid-cols-1 gap-y-14 lg:flex lg:justify-between lg:gap-x-6">
