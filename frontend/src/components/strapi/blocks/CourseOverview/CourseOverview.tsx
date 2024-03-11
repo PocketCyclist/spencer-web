@@ -15,7 +15,7 @@ export const CourseOverview = ({
   return (
     <section>
       <div className="border-b border-gray-300 flex flex-col items-center">
-        <ul className="grid grid-cols-2 lg:flex lg:flex-row justify-between w-full py-12 gap-4 md:gap-12 px-18 max-w-[1728px]">
+        <ul className="grid grid-cols-2 lg:flex lg:flex-row justify-between w-full py-12 gap-4 md:gap-12 px-6 sm:px-18 max-w-[1728px]">
           {stats.map((stat) => (
             <li key={stat.id} className="">
               <span className="text-[24px] leading-[30px] sm:text-[36px] sm:leading-[45px]">
@@ -28,7 +28,7 @@ export const CourseOverview = ({
             </li>
           ))}
         </ul>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-18 gap-6 lg:gap-16">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-6 sm:px-18 gap-6 lg:gap-16">
           <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}
           </div>
@@ -41,12 +41,12 @@ export const CourseOverview = ({
                 <li
                   key={section.id}
                   className={cn(
-                    'py-6 border-gray-300 flex justify-between',
+                    'py-6 border-gray-300 flex justify-between gap-6',
                     index !== sections.length - 1 && 'border-b',
                   )}
                 >
                   <div className="flex flex-col justify-center hover:text-[#D64100] transition-colors">
-                    <span className="rem:text-[36px] rem:leading-[45px]">
+                    <span className="rem:text-[22px] rem:leading-[27px] sm:rem:text-[36px] sm:rem:leading-[45px]">
                       {section.title}
                     </span>
                     <span className="rem:text-[21px] rem:leading-[28px]">
@@ -60,7 +60,16 @@ export const CourseOverview = ({
                       media && 'box-shadow',
                     )}
                   >
-                    {media && <Image src={media.src} alt={media.alt} fill />}
+                    {media && (
+                      <Image
+                        src={media.src}
+                        alt={media.alt}
+                        // height={100}
+                        // width={158}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
                   </div>
                 </li>
               )
