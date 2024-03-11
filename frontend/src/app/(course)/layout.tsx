@@ -18,7 +18,7 @@ export default function CourseLayout({
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-background text-foreground font-sans antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >
-        <main className="pt-mobile-header lg:pt-header">{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   )

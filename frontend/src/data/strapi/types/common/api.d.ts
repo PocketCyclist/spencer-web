@@ -31,8 +31,8 @@ export type TStrapiImageAttachmentEntity = TStrapiEntity<{
   height: number
   name: string
   alternativeText: string
-  ext: '.png' | '.svg' | '.jpg' | string
-  mime: 'image/jpeg' | 'image/png' | string
+  ext: '.png' | '.svg' | '.jpg' | '.gif' | string
+  mime: 'image/jpeg' | 'image/png' | 'image/gif' | string
   formats: Record<
     TStrapiImageFormats,
     {
@@ -40,8 +40,8 @@ export type TStrapiImageAttachmentEntity = TStrapiEntity<{
       width: number
       height: number
       name: string
-      ext: '.png' | '.svg' | '.jpg' | string
-      mime: 'image/jpeg' | 'image/png' | string
+      ext: '.png' | '.svg' | '.jpg' | '.gif' | string
+      mime: 'image/jpeg' | 'image/png' | 'image/gif' | string
     }
   >
 }>

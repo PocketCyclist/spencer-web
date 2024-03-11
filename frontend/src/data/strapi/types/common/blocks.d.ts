@@ -2,6 +2,7 @@ import {
   TStrapiImageAttachmentEntity,
   TStrapiImageField,
 } from '@/data/strapi/types/common/api'
+import { TStrapiCourseSection, TStrapiStat } from '@/data/strapi/types/course'
 
 export type TBlockComponent =
   | 'block.quote'
@@ -11,6 +12,18 @@ export type TBlockComponent =
   | 'block.big-event'
   | 'block.event'
   | 'block.cymbal'
+  | 'block.course-overview'
+
+export type TStrapiBlock =
+  | TBlockQuote
+  | TBlockLogoHero
+  | TBlockVideo
+  | TBlockAbout
+  | TBlockBigEvent
+  | TBlockEvent
+  | TBlockCymbal
+  | TBlockCourseOverview
+
 type TBlockCommon = {
   id: number
   __component: TBlockComponent
@@ -67,11 +80,9 @@ type TBlockCymbal = {
   right: boolean // ignore it
 } & TBlockCommon
 
-export type TStrapiBlock =
-  | TBlockQuote
-  | TBlockLogoHero
-  | TBlockVideo
-  | TBlockAbout
-  | TBlockBigEvent
-  | TBlockEvent
-  | TBlockCymbal
+type TBlockCourseOverview = {
+  __component: 'block.course-overview'
+  title: string
+  stats: TStrapiStat[]
+  sections: TStrapiCourseSection[]
+} & TBlockCommon

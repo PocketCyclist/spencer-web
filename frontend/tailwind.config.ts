@@ -96,6 +96,7 @@ const config: Config = {
       spacing: {
         header: toRem(160),
         'mobile-header': toRem(94),
+        18: '4.5rem',
       },
     },
   },

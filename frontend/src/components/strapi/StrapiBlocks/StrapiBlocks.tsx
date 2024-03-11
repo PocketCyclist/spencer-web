@@ -7,6 +7,7 @@ import { Quote } from '@/components/strapi/blocks/Quote/Quote'
 import { Video } from '@/components/strapi/blocks/Video/Video'
 import { TStrapiBlock } from '@/data/strapi/types/common/blocks'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
+import { CourseOverview } from '@/components/strapi/blocks/CourseOverview/CourseOverview'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -52,6 +53,14 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
         )
       case 'block.cymbal':
         return <Cymbal right={block.right} />
+      case 'block.course-overview':
+        return (
+          <CourseOverview
+            title={block.title}
+            stats={block.stats}
+            sections={block.sections}
+          />
+        )
       default:
         return (
           <div>
