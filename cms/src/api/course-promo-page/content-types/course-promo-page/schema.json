@@ -71,7 +71,8 @@
       },
       "type": "dynamiczone",
       "components": [
-        "block.course-overview"
+        "block.course-overview",
+        "block.mega-cymbal"
       ],
       "required": true
     }

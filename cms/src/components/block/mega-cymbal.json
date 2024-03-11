@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_mega_cymbals",
+  "info": {
+    "displayName": "MegaCymbal",
+    "icon": "music"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

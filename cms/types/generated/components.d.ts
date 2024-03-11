@@ -81,6 +81,18 @@ export interface BlockLogoHero extends Schema.Component {
   };
 }
 
+export interface BlockMegaCymbal extends Schema.Component {
+  collectionName: 'components_block_mega_cymbals';
+  info: {
+    displayName: 'MegaCymbal';
+    icon: 'music';
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface BlockQuote extends Schema.Component {
   collectionName: 'components_block_quotes';
   info: {
@@ -194,6 +206,7 @@ declare module '@strapi/types' {
       'block.cymbal': BlockCymbal;
       'block.event': BlockEvent;
       'block.logo-hero': BlockLogoHero;
+      'block.mega-cymbal': BlockMegaCymbal;
       'block.quote': BlockQuote;
       'block.video': BlockVideo;
       'component.course-section': ComponentCourseSection;

@@ -905,7 +905,9 @@ export interface ApiCoursePromoPageCoursePromoPage extends Schema.SingleType {
           localized: true;
         };
       }>;
-    blocks: Attribute.DynamicZone<['block.course-overview']> &
+    blocks: Attribute.DynamicZone<
+      ['block.course-overview', 'block.mega-cymbal']
+    > &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
