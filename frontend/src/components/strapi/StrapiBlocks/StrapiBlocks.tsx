@@ -8,6 +8,7 @@ import { Video } from '@/components/strapi/blocks/Video/Video'
 import { TStrapiBlock } from '@/data/strapi/types/common/blocks'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CourseOverview } from '@/components/strapi/blocks/CourseOverview/CourseOverview'
+import { MegaCymbal } from '@/components/strapi/blocks/MegaCymbal/MegaCymbal'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -60,6 +61,10 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
             stats={block.stats}
             sections={block.sections}
           />
+        )
+      case 'block.mega-cymbal':
+        return (
+          <MegaCymbal heading={block.heading} description={block.description} />
         )
       default:
         return (

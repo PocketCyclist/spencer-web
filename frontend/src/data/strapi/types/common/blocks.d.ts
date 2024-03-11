@@ -13,6 +13,7 @@ export type TBlockComponent =
   | 'block.event'
   | 'block.cymbal'
   | 'block.course-overview'
+  | 'block.mega-cymbal'
 
 export type TStrapiBlock =
   | TBlockQuote
@@ -23,6 +24,7 @@ export type TStrapiBlock =
   | TBlockEvent
   | TBlockCymbal
   | TBlockCourseOverview
+  | TBlockMegaCymbal
 
 type TBlockCommon = {
   id: number
@@ -85,4 +87,10 @@ type TBlockCourseOverview = {
   title: string
   stats: TStrapiStat[]
   sections: TStrapiCourseSection[]
+} & TBlockCommon
+
+type TBlockMegaCymbal = {
+  __component: 'block.mega-cymbal'
+  heading: string
+  description: string
 } & TBlockCommon
