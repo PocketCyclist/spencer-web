@@ -14,8 +14,8 @@ export const CourseOverview = ({
 }) => {
   return (
     <section>
-      <div className="border-b border-gray-300 flex flex-col items-center">
-        <ul className="grid grid-cols-2 lg:flex lg:flex-row justify-between w-full py-12 gap-4 md:gap-12 px-6 sm:px-18 max-w-[1728px]">
+      <div className="flex flex-col items-center">
+        <ul className="border-b border-gray-300 grid grid-cols-2 lg:flex lg:flex-row justify-between w-full py-12 gap-4 md:gap-12 px-6 sm:px-18 max-w-[1728px]">
           {stats.map((stat) => (
             <li key={stat.id} className="">
               <span className="text-[24px] leading-[30px] sm:text-[36px] sm:leading-[45px]">
@@ -28,7 +28,7 @@ export const CourseOverview = ({
             </li>
           ))}
         </ul>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-6 sm:px-18 gap-6 lg:gap-16">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-6 sm:px-18 mt-12 lg:mt-24 gap-6 lg:gap-16">
           <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}
           </div>
