@@ -17,7 +17,6 @@ import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
-import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 
 const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
@@ -80,13 +79,10 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
           <div className="grid grid-cols-2 gap-4 lg:w-[calc(542*100%/1152)] lg:gap-8">
             <div className="relative col-span-2 aspect-[542/305]">
               <Image
-                alt={
-                  project.attributes.coverImage.data.attributes.alternativeText
-                }
+                {...extractImageAttrs(project.attributes.coverImage)}
                 className="object-cover"
                 fill
                 sizes="(min-width: 1024px) 542px, 100vw"
-                src={project.attributes.coverImage.data.attributes.url}
               />
             </div>
             {project.attributes.media.map((item) => (

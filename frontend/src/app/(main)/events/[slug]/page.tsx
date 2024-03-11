@@ -62,8 +62,6 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
       }),
   ])
 
-  console.log(otherEvents)
-
   const parsedDate = parseDateToWords(event.attributes.date, true)
 
   return (
@@ -79,19 +77,21 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
         <p className="mt-[88px] mb-12 whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
           {event.attributes.description}
         </p>
-        <Button asChild className="sm:flex-1" variant="primary">
-          <Link
-            href={event.attributes.buyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Buy
-            <ArrowRightSmallIcon
-              className="rem:w-[25px] rem:h-[8px] ml-14"
-              viewBox="0 0 25 8"
-            />
-          </Link>
-        </Button>
+        {event.attributes.buyUrl && (
+          <Button asChild className="sm:flex-1" variant="primary">
+            <Link
+              href={event.attributes.buyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy
+              <ArrowRightSmallIcon
+                className="rem:w-[25px] rem:h-[8px] ml-14"
+                viewBox="0 0 25 8"
+              />
+            </Link>
+          </Button>
+        )}
       </section>
       <Cymbal right={true} />
       {otherEvents.length ? (

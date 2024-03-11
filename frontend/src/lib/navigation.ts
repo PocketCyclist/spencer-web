@@ -21,8 +21,6 @@ export const usePathnameWithHash = () => {
   useEffect(() => {
     setPathname(hash ? basePathname + '#' + hash : basePathname)
   }, [basePathname, hash])
-
-  console.log({ hash, pathname })
   return pathname
 }
 
