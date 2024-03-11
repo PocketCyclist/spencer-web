@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_course_overviews",
+  "info": {
+    "displayName": "CourseOverview",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.stat",
+      "required": true
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.course-section",
+      "required": true
+    }
+  }
+}

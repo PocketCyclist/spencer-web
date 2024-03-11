@@ -30,6 +30,21 @@ export interface BlockBigEvent extends Schema.Component {
   };
 }
 
+export interface BlockCourseOverview extends Schema.Component {
+  collectionName: 'components_block_course_overviews';
+  info: {
+    displayName: 'CourseOverview';
+    icon: 'grid';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    stats: Attribute.Component<'component.stat', true> & Attribute.Required;
+    sections: Attribute.Component<'component.course-section', true> &
+      Attribute.Required;
+  };
+}
+
 export interface BlockCymbal extends Schema.Component {
   collectionName: 'components_block_cymbals';
   info: {
@@ -90,6 +105,19 @@ export interface BlockVideo extends Schema.Component {
   };
 }
 
+export interface ComponentCourseSection extends Schema.Component {
+  collectionName: 'components_component_course_sections';
+  info: {
+    displayName: 'CourseSection';
+    icon: 'archive';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    length: Attribute.String;
+    previewMedia: Attribute.Media;
+  };
+}
+
 export interface ComponentImage extends Schema.Component {
   collectionName: 'components_component_images';
   info: {
@@ -112,6 +140,18 @@ export interface ComponentLink extends Schema.Component {
     url: Attribute.String & Attribute.Required;
     label: Attribute.String & Attribute.Required;
     icon: Attribute.Media;
+  };
+}
+
+export interface ComponentStat extends Schema.Component {
+  collectionName: 'components_component_stats';
+  info: {
+    displayName: 'Stat';
+    icon: 'information';
+  };
+  attributes: {
+    value: Attribute.String & Attribute.Required;
+    label: Attribute.String & Attribute.Required;
   };
 }
 
@@ -150,13 +190,16 @@ declare module '@strapi/types' {
     export interface Components {
       'block.about': BlockAbout;
       'block.big-event': BlockBigEvent;
+      'block.course-overview': BlockCourseOverview;
       'block.cymbal': BlockCymbal;
       'block.event': BlockEvent;
       'block.logo-hero': BlockLogoHero;
       'block.quote': BlockQuote;
       'block.video': BlockVideo;
+      'component.course-section': ComponentCourseSection;
       'component.image': ComponentImage;
       'component.link': ComponentLink;
+      'component.stat': ComponentStat;
       'component.video': ComponentVideo;
       'page.page-seo': PagePageSeo;
     }

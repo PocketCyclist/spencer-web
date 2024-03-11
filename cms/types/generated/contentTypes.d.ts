@@ -853,6 +853,88 @@ export interface ApiAlbumAlbum extends Schema.CollectionType {
   };
 }
 
+export interface ApiCoursePromoPageCoursePromoPage extends Schema.SingleType {
+  collectionName: 'course_promo_pages';
+  info: {
+    singularName: 'course-promo-page';
+    pluralName: 'course-promo-pages';
+    displayName: 'Course Promo page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    buyUrl: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTitle: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroSubtitle: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buyText: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'page.page-seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    blocks: Attribute.DynamicZone<['block.course-overview']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-promo-page.course-promo-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-promo-page.course-promo-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::course-promo-page.course-promo-page',
+      'oneToMany',
+      'api::course-promo-page.course-promo-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDiscographyPageDiscographyPage extends Schema.SingleType {
   collectionName: 'discography_pages';
   info: {
@@ -1480,6 +1562,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::album.album': ApiAlbumAlbum;
+      'api::course-promo-page.course-promo-page': ApiCoursePromoPageCoursePromoPage;
       'api::discography-page.discography-page': ApiDiscographyPageDiscographyPage;
       'api::event.event': ApiEventEvent;
       'api::events-page.events-page': ApiEventsPageEventsPage;
