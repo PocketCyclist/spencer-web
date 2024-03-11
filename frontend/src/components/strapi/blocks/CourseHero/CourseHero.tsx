@@ -15,19 +15,20 @@ export const CourseHero = ({
 }) => {
   return (
     <section className="bg-[#FFF1E7] h-screen relative">
-      <Link
-        href="/"
+      <div
         className={
           'flex justify-center p-12 sm:absolute top-0 left-0 right-0 z-10'
         }
       >
-        <Image
-          alt="Gerard Spencer - Handpan performances classes & wellbeing"
-          src="/images/logo.png"
-          width={208}
-          height={63}
-        />
-      </Link>
+        <Link href="/">
+          <Image
+            alt="Gerard Spencer - Handpan performances classes & wellbeing"
+            src="/images/logo.png"
+            width={208}
+            height={63}
+          />
+        </Link>
+      </div>
       <div className="h-full w-full flex flex-col justify-center items-center relative">
         <div className="px-6 mb-40 sm:mb-0 sm:px-12 flex flex-col gap-6 text-center">
           <h1 className="md:whitespace-break-spaces font-serif rem:text-[44px] rem:leading-[50px] sm:rem:text-[68px] sm:rem:leading-[70px] lg:rem:text-[88px] lg:rem:leading-[108px]">

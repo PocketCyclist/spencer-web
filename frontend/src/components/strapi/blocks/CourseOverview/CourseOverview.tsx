@@ -1,4 +1,7 @@
 import { TStrapiCourseSection, TStrapiStat } from '@/data/strapi/types/course'
+import { cn } from '@/lib/cn'
+import Image from 'next/image'
+import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 
 export const CourseOverview = ({
   title,
@@ -25,6 +28,45 @@ export const CourseOverview = ({
             </li>
           ))}
         </ul>
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-18 gap-6 lg:gap-16">
+          <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
+            {title}
+          </div>
+          <ul className="xl:col-span-2 flex flex-col">
+            {sections.map((section, index) => {
+              const media =
+                section.previewMedia.data &&
+                extractImageAttrs(section.previewMedia)
+              return (
+                <li
+                  key={section.id}
+                  className={cn(
+                    'py-6 border-gray-300 flex justify-between',
+                    index !== sections.length - 1 && 'border-b',
+                  )}
+                >
+                  <div className="flex flex-col justify-center hover:text-[#D64100] transition-colors">
+                    <span className="rem:text-[36px] rem:leading-[45px]">
+                      {section.title}
+                    </span>
+                    <span className="rem:text-[21px] rem:leading-[28px]">
+                      {section.length}
+                    </span>
+                  </div>
+
+                  <div
+                    className={cn(
+                      'h-[100px] w-[158px] relative',
+                      media && 'box-shadow',
+                    )}
+                  >
+                    {media && <Image src={media.src} alt={media.alt} fill />}
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   )
