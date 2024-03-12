@@ -14,12 +14,6 @@ const OnlineCourse = async () => {
 
   return (
     <>
-      <CourseHero
-        buyUrl={pageData.attributes.buyUrl}
-        buyText={pageData.attributes.buyText}
-        heroTitle={pageData.attributes.heroTitle}
-        heroSubtitle={pageData.attributes.heroSubtitle}
-      />
       <StrapiBlocks blocks={blocks} />
     </>
   )

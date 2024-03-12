@@ -9,6 +9,7 @@ import { TStrapiBlock } from '@/data/strapi/types/common/blocks'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CourseOverview } from '@/components/strapi/blocks/CourseOverview/CourseOverview'
 import { MegaCymbal } from '@/components/strapi/blocks/MegaCymbal/MegaCymbal'
+import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -54,6 +55,15 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
         )
       case 'block.cymbal':
         return <Cymbal right={block.right} />
+      case 'block.animated-hero':
+        return (
+          <CourseHero
+            title={block.title}
+            subtitle={block.subtitle}
+            buyUrl={block.buyUrl}
+            buyText={block.buyText}
+          />
+        )
       case 'block.course-overview':
         return (
           <CourseOverview

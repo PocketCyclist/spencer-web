@@ -14,6 +14,7 @@ export type TBlockComponent =
   | 'block.cymbal'
   | 'block.course-overview'
   | 'block.mega-cymbal'
+  | 'block.animated-hero'
 
 export type TStrapiBlock =
   | TBlockQuote
@@ -25,6 +26,7 @@ export type TStrapiBlock =
   | TBlockCymbal
   | TBlockCourseOverview
   | TBlockMegaCymbal
+  | TBlockAnimatedHero
 
 type TBlockCommon = {
   id: number
@@ -96,3 +98,11 @@ type TBlockMegaCymbal = {
   heading: string
   description: string
 } & TBlockCommon
+
+type TBlockAnimatedHero = {
+  __component: 'block.animated-hero'
+  buyUrl: string
+  buyText: string
+  title: string
+  subtitle: string
+}
