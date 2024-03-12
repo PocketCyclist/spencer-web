@@ -103,11 +103,13 @@ export interface BlockImageCta extends Schema.Component {
   info: {
     displayName: 'ImageCTA';
     icon: 'cursor';
+    description: '';
   };
   attributes: {
     text: Attribute.Text & Attribute.Required;
     buyText: Attribute.String & Attribute.Required;
     coverImage: Attribute.Media & Attribute.Required;
+    buyUrl: Attribute.String & Attribute.Required;
   };
 }
 
