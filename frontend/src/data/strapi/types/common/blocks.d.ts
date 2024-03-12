@@ -87,6 +87,8 @@ type TBlockCourseOverview = {
   title: string
   stats: TStrapiStat[]
   sections: TStrapiCourseSection[]
+  moreText: string
+  initialSections: number
 } & TBlockCommon
 
 type TBlockMegaCymbal = {

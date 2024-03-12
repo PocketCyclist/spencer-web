@@ -60,6 +60,8 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
             title={block.title}
             stats={block.stats}
             sections={block.sections}
+            moreText={block.moreText}
+            initialSections={block.initialSections}
           />
         )
       case 'block.mega-cymbal':
