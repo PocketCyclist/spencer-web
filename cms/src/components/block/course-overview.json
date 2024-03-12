@@ -22,6 +22,15 @@
       "repeatable": true,
       "component": "component.course-section",
       "required": true
+    },
+    "moreText": {
+      "type": "string",
+      "required": true
+    },
+    "initialSections": {
+      "type": "integer",
+      "required": true,
+      "default": 4
     }
   }
 }

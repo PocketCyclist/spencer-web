@@ -42,6 +42,10 @@ export interface BlockCourseOverview extends Schema.Component {
     stats: Attribute.Component<'component.stat', true> & Attribute.Required;
     sections: Attribute.Component<'component.course-section', true> &
       Attribute.Required;
+    moreText: Attribute.String & Attribute.Required;
+    initialSections: Attribute.Integer &
+      Attribute.Required &
+      Attribute.DefaultTo<4>;
   };
 }
 
