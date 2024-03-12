@@ -125,6 +125,10 @@ type TBlockAboutSlider = {
 
 type TBlockImageCTA = {
   __component: 'block.image-cta'
+  text: string
+  coverImage: TStrapiImageField
+  buyText: string
+  buyUrl: string
 } & TBlockCommon
 
 type TBlockFAQ = {

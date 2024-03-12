@@ -12,6 +12,7 @@ import { MegaCymbal } from '@/components/strapi/blocks/MegaCymbal/MegaCymbal'
 import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
 import { AboutSlider } from '../blocks/AboutSlider/AboutSlider'
 import { FAQ } from '@/components/strapi/blocks/FAQ/FAQ'
+import { ImageCTA } from '@/components/strapi/blocks/ImageCTA/ImageCTA'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -83,12 +84,22 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
       case 'block.about-slider':
         return <AboutSlider slides={block.slides} />
       case 'block.faq':
+        // console.log('faqqqq', block)
         return (
           <FAQ
             title={block.heading}
             items={block.items}
             moreText={block.moreText}
             initialItems={block.initialItems}
+          />
+        )
+      case 'block.image-cta':
+        return (
+          <ImageCTA
+            text={block.text}
+            coverImage={block.coverImage}
+            buyText={block.buyText}
+            buyUrl={block.buyUrl}
           />
         )
       default:
