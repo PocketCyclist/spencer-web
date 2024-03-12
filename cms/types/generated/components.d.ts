@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlockAboutSlider extends Schema.Component {
+  collectionName: 'components_block_about_sliders';
+  info: {
+    displayName: 'AboutSlider';
+    icon: 'book';
+  };
+  attributes: {
+    slides: Attribute.Component<'component.about-slider-item', true> &
+      Attribute.Required;
+  };
+}
+
 export interface BlockAbout extends Schema.Component {
   collectionName: 'components_block_abouts';
   info: {
@@ -121,6 +133,19 @@ export interface BlockVideo extends Schema.Component {
   };
 }
 
+export interface ComponentAboutSliderItem extends Schema.Component {
+  collectionName: 'components_component_about_slider_items';
+  info: {
+    displayName: 'AboutSliderItem';
+    icon: 'shield';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    coverImage: Attribute.Media;
+  };
+}
+
 export interface ComponentCourseSection extends Schema.Component {
   collectionName: 'components_component_course_sections';
   info: {
@@ -204,6 +229,7 @@ export interface PagePageSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'block.about-slider': BlockAboutSlider;
       'block.about': BlockAbout;
       'block.big-event': BlockBigEvent;
       'block.course-overview': BlockCourseOverview;
@@ -213,6 +239,7 @@ declare module '@strapi/types' {
       'block.mega-cymbal': BlockMegaCymbal;
       'block.quote': BlockQuote;
       'block.video': BlockVideo;
+      'component.about-slider-item': ComponentAboutSliderItem;
       'component.course-section': ComponentCourseSection;
       'component.image': ComponentImage;
       'component.link': ComponentLink;

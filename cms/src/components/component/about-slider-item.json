@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_component_about_slider_items",
+  "info": {
+    "displayName": "AboutSliderItem",
+    "icon": "shield"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "coverImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

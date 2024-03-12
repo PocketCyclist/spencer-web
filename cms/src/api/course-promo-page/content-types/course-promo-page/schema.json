@@ -72,7 +72,8 @@
       "type": "dynamiczone",
       "components": [
         "block.course-overview",
-        "block.mega-cymbal"
+        "block.mega-cymbal",
+        "block.about-slider"
       ],
       "required": true
     }

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_block_about_sliders",
+  "info": {
+    "displayName": "AboutSlider",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.about-slider-item",
+      "required": true
+    }
+  }
+}
