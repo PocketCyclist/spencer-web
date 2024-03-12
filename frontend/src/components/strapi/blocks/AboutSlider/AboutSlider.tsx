@@ -11,8 +11,8 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
   const slide = slides[slideIndex]
   const imageAttrs = extractImageAttrs(slide.coverImage)
   return (
-    <section>
-      <div className="grid px-4 py-12 sm:px-18 md:grid-cols-2 md:gap-x-10 lg:pt-32 xl:gap-x-32">
+    <section className="flex flex-col items-center px-4 py-12 sm:px-18">
+      <div className="grid md:grid-cols-2 md:gap-x-10 lg:pt-32 xl:gap-x-32">
         <div className="relative aspect-square self-center">
           <Image
             src={imageAttrs.src}
