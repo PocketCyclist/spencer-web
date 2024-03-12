@@ -138,11 +138,12 @@ export interface ComponentAboutSliderItem extends Schema.Component {
   info: {
     displayName: 'AboutSliderItem';
     icon: 'shield';
+    description: '';
   };
   attributes: {
     heading: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    coverImage: Attribute.Media;
+    coverImage: Attribute.Media & Attribute.Required;
   };
 }
 
