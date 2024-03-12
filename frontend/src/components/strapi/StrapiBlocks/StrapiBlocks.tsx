@@ -11,6 +11,7 @@ import { CourseOverview } from '@/components/strapi/blocks/CourseOverview/Course
 import { MegaCymbal } from '@/components/strapi/blocks/MegaCymbal/MegaCymbal'
 import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
 import { AboutSlider } from '../blocks/AboutSlider/AboutSlider'
+import { FAQ } from '@/components/strapi/blocks/FAQ/FAQ'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -81,6 +82,15 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
         )
       case 'block.about-slider':
         return <AboutSlider slides={block.slides} />
+      case 'block.faq':
+        return (
+          <FAQ
+            title={block.heading}
+            items={block.items}
+            moreText={block.moreText}
+            initialItems={block.initialItems}
+          />
+        )
       default:
         return (
           <div>

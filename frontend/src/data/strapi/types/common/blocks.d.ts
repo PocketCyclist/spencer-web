@@ -131,6 +131,8 @@ type TBlockFAQ = {
   __component: 'block.faq'
   heading: string
   items: TStrapiFAQItem[]
+  moreText: string
+  initialItems: number
 } & TBlockCommon
 
 type TBlockReviews = {
