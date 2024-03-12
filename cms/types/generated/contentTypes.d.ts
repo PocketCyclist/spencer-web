@@ -884,7 +884,8 @@ export interface ApiCoursePromoPageCoursePromoPage extends Schema.SingleType {
         'block.about-slider',
         'block.reviews',
         'block.image-cta',
-        'block.faq'
+        'block.faq',
+        'block.animated-hero'
       ]
     > &
       Attribute.Required &

@@ -40,7 +40,8 @@
         "block.about-slider",
         "block.reviews",
         "block.image-cta",
-        "block.faq"
+        "block.faq",
+        "block.animated-hero"
       ],
       "required": true
     }
