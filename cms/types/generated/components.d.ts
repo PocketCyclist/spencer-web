@@ -110,7 +110,7 @@ export interface BlockFaq extends Schema.Component {
   attributes: {
     heading: Attribute.String & Attribute.Required;
     items: Attribute.Component<'component.faq-item', true> & Attribute.Required;
-    inititalItems: Attribute.Integer &
+    initialItems: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<4>;
     moreText: Attribute.String & Attribute.Required;

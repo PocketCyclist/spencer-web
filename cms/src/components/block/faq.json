@@ -17,7 +17,7 @@
       "component": "component.faq-item",
       "required": true
     },
-    "inititalItems": {
+    "initialItems": {
       "type": "integer",
       "required": true,
       "default": 4
