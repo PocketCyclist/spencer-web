@@ -1,8 +1,11 @@
+import { TStrapiImageField } from '@/data/strapi/types/common/api'
 import {
-  TStrapiImageAttachmentEntity,
-  TStrapiImageField,
-} from '@/data/strapi/types/common/api'
-import { TStrapiCourseSection, TStrapiStat } from '@/data/strapi/types/course'
+  TStrapiAboutSlide,
+  TStrapiCourseSection,
+  TStrapiFAQItem,
+  TStrapiReview,
+  TStrapiStat,
+} from '@/data/strapi/types/course'
 
 export type TBlockComponent =
   | 'block.quote'
@@ -15,6 +18,10 @@ export type TBlockComponent =
   | 'block.course-overview'
   | 'block.mega-cymbal'
   | 'block.animated-hero'
+  | 'block.about-slider'
+  | 'block.image-cta'
+  | 'block.faq'
+  | 'block.reviews'
 
 export type TStrapiBlock =
   | TBlockQuote
@@ -27,6 +34,10 @@ export type TStrapiBlock =
   | TBlockCourseOverview
   | TBlockMegaCymbal
   | TBlockAnimatedHero
+  | TBlockAboutSlider
+  | TBlockImageCTA
+  | TBlockFAQ
+  | TBlockReviews
 
 type TBlockCommon = {
   id: number
@@ -105,4 +116,25 @@ type TBlockAnimatedHero = {
   buyText: string
   title: string
   subtitle: string
-}
+} & TBlockCommon
+
+type TBlockAboutSlider = {
+  __component: 'block.about-slider'
+  slides: TStrapiAboutSlide[]
+} & TBlockCommon
+
+type TBlockImageCTA = {
+  __component: 'block.image-cta'
+} & TBlockCommon
+
+type TBlockFAQ = {
+  __component: 'block.faq'
+  heading: string
+  items: TStrapiFAQItem[]
+} & TBlockCommon
+
+type TBlockReviews = {
+  __component: 'block.reviews'
+  heading: string
+  reviews: TStrapiReview[]
+} & TBlockCommon

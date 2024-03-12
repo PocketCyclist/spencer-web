@@ -19,3 +19,23 @@ export type TStrapiCourseSection = {
   length: string
   previewMedia: TStrapiImageField | TStrapiData<null>
 }
+
+export type TStrapiFAQItem = {
+  id: number
+  question: string
+  answer: string
+}
+
+export type TStrapiReview = {
+  id: number
+  text: string
+  author: string
+  coverImage: TStrapiImageField
+}
+
+type TStrapiAboutSlide = {
+  id: number
+  heading: string
+  description: string
+  coverImage: TStrapiImageField
+}
