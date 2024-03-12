@@ -46,7 +46,7 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
             <MediaSlider media={post.attributes.media} />
           </div>
           <div className="pb-16 lg:rem:max-w-[800px] lg:rem:py-[88px]">
-            <p className="2xl:rem:min-h-[200px] whitespace-pre-wrap">
+            <p className="whitespace-pre-wrap 2xl:rem:min-h-[200px]">
               {post.attributes.content}
             </p>
             {/* <div className="mt-12 lg:hidden">
@@ -66,7 +66,7 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
             <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
               Other news
             </h2>
-            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
+            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
               {latestPosts.map((post) => (
                 <PostCard
                   key={post.id}

@@ -27,7 +27,7 @@ export const Button = ({
   return (
     <Component
       className={cn(
-        'rem:h-[60px] rem:px-[26px] inline-flex justify-center items-center font-bold rem:text-[20px] rem:leading-[25.1px] transition-colors disabled:pointer-events-none',
+        'inline-flex items-center justify-center font-bold transition-colors disabled:pointer-events-none rem:h-[60px] rem:px-[26px] rem:text-[20px] rem:leading-[25.1px]',
         VARIANT_CLASSES_MAP[variant],
         className,
       )}

@@ -18,15 +18,15 @@ export const VideoDialog = ({ src, trigger }: VideoDialogProps) => {
         <Dialog.Overlay className="fixed inset-0 z-50 flex bg-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
           <Dialog.Close asChild>
             <button
-              className="w-16 h-16 fixed top-0 right-0 z-50 bg-foreground"
+              className="fixed right-0 top-0 z-50 h-16 w-16 bg-foreground"
               aria-label="Close"
             >
-              <span className="w-8 h-0.5 absolute top-1/2 left-1/2 rounded-full bg-background -translate-x-1/2 -translate-y-1/2 rotate-45 before:w-full before:h-full before:absolute before:top-0 before:left-0 before:rounded-full before:bg-background before:transition-transform before:rotate-90" />
+              <span className="absolute left-1/2 top-1/2 h-0.5 w-8 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-background before:absolute before:left-0 before:top-0 before:h-full before:w-full before:rotate-90 before:rounded-full before:bg-background before:transition-transform" />
             </button>
           </Dialog.Close>
-          <Dialog.Content className="max-w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Dialog.Content className="fixed left-1/2 top-1/2 max-w-full -translate-x-1/2 -translate-y-1/2">
             <YouTube
-              className="youtube-video-container w-screen h-screen md:p-12"
+              className="youtube-video-container h-screen w-screen md:p-12"
               videoId={getYouTubeVideoId(src)}
               opts={{
                 playerVars: {

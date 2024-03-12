@@ -67,7 +67,7 @@ const Events = async () => {
         contentAdditionalComponent={
           featuredEvent ? (
             <Link
-              className="underline underline-offset-2 hover:no-underline max-w-fit"
+              className="max-w-fit underline underline-offset-2 hover:no-underline"
               href={`/events/${featuredEvent.id}`}
               title="Details"
             >
@@ -77,14 +77,14 @@ const Events = async () => {
         }
       />
 
-      <div className="py-16 space-y-16 lg:py-28 lg:space-y-[7.375rem]">
+      <div className="space-y-16 py-16 lg:space-y-[7.375rem] lg:py-28">
         <section>
           <div className="container">
             <div className="2xl:rem:max-w-[820px]">
               <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
                 Upcoming events
               </h2>
-              <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 md:grid-cols-3 md:gap-y-16">
+              <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 md:grid-cols-3 md:gap-y-16">
                 {futureEvents.map((event) => (
                   <EventCard
                     key={event.id}
@@ -108,9 +108,9 @@ const Events = async () => {
               </h2>
               <div
                 className={cn(
-                  'sm:grid sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 sm:overflow-x-visible md:grid-cols-3 md:gap-y-16',
+                  'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:overflow-x-visible md:grid-cols-3 md:gap-y-16',
                   pastEvents.length > 1 &&
-                    '-mx-4 px-4 flex snap-x snap-mandatory overflow-x-auto no-scrollbar',
+                    '-mx-4 flex snap-x snap-mandatory overflow-x-auto px-4 no-scrollbar',
                 )}
               >
                 {pastEvents.map((event) => (

@@ -34,23 +34,23 @@ export const EventCard = ({
     (new Date(date).getTime() > new Date().getTime() ? 'future' : 'past')
   return (
     <Link
-      className={cn('group flex flex-col group', className)}
+      className={cn('group flex flex-col', className)}
       href={url}
       title={title}
     >
-      <div className="mb-8 relative aspect-[252/137] lg:mb-8 overflow-hidden">
+      <div className="relative mb-8 aspect-[252/137] overflow-hidden lg:mb-8">
         <Image alt={image.alt} fill src={image.src} className="object-cover" />
 
-        <span className="w-[100px] h-[100px] absolute bottom-0 right-0 flex justify-end items-end z-0">
+        <span className="absolute bottom-0 right-0 z-0 flex h-[100px] w-[100px] items-end justify-end">
           <CapaIcon
             className={cn(
-              'rem:w-[156px] rem:h-[162px] absolute top-0 left-0 text-yellow',
+              'absolute left-0 top-0 text-yellow rem:h-[162px] rem:w-[156px]',
               parsedDateType === 'past' && 'text-red',
             )}
           />
           <span
             className={cn(
-              'p-1.5 rem:text-[14px] rem:leading-[17.57px] text-right z-10',
+              'z-10 p-1.5 text-right rem:text-[14px] rem:leading-[17.57px]',
               parsedDateType === 'past' ? 'text-white' : 'text-foreground',
             )}
           >
@@ -63,7 +63,7 @@ export const EventCard = ({
         </span>
       </div>
       <div className="grid grid-cols-1 gap-y-4 lg:gap-y-6">
-        <h5 className="font-serif font-bold rem:text-[24px] leading-none lg:rem:text-[29.66px]">
+        <h5 className="font-serif font-bold leading-none rem:text-[24px] lg:rem:text-[29.66px]">
           {title}
         </h5>
         <p>{description}</p>

@@ -74,7 +74,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
           {parsedDate.dayOfWeek} {parsedDate.date}
         </h3>
         <MediaSlider media={event.attributes.media} />
-        <p className="mt-[88px] mb-12 whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
+        <p className="mb-12 mt-[88px] whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
           {event.attributes.description}
         </p>
         {event.attributes.buyUrl && (
@@ -86,7 +86,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
             >
               Buy
               <ArrowRightSmallIcon
-                className="rem:w-[25px] rem:h-[8px] ml-14"
+                className="ml-14 rem:h-[8px] rem:w-[25px]"
                 viewBox="0 0 25 8"
               />
             </Link>
@@ -102,8 +102,8 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
             </h2>
             <div
               className={cn(
-                'sm:grid sm:grid-cols-2 sm:gap-y-12 sm:gap-x-8 sm:overflow-x-visible md:grid-cols-3 md:gap-y-16',
-                '-mx-4 px-4 flex snap-x snap-mandatory overflow-x-auto no-scrollbar',
+                'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:overflow-x-visible md:grid-cols-3 md:gap-y-16',
+                '-mx-4 flex snap-x snap-mandatory overflow-x-auto px-4 no-scrollbar',
               )}
             >
               {otherEvents.map((event) => (

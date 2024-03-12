@@ -26,24 +26,24 @@ export const CourseOverview = ({
   return (
     <section>
       <div className="flex flex-col items-center">
-        <ul className="border-b border-gray-300 grid grid-cols-2 lg:flex lg:flex-row justify-between w-full py-12 gap-4 md:gap-12 px-6 sm:px-18 max-w-[1728px]">
+        <ul className="grid w-full max-w-[1728px] grid-cols-2 justify-between gap-4 border-b border-gray-300 px-6 py-12 sm:px-18 md:gap-12 lg:flex lg:flex-row">
           {stats.map((stat) => (
             <li key={stat.id} className="">
-              <span className="rem:text-[24px] leading-[30px] sm:rem:text-[36px] sm:leading-[45px]">
+              <span className="leading-[30px] rem:text-[24px] sm:leading-[45px] sm:rem:text-[36px]">
                 {stat.value}
               </span>
               <br />
-              <span className="rem:text-[18px] leading-[24px] sm:rem:text-[20px] sm:leading-[28px]">
+              <span className="leading-[24px] rem:text-[18px] sm:leading-[28px] sm:rem:text-[20px]">
                 {stat.label}
               </span>
             </li>
           ))}
         </ul>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-6 sm:px-18 py-12 gap-6 lg:gap-16">
+        <div className="grid w-full max-w-[1728px] gap-6 px-6 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
           <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}
           </div>
-          <ul className="xl:col-span-2 flex flex-col">
+          <ul className="flex flex-col xl:col-span-2">
             {sectionsToShow.map((section, index) => {
               const media =
                 section.previewMedia.data &&
@@ -52,11 +52,11 @@ export const CourseOverview = ({
                 <li
                   key={section.id}
                   className={cn(
-                    'py-6 border-gray-300 flex justify-between gap-6 group',
+                    'group flex justify-between gap-6 border-gray-300 py-6',
                     index !== sectionsToShow.length - 1 && 'border-b',
                   )}
                 >
-                  <div className="flex flex-col justify-center group-hover:text-[#D64100] transition-colors">
+                  <div className="flex flex-col justify-center transition-colors group-hover:text-[#D64100]">
                     <span className="rem:text-[22px] rem:leading-[27px] sm:rem:text-[36px] sm:rem:leading-[45px]">
                       {section.title}
                     </span>
@@ -67,7 +67,7 @@ export const CourseOverview = ({
 
                   <div
                     className={cn(
-                      'h-[100px] w-[158px] relative',
+                      'relative h-[100px] w-[158px]',
                       media && 'box-shadow',
                     )}
                   >
@@ -88,7 +88,7 @@ export const CourseOverview = ({
             {showMore && (
               <button
                 onClick={() => setOpened(true)}
-                className="p-4 mt-5 border border-gray-300 rounded-full text-[20px] leading-[28px] hover:bg-gray-200 transition-colors"
+                className="mt-5 rounded-full border border-gray-300 p-4 text-[20px] leading-[28px] transition-colors hover:bg-gray-200"
               >
                 {moreText}
               </button>

@@ -17,7 +17,7 @@ export const Event = ({ heading, description, image }: EventProps) => (
           {heading}
         </h2>
       )}
-      <div className="space-y-12 lg:space-y-0 lg:flex lg:flex-row-reverse lg:justify-between lg:items-center">
+      <div className="space-y-12 lg:flex lg:flex-row-reverse lg:items-center lg:justify-between lg:space-y-0">
         <div className="lg:w-[43.316%] lg:text-left">
           <p>{description}</p>
         </div>

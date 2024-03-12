@@ -10,7 +10,7 @@
 }
 
 .root :global(.swiper-horizontal) {
-  @apply w-screen pb-28 left-1/2 -translate-x-1/2 sm:w-full lg:pb-40 sm:left-0 sm:translate-x-0;
+  @apply left-1/2 w-screen -translate-x-1/2 pb-28 sm:left-0 sm:w-full sm:translate-x-0 lg:pb-40;
 }
 
 .root :global(.swiper-wrapper) {
@@ -18,7 +18,7 @@
 }
 
 .root :global(.swiper-pagination-horizontal) {
-  @apply rem:top-[482px] text-[0] leading-[0] lg:rem:top-[704px];
+  @apply text-[0] leading-[0] rem:top-[482px] lg:rem:top-[704px];
 }
 
 .root
@@ -26,5 +26,5 @@
     .swiper-pagination-horizontal.swiper-pagination-bullets
       .swiper-pagination-bullet
   ) {
-  @apply m-1.5 transition-all lg:rem:w-[18px] lg:rem:h-[18px] lg:m-2;
+  @apply m-1.5 transition-all lg:m-2 lg:rem:h-[18px] lg:rem:w-[18px];
 }

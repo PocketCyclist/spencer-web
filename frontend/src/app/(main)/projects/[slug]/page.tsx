@@ -67,7 +67,7 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
       />
 
       <div>
-        <div className="py-16 space-y-12 container lg:py-28 lg:space-y-0 lg:flex lg:flex-row-reverse lg:justify-between">
+        <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
           <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
             <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
               {project.attributes.title}
@@ -98,7 +98,7 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
                     <VideoDialog
                       src={item.url}
                       trigger={
-                        <PlayButton className="rem:size-[56px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:rem:size-[80px]" />
+                        <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rem:size-[56px] xl:rem:size-[80px]" />
                       }
                     />
                   </>
@@ -110,21 +110,21 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
       </div>
 
       <div
-        className="hidden relative -z-[1] select-none 2xl:flex"
+        className="relative -z-[1] hidden select-none 2xl:flex"
         role="presentation"
       >
         <div className="container relative">
           <div className="absolute right-full rem:bottom-[35px]">
             <CapaIcon
-              className="rem:w-[290px] rem:h-[300px] absolute rem:right-[250px] rem:bottom-[435px] text-blue"
+              className="absolute text-blue rem:bottom-[435px] rem:right-[250px] rem:h-[300px] rem:w-[290px]"
               viewBox="0 0 39 40"
             />
             <CapaIcon
-              className="rem:w-[216px] rem:h-[223px] absolute rem:-right-[42px] rem:bottom-[326px] text-yellow"
+              className="absolute text-yellow rem:-right-[42px] rem:bottom-[326px] rem:h-[223px] rem:w-[216px]"
               viewBox="0 0 39 40"
             />
             <CapaIcon
-              className="rem:w-[274px] rem:h-[283px] absolute rem:right-[100px] rem:bottom-[36px] text-red"
+              className="absolute text-red rem:bottom-[36px] rem:right-[100px] rem:h-[283px] rem:w-[274px]"
               viewBox="0 0 39 40"
             />
           </div>

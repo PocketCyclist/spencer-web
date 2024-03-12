@@ -25,19 +25,19 @@ export const PrevNextNavigation = ({ prev, next }: PrevNextNavigationProps) => {
 
   return (
     <nav>
-      <div className="container py-8 grid grid-cols-2 gap-x-4 items-center lg:py-16 lg:gap-x-6">
+      <div className="container grid grid-cols-2 items-center gap-x-4 py-8 lg:gap-x-6 lg:py-16">
         {prev && (
           <Link
-            className="group col-start-1 flex flex-end gap-x-4 items-center lg:gap-x-8"
+            className="flex-end group col-start-1 flex items-center gap-x-4 lg:gap-x-8"
             href={prev.url}
           >
-            <span className="pl-10 relative lg:rem:pl-[55px]">
+            <span className="relative pl-10 lg:rem:pl-[55px]">
               <CapaIcon
-                className="rem:w-[47px] rem:h-[48px] text-yellow lg:rem:w-[97px] lg:rem:h-[100px]"
+                className="text-yellow rem:h-[48px] rem:w-[47px] lg:rem:h-[100px] lg:rem:w-[97px]"
                 viewBox="0 0 39 40"
               />
-              <ArrowLeftIcon className="absolute top-1/2 left-0 text-arrow transition-colors group-hover:text-black -translate-y-1/2 lg:hidden" />
-              <ArrowLeftLongIcon className="hidden absolute top-1/2 left-0 text-arrow transition-colors group-hover:text-black -translate-y-1/2 lg:block" />
+              <ArrowLeftIcon className="absolute left-0 top-1/2 -translate-y-1/2 text-arrow transition-colors group-hover:text-black lg:hidden" />
+              <ArrowLeftLongIcon className="absolute left-0 top-1/2 hidden -translate-y-1/2 text-arrow transition-colors group-hover:text-black lg:block" />
             </span>
             <span className="hidden font-serif font-bold rem:text-[36px] rem:leading-[44.5px] lg:block">
               <span className="block font-sans font-normal rem:text-[24px] rem:leading-[30.12px]">
@@ -49,7 +49,7 @@ export const PrevNextNavigation = ({ prev, next }: PrevNextNavigationProps) => {
         )}
         {next && (
           <Link
-            className="group col-start-2 flex gap-x-4 justify-end items-center text-right lg:gap-x-8"
+            className="group col-start-2 flex items-center justify-end gap-x-4 text-right lg:gap-x-8"
             href={next.url}
           >
             <span className="hidden font-serif font-bold rem:text-[36px] rem:leading-[44.5px] lg:block">
@@ -58,13 +58,13 @@ export const PrevNextNavigation = ({ prev, next }: PrevNextNavigationProps) => {
               </span>
               {next.title}
             </span>
-            <span className="pr-10 relative lg:rem:pr-[55px]">
+            <span className="relative pr-10 lg:rem:pr-[55px]">
               <CapaIcon
-                className="rem:w-[47px] rem:h-[48px] text-yellow lg:rem:w-[97px] lg:rem:h-[100px]"
+                className="text-yellow rem:h-[48px] rem:w-[47px] lg:rem:h-[100px] lg:rem:w-[97px]"
                 viewBox="0 0 39 40"
               />
-              <ArrowRightIcon className="absolute top-1/2 right-0 text-arrow transition-colors group-hover:text-black -translate-y-1/2 lg:hidden" />
-              <ArrowRightLongIcon className="hidden absolute top-1/2 right-0 text-arrow transition-colors group-hover:text-black -translate-y-1/2 lg:block" />
+              <ArrowRightIcon className="absolute right-0 top-1/2 -translate-y-1/2 text-arrow transition-colors group-hover:text-black lg:hidden" />
+              <ArrowRightLongIcon className="absolute right-0 top-1/2 hidden -translate-y-1/2 text-arrow transition-colors group-hover:text-black lg:block" />
             </span>
           </Link>
         )}

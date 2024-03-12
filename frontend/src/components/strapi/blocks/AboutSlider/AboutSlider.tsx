@@ -12,7 +12,7 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
   const imageAttrs = extractImageAttrs(slide.coverImage)
   return (
     <section>
-      <div className="px-4 sm:px-18 grid md:grid-cols-2 lg:pt-32 py-12 md:gap-x-10 xl:gap-x-32">
+      <div className="grid px-4 py-12 sm:px-18 md:grid-cols-2 md:gap-x-10 lg:pt-32 xl:gap-x-32">
         <div className="relative aspect-square self-center">
           <Image
             src={imageAttrs.src}
@@ -22,10 +22,10 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
           />
         </div>
         <div className="self-center">
-          <h4 className="flex items-end rem:text-[40px] lg:rem:text-[64px] rem:leading-[49px] lg:rem:leading-[79px] mb-6 mt-12 md:mt-0">
+          <h4 className="mb-6 mt-12 flex items-end rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
             {slide.heading}
           </h4>
-          <p className="rem:text-[22px] rem:leading-[28px] lg:rem:text-[36px] lg:rem:leading-[45px] mb-12 xl:mb-16">
+          <p className="mb-12 rem:text-[22px] rem:leading-[28px] lg:rem:text-[36px] lg:rem:leading-[45px] xl:mb-16">
             {slide.description}
           </p>
           <nav className="flex gap-4">
@@ -35,7 +35,7 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
                 onClick={() => setSlideIndex(index)}
                 disabled={index === slideIndex}
                 className={cn(
-                  'w-7 h-7 rounded-full border-2 border-black',
+                  'h-7 w-7 rounded-full border-2 border-black',
                   index === slideIndex && 'bg-black',
                 )}
               />

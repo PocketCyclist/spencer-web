@@ -7,7 +7,7 @@ import { FooterSubscribe } from '@/components/layout/Footer/FooterSubscribe'
 
 export const Footer = () => (
   <footer>
-    <div className="container pt-16 pb-4 grid grid-cols-1 gap-y-14 sm:pb-8 lg:py-[4.5rem]">
+    <div className="container grid grid-cols-1 gap-y-14 pb-4 pt-16 sm:pb-8 lg:py-[4.5rem]">
       <div>
         <Image
           className="rem:w-[180px] lg:rem:w-[292px]"
@@ -24,11 +24,11 @@ export const Footer = () => (
         <div className="lg:rem:basis-[300px]">
           <FooterSubscribe />
         </div>
-        <div className="lg:rem:basis-[300px] lg:text-right">
+        <div className="lg:text-right lg:rem:basis-[300px]">
           <FooterSocials />
         </div>
       </div>
-      <p className="pt-6 border-t border-border text-footer-copy text-center">
+      <p className="border-t border-border pt-6 text-center text-footer-copy">
         &copy; {new Date().getFullYear()} The Gerard Spencer Project
       </p>
     </div>

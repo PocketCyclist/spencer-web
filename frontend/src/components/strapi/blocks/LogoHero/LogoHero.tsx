@@ -8,7 +8,7 @@ type LogoHeroProps = {
 }
 
 export const LogoHero = ({ bgImage }: LogoHeroProps) => (
-  <section className="rem:h-[500px] relative text-white lg:rem:h-[600px] xl:rem:h-[800px]">
+  <section className="relative text-white rem:h-[500px] lg:rem:h-[600px] xl:rem:h-[800px]">
     <Image
       alt={bgImage.alt}
       className="object-cover object-[70%,100%] lg:object-center"
@@ -17,7 +17,7 @@ export const LogoHero = ({ bgImage }: LogoHeroProps) => (
     />
     <Image
       alt="The Gerard Spencer Project - Handpan performances classes & wellbeing"
-      className="max-w-[calc(100%-2rem)] rem:w-[280px] h-auto absolute bottom-20 left-1/2 -translate-x-1/2 lg:rem:w-[400px] lg:bottom-1/2 lg:translate-y-1/2 xl:rem:w-[740px]"
+      className="absolute bottom-20 left-1/2 h-auto max-w-[calc(100%-2rem)] -translate-x-1/2 rem:w-[280px] lg:bottom-1/2 lg:translate-y-1/2 lg:rem:w-[400px] xl:rem:w-[740px]"
       src="/images/logo-hero.svg"
       width={740}
       height={315}

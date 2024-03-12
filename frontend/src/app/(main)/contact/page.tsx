@@ -8,27 +8,27 @@ const Contact = () => (
   <>
     <header>
       <div className="container py-16 lg:py-28">
-        <h1 className="font-serif rem:text-[36px] rem:leading-[44.5px] text-center lg:rem:text-[64px] lg:rem:leading-[79.1px]">
+        <h1 className="text-center font-serif rem:text-[36px] rem:leading-[44.5px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
           Lorem ipsum dolor sit amet
         </h1>
       </div>
     </header>
     <div
-      className="hidden relative -z-[1] select-none 2xl:flex"
+      className="relative -z-[1] hidden select-none 2xl:flex"
       role="presentation"
     >
       <div className="container relative">
         <div className="absolute right-full top-0">
           <CapaIcon
-            className="rem:w-[209px] rem:h-[217px] absolute rem:right-[200px] rem:-top-[15px] text-red"
+            className="absolute text-red rem:-top-[15px] rem:right-[200px] rem:h-[217px] rem:w-[209px]"
             viewBox="0 0 39 40"
           />
           <CapaIcon
-            className="rem:w-[205px] rem:h-[212px] absolute rem:right-[113px] rem:top-[297px] text-gold"
+            className="absolute text-gold rem:right-[113px] rem:top-[297px] rem:h-[212px] rem:w-[205px]"
             viewBox="0 0 39 40"
           />
           <CapaIcon
-            className="rem:w-[153px] rem:h-[158px] absolute rem:right-[28px] rem:top-[550px] text-green"
+            className="absolute text-green rem:right-[28px] rem:top-[550px] rem:h-[158px] rem:w-[153px]"
             viewBox="0 0 39 40"
           />
         </div>
@@ -37,7 +37,7 @@ const Contact = () => (
     <section>
       <div className="container py-16 lg:py-28">
         <form
-          className="rem:max-w-[432px] mx-auto space-y-6 lg:space-y-8"
+          className="mx-auto space-y-6 rem:max-w-[432px] lg:space-y-8"
           action="?"
         >
           <Input name="first-name" placeholder="First name" size="lg" />
@@ -48,7 +48,7 @@ const Contact = () => (
             <Button variant="primary">
               Submit
               <ArrowRightSmallIcon
-                className="rem:w-[25px] rem:h-[8px] ml-14"
+                className="ml-14 rem:h-[8px] rem:w-[25px]"
                 viewBox="0 0 25 8"
               />
             </Button>

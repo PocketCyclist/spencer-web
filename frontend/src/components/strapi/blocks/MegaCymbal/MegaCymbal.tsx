@@ -10,42 +10,42 @@ export const MegaCymbal = ({
   description: string
 }) => {
   return (
-    <section className="px-4 py-12 lg:pt-20 sm:px-18 gap-8 lg:gap-24 flex flex-col items-center text-center bg-[#E0CFC5]">
-      <h3 className="rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px] max-w-[1280px]">
+    <section className="flex flex-col items-center gap-8 bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-24 lg:pt-20">
+      <h3 className="max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h3>
-      <div className="relative grid grid-cols-3 grid-rows-3 w-full md:w-[748px] md:h-[748px] items-center justify-center z-0">
+      <div className="relative z-0 grid w-full grid-cols-3 grid-rows-3 items-center justify-center md:h-[748px] md:w-[748px]">
         <Image
-          className="col-span-3 row-span-3 col-start-1 row-start-1 object-contain"
+          className="col-span-3 col-start-1 row-span-3 row-start-1 object-contain"
           src="/images/mega-handpan.png"
           alt="The Handpan"
           fill
         />
         <Note
           note="c3"
-          className="col-start-1 row-start-1 z-10 items-end justify-end"
+          className="z-10 col-start-1 row-start-1 items-end justify-end"
         />
-        <Note note="c4" className="col-start-2 row-start-1 z-10" />
+        <Note note="c4" className="z-10 col-start-2 row-start-1" />
         <Note
           note="c5"
-          className="col-start-3 row-start-1 z-10 items-end justify-start"
+          className="z-10 col-start-3 row-start-1 items-end justify-start"
         />
 
-        <Note note="d3" className="col-start-1 row-start-2 z-10" />
-        <Note note="d4" className="col-start-2 row-start-2 z-10" />
-        <Note note="f3" className="col-start-3 row-start-2 z-10" />
+        <Note note="d3" className="z-10 col-start-1 row-start-2" />
+        <Note note="d4" className="z-10 col-start-2 row-start-2" />
+        <Note note="f3" className="z-10 col-start-3 row-start-2" />
 
         <Note
           note="f4"
-          className="col-start-1 row-start-3 z-10 items-start justify-end"
+          className="z-10 col-start-1 row-start-3 items-start justify-end"
         />
-        <Note note="g3" className="col-start-2 row-start-3 z-10" />
+        <Note note="g3" className="z-10 col-start-2 row-start-3" />
         <Note
           note="g4"
-          className="col-start-3 row-start-3 z-10 items-start justify-start"
+          className="z-10 col-start-3 row-start-3 items-start justify-start"
         />
       </div>
-      <h4 className="rem:text-[22px] leading-[28px] lg:rem:text-[36px] lg:rem:leading-[45px] max-w-[924px]">
+      <h4 className="max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
         {description}
       </h4>
       <KeyboardPlayer />

@@ -29,21 +29,21 @@ const News = async () => {
   return (
     <>
       <div
-        className="hidden relative z-10 select-none pointer-events-none 2xl:flex"
+        className="pointer-events-none relative z-10 hidden select-none 2xl:flex"
         role="presentation"
       >
         <div className="container relative">
           <div className="absolute right-full top-0">
             <CapaIcon
-              className="rem:w-[255px] rem:h-[264px] absolute rem:right-[228px] rem:-top-[73px] text-yellow"
+              className="absolute text-yellow rem:-top-[73px] rem:right-[228px] rem:h-[264px] rem:w-[255px]"
               viewBox="0 0 39 40"
             />
             <CapaIcon
-              className="rem:w-[255px] rem:h-[264px] absolute rem:right-[10px] rem:top-[220px] text-sand"
+              className="absolute text-sand rem:right-[10px] rem:top-[220px] rem:h-[264px] rem:w-[255px]"
               viewBox="0 0 39 40"
             />
             <CapaIcon
-              className="rem:w-[255px] rem:h-[264px] absolute rem:right-[156px] rem:top-[556px] text-green"
+              className="absolute text-green rem:right-[156px] rem:top-[556px] rem:h-[264px] rem:w-[255px]"
               viewBox="0 0 39 40"
             />
           </div>

@@ -31,7 +31,7 @@ const Discography = async () => {
   ])
 
   return (
-    <section className="min-h-screen-minus-mobile-header relative flex flex-col justify-center lg:min-h-screen-minus-header">
+    <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center lg:min-h-screen-minus-header">
       <div className="absolute inset-0 -z-[1] after:absolute after:inset-0 after:bg-black/40">
         <Image
           alt={
@@ -42,15 +42,15 @@ const Discography = async () => {
           src={pageData.attributes.backgroundImage.data.attributes.url}
         />
       </div>
-      <div className="py-8 container max-w-full flex snap-x snap-mandatory overflow-x-auto no-scrollbar">
+      <div className="container flex max-w-full snap-x snap-mandatory overflow-x-auto py-8 no-scrollbar">
         <div className="min-w-px" />
         {albums.map((item) => (
           <div
             key={item.id}
-            className="max-w-[95%] pl-4 flex flex-col flex-shrink-0 snap-start sm:[&:nth-child(2)]:pl-[calc((100vw-(640px-2rem*2))/2)] md:pl-10 md:[&:nth-child(2)]:pl-[calc((100vw-(768px-2rem*2))/2)] xl:rem:pl-[100px] lg:[&:nth-child(2)]:pl-[calc((100vw-(1024px-2rem*2))/2)] xl:[&:nth-child(2)]:pl-[calc((100vw-(1280px-4.125rem*2))/2)]"
+            className="flex max-w-[95%] flex-shrink-0 snap-start flex-col pl-4 md:pl-10 xl:rem:pl-[100px] sm:[&:nth-child(2)]:pl-[calc((100vw-(640px-2rem*2))/2)] md:[&:nth-child(2)]:pl-[calc((100vw-(768px-2rem*2))/2)] lg:[&:nth-child(2)]:pl-[calc((100vw-(1024px-2rem*2))/2)] xl:[&:nth-child(2)]:pl-[calc((100vw-(1280px-4.125rem*2))/2)]"
           >
-            <article className="rem:max-w-[580px] group flex flex-col flex-1 bg-[rgb(217_217_217/100%)]">
-              <div className="rem:h-[318px] relative min-w-[75vw] md:min-w-[30vw] z-0">
+            <article className="group flex flex-1 flex-col bg-[rgb(217_217_217/100%)] rem:max-w-[580px]">
+              <div className="relative z-0 min-w-[75vw] rem:h-[318px] md:min-w-[30vw]">
                 {item.attributes.cover && (
                   <Image
                     alt={item.attributes.cover.data.attributes.alternativeText}
@@ -60,8 +60,8 @@ const Discography = async () => {
                     src={item.attributes.cover.data.attributes.url}
                   />
                 )}
-                <div className="absolute inset-0 opacity-0 bg-black/40 transition-opacity after:absolute after:inset-0 after:bg-red/50 group-hover:opacity-100" />
-                <h5 className="absolute left-0 right-16 bottom-0 mt-auto p-4 md:p-6 font-serif max-w-[362px] rem:text-[36px] leading-none z-10 text-white font-[48px] transition-opacity opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity after:absolute after:inset-0 after:bg-red/50 group-hover:opacity-100" />
+                <h5 className="absolute bottom-0 left-0 right-16 z-10 mt-auto max-w-[362px] p-4 font-serif font-[48px] leading-none text-white opacity-0 transition-opacity group-hover:opacity-100 rem:text-[36px] md:p-6">
                   {item.attributes.title}
                 </h5>
                 {item.attributes.buyUrl && (
@@ -69,9 +69,9 @@ const Discography = async () => {
                     href={item.attributes.buyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4"
+                    className="absolute right-4 top-4"
                   >
-                    <CartIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
+                    <CartIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
                   </Link>
                 )}
                 {item.attributes.videoUrl && (
@@ -79,7 +79,7 @@ const Discography = async () => {
                     src={item.attributes.videoUrl}
                     trigger={
                       <button className="absolute bottom-4 right-4">
-                        <VideoIcon className="transition-opacity opacity-0 group-hover:opacity-100" />
+                        <VideoIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
                       </button>
                     }
                   />

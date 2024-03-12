@@ -24,20 +24,20 @@ export const PostCard = ({
   url,
 }: PostCardProps) => (
   <Link
-    className={cn('group flex flex-col group', className)}
+    className={cn('group group flex flex-col', className)}
     href={url}
     title={title}
   >
     <div
       className={cn(
-        'mb-10 relative aspect-[350/220]',
+        'relative mb-10 aspect-[350/220]',
         isLarge ? 'lg:mb-14 lg:aspect-[557/350]' : 'lg:mb-8',
       )}
     >
       <Image className="object-cover" alt={image.alt} fill src={image.src} />
     </div>
     <div className="grid grid-cols-1 gap-y-4 lg:gap-y-6">
-      <h5 className="font-serif rem:text-[28px] leading-none lg:rem:text-[40px]">
+      <h5 className="font-serif leading-none rem:text-[28px] lg:rem:text-[40px]">
         {title}
       </h5>
       <p className={cn('line-clamp-3', !isLarge && 'lg:line-clamp-4')}>

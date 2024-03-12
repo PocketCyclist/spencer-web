@@ -35,8 +35,8 @@ export const Pagination = ({
       aria-label="Pagination"
       className="rem:text-[16px] rem:leading-[20.08px]"
     >
-      <div className="container py-16 lg:pt-20 lg:pb-28">
-        <ul className="flex gap-6 flex-wrap justify-center items-center">
+      <div className="container py-16 lg:pb-28 lg:pt-20">
+        <ul className="flex flex-wrap items-center justify-center gap-6">
           {items?.map((item) => (
             <li key={item} className="leading-10">
               {item === 'dots' ? (
@@ -45,14 +45,14 @@ export const Pagination = ({
                 <Link
                   aria-current={item === currentPage ? 'page' : undefined}
                   className={cn(
-                    'relative block after:absolute after:inset-y-0 after:-inset-x-3',
+                    'relative block after:absolute after:-inset-x-3 after:inset-y-0',
                     item === currentPage && 'font-bold',
                   )}
                   href={createPageUrl(item)}
                   title={`${item}`}
                 >
                   {item === currentPage && (
-                    <CapaIcon className="rem:w-[39px] rem:h-[40px] absolute rem:-left-[15px] top-0 -z-[1] text-yellow" />
+                    <CapaIcon className="absolute top-0 -z-[1] text-yellow rem:-left-[15px] rem:h-[40px] rem:w-[39px]" />
                   )}
                   {item}
                 </Link>

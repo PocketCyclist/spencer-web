@@ -21,21 +21,21 @@ export const FAQ = ({
 
   return (
     <section className="flex flex-col items-center">
-      <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full max-w-[1728px] px-6 sm:px-18 py-12 gap-6 lg:gap-16">
+      <div className="grid w-full max-w-[1728px] gap-6 px-6 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
         <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
           {title}
         </div>
-        <ul className="xl:col-span-2 flex flex-col">
+        <ul className="flex flex-col xl:col-span-2">
           {itemsToShow.map((section, index) => (
             <li
               key={section.id}
               className={cn(
-                'py-6 border-gray-300 flex justify-between gap-6 group',
+                'group flex justify-between gap-6 border-gray-300 py-6',
                 index !== itemsToShow.length - 1 && 'border-b',
               )}
             >
               <div className="flex flex-col justify-center">
-                <span className="rem:text-[22px] rem:leading-[27px] sm:rem:text-[36px] sm:rem:leading-[45px] text-[#D64100] group-hover:text-black transition-colors">
+                <span className="text-[#D64100] transition-colors group-hover:text-black rem:text-[22px] rem:leading-[27px] sm:rem:text-[36px] sm:rem:leading-[45px]">
                   {section.question}
                 </span>
                 <span className="rem:text-[21px] rem:leading-[28px]">
@@ -47,7 +47,7 @@ export const FAQ = ({
           {showMore && (
             <button
               onClick={() => setOpened(true)}
-              className="p-4 mt-5 border border-gray-300 rounded-full text-[20px] leading-[28px] hover:text-[#D64100] transition-colors"
+              className="mt-5 rounded-full border border-gray-300 p-4 text-[20px] leading-[28px] transition-colors hover:text-[#D64100]"
             >
               {moreText}
             </button>

@@ -28,12 +28,12 @@ export const FooterNav = () => {
             <li key={index}>
               <a
                 aria-current={isActive ? 'page' : undefined}
-                className={cn(isActive && 'relative pointer-events-none')}
+                className={cn(isActive && 'pointer-events-none relative')}
                 href={item.url}
                 title={item.title}
               >
                 {isActive && (
-                  <CapaIcon className="absolute -left-2 top-1/2 text-yellow -translate-y-1/2 lg:-left-[1.125rem]" />
+                  <CapaIcon className="absolute -left-2 top-1/2 -translate-y-1/2 text-yellow lg:-left-[1.125rem]" />
                 )}
                 <span className="relative">{item.title}</span>
               </a>

@@ -16,7 +16,7 @@ export const Quote = ({ text, author }: QuoteProps) => (
           <p className="mt-6 flex justify-end font-serif rem:text-[24px] rem:leading-[29.66px] lg:mt-8">
             <span className="relative py-7 pl-[1.625rem]">
               <CapaIcon
-                className="rem:w-[82.07px] rem:h-[85px] absolute top-1/2 left-0 -translate-y-1/2 text-background"
+                className="absolute left-0 top-1/2 -translate-y-1/2 text-background rem:h-[85px] rem:w-[82.07px]"
                 viewBox="0 0 39 40"
               />
               <span className="relative">— {author}</span>

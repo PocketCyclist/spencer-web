@@ -25,12 +25,12 @@ export const BigEvent = ({
         <h2 className="mb-8 font-serif font-bold rem:text-[64px] rem:leading-[79.1px] lg:rem:mb-[88px]">
           {heading}
         </h2>
-        <p className="font-serif rem:text-[30px] rem:leading-[37.08px] md:rem:max-w-[538px] md:mx-auto lg:rem:text-[36px] lg:rem:leading-[44.5px]">
+        <p className="font-serif rem:text-[30px] rem:leading-[37.08px] md:mx-auto md:rem:max-w-[538px] lg:rem:text-[36px] lg:rem:leading-[44.5px]">
           {description}
         </p>
       </header>
       {videoSrc && (
-        <div className="w-screen rem:h-[390px] relative left-1/2 -translate-x-1/2 md:rem:max-w-[1100px] md:rem:h-[619px]">
+        <div className="relative left-1/2 w-screen -translate-x-1/2 rem:h-[390px] md:rem:h-[619px] md:rem:max-w-[1100px]">
           {videoPoster && (
             <Image
               alt={videoPoster.alt}
@@ -42,7 +42,7 @@ export const BigEvent = ({
           <VideoDialog
             src={videoSrc}
             trigger={
-              <PlayButton className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
             }
           />
         </div>

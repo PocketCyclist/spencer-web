@@ -25,7 +25,7 @@ export const About = ({
   firstImage,
   secondImage,
 }: AboutProps) => (
-  <div className="py-16 lg:py-0 lg:mt-16 relative">
+  <div className="relative py-16 lg:mt-16 lg:py-0">
     <div className={'absolute top-[-160px]'} id="about" />
     <Hero
       contentClassName="lg:justify-center"
@@ -36,8 +36,8 @@ export const About = ({
 
     {secondImage && quote && author && (
       <section className="overflow-hidden">
-        <div className="container lg:py-28 lg:flex">
-          <div className="w-screen rem:h-[440px] relative left-1/2 -translate-x-1/2 lg:rem:w-[445px] lg:rem:h-[674px] lg:mr-6 lg:flex-shrink-0 lg:left-0 lg:translate-x-0">
+        <div className="container lg:flex lg:py-28">
+          <div className="relative left-1/2 w-screen -translate-x-1/2 rem:h-[440px] lg:left-0 lg:mr-6 lg:flex-shrink-0 lg:translate-x-0 lg:rem:h-[674px] lg:rem:w-[445px]">
             <Image
               alt={secondImage.alt}
               className="object-cover"
@@ -46,10 +46,10 @@ export const About = ({
               src={secondImage.src}
             />
           </div>
-          <div className="py-16 lg:rem:max-w-[683px] lg:py-12">
+          <div className="py-16 lg:py-12 lg:rem:max-w-[683px]">
             <Image
               alt=""
-              className="size-16 mb-2 lg:rem:size-[100px]"
+              className="mb-2 size-16 lg:rem:size-[100px]"
               src="/images/quote-left.png"
               width={100}
               height={100}
@@ -61,7 +61,7 @@ export const About = ({
               <p className="mt-6 flex justify-end font-serif rem:text-[24px] rem:leading-[29.66px] lg:mt-16">
                 <span className="relative py-7 pl-[1.625rem]">
                   <CapaIcon
-                    className="rem:w-[82.07px] rem:h-[85px] absolute top-1/2 left-0 -translate-y-1/2 text-yellow"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 text-yellow rem:h-[85px] rem:w-[82.07px]"
                     viewBox="0 0 39 40"
                   />
                   <span className="relative">— {author}</span>

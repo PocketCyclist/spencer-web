@@ -20,7 +20,7 @@ export const MediaSlider = ({
             const imageAttrs = extractImageAttrs(item.image)
             return (
               <SliderSlide key={index}>
-                <div className="w-full h-full">
+                <div className="h-full w-full">
                   <Image {...imageAttrs} className="object-cover" fill />
                 </div>
               </SliderSlide>
@@ -30,12 +30,12 @@ export const MediaSlider = ({
             const previewAttrs = extractImageAttrs(item.previewImage)
             return (
               <SliderSlide key={index}>
-                <div className="w-full h-full relative">
+                <div className="relative h-full w-full">
                   <Image {...previewAttrs} className="object-cover" fill />
                   <VideoDialog
                     src={item.url}
                     trigger={
-                      <PlayButton className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                     }
                   />
                 </div>

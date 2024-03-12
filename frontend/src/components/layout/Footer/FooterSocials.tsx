@@ -10,7 +10,7 @@ export const FooterSocials = async () => {
 
   return (
     <div>
-      <h5 className="mb-4 font-serif font-bold text-footer-title">
+      <h5 className="mb-4 font-serif text-footer-title font-bold">
         Follow my music
       </h5>
       {socials.length > 0 && (
@@ -18,10 +18,10 @@ export const FooterSocials = async () => {
           {socials.map((item) => (
             <li
               key={item.id}
-              className="p-3 inline-flex justify-center items-center"
+              className="inline-flex items-center justify-center p-3"
             >
               <a
-                className="flex justify-center items-center"
+                className="flex items-center justify-center"
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"

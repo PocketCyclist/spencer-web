@@ -37,8 +37,8 @@ export const Header = () => {
   }, [isMenuOpen])
 
   return (
-    <header className="w-full h-mobile-header fixed top-0 left-0 z-10 bg-background lg:h-header">
-      <div className="container h-full flex justify-between items-center gap-y-4">
+    <header className="fixed left-0 top-0 z-10 h-mobile-header w-full bg-background lg:h-header">
+      <div className="container flex h-full items-center justify-between gap-y-4">
         <Link href="/" title="Home">
           <Image
             className="rem:w-[152px] lg:rem:w-[264px]"
@@ -53,13 +53,13 @@ export const Header = () => {
           aria-expanded={isMenuOpen}
           aria-controls="menu"
           aria-label="Toggle menu"
-          className="w-10 h-10 relative flex flex-col justify-center items-center lg:hidden"
+          className="relative flex h-10 w-10 flex-col items-center justify-center lg:hidden"
           onClick={() => setIsMenuOpen((prev) => !prev)}
           type="button"
         >
           <span
             className={cn(
-              'w-8 h-0.5 absolute top-1/2 left-1/2 rounded-full bg-foreground -translate-x-1/2 -translate-y-1/2 before:w-full before:h-full before:absolute before:top-0 before:left-0 before:rounded-full before:bg-foreground before:-translate-y-2.5 before:transition-transform after:w-full after:h-full after:absolute after:top-0 after:left-0 after:rounded-full after:bg-foreground after:translate-y-2.5 after:transition-transform',
+              'absolute left-1/2 top-1/2 h-0.5 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground before:absolute before:left-0 before:top-0 before:h-full before:w-full before:-translate-y-2.5 before:rounded-full before:bg-foreground before:transition-transform after:absolute after:left-0 after:top-0 after:h-full after:w-full after:translate-y-2.5 after:rounded-full after:bg-foreground after:transition-transform',
               isMenuOpen &&
                 'bg-transparent before:translate-y-0 before:rotate-45 after:translate-y-0 after:-rotate-45',
             )}
@@ -68,8 +68,8 @@ export const Header = () => {
 
         <nav
           className={cn(
-            'px-4 py-10 fixed top-mobile-header left-0 right-0 bottom-0 overflow-y-auto border-t border-t-border bg-background opacity-0 transition-all -translate-y-6 pointer-events-none lg:opacity-100 lg:p-0 lg:relative lg:inset-auto lg:overflow-y-visible lg:border-0 lg:bg-transparent lg:transition-none lg:translate-y-0 lg:pointer-events-auto',
-            isMenuOpen && 'opacity-100 translate-y-0 pointer-events-auto',
+            'pointer-events-none fixed bottom-0 left-0 right-0 top-mobile-header -translate-y-6 overflow-y-auto border-t border-t-border bg-background px-4 py-10 opacity-0 transition-all lg:pointer-events-auto lg:relative lg:inset-auto lg:translate-y-0 lg:overflow-y-visible lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 lg:transition-none',
+            isMenuOpen && 'pointer-events-auto translate-y-0 opacity-100',
           )}
           id="menu"
         >
@@ -85,7 +85,7 @@ export const Header = () => {
                     title={item.title}
                   >
                     {isActive && (
-                      <CapaIcon className="absolute -left-2 top-1/2 text-yellow -translate-y-1/2 lg:-left-[1.125rem]" />
+                      <CapaIcon className="absolute -left-2 top-1/2 -translate-y-1/2 text-yellow lg:-left-[1.125rem]" />
                     )}
                     <span className="relative">{item.title}</span>
                   </a>
