@@ -21,6 +21,7 @@ export const CourseOverview = ({
 }) => {
   const [opened, setOpened] = useState<boolean>(false)
   const sectionsToShow = opened ? sections : sections.slice(0, initialSections)
+  const showMore = initialSections < sections.length && !opened
 
   return (
     <section>
@@ -51,11 +52,11 @@ export const CourseOverview = ({
                 <li
                   key={section.id}
                   className={cn(
-                    'py-6 border-gray-300 flex justify-between gap-6',
+                    'py-6 border-gray-300 flex justify-between gap-6 group',
                     index !== sectionsToShow.length - 1 && 'border-b',
                   )}
                 >
-                  <div className="flex flex-col justify-center hover:text-[#D64100] transition-colors">
+                  <div className="flex flex-col justify-center group-hover:text-[#D64100] transition-colors">
                     <span className="rem:text-[22px] rem:leading-[27px] sm:rem:text-[36px] sm:rem:leading-[45px]">
                       {section.title}
                     </span>
@@ -84,7 +85,7 @@ export const CourseOverview = ({
                 </li>
               )
             })}
-            {!opened && (
+            {showMore && (
               <button
                 onClick={() => setOpened(true)}
                 className="p-4 mt-5 border border-gray-300 rounded-full text-[20px] leading-[28px] hover:bg-gray-200 transition-colors"
