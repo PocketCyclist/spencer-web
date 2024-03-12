@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_component_faq_items",
+  "info": {
+    "displayName": "FAQItem",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "answer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

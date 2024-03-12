@@ -73,7 +73,10 @@
       "components": [
         "block.course-overview",
         "block.mega-cymbal",
-        "block.about-slider"
+        "block.about-slider",
+        "block.reviews",
+        "block.image-cta",
+        "block.faq"
       ],
       "required": true
     }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_block_reviews",
+  "info": {
+    "displayName": "Reviews",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.review-item",
+      "required": true
+    }
+  }
+}

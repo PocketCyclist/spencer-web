@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_component_review_items",
+  "info": {
+    "displayName": "ReviewItem",
+    "icon": "twitter"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "coverImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

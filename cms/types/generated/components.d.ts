@@ -86,6 +86,31 @@ export interface BlockEvent extends Schema.Component {
   };
 }
 
+export interface BlockFaq extends Schema.Component {
+  collectionName: 'components_block_faqs';
+  info: {
+    displayName: 'FAQ';
+    icon: 'question';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'component.faq-item', true> & Attribute.Required;
+  };
+}
+
+export interface BlockImageCta extends Schema.Component {
+  collectionName: 'components_block_image_ctas';
+  info: {
+    displayName: 'ImageCTA';
+    icon: 'cursor';
+  };
+  attributes: {
+    text: Attribute.Text & Attribute.Required;
+    buyText: Attribute.String & Attribute.Required;
+    coverImage: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface BlockLogoHero extends Schema.Component {
   collectionName: 'components_block_logo_heroes';
   info: {
@@ -119,6 +144,19 @@ export interface BlockQuote extends Schema.Component {
   attributes: {
     text: Attribute.Text & Attribute.Required;
     author: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface BlockReviews extends Schema.Component {
+  collectionName: 'components_block_reviews';
+  info: {
+    displayName: 'Reviews';
+    icon: 'star';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    reviews: Attribute.Component<'component.review-item', true> &
+      Attribute.Required;
   };
 }
 
@@ -160,6 +198,18 @@ export interface ComponentCourseSection extends Schema.Component {
   };
 }
 
+export interface ComponentFaqItem extends Schema.Component {
+  collectionName: 'components_component_faq_items';
+  info: {
+    displayName: 'FAQItem';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface ComponentImage extends Schema.Component {
   collectionName: 'components_component_images';
   info: {
@@ -182,6 +232,19 @@ export interface ComponentLink extends Schema.Component {
     url: Attribute.String & Attribute.Required;
     label: Attribute.String & Attribute.Required;
     icon: Attribute.Media;
+  };
+}
+
+export interface ComponentReviewItem extends Schema.Component {
+  collectionName: 'components_component_review_items';
+  info: {
+    displayName: 'ReviewItem';
+    icon: 'twitter';
+  };
+  attributes: {
+    text: Attribute.Text & Attribute.Required;
+    author: Attribute.String & Attribute.Required;
+    coverImage: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -236,14 +299,19 @@ declare module '@strapi/types' {
       'block.course-overview': BlockCourseOverview;
       'block.cymbal': BlockCymbal;
       'block.event': BlockEvent;
+      'block.faq': BlockFaq;
+      'block.image-cta': BlockImageCta;
       'block.logo-hero': BlockLogoHero;
       'block.mega-cymbal': BlockMegaCymbal;
       'block.quote': BlockQuote;
+      'block.reviews': BlockReviews;
       'block.video': BlockVideo;
       'component.about-slider-item': ComponentAboutSliderItem;
       'component.course-section': ComponentCourseSection;
+      'component.faq-item': ComponentFaqItem;
       'component.image': ComponentImage;
       'component.link': ComponentLink;
+      'component.review-item': ComponentReviewItem;
       'component.stat': ComponentStat;
       'component.video': ComponentVideo;
       'page.page-seo': PagePageSeo;
