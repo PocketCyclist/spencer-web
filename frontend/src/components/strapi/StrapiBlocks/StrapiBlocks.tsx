@@ -10,6 +10,7 @@ import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CourseOverview } from '@/components/strapi/blocks/CourseOverview/CourseOverview'
 import { MegaCymbal } from '@/components/strapi/blocks/MegaCymbal/MegaCymbal'
 import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
+import { AboutSlider } from '../blocks/AboutSlider/AboutSlider'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -78,10 +79,13 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
         return (
           <MegaCymbal heading={block.heading} description={block.description} />
         )
+      case 'block.about-slider':
+        return <AboutSlider slides={block.slides} />
       default:
         return (
           <div>
             Unsupported block: {(block as { __component: string }).__component}
+            {/*<pre>{JSON.stringify(block, null, 2)}</pre>*/}
           </div>
         )
     }
