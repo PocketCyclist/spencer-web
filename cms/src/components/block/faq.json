@@ -2,7 +2,8 @@
   "collectionName": "components_block_faqs",
   "info": {
     "displayName": "FAQ",
-    "icon": "question"
+    "icon": "question",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,6 +15,15 @@
       "type": "component",
       "repeatable": true,
       "component": "component.faq-item",
+      "required": true
+    },
+    "inititalItems": {
+      "type": "integer",
+      "required": true,
+      "default": 4
+    },
+    "moreText": {
+      "type": "string",
       "required": true
     }
   }

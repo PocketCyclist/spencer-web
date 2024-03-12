@@ -105,10 +105,15 @@ export interface BlockFaq extends Schema.Component {
   info: {
     displayName: 'FAQ';
     icon: 'question';
+    description: '';
   };
   attributes: {
     heading: Attribute.String & Attribute.Required;
     items: Attribute.Component<'component.faq-item', true> & Attribute.Required;
+    inititalItems: Attribute.Integer &
+      Attribute.Required &
+      Attribute.DefaultTo<4>;
+    moreText: Attribute.String & Attribute.Required;
   };
 }
 
