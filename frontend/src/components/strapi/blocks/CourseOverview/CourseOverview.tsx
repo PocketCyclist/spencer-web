@@ -90,7 +90,10 @@ export const CourseOverview = ({
                 onClick={() => setOpened(true)}
                 className="mt-5 rounded-full border border-gray-300 p-4 text-[20px] leading-[28px] transition-colors hover:bg-gray-200"
               >
-                {moreText}
+                {moreText.replace(
+                  '%itemsLeft',
+                  (sections.length - sectionsToShow.length).toString(),
+                )}
               </button>
             )}
           </ul>

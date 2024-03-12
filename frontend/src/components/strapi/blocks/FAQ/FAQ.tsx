@@ -49,7 +49,10 @@ export const FAQ = ({
               onClick={() => setOpened(true)}
               className="mt-5 rounded-full border border-gray-300 p-4 text-[20px] leading-[28px] transition-colors hover:text-[#D64100]"
             >
-              {moreText}
+              {moreText.replace(
+                '%itemsLeft',
+                (items.length - itemsToShow.length).toString(),
+              )}
             </button>
           )}
         </ul>
