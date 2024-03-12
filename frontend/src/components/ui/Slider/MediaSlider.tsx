@@ -21,7 +21,12 @@ export const MediaSlider = ({
             return (
               <SliderSlide key={index}>
                 <div className="h-full w-full">
-                  <Image {...imageAttrs} className="object-cover" fill />
+                  <Image
+                    src={imageAttrs.src}
+                    alt={imageAttrs.alt}
+                    className="object-cover"
+                    fill
+                  />
                 </div>
               </SliderSlide>
             )
@@ -31,7 +36,12 @@ export const MediaSlider = ({
             return (
               <SliderSlide key={index}>
                 <div className="relative h-full w-full">
-                  <Image {...previewAttrs} className="object-cover" fill />
+                  <Image
+                    src={previewAttrs.src}
+                    alt={previewAttrs.alt}
+                    className="object-cover"
+                    fill
+                  />
                   <VideoDialog
                     src={item.url}
                     trigger={
