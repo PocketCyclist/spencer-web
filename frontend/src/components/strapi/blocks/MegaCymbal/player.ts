@@ -1,16 +1,3 @@
-export type TKey = 'a' | 's' | 'd' | 'f' | 'g' | 'h' | 'j' | 'k' | 'l'
-export const keyMap: Record<TKey | string, TNote | undefined> = {
-  a: 'c3',
-  s: 'c4',
-  d: 'c5',
-  f: 'd3',
-  g: 'd4',
-  h: 'f3',
-  j: 'f4',
-  k: 'g3',
-  l: 'g4',
-}
-
 export const notes = {
   c3: '/handpan/samples/C3.mp3',
   c4: '/handpan/samples/C4.mp3',
