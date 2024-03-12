@@ -28,6 +28,20 @@ export interface BlockAbout extends Schema.Component {
   };
 }
 
+export interface BlockAnimatedHero extends Schema.Component {
+  collectionName: 'components_block_animated_heroes';
+  info: {
+    displayName: 'AnimatedHero';
+    icon: 'expand';
+  };
+  attributes: {
+    buyUrl: Attribute.String & Attribute.Required;
+    title: Attribute.Text & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    buyText: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface BlockBigEvent extends Schema.Component {
   collectionName: 'components_block_big_events';
   info: {
@@ -297,6 +311,7 @@ declare module '@strapi/types' {
     export interface Components {
       'block.about-slider': BlockAboutSlider;
       'block.about': BlockAbout;
+      'block.animated-hero': BlockAnimatedHero;
       'block.big-event': BlockBigEvent;
       'block.course-overview': BlockCourseOverview;
       'block.cymbal': BlockCymbal;

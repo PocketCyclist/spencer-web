@@ -870,34 +870,6 @@ export interface ApiCoursePromoPageCoursePromoPage extends Schema.SingleType {
     };
   };
   attributes: {
-    buyUrl: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroTitle: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroSubtitle: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    buyText: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     seo: Attribute.Component<'page.page-seo'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{

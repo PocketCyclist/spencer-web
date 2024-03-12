@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_block_animated_heroes",
+  "info": {
+    "displayName": "AnimatedHero",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "buyUrl": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "buyText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
