@@ -16,7 +16,7 @@ export const Reviews = ({
       <h5 className="mb-10 px-4 rem:text-[40px] rem:leading-[48px] sm:px-18 md:mb-18 lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h5>
-      <Marquee pauseOnClick pauseOnHover className="bordered-marquee">
+      <Marquee pauseOnClick pauseOnHover delay={2} className="bordered-marquee">
         {/*<div className="w-4 sm:w-18" />*/}
         {reviews.map((review) => {
           const imageAttrs = extractImageAttrs(review.coverImage)
