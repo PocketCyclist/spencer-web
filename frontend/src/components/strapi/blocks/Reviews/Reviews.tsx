@@ -27,20 +27,18 @@ export const Reviews = ({
                 'flex h-full w-full flex-col px-16 rem:max-w-[450px] lg:rem:max-w-[614px]',
               )}
             >
-              <div>
-                <Image
-                  src={imageAttrs.src}
-                  alt={imageAttrs.alt}
-                  width={240}
-                  height={240}
-                />
-                <p className="mb-4 mt-8 rem:text-[30px] rem:leading-[37px] lg:rem:text-[36px] lg:rem:leading-[44px]">
-                  {review.text}
-                </p>
-                <div className="rem:text-[20px] rem:leading-[25.1px]">
-                  {review.author}
-                </div>
-              </div>
+              <Image
+                src={imageAttrs.src}
+                alt={imageAttrs.alt}
+                width={240}
+                height={240}
+              />
+              <p className="mb-4 mt-8 rem:text-[30px] rem:leading-[37px] lg:rem:text-[36px] lg:rem:leading-[44px]">
+                {review.text}
+              </p>
+              <p className="rem:text-[20px] rem:leading-[25.1px]">
+                {review.author}
+              </p>
             </div>
           )
         })}
