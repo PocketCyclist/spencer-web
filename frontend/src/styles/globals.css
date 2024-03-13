@@ -52,3 +52,13 @@ textarea {
 .box-shadow {
   box-shadow: 0px 12px 28px 0px #00000029;
 }
+
+.bordered-marquee .rfm-initial-child-container,
+.bordered-marquee .rfm-marquee {
+  align-items: stretch;
+}
+
+.bordered-marquee .rfm-child {
+  height: 100%;
+  border-right: solid black 1px;
+}

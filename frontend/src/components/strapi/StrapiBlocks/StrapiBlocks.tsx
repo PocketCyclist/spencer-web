@@ -13,6 +13,7 @@ import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
 import { AboutSlider } from '../blocks/AboutSlider/AboutSlider'
 import { FAQ } from '@/components/strapi/blocks/FAQ/FAQ'
 import { ImageCTA } from '@/components/strapi/blocks/ImageCTA/ImageCTA'
+import { Reviews } from '@/components/strapi/blocks/Reviews/Reviews'
 
 export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
   return blocks.map((block) => {
@@ -102,6 +103,8 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
             buyUrl={block.buyUrl}
           />
         )
+      case 'block.reviews':
+        return <Reviews heading={block.heading} reviews={block.reviews} />
       default:
         return (
           <div>
