@@ -1,6 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { BuyCircleIcon } from '@/icons'
+import { useState } from 'react'
+import { useIsServer } from '@/data/strapi/utils/isServer'
+import { cn } from '@/lib/cn'
 
 export const CourseHero = ({
   buyUrl,
@@ -13,33 +18,46 @@ export const CourseHero = ({
   buyUrl: string
   buyText: string
 }) => {
+  const isServer = useIsServer()
   return (
     <section className="relative flex h-screen flex-col bg-[#FFF1E7]">
       <div className="absolute bottom-0 left-0 right-0 top-0 overflow-hidden">
         <Image
           src="/images/course-hero/top-left.png"
-          className="absolute -left-32 top-[5vh] scale-75 xl:scale-75 2xl:left-[3vw] 2xl:scale-100"
+          className={cn(
+            'absolute -left-32 top-[5vh] scale-75 transition-all xl:scale-75 2xl:left-[3vw] 2xl:scale-100',
+            isServer && 'translate-x-[-200%]',
+          )}
           alt="Capture the synergy of music in this image featuring two artists in performance: Gerard mesmerizes with the handpan, while a woman accompanies him on guitar, her voice filling the air with melody. Witness the harmony of their collaboration as they create a captivating musical experience."
           width={337}
           height={245}
         />
         <Image
           src="/images/course-hero/top-right.png"
-          className="absolute right-[-120px] top-[-6rem] scale-[40%] xl:top-[20vh] xl:scale-75 2xl:right-[1vw] 2xl:scale-100"
+          className={cn(
+            'absolute right-[-120px] top-[-6rem] scale-[40%] transition-all xl:top-[20vh] xl:scale-75 2xl:right-[1vw] 2xl:scale-100',
+            isServer && 'translate-x-[200%]',
+          )}
           alt="Experience the magic of Gerard's performance with the handpan in this captivating image. His hands move with precision and passion, conjuring melodies that enchant and captivate the audience. Witness the fusion of skill and emotion as Gerard brings the handpan to life on stage."
           width={345}
           height={472}
         />
         <Image
           src="/images/course-hero/bottom-left.png"
-          className="absolute bottom-[-4vh] scale-75 rem:left-[-220px] xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100"
+          className={cn(
+            'absolute bottom-[-4vw] scale-75 transition-all rem:left-[-220px] xs:bottom-0 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
+            isServer && 'translate-x-[-200%]',
+          )}
           alt="Immerse yourself in the artistry of the handpan with this dynamic image capturing hands in motion, effortlessly coaxing out melodies. Dive deeper into the experience by exploring the interactive keys A-L on your keyboard."
           width={400}
           height={376}
         />
         <Image
           src="/images/course-hero/bottom-right.png"
-          className="absolute -bottom-8 scale-50 rem:right-[-230px] md:-right-20 md:rem:bottom-[-230px] xl:right-[7vw] xl:scale-75 2xl:scale-100"
+          className={cn(
+            'absolute -bottom-8 scale-50 transition-all rem:right-[-230px] md:-right-20 md:rem:bottom-[-230px] xl:right-[7vw] xl:scale-75 2xl:scale-100',
+            isServer && 'translate-x-[200%]',
+          )}
           alt="The image shows a handpan, a unique and captivating musical instrument resembling a large, inverted steel drum. Its distinctive shape is akin to a convex UFO with a central, shallow bowl and a series of dented tongues encircling it. Each tongue is meticulously crafted to produce different pitches when struck with the hands or fingers, creating a mesmerizing array of harmonious tones. The handpan's metallic surface reflects ambient light, casting subtle glimmers and shadows that accentuate its intricate design. Its overall appearance evokes a sense of mystique and enchantment, inviting viewers to explore its musical potential and artistic beauty."
           width={460}
           height={460}
