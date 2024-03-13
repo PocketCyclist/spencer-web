@@ -5,8 +5,9 @@ import { cn } from '@/lib/cn'
 import Image from 'next/image'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { useState } from 'react'
-import Marquee from 'react-fast-marquee'
+import MarqueeComponent from 'react-fast-marquee'
 import useWindowDimensions from '@/data/strapi/utils/useWindowDimensions'
+import { useIsServer } from '@/data/strapi/utils/isServer'
 
 export const CourseOverview = ({
   title,
@@ -21,32 +22,39 @@ export const CourseOverview = ({
   moreText: string
   initialSections: number
 }) => {
+  const isServer = useIsServer()
+  const { width } = useWindowDimensions()
   const [opened, setOpened] = useState<boolean>(false)
   const sectionsToShow = opened ? sections : sections.slice(0, initialSections)
   const showMore = initialSections < sections.length && !opened
-  const { width } = useWindowDimensions()
-  const marqueeSpeed = typeof window === 'undefined' ? 0 : width > 1024 ? 0 : 50
+  const marqueeSpeed = isServer ? 0 : (width || 0) > 1024 ? 0 : 50
+  const Marquee = isServer
+    ? ('div' as unknown as typeof MarqueeComponent)
+    : MarqueeComponent
+  const marqueeProps = isServer
+    ? { className: 'flex opacity-100 overflow-hidden justify-between' }
+    : {
+        speed: marqueeSpeed,
+        pauseOnClick: true,
+        pauseOnHover: true,
+        className: 'stats-marquee',
+        delay: 1,
+      }
 
   return (
     <section>
       <div className="flex flex-col items-center">
-        <ul className="w-full max-w-[1728px] justify-between gap-4 border-b border-gray-300 px-6 py-12 sm:px-18">
-          <Marquee
-            speed={marqueeSpeed}
-            pauseOnClick
-            pauseOnHover
-            className="stats-marquee"
-            delay={1}
-          >
+        <ul className="w-full justify-between gap-4 border-b border-gray-300 py-12 rem:min-h-[151px] sm:rem:min-h-[170px] lg:px-18 lg:rem:min-h-[149px] lg:rem:max-w-[1728px] xl:rem:min-h-[170px]">
+          <Marquee {...marqueeProps}>
             {stats.map((stat) => (
               <li
                 key={stat.id}
                 className="flex flex-col items-center whitespace-nowrap px-7 lg:px-0"
               >
-                <span className="w-full leading-[30px] rem:text-[24px] sm:leading-[45px] sm:rem:text-[36px]">
+                <span className="w-full rem:text-[24px] rem:leading-[30px] sm:rem:text-[36px] sm:rem:leading-[45px]">
                   {stat.value}
                 </span>
-                <span className="w-full leading-[24px] rem:text-[18px] sm:leading-[28px] sm:rem:text-[20px]">
+                <span className="w-full rem:text-[18px] rem:leading-[24px] sm:rem:text-[20px] sm:rem:leading-[28px]">
                   {stat.label}
                 </span>
               </li>
