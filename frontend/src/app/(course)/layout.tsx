@@ -16,7 +16,7 @@ export default function CourseLayout({
   return (
     <html lang="en">
       <body
-        className={`${mulish.variable} ${oldStandardTT.variable} bg-white font-sans text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
+        className={`${mulish.variable} ${oldStandardTT.variable} bg-white font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >
         <main className="">{children}</main>
       </body>

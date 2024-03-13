@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${mulish.variable} ${oldStandardTT.variable} bg-background font-sans text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
+        className={`${mulish.variable} ${oldStandardTT.variable} bg-background font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >
         <Header />
         <main className="pt-mobile-header lg:pt-header">{children}</main>
