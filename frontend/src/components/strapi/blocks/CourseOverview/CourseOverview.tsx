@@ -5,6 +5,8 @@ import { cn } from '@/lib/cn'
 import Image from 'next/image'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { useState } from 'react'
+import Marquee from 'react-fast-marquee'
+import useWindowDimensions from '@/data/strapi/utils/useWindowDimensions'
 
 export const CourseOverview = ({
   title,
@@ -22,22 +24,34 @@ export const CourseOverview = ({
   const [opened, setOpened] = useState<boolean>(false)
   const sectionsToShow = opened ? sections : sections.slice(0, initialSections)
   const showMore = initialSections < sections.length && !opened
+  const { width } = useWindowDimensions()
+  const marqueeSpeed = typeof window === 'undefined' ? 0 : width > 1024 ? 0 : 50
 
   return (
     <section>
       <div className="flex flex-col items-center">
-        <ul className="grid w-full max-w-[1728px] grid-cols-2 justify-between gap-4 border-b border-gray-300 px-6 py-12 sm:px-18 md:gap-12 lg:flex lg:flex-row">
-          {stats.map((stat) => (
-            <li key={stat.id} className="">
-              <span className="leading-[30px] rem:text-[24px] sm:leading-[45px] sm:rem:text-[36px]">
-                {stat.value}
-              </span>
-              <br />
-              <span className="leading-[24px] rem:text-[18px] sm:leading-[28px] sm:rem:text-[20px]">
-                {stat.label}
-              </span>
-            </li>
-          ))}
+        <ul className="w-full max-w-[1728px] justify-between gap-4 border-b border-gray-300 px-6 py-12 sm:px-18">
+          <Marquee
+            speed={marqueeSpeed}
+            pauseOnClick
+            pauseOnHover
+            className="stats-marquee"
+            delay={1}
+          >
+            {stats.map((stat) => (
+              <li
+                key={stat.id}
+                className="flex flex-col items-center whitespace-nowrap px-7 lg:px-0"
+              >
+                <span className="w-full leading-[30px] rem:text-[24px] sm:leading-[45px] sm:rem:text-[36px]">
+                  {stat.value}
+                </span>
+                <span className="w-full leading-[24px] rem:text-[18px] sm:leading-[28px] sm:rem:text-[20px]">
+                  {stat.label}
+                </span>
+              </li>
+            ))}
+          </Marquee>
         </ul>
         <div className="grid w-full max-w-[1728px] gap-6 px-6 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
           <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">

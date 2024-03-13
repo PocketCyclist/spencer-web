@@ -61,3 +61,16 @@ textarea {
 .bordered-marquee .rfm-child {
   border-right: solid black 1px;
 }
+
+@media (min-width: 1024px) {
+  .stats-marquee .rfm-initial-child-container,
+  .stats-marquee > .rfm-marquee {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+
+.stats-marquee .rfm-child {
+  display: flex;
+}
