@@ -26,15 +26,15 @@ export const ImageCTA = ({
           <Link
             href={buyUrl}
             className={
-              'relative mt-12 flex flex-col items-center justify-center sm:mt-4'
+              'relative mx-auto mt-4 flex flex-col items-center justify-center sm:mt-12'
             }
           >
             <BuyCircleIcon
-              className="rotate text-[#FFC441]"
+              className="rotate text-[#FFC441] rem:h-[104px] rem:w-[104px] md:rem:h-[196px] md:rem:w-[196px]"
               height={196}
               width={196}
             />
-            <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center font-extrabold text-[#D64100] rem:text-[36px] rem:leading-[38px]  ">
+            <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center text-[19px] font-extrabold leading-[106%] text-[#D64100] md:rem:text-[36px] md:rem:leading-[38px] ">
               <div className="max-w-[150px]">{buyText}</div>
             </div>
           </Link>
