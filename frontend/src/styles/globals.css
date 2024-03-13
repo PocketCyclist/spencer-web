@@ -59,6 +59,5 @@ textarea {
 }
 
 .bordered-marquee .rfm-child {
-  height: 100%;
   border-right: solid black 1px;
 }
