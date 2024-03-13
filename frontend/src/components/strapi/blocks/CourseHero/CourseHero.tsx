@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CapaIcon } from '@/icons'
+import { BuyCircleIcon } from '@/icons'
 
 export const CourseHero = ({
   buyUrl,
@@ -43,7 +43,11 @@ export const CourseHero = ({
               'relative mt-12 flex flex-col items-center justify-center sm:mt-4'
             }
           >
-            <CapaIcon className="text-[#FFC441]" height={196} width={196} />
+            <BuyCircleIcon
+              className="rotate text-[#FFC441]"
+              height={196}
+              width={196}
+            />
             <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center font-extrabold text-[#D64100] rem:text-[36px] rem:leading-[38px]  ">
               <div className="max-w-[150px]">{buyText}</div>
             </div>

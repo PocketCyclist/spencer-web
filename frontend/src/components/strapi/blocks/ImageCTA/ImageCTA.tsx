@@ -1,6 +1,6 @@
 import { TStrapiImageField } from '@/data/strapi/types/common/api'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { CapaIcon } from '@/icons'
+import { BuyCircleIcon, CapaIcon } from '@/icons'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -29,7 +29,11 @@ export const ImageCTA = ({
               'relative mt-12 flex flex-col items-center justify-center sm:mt-4'
             }
           >
-            <CapaIcon className="text-[#FFC441]" height={196} width={196} />
+            <BuyCircleIcon
+              className="rotate text-[#FFC441]"
+              height={196}
+              width={196}
+            />
             <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center font-extrabold text-[#D64100] rem:text-[36px] rem:leading-[38px]  ">
               <div className="max-w-[150px]">{buyText}</div>
             </div>

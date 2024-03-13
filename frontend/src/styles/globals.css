@@ -70,7 +70,19 @@ textarea {
   }
 }
 
-
 .stats-marquee .rfm-child {
   display: flex;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 10s linear infinite;
 }
