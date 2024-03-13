@@ -11,9 +11,9 @@ export const MegaCymbal = ({
 }) => {
   return (
     <section className="flex flex-col items-center gap-8 bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-24 lg:pt-20">
-      <h3 className="max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
+      <h2 className="max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
-      </h3>
+      </h2>
       <div className="relative z-0 grid w-full grid-cols-3 grid-rows-3 items-center justify-center md:h-[748px] md:w-[748px]">
         <Image
           className="col-span-3 col-start-1 row-span-3 row-start-1 object-contain"
@@ -45,9 +45,9 @@ export const MegaCymbal = ({
           className="z-10 col-start-3 row-start-3 items-start justify-start"
         />
       </div>
-      <h4 className="max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
+      <h3 className="max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
         {description}
-      </h4>
+      </h3>
       <KeyboardPlayer />
     </section>
   )

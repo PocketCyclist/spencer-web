@@ -22,9 +22,9 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
           />
         </div>
         <div className="self-center">
-          <h4 className="mb-6 mt-12 flex items-end rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
+          <h2 className="mb-6 mt-12 flex items-end rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
             {slide.heading}
-          </h4>
+          </h2>
           <p className="mb-12 rem:text-[22px] rem:leading-[28px] lg:rem:text-[36px] lg:rem:leading-[45px] xl:mb-16">
             {slide.description}
           </p>

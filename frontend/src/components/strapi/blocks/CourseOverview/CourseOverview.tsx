@@ -62,9 +62,9 @@ export const CourseOverview = ({
           </Marquee>
         </ul>
         <div className="grid w-full max-w-[1728px] gap-6 px-6 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
-          <div className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
+          <h2 className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}
-          </div>
+          </h2>
           <ul className="flex flex-col xl:col-span-2">
             {sectionsToShow.map((section, index) => {
               const media =

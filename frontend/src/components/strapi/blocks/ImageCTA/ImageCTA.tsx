@@ -20,9 +20,9 @@ export const ImageCTA = ({
     <section className="flex flex-col items-center px-4 py-12 pb-4 sm:px-18 sm:pb-12">
       <div className="grid max-w-[1728px] bg-[#0C4876] text-[#FFF1E7] lg:grid-cols-2">
         <div className="flex flex-col gap-8 px-4 py-12 text-center lg:px-12 lg:py-18">
-          <h5 className="rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
+          <h3 className="rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
             {text}
-          </h5>
+          </h3>
           <Link
             href={buyUrl}
             className={
