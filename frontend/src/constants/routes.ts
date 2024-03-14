@@ -24,7 +24,7 @@ export const routesMap = {
     title: 'News',
   },
   myCourse: {
-    url: '/online-course',
+    url: '/learn-handpan',
     title: 'My course',
   },
   contact: {
@@ -32,7 +32,7 @@ export const routesMap = {
     title: 'Contact',
   },
   handpanAcademy: {
-    url: '/handpan-academy',
+    url: 'https://handpanharmony.com',
     title: 'Handpan Academy',
   },
 } as const
