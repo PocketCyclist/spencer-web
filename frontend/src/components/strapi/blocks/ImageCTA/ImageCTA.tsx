@@ -17,7 +17,7 @@ export const ImageCTA = ({
 }) => {
   const imageAttrs = extractImageAttrs(coverImage)
   return (
-    <section className="flex flex-col items-center px-4 py-12 pb-4 sm:pb-12 lg:px-18">
+    <section className="flex flex-col items-center px-4 py-4 pb-4 sm:py-12 lg:px-18">
       <div className="grid max-w-[1728px] overflow-hidden rounded-lg bg-[#0C4876] text-[#FFF1E7] lg:grid-cols-2">
         <div className="flex flex-col gap-8 px-4 py-12 text-center lg:px-12 lg:py-18">
           <h3 className="rem:text-[40px] rem:leading-[49px] md:mt-0 lg:rem:text-[64px] lg:rem:leading-[79px]">
