@@ -10,7 +10,7 @@ export const MegaCymbal = ({
   description: string
 }) => {
   return (
-    <section className="flex flex-col items-center gap-8 bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-12 lg:pt-20">
+    <section className="flex flex-col items-center gap-8 overflow-hidden bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-12 lg:pt-20">
       <h2 className="z-10 max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h2>
