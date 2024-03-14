@@ -31,6 +31,7 @@ export const AboutSlider = ({ slides }: { slides: TStrapiAboutSlide[] }) => {
           <nav className="flex gap-4">
             {slides.map((slide, index) => (
               <button
+                aria-label={`Go to ${slide.heading}`}
                 key={slide.id}
                 onClick={() => setSlideIndex(index)}
                 disabled={index === slideIndex}

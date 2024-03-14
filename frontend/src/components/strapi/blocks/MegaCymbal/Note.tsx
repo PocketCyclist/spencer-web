@@ -42,6 +42,7 @@ export const Note = ({
       )}
     >
       <button
+        aria-label={`Play ${note.toUpperCase()}`}
         className={cn(
           `flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#EEE5DB80] transition-all sm:h-[86px] sm:w-[86px]`,
           pulsing && 'pinged',

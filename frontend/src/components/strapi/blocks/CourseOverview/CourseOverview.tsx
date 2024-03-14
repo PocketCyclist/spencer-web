@@ -44,10 +44,10 @@ export const CourseOverview = ({
   return (
     <section>
       <div className="flex flex-col items-center">
-        <ul className="w-full justify-between gap-4 border-b border-gray-300 py-12 rem:min-h-[151px] sm:rem:min-h-[170px] lg:px-18 lg:rem:min-h-[149px] lg:rem:max-w-[1728px] xl:rem:min-h-[170px]">
+        <div className="w-full justify-between gap-4 border-b border-gray-300 py-12 rem:min-h-[151px] sm:rem:min-h-[170px] lg:px-18 lg:rem:min-h-[149px] lg:rem:max-w-[1728px] xl:rem:min-h-[170px]">
           <Marquee {...marqueeProps}>
             {stats.map((stat) => (
-              <li
+              <p
                 key={stat.id}
                 className="flex flex-col items-center whitespace-nowrap px-7 lg:px-0"
               >
@@ -57,10 +57,10 @@ export const CourseOverview = ({
                 <span className="w-full rem:text-[18px] rem:leading-[24px] sm:rem:text-[20px] sm:rem:leading-[28px]">
                   {stat.label}
                 </span>
-              </li>
+              </p>
             ))}
           </Marquee>
-        </ul>
+        </div>
         <div className="grid w-full max-w-[1728px] gap-6 px-4 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
           <h2 className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}

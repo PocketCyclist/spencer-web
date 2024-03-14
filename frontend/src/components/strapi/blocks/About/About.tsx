@@ -48,7 +48,7 @@ export const About = ({
           </div>
           <div className="py-16 lg:py-12 lg:rem:max-w-[683px]">
             <Image
-              alt=""
+              alt="Quotation mark - the next text is a quote"
               className="mb-2 size-16 lg:rem:size-[100px]"
               src="/images/quote-left.png"
               width={100}
