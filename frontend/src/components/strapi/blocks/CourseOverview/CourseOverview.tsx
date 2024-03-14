@@ -61,7 +61,7 @@ export const CourseOverview = ({
             ))}
           </Marquee>
         </div>
-        <div className="grid w-full max-w-[1728px] gap-6 px-4 py-12 sm:px-18 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
+        <div className="grid w-full max-w-[1728px] gap-6 px-4 py-12 lg:grid-cols-2 lg:gap-16 lg:px-18 xl:grid-cols-3">
           <h2 className="font-serif rem:text-[40px] rem:leading-[49px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79px]">
             {title}
           </h2>

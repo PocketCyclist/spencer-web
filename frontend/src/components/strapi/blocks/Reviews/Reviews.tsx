@@ -13,7 +13,7 @@ export const Reviews = ({
 }) => {
   return (
     <section className="bg-[#FFC441] py-12">
-      <h2 className="mb-10 px-4 rem:text-[40px] rem:leading-[48px] sm:px-18 md:mb-18 lg:rem:text-[64px] lg:rem:leading-[79px]">
+      <h2 className="mb-10 px-4 rem:text-[40px] rem:leading-[48px] md:mb-18 lg:px-18 lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h2>
       <Marquee pauseOnClick pauseOnHover delay={2} className="bordered-marquee">
