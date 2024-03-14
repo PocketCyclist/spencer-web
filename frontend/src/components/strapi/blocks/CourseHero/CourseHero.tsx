@@ -25,8 +25,8 @@ export const CourseHero = ({
         <Image
           src="/images/course-hero/top-left.png"
           className={cn(
-            'absolute -left-32 top-[5vh] scale-75 transition-all xl:scale-75 2xl:left-[3vw] 2xl:scale-100',
-            isServer && 'translate-x-[-200%]',
+            'absolute -left-32 top-[5vh] scale-75 transition-all duration-1500 ease-in-out xl:scale-75 2xl:left-[3vw] 2xl:scale-100',
+            isServer && 'translate-x-[-120%] translate-y-[-75%] opacity-0',
           )}
           alt="Capture the synergy of music in this image featuring two artists in performance: Gerard mesmerizes with the handpan, while a woman accompanies him on guitar, her voice filling the air with melody. Witness the harmony of their collaboration as they create a captivating musical experience."
           width={337}
@@ -35,8 +35,8 @@ export const CourseHero = ({
         <Image
           src="/images/course-hero/top-right.png"
           className={cn(
-            'absolute right-[-120px] top-[-6rem] scale-[40%] transition-all xl:top-[20vh] xl:scale-75 2xl:right-[1vw] 2xl:scale-100',
-            isServer && 'translate-x-[200%]',
+            'absolute right-[-120px] top-[-6rem] scale-[40%] transition-all duration-1500 ease-in-out xl:top-[20vh] xl:scale-75 2xl:right-[1vw] 2xl:scale-100',
+            isServer && 'translate-x-[150%] translate-y-[-75%] opacity-0',
           )}
           alt="Experience the magic of Gerard's performance with the handpan in this captivating image. His hands move with precision and passion, conjuring melodies that enchant and captivate the audience. Witness the fusion of skill and emotion as Gerard brings the handpan to life on stage."
           width={345}
@@ -45,8 +45,8 @@ export const CourseHero = ({
         <Image
           src="/images/course-hero/bottom-left.png"
           className={cn(
-            'absolute bottom-[-4vw] scale-75 transition-all rem:left-[-220px] xs:bottom-0 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
-            isServer && 'translate-x-[-200%]',
+            'absolute bottom-[-4vw] scale-75 transition-all duration-1500 ease-in-out rem:left-[-220px] xs:bottom-8 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
+            isServer && 'translate-x-[-100%] opacity-0',
           )}
           alt="Immerse yourself in the artistry of the handpan with this dynamic image capturing hands in motion, effortlessly coaxing out melodies. Dive deeper into the experience by exploring the interactive keys A-L on your keyboard."
           width={400}
@@ -55,8 +55,8 @@ export const CourseHero = ({
         <Image
           src="/images/course-hero/bottom-right.png"
           className={cn(
-            'absolute -bottom-8 scale-50 transition-all rem:right-[-230px] md:-right-20 md:rem:bottom-[-230px] xl:right-[7vw] xl:scale-75 2xl:scale-100',
-            isServer && 'translate-x-[200%]',
+            'absolute -bottom-8 scale-50 transition-all duration-1500 ease-in-out rem:right-[-230px] md:-right-20 md:rem:bottom-[-230px] xl:right-[7vw] xl:scale-75 2xl:scale-100',
+            isServer && 'translate-y-[100%] opacity-0',
           )}
           alt="The image shows a handpan, a unique and captivating musical instrument resembling a large, inverted steel drum. Its distinctive shape is akin to a convex UFO with a central, shallow bowl and a series of dented tongues encircling it. Each tongue is meticulously crafted to produce different pitches when struck with the hands or fingers, creating a mesmerizing array of harmonious tones. The handpan's metallic surface reflects ambient light, casting subtle glimmers and shadows that accentuate its intricate design. Its overall appearance evokes a sense of mystique and enchantment, inviting viewers to explore its musical potential and artistic beauty."
           width={460}

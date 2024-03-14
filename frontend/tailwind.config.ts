@@ -49,6 +49,10 @@ const config: Config = {
       ],
     },
     extend: {
+      transitionDuration: {
+        '1500': '1500ms',
+        '2000': '2000ms',
+      },
       colors: {
         background: 'rgb(var(--background) / <alpha-value>)',
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
