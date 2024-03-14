@@ -84,6 +84,7 @@ export const CourseHero = ({
           </h2>
           <Link
             href={buyUrl}
+            title={buyText}
             className={
               'relative mx-auto flex flex-col items-center justify-center md:mt-12'
             }

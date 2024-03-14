@@ -25,6 +25,7 @@ export const ImageCTA = ({
           </h3>
           <Link
             href={buyUrl}
+            title={buyText}
             className={
               'relative mx-auto mt-4 flex flex-col items-center justify-center sm:mt-12'
             }

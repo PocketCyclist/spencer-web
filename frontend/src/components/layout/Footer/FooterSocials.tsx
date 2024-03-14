@@ -23,6 +23,7 @@ export const FooterSocials = async () => {
               <a
                 className="flex items-center justify-center"
                 href={item.url}
+                title={item.label}
                 target="_blank"
                 rel="noopener noreferrer"
               >
