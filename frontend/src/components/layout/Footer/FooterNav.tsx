@@ -12,7 +12,7 @@ const ITEMS = [
   routesMap.events,
   routesMap.news,
   routesMap.myCourse,
-  routesMap.contact,
+  // routesMap.contact,
   routesMap.handpanAcademy,
 ]
 
