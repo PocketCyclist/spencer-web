@@ -8,7 +8,7 @@ type LogoHeroProps = {
 }
 
 export const LogoHero = ({ bgImage }: LogoHeroProps) => (
-  <section className="relative text-white rem:h-[500px] lg:rem:h-[600px] xl:rem:h-[800px]">
+  <section className="relative bg-gray-300 text-white rem:h-[500px] lg:rem:h-[600px] xl:rem:h-[800px]">
     <Image
       alt={bgImage.alt}
       className="object-cover object-[70%,100%] lg:object-center"
