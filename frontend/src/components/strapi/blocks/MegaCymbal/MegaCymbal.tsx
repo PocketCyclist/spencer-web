@@ -10,11 +10,12 @@ export const MegaCymbal = ({
   description: string
 }) => {
   return (
-    <section className="flex flex-col items-center gap-8 bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-24 lg:pt-20">
-      <h2 className="max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
+    <section className="flex flex-col items-center gap-8 bg-[#E0CFC5] px-4 py-12 text-center sm:px-18 lg:gap-12 lg:pt-20">
+      <h2 className="z-10 max-w-[1280px] rem:text-[40px] rem:leading-[48px] lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h2>
       <div className="relative z-0 grid w-full grid-cols-3 grid-rows-3 items-center justify-center md:h-[748px] md:w-[748px]">
+        <div className="absolute -bottom-20 -left-20 -right-20 -top-20 aspect-square rounded-full border border-[#BB6600] opacity-50 xl:-bottom-32 xl:-left-32 xl:-right-32 xl:-top-32" />
         <Image
           className="col-span-3 col-start-1 row-span-3 row-start-1 object-contain"
           src="/images/mega-handpan.png"
@@ -48,7 +49,7 @@ export const MegaCymbal = ({
           className="z-10 col-start-3 row-start-3 items-start justify-start !pl-0 pt-4"
         />
       </div>
-      <h3 className="max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
+      <h3 className="relative max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
         {description}
       </h3>
       <KeyboardPlayer />
