@@ -64,7 +64,7 @@ export const CourseHero = ({
         />
       </div>
       <div className={'relative flex justify-center p-4 sm:p-12'}>
-        <Link href="/">
+        <Link href="/" title="Home">
           <Image
             alt="Gerard Spencer - Handpan performances classes & wellbeing"
             src="/images/logo.png"
