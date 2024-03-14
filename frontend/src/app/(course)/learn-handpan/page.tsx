@@ -2,7 +2,6 @@ import { strapiGet } from '@/data/strapi/common'
 import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { Metadata, ResolvingMetadata } from 'next'
 import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
-import { CourseHero } from '@/components/strapi/blocks/CourseHero/CourseHero'
 import { TStrapiCoursePromoPage } from '@/data/strapi/types/course'
 
 const OnlineCourse = async () => {
