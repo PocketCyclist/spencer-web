@@ -18,22 +18,25 @@ export const MegaCymbal = ({
         <Image
           className="col-span-3 col-start-1 row-span-3 row-start-1 object-contain"
           src="/images/mega-handpan.png"
-          alt="The Handpan"
+          alt="The Handpan. Interactive with A-L and mouse"
           fill
         />
         <Note
           note="c3"
-          className="z-10 col-start-1 row-start-1 items-end justify-end"
+          className="z-10 col-start-1 row-start-1 items-end justify-end !pb-0"
         />
         <Note note="c4" className="z-10 col-start-2 row-start-1" />
         <Note
           note="c5"
-          className="z-10 col-start-3 row-start-1 items-end justify-start"
+          className="z-10 col-start-3 row-start-1 items-end justify-start !pb-0"
         />
 
-        <Note note="d3" className="z-10 col-start-1 row-start-2" />
+        <Note
+          note="d3"
+          className="z-10 col-start-1 row-start-2 items-end pb-6 md:pb-12"
+        />
         <Note note="d4" className="z-10 col-start-2 row-start-2" />
-        <Note note="f3" className="z-10 col-start-3 row-start-2" />
+        <Note note="f3" className="z-10 col-start-3 row-start-2 items-end" />
 
         <Note
           note="f4"
@@ -42,7 +45,7 @@ export const MegaCymbal = ({
         <Note note="g3" className="z-10 col-start-2 row-start-3" />
         <Note
           note="g4"
-          className="z-10 col-start-3 row-start-3 items-start justify-start"
+          className="z-10 col-start-3 row-start-3 items-start justify-start !pl-0 pt-4"
         />
       </div>
       <h3 className="max-w-[924px] leading-[28px] rem:text-[22px] lg:rem:text-[36px] lg:rem:leading-[45px]">
