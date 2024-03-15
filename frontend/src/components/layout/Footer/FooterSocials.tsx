@@ -12,9 +12,7 @@ export const FooterSocials = async () => {
 
   return (
     <div>
-      <h5 className="mb-4 font-serif text-footer-title font-bold">
-        {t('followMe')}
-      </h5>
+      <h5 className="mb-4 text-footer-title font-bold">{t('followMe')}</h5>
       {socials.length > 0 && (
         <ul className="-m-3">
           {socials.map((item) => (
