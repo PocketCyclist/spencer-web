@@ -24,7 +24,11 @@ export default function LocaleSwitcherSelect({
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value
     startTransition(() => {
-      return router.replace(pathname, { ...params, locale: nextLocale })
+      return router.replace(pathname, {
+        ...params,
+        locale: nextLocale,
+        scroll: false,
+      })
     })
   }
 
@@ -37,7 +41,7 @@ export default function LocaleSwitcherSelect({
     >
       <p className="sr-only">{label}</p>
       <select
-        className="inline-flex appearance-none bg-transparent py-3 pr-6"
+        className="inline-flex appearance-none bg-transparent py-3 pr-6 font-sans tracking-[-0.07em]"
         defaultValue={defaultValue}
         disabled={isPending}
         onChange={onSelectChange}
