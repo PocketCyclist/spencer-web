@@ -3,6 +3,8 @@ import { Footer } from '@/components/layout/Footer/Footer'
 import { mulish, oldStandardTT } from '@/lib/fonts'
 
 import '@/styles/globals.css'
+import { useTranslations } from 'next-intl'
+import { getTranslatedRoutes } from '@/constants/routes'
 
 export const metadata: Metadata = {
   title: 'The Gerard Spencer Project',
@@ -25,13 +27,16 @@ export default function CourseLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const t = useTranslations('routes')
+  const routes = getTranslatedRoutes(t)
+
   return (
     <html lang={locale}>
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-white font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >
         <main className="">{children}</main>
-        <Footer />
+        <Footer routes={routes} />
       </body>
     </html>
   )

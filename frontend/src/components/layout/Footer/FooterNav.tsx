@@ -1,22 +1,21 @@
 'use client'
 
-import { routesMap } from '@/constants/routes'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
+import { TRoutes } from '@/constants/routes'
 
-const ITEMS = [
-  routesMap.about,
-  routesMap.discography,
-  routesMap.musicProjects,
-  routesMap.events,
-  routesMap.news,
-  routesMap.myCourse,
-  // routesMap.contact,
-  routesMap.handpanAcademy,
-]
-
-export const FooterNav = () => {
+export const FooterNav = ({ routes }: { routes: TRoutes }) => {
+  const ITEMS = [
+    routes.about,
+    routes.discography,
+    routes.musicProjects,
+    routes.events,
+    routes.news,
+    routes.myCourse,
+    // routes.contact,
+    routes.handpanAcademy,
+  ]
   const pathname = usePathnameWithHash()
 
   return (

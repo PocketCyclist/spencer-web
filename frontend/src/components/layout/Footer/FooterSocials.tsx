@@ -2,8 +2,10 @@ import Image from 'next/image'
 import { strapiGet } from '@/data/strapi/common'
 import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { TStrapiFooter } from '@/data/strapi/types/footer'
+import { getTranslations } from 'next-intl/server'
 
 export const FooterSocials = async () => {
+  const t = await getTranslations('footer')
   const footerData =
     await strapiGet<TStrapiSingleResponse<TStrapiFooter>>('footer')
   const socials = footerData.attributes.socials
@@ -11,7 +13,7 @@ export const FooterSocials = async () => {
   return (
     <div>
       <h5 className="mb-4 font-serif text-footer-title font-bold">
-        Follow my music
+        {t('followMe')}
       </h5>
       {socials.length > 0 && (
         <ul className="-m-3">

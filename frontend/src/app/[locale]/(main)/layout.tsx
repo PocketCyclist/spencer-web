@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import { Header } from '@/components/layout/Header/Header'
 import { Footer } from '@/components/layout/Footer/Footer'
 import { mulish, oldStandardTT } from '@/lib/fonts'
+import { useTranslations } from 'next-intl'
+import { getTranslatedRoutes } from '@/constants/routes'
 
 import '@/styles/globals.css'
 
@@ -27,14 +29,17 @@ export default function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const t = useTranslations('routes')
+  const routes = getTranslatedRoutes(t)
+
   return (
     <html lang={locale}>
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-background font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >
-        <Header />
+        <Header routes={routes} />
         <main className="pt-mobile-header lg:pt-header">{children}</main>
-        <Footer />
+        <Footer routes={routes} />
       </body>
     </html>
   )

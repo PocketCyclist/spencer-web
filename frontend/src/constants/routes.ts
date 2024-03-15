@@ -36,3 +36,14 @@ export const routesMap = {
     title: 'Handpan Academy',
   },
 } as const
+
+export type TRoutes = typeof routesMap
+
+export const getTranslatedRoutes = (t: (k: string) => string): TRoutes => {
+  return Object.fromEntries(
+    Object.entries(routesMap).map(([key, route]) => [
+      key,
+      { url: route.url, title: t(key) },
+    ]),
+  ) as TRoutes
+}

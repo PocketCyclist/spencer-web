@@ -2,6 +2,20 @@
   "common": {
     "hello": "Hello french world!"
   },
+  "routes": {
+    "home": "Accueil",
+    "about": "À propos",
+    "discography": "Discographie",
+    "musicProjects": "Projets musicaux",
+    "events": "Événements",
+    "news": "Actualités",
+    "myCourse": "Mon cours",
+    "contact": "Contact",
+    "handpanAcademy": "Académie de handpan"
+  },
+  "footer": {
+    "followMe": "Suivez ma musique"
+  },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, fr {\uD83C\uDDEB\uD83C\uDDF7 French} en {🇺🇸 English} other {Unknown}}"

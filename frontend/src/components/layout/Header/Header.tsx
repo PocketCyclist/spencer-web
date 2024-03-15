@@ -3,22 +3,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { routesMap } from '@/constants/routes'
+import { TRoutes } from '@/constants/routes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
 
-const ITEMS = [
-  routesMap.home,
-  routesMap.about,
-  routesMap.discography,
-  routesMap.musicProjects,
-  routesMap.events,
-  routesMap.news,
-]
+export const Header = ({ routes }: { routes: TRoutes }) => {
+  const ITEMS = [
+    routes.home,
+    routes.about,
+    routes.discography,
+    routes.musicProjects,
+    routes.events,
+    routes.news,
+  ]
 
-export const Header = () => {
   const pathname = usePathnameWithHash()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isDesktopScreen = useMediaQuery('(min-width: 1024px)')
@@ -38,7 +38,7 @@ export const Header = () => {
   return (
     <header className="fixed left-0 top-0 z-10 h-mobile-header w-full bg-background lg:h-header">
       <div className="container flex h-full items-center justify-between gap-y-4">
-        <Link href="/" title="Home">
+        <Link href="/" title={routes.home.title}>
           <Image
             className="rem:w-[152px] lg:rem:w-[264px]"
             alt="Gerard Spencer - Handpan performances classes & wellbeing"
