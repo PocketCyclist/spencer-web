@@ -1,25 +1,39 @@
 import qs from 'qs'
+import { getLocale } from 'next-intl/server'
 
 export type TStrapiGetParams = {
   query?: Record<string, any>
   deepPopulate?: boolean
+  localized?: boolean
 }
+
+export type TStrapiQueryParams = {
+  locale?: 'en' | 'fr' | string
+  populate?: any
+} & Record<string, any>
+
 export type TStrapiResource = string
 
 export const strapiGet = async <T extends { data: any }>(
   resource: TStrapiResource,
-  { query, deepPopulate }: TStrapiGetParams = { query: {}, deepPopulate: true },
+  { query, deepPopulate, localized }: TStrapiGetParams = {
+    query: {},
+    deepPopulate: true,
+    localized: false,
+  },
 ): Promise<T['data']> => {
   const url = new URL(buildResourceUrl(resource))
-  url.search = qs.stringify({
+  const getQuery: TStrapiQueryParams = {
     ...(deepPopulate ? { populate: 'deep' } : {}),
+    ...(localized ? { locale: await getLocale() } : {}),
     ...query,
-  })
+  }
+  url.search = qs.stringify(getQuery)
 
   // console.log('params', url.toString())
 
   const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), 10000) // Set the timeout to 10 seconds (adjust as needed)
+  const timeoutId = setTimeout(() => controller.abort(), 10000)
 
   return fetch(url, {
     method: 'GET',
@@ -27,7 +41,7 @@ export const strapiGet = async <T extends { data: any }>(
       Authorization: `Bearer ${process.env.STRAPI_TOKEN as string}`,
       accept: 'application/json',
     },
-    signal: controller.signal, // Pass the signal option to the fetch call
+    signal: controller.signal,
     next: { revalidate: 1200 },
   })
     .then((response) => {
@@ -43,7 +57,10 @@ export const strapiGet = async <T extends { data: any }>(
       if (error.name === 'AbortError') {
         console.error('Request timed out:', error)
       } else {
-        console.error('Error:', error.message || 'An unknown error occurred')
+        console.error(
+          'LOOK ME UP FOR DEFAULT LOCALE RETRY Error:',
+          error.message || 'An unknown error occurred',
+        )
       }
       throw error
     })

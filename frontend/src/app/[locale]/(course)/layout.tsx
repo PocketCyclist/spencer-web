@@ -20,11 +20,14 @@ export const metadata: Metadata = {
 
 export default function CourseLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode
+  params: { locale: string }
 }) {
+  console.log('LAYOUT', locale)
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-white font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >

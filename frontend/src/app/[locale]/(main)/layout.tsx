@@ -22,11 +22,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode
+  params: { locale: string }
 }) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${mulish.variable} ${oldStandardTT.variable} bg-background font-sans tracking-[-0.07em] text-foreground antialiased rem:text-[20px] rem:leading-[25.1px]`}
       >

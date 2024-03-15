@@ -5,10 +5,9 @@ import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { TStrapiCoursePromoPage } from '@/data/strapi/types/course'
 
 const OnlineCourse = async () => {
-  const pageData =
-    await strapiGet<TStrapiSingleResponse<TStrapiCoursePromoPage>>(
-      'course-promo-page',
-    )
+  const pageData = await strapiGet<
+    TStrapiSingleResponse<TStrapiCoursePromoPage>
+  >('course-promo-page', { localized: true, deepPopulate: true })
   const blocks = pageData.attributes.blocks
 
   return (
