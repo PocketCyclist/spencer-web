@@ -25,7 +25,6 @@ export default function CourseLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  console.log('LAYOUT', locale)
   return (
     <html lang={locale}>
       <body

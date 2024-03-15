@@ -21,15 +21,8 @@ export default function LocaleSwitcherSelect({
   const pathname = usePathname()
   const params = useParams()
 
-  console.log({ pathname, params })
-
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value
-    console.log('SWITCHING TO', {
-      nextLocale,
-      href: { pathname, params },
-      router,
-    })
     startTransition(() => {
       return router.replace(pathname, { ...params, locale: nextLocale })
     })

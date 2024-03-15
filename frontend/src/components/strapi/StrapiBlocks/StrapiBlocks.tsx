@@ -85,7 +85,6 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
       case 'block.about-slider':
         return <AboutSlider slides={block.slides} />
       case 'block.faq':
-        // console.log('faqqqq', block)
         return (
           <FAQ
             title={block.heading}
