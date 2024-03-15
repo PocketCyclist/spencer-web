@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { FooterNav } from './FooterNav'
 import { FooterSocials } from './FooterSocials'
+import LocaleSwitcher from '@/components/common/LocaleSwitcher/LocaleSwitcher'
 
 export const Footer = () => (
   <footer>
@@ -18,6 +19,9 @@ export const Footer = () => (
       <div className="grid grid-cols-1 gap-y-14 lg:flex lg:justify-between lg:gap-x-6">
         <div className="lg:rem:basis-[300px]">
           <FooterNav />
+          <div className="mt-3">
+            <LocaleSwitcher />
+          </div>
         </div>
         <div className="lg:rem:basis-[300px]">{/*<FooterSubscribe />*/}</div>
         <div className="lg:text-right lg:rem:basis-[300px]">

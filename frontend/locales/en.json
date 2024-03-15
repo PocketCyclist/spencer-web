@@ -1,5 +1,9 @@
 {
   "common": {
     "hello": "Hello world!"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, fr { 🇫🇷 French} en {🇺🇸 English} other {Unknown}}"
   }
 }
