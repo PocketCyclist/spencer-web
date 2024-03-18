@@ -1,4 +1,4 @@
-import { strapiGet } from '@/data/strapi/common'
+import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
@@ -129,7 +129,7 @@ const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Event
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
+  return strapiGetAllLocales<TStrapiListResponse<TStrapiEvent>>('events', {
     query: {
       pagination: {
         pageSize: 100,
@@ -137,15 +137,17 @@ export const generateStaticParams = async () => {
     },
   }).then((events) =>
     events.map((event) => ({
-      slug: event.id.toString(),
+      slug: event.data.id.toString(),
+      locale: event.locale,
     })),
   )
 }
 
-export const generateMetadata = async (
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> => {
   const slug = params.slug
 
   const event = await strapiGet<TStrapiSingleResponse<TStrapiEvent>>(
@@ -158,7 +160,6 @@ export const generateMetadata = async (
   ).catch(() => notFound())
 
   return {
-    // ...((await parent) as Metadata),
     ...event.attributes.seo,
   }
 }

@@ -1,4 +1,4 @@
-import { strapiGet } from '@/data/strapi/common'
+import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
@@ -137,44 +137,25 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Project
 
 export const generateStaticParams = async () => {
-  return Promise.all([
-    strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
-      query: {
-        locale: 'en',
-        pagination: {
-          pageSize: 100,
-        },
+  return strapiGetAllLocales<TStrapiListResponse<TStrapiProject>>('projects', {
+    query: {
+      pagination: {
+        pageSize: 100,
       },
-      noLocalize: true,
-    }),
-    strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
-      query: {
-        locale: 'fr',
-        pagination: {
-          pageSize: 100,
-        },
-      },
-      noLocalize: true,
-    }),
-  ]).then(([projectsEn, projectsFr]) => {
-    const params = projectsEn.map((project) => ({
-      slug: project.id.toString(),
-      locale: 'en',
-    }))
-    params.push(
-      ...projectsFr.map((project) => ({
-        slug: project.id.toString(),
-        locale: 'fr',
-      })),
-    )
-    return params
-  })
+    },
+  }).then((projects) =>
+    projects.map((project) => ({
+      slug: project.data.id.toString(),
+      locale: project.locale,
+    })),
+  )
 }
 
-export const generateMetadata = async (
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> => {
   const slug = params.slug
   const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `projects/${slug}`,
@@ -182,7 +163,6 @@ export const generateMetadata = async (
   ).catch(() => notFound())
 
   return {
-    // ...((await parent) as Metadata),
     ...project.attributes.seo,
   }
 }

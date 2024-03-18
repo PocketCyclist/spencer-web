@@ -1,14 +1,12 @@
 import { PostCard } from '@/components/common/PostCard/PostCard'
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
-// import { Button } from '@/components/ui/Button/Button'
 import { MediaSlider } from '@/components/ui/Slider/MediaSlider'
-import { strapiGet } from '@/data/strapi/common'
+import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
 import { TStrapiPost } from '@/data/strapi/types/posts'
-// import { ArrowRightSmallIcon } from '@/icons'
 import { notFound } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiProject } from '@/data/strapi/types/projects'
@@ -87,7 +85,7 @@ const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Post
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+  return strapiGetAllLocales<TStrapiListResponse<TStrapiPost>>('posts', {
     query: {
       pagination: {
         pageSize: 100,
@@ -95,7 +93,8 @@ export const generateStaticParams = async () => {
     },
   }).then((posts) =>
     posts.map((post) => ({
-      slug: post.id.toString(),
+      slug: post.data.id.toString(),
+      locale: post.locale,
     })),
   )
 }

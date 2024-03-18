@@ -1,6 +1,6 @@
 import qs from 'qs'
 import { getLocale } from 'next-intl/server'
-import { defaultLocale } from '@/navigation'
+import { defaultLocale, locales, TLocales } from '@/navigation'
 
 export type TStrapiGetParams = {
   query?: Record<string, any>
@@ -92,6 +92,38 @@ export const strapiGet = async <T extends { data: any }>(
       }
       throw error
     })
+}
+
+export const strapiGetAllLocales = async <T extends { data: any[] }>(
+  resource: TStrapiResource,
+  { query, deepPopulate }: TStrapiGetParams = {},
+) => {
+  return Promise.all(
+    locales.map((locale) =>
+      strapiGet<T>(resource, {
+        query: {
+          locale,
+          ...query,
+        },
+        deepPopulate,
+        noLocalize: true,
+      }),
+    ),
+  )
+    .then((byLocale) => {
+      const merged: { locale: TLocales; data: T['data'][0] }[] = []
+      byLocale.forEach((records, index) => {
+        const locale = locales[index]
+        records.forEach((r) =>
+          merged.push({
+            locale,
+            data: r,
+          }),
+        )
+      })
+      return merged
+    })
+    .then((r) => r)
 }
 
 const buildResourceUrl = (resource: TStrapiResource) =>
