@@ -137,17 +137,38 @@ const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Project
 
 export const generateStaticParams = async () => {
-  return strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
-    query: {
-      pagination: {
-        pageSize: 100,
+  return Promise.all([
+    strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
+      query: {
+        locale: 'en',
+        pagination: {
+          pageSize: 100,
+        },
       },
-    },
-  }).then((projects) =>
-    projects.map((project) => ({
+      noLocalize: true,
+    }),
+    strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
+      query: {
+        locale: 'fr',
+        pagination: {
+          pageSize: 100,
+        },
+      },
+      noLocalize: true,
+    }),
+  ]).then(([projectsEn, projectsFr]) => {
+    const params = projectsEn.map((project) => ({
       slug: project.id.toString(),
-    })),
-  )
+      locale: 'en',
+    }))
+    params.push(
+      ...projectsFr.map((project) => ({
+        slug: project.id.toString(),
+        locale: 'fr',
+      })),
+    )
+    return params
+  })
 }
 
 export const generateMetadata = async (

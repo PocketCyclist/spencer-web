@@ -7,7 +7,7 @@ import { TStrapiCoursePromoPage } from '@/data/strapi/types/course'
 const OnlineCourse = async () => {
   const pageData = await strapiGet<
     TStrapiSingleResponse<TStrapiCoursePromoPage>
-  >('course-promo-page', { localized: true, deepPopulate: true })
+  >('course-promo-page', { deepPopulate: true })
   const blocks = pageData.attributes.blocks
 
   return (

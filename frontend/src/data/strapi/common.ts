@@ -7,6 +7,7 @@ export type TStrapiGetParams = {
   deepPopulate?: boolean
   /** @deprecated will be default=true*/
   localized?: boolean
+  noLocalize?: boolean
 }
 
 export type TStrapiQueryParams = {
@@ -18,13 +19,13 @@ export type TStrapiResource = string
 
 export const strapiGet = async <T extends { data: any }>(
   resource: TStrapiResource,
-  { query, deepPopulate }: TStrapiGetParams = {
+  { query, deepPopulate, noLocalize }: TStrapiGetParams = {
     query: {},
     deepPopulate: true,
-    localized: false,
+    noLocalize: false,
   },
 ): Promise<T['data']> => {
-  const locale = await getLocale()
+  const locale = noLocalize ? undefined : await getLocale()
   const url = buildRequestUrl(resource, { deepPopulate, query, locale })
   // console.log('params', url.toString())
 
