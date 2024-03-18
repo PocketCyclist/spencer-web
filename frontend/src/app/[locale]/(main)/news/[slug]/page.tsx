@@ -11,8 +11,16 @@ import { notFound } from 'next/navigation'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiProject } from '@/data/strapi/types/projects'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { TLocale } from '@/navigation'
 
-const Post = async ({ params: { slug } }: { params: { slug: string } }) => {
+const Post = async ({
+  params: { slug, locale },
+}: {
+  params: { slug: string; locale: TLocale }
+}) => {
+  unstable_setRequestLocale(locale)
+
   const [post, latestPosts] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiPost>>(`posts/${slug}`).catch(() =>
       notFound(),

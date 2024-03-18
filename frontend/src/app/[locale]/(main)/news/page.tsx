@@ -11,8 +11,12 @@ import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
+import { TParamsWithLocale } from '@/navigation'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const News = async () => {
+const News = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
+
   const [pageData, posts] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page'),
     strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {

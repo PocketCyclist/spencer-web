@@ -5,6 +5,8 @@ import { mulish, oldStandardTT } from '@/lib/fonts'
 import '@/styles/globals.css'
 import { useTranslations } from 'next-intl'
 import { getTranslatedRoutes } from '@/constants/routes'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { locales } from '@/navigation'
 
 export const metadata: Metadata = {
   title: 'The Gerard Spencer Project',
@@ -27,6 +29,7 @@ export default function CourseLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  unstable_setRequestLocale(locale)
   const t = useTranslations('routes')
   const routes = getTranslatedRoutes(t)
 
@@ -40,4 +43,8 @@ export default function CourseLayout({
       </body>
     </html>
   )
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
 }

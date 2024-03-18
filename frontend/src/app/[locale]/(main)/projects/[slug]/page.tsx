@@ -18,8 +18,15 @@ import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { TLocale } from '@/navigation'
 
-const Project = async ({ params: { slug } }: { params: { slug: string } }) => {
+const Project = async ({
+  params: { slug, locale },
+}: {
+  params: { slug: string; locale: TLocale }
+}) => {
+  unstable_setRequestLocale(locale)
   const [pageData, projects, project] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page'),
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {

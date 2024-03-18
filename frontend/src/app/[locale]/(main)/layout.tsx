@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-
 import { Header } from '@/components/layout/Header/Header'
 import { Footer } from '@/components/layout/Footer/Footer'
 import { mulish, oldStandardTT } from '@/lib/fonts'
 import { useTranslations } from 'next-intl'
 import { getTranslatedRoutes } from '@/constants/routes'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { locales } from '@/navigation'
 
 import '@/styles/globals.css'
 
@@ -29,6 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  unstable_setRequestLocale(locale)
   const t = useTranslations('routes')
   const routes = getTranslatedRoutes(t)
 
@@ -43,4 +45,8 @@ export default function RootLayout({
       </body>
     </html>
   )
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
 }

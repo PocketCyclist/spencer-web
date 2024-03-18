@@ -4,8 +4,11 @@ import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { TStrapiLandingPage } from '@/data/strapi/types/landing'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
+import { TParamsWithLocale } from '@/navigation'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const Home = async () => {
+const Home = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
   const pageData =
     await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>('landing-page')
   const blocks = pageData.attributes.blocks

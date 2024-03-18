@@ -15,8 +15,16 @@ import { cn } from '@/lib/cn'
 import { EventCard } from '@/components/common/EventCard/EventCard'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { ArrowRightSmallIcon } from '@/icons'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { TLocale } from '@/navigation'
 
-const Event = async ({ params: { slug } }: { params: { slug: string } }) => {
+const Event = async ({
+  params: { slug, locale },
+}: {
+  params: { slug: string; locale: TLocale }
+}) => {
+  unstable_setRequestLocale(locale)
+
   const [event, otherEvents] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiEvent>>(`events/${slug}`).catch(() =>
       notFound(),

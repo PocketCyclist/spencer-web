@@ -20,8 +20,11 @@ import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
+import { TParamsWithLocale } from '@/navigation'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const Projects = async () => {
+const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
   const [pageData, projects] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page'),
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {

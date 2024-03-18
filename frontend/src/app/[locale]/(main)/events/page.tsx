@@ -13,8 +13,12 @@ import { cn } from '@/lib/cn'
 import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { TParamsWithLocale } from '@/navigation'
 
-const Events = async () => {
+const Events = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
+
   const today = getTodayDate()
   const [pageData, futureEvents, pastEvents] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>('events-page'),

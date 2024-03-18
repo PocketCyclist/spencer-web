@@ -1,6 +1,7 @@
 import { createSharedPathnamesNavigation } from 'next-intl/navigation'
 
-export type TLocales = 'en' | 'fr'
+export type TLocale = 'en' | 'fr'
+export type TParamsWithLocale = { params: { locale: TLocale } }
 export const locales = ['en', 'fr'] as const
 export const defaultLocale = 'en' as const
 export const localePrefix: 'as-needed' | 'always' | 'never' = 'always'

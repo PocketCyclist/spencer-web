@@ -14,8 +14,11 @@ import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { notFound } from 'next/navigation'
 import { CartIcon, VideoIcon } from '@/icons'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
+import { TParamsWithLocale } from '@/navigation'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
-const Discography = async () => {
+const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
   const [pageData, albums] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
       'discography-page',

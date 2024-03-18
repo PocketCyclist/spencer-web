@@ -3,8 +3,11 @@ import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { Metadata, ResolvingMetadata } from 'next'
 import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { TStrapiCoursePromoPage } from '@/data/strapi/types/course'
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { TParamsWithLocale } from '@/navigation'
 
-const OnlineCourse = async () => {
+const OnlineCourse = async ({ params: { locale } }: TParamsWithLocale) => {
+  unstable_setRequestLocale(locale)
   const pageData = await strapiGet<
     TStrapiSingleResponse<TStrapiCoursePromoPage>
   >('course-promo-page', { deepPopulate: true })
