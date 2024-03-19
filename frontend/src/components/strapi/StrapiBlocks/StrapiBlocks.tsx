@@ -15,8 +15,14 @@ import { FAQ } from '@/components/strapi/blocks/FAQ/FAQ'
 import { ImageCTA } from '@/components/strapi/blocks/ImageCTA/ImageCTA'
 import { Reviews } from '@/components/strapi/blocks/Reviews/Reviews'
 
-export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
-  return blocks.map((block) => {
+export const StrapiBlocks = ({
+  blocks,
+  firstBlockOverlay,
+}: {
+  blocks: TStrapiBlock[]
+  firstBlockOverlay: boolean
+}) => {
+  const nodes = blocks.map((block) => {
     switch (block.__component) {
       case 'block.quote':
         return <Quote text={block.text} author={block.author} />
@@ -113,4 +119,14 @@ export const StrapiBlocks = ({ blocks }: { blocks: TStrapiBlock[] }) => {
         )
     }
   })
+
+  if (firstBlockOverlay) {
+    return (
+      <>
+        <div className="fixed left-0 right-0 top-0">{nodes[0]}</div>
+        <div className="h-screen" />
+        <div className="relative bg-white">{nodes.slice(1)}</div>
+      </>
+    )
+  } else return nodes
 }

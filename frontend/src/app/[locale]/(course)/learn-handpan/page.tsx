@@ -15,7 +15,7 @@ const OnlineCourse = async ({ params: { locale } }: TParamsWithLocale) => {
 
   return (
     <>
-      <StrapiBlocks blocks={blocks} />
+      <StrapiBlocks blocks={blocks} firstBlockOverlay />
     </>
   )
 }

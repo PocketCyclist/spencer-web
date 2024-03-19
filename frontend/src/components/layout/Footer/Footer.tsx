@@ -7,7 +7,7 @@ import { TRoutes } from '@/constants/routes'
 
 export const Footer = ({ routes }: { routes: TRoutes }) => {
   return (
-    <footer>
+    <footer className="relative bg-white">
       <div className="container grid grid-cols-1 gap-y-14 pb-4 pt-16 sm:pb-8 lg:py-[4.5rem]">
         <div>
           <Image
