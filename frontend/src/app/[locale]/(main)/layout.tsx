@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Header } from '@/components/layout/Header/Header'
 import { Footer } from '@/components/layout/Footer/Footer'
 import { mulish, oldStandardTT } from '@/lib/fonts'
@@ -8,20 +7,6 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { locales } from '@/navigation'
 
 import '@/styles/globals.css'
-
-export const metadata: Metadata = {
-  title: 'The Gerard Spencer Project',
-  description: 'Handpan Performances, Classes & Wellbeings',
-  manifest: '/site.webmanifest',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/android-chrome-192x192.png', sizes: '192x192' },
-      { url: '/android-chrome-512x512.png', sizes: '512x512' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
-}
 
 export default function RootLayout({
   children,
