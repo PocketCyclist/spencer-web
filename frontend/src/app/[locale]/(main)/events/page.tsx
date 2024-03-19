@@ -51,8 +51,6 @@ const Events = async ({ params: { locale } }: TParamsWithLocale) => {
 
   const featuredEvent = futureEvents[futureEvents.length - 1]
 
-  console.log(futureEvents[0])
-
   return (
     <>
       <Hero
