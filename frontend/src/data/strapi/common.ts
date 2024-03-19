@@ -1,6 +1,6 @@
 import qs from 'qs'
 import { getLocale } from 'next-intl/server'
-import { defaultLocale, locales, TLocale } from '@/navigation'
+import { defaultLocale } from '@/navigation'
 
 export type TStrapiGetParams = {
   query?: Record<string, any>
