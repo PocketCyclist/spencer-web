@@ -94,36 +94,6 @@ export const strapiGet = async <T extends { data: any }>(
     })
 }
 
-export const strapiGetAllLocales = async <T extends { data: any[] }>(
-  resource: TStrapiResource,
-  { query }: TStrapiGetParams = {},
-) => {
-  return Promise.all(
-    locales.map((locale) =>
-      strapiGet<T>(resource, {
-        query: {
-          locale,
-          ...query,
-        },
-        deepPopulate: false,
-        noLocalize: true,
-      }),
-    ),
-  ).then((byLocale) => {
-    const merged: { locale: TLocale; data: T['data'][0] }[] = []
-    byLocale.forEach((records, index) => {
-      const locale = locales[index]
-      records.forEach((r) =>
-        merged.push({
-          locale,
-          data: r,
-        }),
-      )
-    })
-    return merged
-  })
-}
-
 const buildResourceUrl = (resource: TStrapiResource) =>
   `${process.env.STRAPI_URL}/api/${resource}`
 

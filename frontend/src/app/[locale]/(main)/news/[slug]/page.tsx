@@ -1,7 +1,7 @@
 import { PostCard } from '@/components/common/PostCard/PostCard'
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { MediaSlider } from '@/components/ui/Slider/MediaSlider'
-import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
+import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
@@ -93,16 +93,18 @@ const Post = async ({
 export default Post
 
 export const generateStaticParams = async () => {
-  return strapiGetAllLocales<TStrapiListResponse<TStrapiPost>>('posts', {
+  return strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
     query: {
+      locale: 'all',
       pagination: {
         pageSize: 100,
       },
     },
+    noLocalize: true,
   }).then((posts) =>
     posts.map((post) => ({
-      slug: post.data.id.toString(),
-      locale: post.locale,
+      slug: post.id.toString(),
+      locale: post.attributes.locale,
     })),
   )
 }

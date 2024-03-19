@@ -1,4 +1,4 @@
-import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
+import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
@@ -144,16 +144,18 @@ const Project = async ({
 export default Project
 
 export const generateStaticParams = async () => {
-  return strapiGetAllLocales<TStrapiListResponse<TStrapiProject>>('projects', {
+  return strapiGet<TStrapiListResponse<TStrapiProject>>('projects', {
     query: {
+      locale: 'all',
       pagination: {
         pageSize: 100,
       },
     },
+    noLocalize: true,
   }).then((projects) =>
     projects.map((project) => ({
-      slug: project.data.id.toString(),
-      locale: project.locale,
+      slug: project.id.toString(),
+      locale: project.attributes.locale,
     })),
   )
 }

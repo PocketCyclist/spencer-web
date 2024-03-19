@@ -1,4 +1,4 @@
-import { strapiGet, strapiGetAllLocales } from '@/data/strapi/common'
+import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
@@ -137,16 +137,18 @@ const Event = async ({
 export default Event
 
 export const generateStaticParams = async () => {
-  return strapiGetAllLocales<TStrapiListResponse<TStrapiEvent>>('events', {
+  return strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
     query: {
+      locale: 'all',
       pagination: {
         pageSize: 100,
       },
     },
+    noLocalize: true,
   }).then((events) =>
     events.map((event) => ({
-      slug: event.data.id.toString(),
-      locale: event.locale,
+      slug: event.id.toString(),
+      locale: event.attributes.locale,
     })),
   )
 }
