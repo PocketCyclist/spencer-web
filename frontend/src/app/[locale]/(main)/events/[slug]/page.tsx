@@ -79,7 +79,7 @@ const Event = async ({
     <>
       <section className="container py-[88px]">
         <h1 className="mb-2 whitespace-pre-wrap font-serif rem:text-[48px] rem:leading-[59.33px] lg:rem:text-[88px] lg:rem:leading-[108.77px]">
-          {event.attributes.locale} {event.attributes.title}
+          {event.attributes.title}
         </h1>
         <h3 className="mb-12">
           {parsedDate.dayOfWeek} {parsedDate.date}
