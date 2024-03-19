@@ -20,7 +20,7 @@ export const StrapiBlocks = ({
   firstBlockOverlay,
 }: {
   blocks: TStrapiBlock[]
-  firstBlockOverlay: boolean
+  firstBlockOverlay?: boolean
 }) => {
   const nodes = blocks.map((block) => {
     switch (block.__component) {
