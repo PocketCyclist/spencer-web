@@ -4,13 +4,15 @@ import { StrapiBlocks } from '@/components/strapi/StrapiBlocks/StrapiBlocks'
 import { TStrapiLandingPage } from '@/data/strapi/types/landing'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
-import { TParamsWithLocale } from '@/navigation'
+import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
-  const pageData =
-    await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>('landing-page')
+  const pageData = await strapiGet<TStrapiSingleResponse<TStrapiLandingPage>>(
+    'landing-page',
+    { locale, deepPopulate: true },
+  )
   const blocks = pageData.attributes.blocks
   return (
     <>
@@ -24,17 +26,19 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
 
 export default Home
 
-export const generateMetadata = async (
-  {},
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { locale },
+}: {
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> => {
   const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
     `landing-page`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo' }, locale },
   )
 
   return {
-    // ...((await parent) as Metadata),
     ...page.attributes.seo,
   }
 }

@@ -31,6 +31,7 @@ const Event = async ({
       notFound(),
     ),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
+      locale,
       query: {
         populate: 'promoImage',
         filters: {
@@ -149,7 +150,6 @@ export const generateStaticParams = async () => {
         pageSize: 100,
       },
     },
-    noLocalize: true,
   }).then((events) =>
     events.map((event) => ({
       slug: event.id.toString(),
@@ -159,15 +159,14 @@ export const generateStaticParams = async () => {
 }
 
 export const generateMetadata = async ({
-  params,
+  params: { slug, locale },
 }: {
-  params: { slug: string }
+  params: { slug: string; locale: TLocale }
 }): Promise<Metadata> => {
-  const slug = params.slug
-
   const event = await strapiGet<TStrapiSingleResponse<TStrapiEvent>>(
     `events/${slug}`,
     {
+      locale,
       query: {
         populate: 'seo',
       },

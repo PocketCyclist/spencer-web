@@ -14,7 +14,7 @@ import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { notFound } from 'next/navigation'
 import { CartIcon, VideoIcon } from '@/icons'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
-import { TParamsWithLocale } from '@/navigation'
+import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
@@ -22,8 +22,10 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
   const [pageData, albums] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiDiscographyPage>>(
       'discography-page',
+      { locale, deepPopulate: true },
     ),
     strapiGet<TStrapiListResponse<TStrapiAlbum>>('albums', {
+      locale,
       query: {
         populate: 'deep',
         pagination: {
@@ -124,17 +126,19 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
 
 export default Discography
 
-export const generateMetadata = async (
-  {},
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { locale },
+}: {
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> => {
   const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
     `discography-page`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo' }, locale },
   ).catch(() => notFound())
 
   return {
-    // ...((await parent) as Metadata),
     ...page.attributes.seo,
   }
 }

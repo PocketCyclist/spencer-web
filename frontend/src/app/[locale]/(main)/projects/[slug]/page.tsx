@@ -32,8 +32,12 @@ const Project = async ({
     strapiGet<TStrapiSingleResponse<TStrapiProject>>(`projects/${slug}`).catch(
       () => notFound(),
     ),
-    strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page'),
+    strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page', {
+      locale,
+      deepPopulate: true,
+    }),
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
+      locale,
       query: {
         fields: ['title'],
         pagination: {
@@ -154,7 +158,6 @@ export const generateStaticParams = async () => {
         pageSize: 100,
       },
     },
-    noLocalize: true,
   }).then((projects) =>
     projects.map((project) => ({
       slug: project.id.toString(),
@@ -164,14 +167,13 @@ export const generateStaticParams = async () => {
 }
 
 export const generateMetadata = async ({
-  params,
+  params: { slug, locale },
 }: {
-  params: { slug: string }
+  params: { slug: string; locale: TLocale }
 }): Promise<Metadata> => {
-  const slug = params.slug
   const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `projects/${slug}`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo' }, locale },
   ).catch(() => notFound())
 
   return {

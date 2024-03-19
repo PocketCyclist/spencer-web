@@ -27,6 +27,7 @@ const Post = async ({
       notFound(),
     ),
     strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+      locale,
       query: {
         populate: 'promoImage',
         sort: 'publishedAt:desc',
@@ -103,7 +104,6 @@ export const generateStaticParams = async () => {
         pageSize: 100,
       },
     },
-    noLocalize: true,
   }).then((posts) =>
     posts.map((post) => ({
       slug: post.id.toString(),
@@ -113,14 +113,13 @@ export const generateStaticParams = async () => {
 }
 
 export const generateMetadata = async ({
-  params,
+  params: { slug, locale },
 }: {
-  params: { slug: string }
+  params: { slug: string; locale: TLocale }
 }): Promise<Metadata> => {
-  const slug = params.slug
   const post = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `posts/${slug}`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo' }, locale },
   ).catch(() => notFound())
 
   return {

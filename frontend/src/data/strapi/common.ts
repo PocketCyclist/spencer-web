@@ -1,13 +1,10 @@
 import qs from 'qs'
-import { getLocale } from 'next-intl/server'
 import { defaultLocale } from '@/navigation'
 
 export type TStrapiGetParams = {
   query?: Record<string, any>
   deepPopulate?: boolean
-  /** @deprecated will be default=true*/
-  localized?: boolean
-  noLocalize?: boolean
+  locale?: string
 }
 
 export type TStrapiQueryParams = {
@@ -19,13 +16,11 @@ export type TStrapiResource = string
 
 export const strapiGet = async <T extends { data: any }>(
   resource: TStrapiResource,
-  { query, deepPopulate, noLocalize }: TStrapiGetParams = {
+  { query, deepPopulate, locale }: TStrapiGetParams = {
     query: {},
     deepPopulate: true,
-    noLocalize: false,
   },
 ): Promise<T['data']> => {
-  const locale = noLocalize ? undefined : await getLocale()
   const url = buildRequestUrl(resource, { deepPopulate, query, locale })
   // console.log('params', url.toString())
 

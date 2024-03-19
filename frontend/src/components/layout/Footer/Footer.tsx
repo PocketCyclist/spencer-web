@@ -4,8 +4,11 @@ import { FooterNav } from './FooterNav'
 import { FooterSocials } from './FooterSocials'
 import LocaleSwitcher from '@/components/common/LocaleSwitcher/LocaleSwitcher'
 import { TRoutes } from '@/constants/routes'
+import { useLocale } from 'next-intl'
+import { TLocale } from '@/navigation'
 
 export const Footer = ({ routes }: { routes: TRoutes }) => {
+  const locale = useLocale() as TLocale
   return (
     <footer className="relative bg-white">
       <div className="container grid grid-cols-1 gap-y-14 pb-4 pt-16 sm:pb-8 lg:py-[4.5rem]">
@@ -27,7 +30,7 @@ export const Footer = ({ routes }: { routes: TRoutes }) => {
           </div>
           <div className="lg:rem:basis-[300px]">{/*<FooterSubscribe />*/}</div>
           <div className="lg:text-right lg:rem:basis-[300px]">
-            <FooterSocials />
+            <FooterSocials locale={locale} />
           </div>
         </div>
         <p className="border-t border-border pt-6 text-center text-footer-copy">

@@ -3,11 +3,15 @@ import { strapiGet } from '@/data/strapi/common'
 import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { TStrapiFooter } from '@/data/strapi/types/footer'
 import { getTranslations } from 'next-intl/server'
+import { TLocale } from '@/navigation'
 
-export const FooterSocials = async () => {
+export const FooterSocials = async ({ locale }: { locale: TLocale }) => {
   const t = await getTranslations('footer')
-  const footerData =
-    await strapiGet<TStrapiSingleResponse<TStrapiFooter>>('footer')
+
+  const footerData = await strapiGet<TStrapiSingleResponse<TStrapiFooter>>(
+    'footer',
+    { locale, deepPopulate: true },
+  )
   const socials = footerData.attributes.socials
 
   return (

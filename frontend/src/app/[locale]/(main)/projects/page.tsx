@@ -20,14 +20,18 @@ import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
-import { TParamsWithLocale } from '@/navigation'
+import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
   const [pageData, projects] = await Promise.all([
-    strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page'),
+    strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page', {
+      locale,
+      deepPopulate: true,
+    }),
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
+      locale,
       query: {
         fields: ['title'],
         pagination: {
@@ -144,17 +148,19 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
 
 export default Projects
 
-export const generateMetadata = async (
-  {},
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { locale },
+}: {
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> => {
   const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
     `projects-page`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo', locale } },
   )
 
   return {
-    // ...((await parent) as Metadata),
     ...page.attributes.seo,
   }
 }

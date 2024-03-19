@@ -1,6 +1,5 @@
 import { Hero } from '@/components/common/Hero/Hero'
 import { PostCard } from '@/components/common/PostCard/PostCard'
-// import { Pagination } from '@/components/ui/Pagination/Pagination'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
@@ -9,17 +8,21 @@ import {
 import { TStrapiNewsPage, TStrapiPost } from '@/data/strapi/types/posts'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CapaIcon } from '@/icons'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
-import { TParamsWithLocale } from '@/navigation'
+import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 const News = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
 
   const [pageData, posts] = await Promise.all([
-    strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page'),
+    strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page', {
+      locale,
+      deepPopulate: true,
+    }),
     strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+      locale,
       query: {
         populate: 'deep',
         sort: 'publishedAt:desc',
@@ -88,17 +91,19 @@ const News = async ({ params: { locale } }: TParamsWithLocale) => {
 
 export default News
 
-export const generateMetadata = async (
-  {},
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { locale },
+}: {
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> => {
   const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
     `news-page`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo' }, locale },
   )
 
   return {
-    // ...((await parent) as Metadata),
     ...page.attributes.seo,
   }
 }

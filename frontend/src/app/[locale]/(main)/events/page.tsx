@@ -14,15 +14,19 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import { TParamsWithLocale } from '@/navigation'
+import { TLocale, TParamsWithLocale } from '@/navigation'
 
 const Events = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
 
   const today = getTodayDate()
   const [pageData, futureEvents, pastEvents] = await Promise.all([
-    strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>('events-page'),
+    strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>('events-page', {
+      locale,
+      deepPopulate: true,
+    }),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
+      locale,
       query: {
         populate: 'deep',
         filters: {
@@ -35,6 +39,7 @@ const Events = async ({ params: { locale } }: TParamsWithLocale) => {
       },
     }),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
+      locale,
       query: {
         populate: 'deep',
         filters: {
@@ -146,17 +151,19 @@ const Events = async ({ params: { locale } }: TParamsWithLocale) => {
 
 export default Events
 
-export const generateMetadata = async (
-  {},
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { locale },
+}: {
+  params: {
+    locale: string
+  }
+}): Promise<Metadata> => {
   const page = await strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>(
     `events-page`,
-    { query: { populate: 'seo' } },
+    { query: { populate: 'seo', locale } },
   ).catch(() => notFound())
 
   return {
-    // ...((await parent) as Metadata),
     ...page.attributes.seo,
   }
 }
