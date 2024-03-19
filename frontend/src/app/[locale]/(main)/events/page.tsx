@@ -33,7 +33,6 @@ const Events = async ({ params: { locale } }: TParamsWithLocale) => {
           pageSize: 100,
         },
       },
-      noLocalize: true,
     }),
     strapiGet<TStrapiListResponse<TStrapiEvent>>('events', {
       query: {
