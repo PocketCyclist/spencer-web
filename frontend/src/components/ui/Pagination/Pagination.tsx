@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { usePathname } from '@/navigation'
 
 import { usePagination } from '@/hooks/usePagination'
 import { CapaIcon } from '@/icons'
