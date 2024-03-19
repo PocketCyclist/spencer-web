@@ -10,13 +10,14 @@ import { MediaSlider } from '@/components/ui/Slider/MediaSlider'
 import { Button } from '@/components/ui/Button/Button'
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import Link from 'next/link'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { cn } from '@/lib/cn'
 import { EventCard } from '@/components/common/EventCard/EventCard'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { ArrowRightSmallIcon } from '@/icons'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
+import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
 
 const Event = async ({
   params: { slug, locale },
@@ -70,13 +71,15 @@ const Event = async ({
       }),
   ])
 
+  ensureBestTranslation(event, 'events', locale)
+
   const parsedDate = parseDateToWords(event.attributes.date, true)
 
   return (
     <>
       <section className="container py-[88px]">
         <h1 className="mb-2 whitespace-pre-wrap font-serif rem:text-[48px] rem:leading-[59.33px] lg:rem:text-[88px] lg:rem:leading-[108.77px]">
-          {event.attributes.title}
+          {event.attributes.locale} {event.attributes.title}
         </h1>
         <h3 className="mb-12">
           {parsedDate.dayOfWeek} {parsedDate.date}
@@ -173,5 +176,8 @@ export const generateMetadata = async ({
 
   return {
     ...event.attributes.seo,
+    alternates: {
+      canonical: `/${event.attributes.locale}/events/${event.id}`,
+    },
   }
 }

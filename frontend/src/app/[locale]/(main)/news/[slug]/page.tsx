@@ -8,11 +8,12 @@ import {
 } from '@/data/strapi/types/common/api'
 import { TStrapiPost } from '@/data/strapi/types/posts'
 import { notFound } from 'next/navigation'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { TStrapiProject } from '@/data/strapi/types/projects'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
+import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
 
 const Post = async ({
   params: { slug, locale },
@@ -37,6 +38,8 @@ const Post = async ({
       posts.filter((post) => post.id.toString() !== slug).slice(0, 3),
     ),
   ])
+
+  ensureBestTranslation(post, 'news', locale)
 
   return (
     <>
@@ -109,10 +112,11 @@ export const generateStaticParams = async () => {
   )
 }
 
-export const generateMetadata = async (
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata,
-): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> => {
   const slug = params.slug
   const post = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `posts/${slug}`,
@@ -120,7 +124,9 @@ export const generateMetadata = async (
   ).catch(() => notFound())
 
   return {
-    // ...((await parent) as Metadata),
     ...post.attributes.seo,
+    alternates: {
+      canonical: `/${post.attributes.locale}/posts/${post.id}`,
+    },
   }
 }

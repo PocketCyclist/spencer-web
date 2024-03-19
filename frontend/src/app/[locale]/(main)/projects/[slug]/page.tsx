@@ -16,10 +16,11 @@ import Image from 'next/image'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
+import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
 
 const Project = async ({
   params: { slug, locale },
@@ -27,7 +28,10 @@ const Project = async ({
   params: { slug: string; locale: TLocale }
 }) => {
   unstable_setRequestLocale(locale)
-  const [pageData, projects, project] = await Promise.all([
+  const [project, pageData, projects] = await Promise.all([
+    strapiGet<TStrapiSingleResponse<TStrapiProject>>(`projects/${slug}`).catch(
+      () => notFound(),
+    ),
     strapiGet<TStrapiSingleResponse<TStrapiProjectsPage>>('projects-page'),
     strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
       query: {
@@ -37,10 +41,9 @@ const Project = async ({
         },
       },
     }),
-    strapiGet<TStrapiSingleResponse<TStrapiProject>>(`projects/${slug}`).catch(
-      () => notFound(),
-    ),
   ])
+
+  ensureBestTranslation(project, 'projects', locale)
 
   if (!projects.length) return notFound()
   const [prevProject, nextProject] = getSurroundingItems(project, projects)
@@ -173,5 +176,8 @@ export const generateMetadata = async ({
 
   return {
     ...project.attributes.seo,
+    alternates: {
+      canonical: `/${project.attributes.locale}/projects/${project.id}`,
+    },
   }
 }
