@@ -19,7 +19,7 @@ export const Cymbal = ({ className, right }: CymbalProps) => {
       <Image
         className="absolute right-0 top-1/2 -translate-y-1/2 rem:w-[340px] 3xl:rem:w-[513px]"
         alt="Handpan decoration"
-        src="/images/brown-handpan-right.png"
+        src="/images/handpan-right.png"
         width={513}
         height={700}
       />
