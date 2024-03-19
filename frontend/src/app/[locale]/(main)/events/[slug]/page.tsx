@@ -81,7 +81,9 @@ const Event = async ({
         <h3 className="mb-12">
           {parsedDate.dayOfWeek} {parsedDate.date}
         </h3>
-        <MediaSlider media={event.attributes.media} />
+        {!!event.attributes.media.length && (
+          <MediaSlider media={event.attributes.media} />
+        )}
         <p className="mb-12 mt-[88px] whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
           {event.attributes.description}
         </p>
