@@ -36,6 +36,11 @@ export const strapiGet = async <T extends { data: any }>(
     next: { revalidate: 1200 },
   })
     .finally(() => clearTimeout(timeoutId))
+    .then((r) => {
+      if (!r.ok) {
+        throw new Error(`Strapi HTTP error! Url: ${url} Status: ${r.status}`)
+      } else return r
+    })
     .then((r) => r.json() as Promise<T>)
     .then((r) => r.data)
     .catch((error) => {
