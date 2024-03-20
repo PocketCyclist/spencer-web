@@ -31,23 +31,27 @@ export const CourseHero = ({
           width={337}
           height={245}
         />
-        <Image
-          src="/images/course-hero/top-right.gif"
+        <video
+          src="/images/course-hero/top-right.m4v"
+          autoPlay
+          muted
+          loop
           className={cn(
             'absolute right-[-120px] top-[-6rem] scale-[40%] rounded-[1.5rem] transition-all duration-1500 ease-in-out xl:top-[20vh] xl:scale-75 2xl:right-[1vw] 2xl:scale-100',
             isServer && 'translate-x-[150%] translate-y-[-75%] opacity-0',
           )}
-          alt="Experience the magic of Gerard's performance with the handpan in this captivating image. His hands move with precision and passion, conjuring melodies that enchant and captivate the audience. Witness the fusion of skill and emotion as Gerard brings the handpan to life on stage."
           width={345}
           height={472}
         />
-        <Image
-          src="/images/course-hero/bottom-left.gif"
+        <video
+          src="/images/course-hero/bottom-left.m4v"
+          autoPlay
+          muted
+          loop
           className={cn(
             'absolute bottom-[-4vw] scale-75 rounded-[1.5rem] transition-all duration-1500 ease-in-out rem:left-[-220px] xs:bottom-8 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
             isServer && 'translate-x-[-100%] opacity-0',
           )}
-          alt="Immerse yourself in the artistry of the handpan with this dynamic image capturing hands in motion, effortlessly coaxing out melodies. Dive deeper into the experience by exploring the interactive keys A-L on your keyboard."
           width={400}
           height={376}
         />
