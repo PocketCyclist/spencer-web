@@ -26,8 +26,7 @@ export const FooterNav = ({ routes }: { routes: TRoutes }) => {
           return (
             <li key={index}>
               <a
-                aria-current={isActive ? 'page' : undefined}
-                className={cn(isActive && 'pointer-events-none relative')}
+                className={isActive ? 'relative' : ''}
                 href={item.url}
                 title={item.title}
               >
