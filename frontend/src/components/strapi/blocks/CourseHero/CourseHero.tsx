@@ -49,7 +49,7 @@ export const CourseHero = ({
           muted
           loop
           className={cn(
-            'absolute bottom-[-4vw] scale-75 rounded-[1.5rem] transition-all duration-1500 ease-in-out rem:left-[-220px] xs:bottom-8 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
+            'absolute bottom-[-4vw] scale-75 rounded-[1.5rem] transition-all duration-1500 ease-in-out rem:left-[-180px] xs:bottom-8 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
             isServer && 'translate-x-[-100%] opacity-0',
           )}
           width={400}
