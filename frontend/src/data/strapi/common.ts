@@ -1,5 +1,4 @@
 import qs from 'qs'
-import { defaultLocale } from '@/navigation'
 
 export type TStrapiGetParams = {
   query?: Record<string, any>
@@ -37,48 +36,8 @@ export const strapiGet = async <T extends { data: any }>(
     next: { revalidate: 1200 },
   })
     .finally(() => clearTimeout(timeoutId))
-    .then((response) => {
-      if (!response.ok) {
-        if (response.status === 404 && locale !== defaultLocale) {
-          const retryUrl = buildRequestUrl(resource, {
-            deepPopulate,
-            query,
-          })
-          const retryController = new AbortController()
-          const retryTimeoutId = setTimeout(
-            () => retryController.abort(),
-            10000,
-          )
-          return fetch(retryUrl, {
-            method: 'GET',
-            headers: {
-              Authorization: `Bearer ${process.env.STRAPI_TOKEN as string}`,
-              accept: 'application/json',
-            },
-            signal: retryController.signal,
-            next: { revalidate: 1200 },
-          })
-            .finally(() => clearTimeout(retryTimeoutId))
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(
-                  `Strapi RETRY HTTP error! Url: ${url} Status: ${response.status}`,
-                )
-              }
-
-              return response.json()
-            })
-        } else {
-          throw new Error(
-            `Strapi HTTP error! Url: ${url} Status: ${response.status}`,
-          )
-        }
-      }
-      return response.json()
-    })
-    .then((r) => {
-      return r.data as T['data']
-    })
+    .then((r) => r.json() as Promise<T>)
+    .then((r) => r.data)
     .catch((error) => {
       if (error.name === 'AbortError') {
         console.error('Request timed out:', error)
