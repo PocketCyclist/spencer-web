@@ -15,7 +15,7 @@ export default ({ env }: TConfigInput) => ({
         localeMap: {
           // use uppercase here!
           EN: 'EN-US',
-          FR: 'FR-FR',
+          FR: 'FR',
         },
         apiOptions: {
           // see <https://github.com/DeepLcom/deepl-node#text-translation-options> for supported options.
