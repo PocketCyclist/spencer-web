@@ -93,7 +93,7 @@ export const CourseHero = ({
             }
           >
             <BuyCircleIcon
-              className="rotate text-[#FFC441] transition-colors duration-700 group-hover:text-[#D64100] rem:h-[104px] rem:w-[104px] md:rem:h-[196px] md:rem:w-[196px]"
+              className="text-[#FFC441] transition-colors duration-700 group-hover:text-[#D64100] rem:h-[104px] rem:w-[104px] md:rem:h-[196px] md:rem:w-[196px]"
               height={196}
               width={196}
             />
