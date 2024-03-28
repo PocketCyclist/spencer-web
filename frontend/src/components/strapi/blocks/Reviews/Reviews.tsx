@@ -16,7 +16,7 @@ export const Reviews = ({
       <h2 className="mb-10 px-4 rem:text-[40px] rem:leading-[48px] md:mb-18 lg:px-18 lg:rem:text-[64px] lg:rem:leading-[79px]">
         {heading}
       </h2>
-      <Marquee pauseOnClick pauseOnHover delay={2} className="bordered-marquee">
+      <div className="flex w-full snap-x snap-mandatory overflow-x-auto no-scrollbar">
         {/*<div className="w-4 sm:w-18" />*/}
         {reviews.map((review) => {
           const imageAttrs = extractImageAttrs(review.coverImage)
@@ -24,7 +24,7 @@ export const Reviews = ({
             <div
               key={review.id}
               className={cn(
-                'flex h-full w-full flex-col px-16 rem:max-w-[450px] lg:rem:max-w-[614px]',
+                'flex h-full w-full min-w-[100vw] snap-start flex-col border-r border-black px-16 last:border-r-0 sm:rem:min-w-[450px] lg:rem:min-w-[614px]',
               )}
             >
               <Image
@@ -42,7 +42,7 @@ export const Reviews = ({
             </div>
           )
         })}
-      </Marquee>
+      </div>
     </section>
   )
 }
