@@ -2,7 +2,7 @@ import { TConfigInput } from '../types/config'
 
 export default ({ env }: TConfigInput) => ({
   translate: {
-    enabled: true,
+    enabled: false,
     config: {
       // Add the name of your provider here (for example 'deepl' for strapi-provider-translate-deepl or the full package name)
       provider: 'deepl',
