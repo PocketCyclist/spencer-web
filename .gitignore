@@ -3,3 +3,6 @@
 !.yarn/plugins
 .pnp.*
 node_modules
+
+.gitignore
+.history
