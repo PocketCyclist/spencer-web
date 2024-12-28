@@ -65,7 +65,7 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
                 <h5 className=" mt-auto max-w-[362px] p-4 font-serif font-[48px] leading-none text-white opacity-0 transition-opacity group-hover:opacity-100 rem:min-h-[358px] rem:text-[36px] md:p-6">
                   {item.attributes.title}
                 </h5>
-                {item.attributes.buyUrl && (
+                {/* {item.attributes.buyUrl && (
                   <Link
                     href={item.attributes.buyUrl}
                     target="_blank"
@@ -84,23 +84,13 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
                       </button>
                     }
                   />
-                )}
+                )} */}
               </div>
-              <div className="flex min-w-[75vw] flex-1 flex-col p-6 md:min-w-[20vw]">
+              <div className="flex min-w-[75vw] flex-1 flex-col pb-6 pt-4 md:min-w-[20vw] ">
                 <h5 className="mb-4 font-serif leading-none rem:text-[36px]">
                   {item.attributes.title}
                 </h5>
-                <p>{item.attributes.description}</p>
-                <div className="mt-auto flex flex-col gap-y-4 pt-9 sm:flex-row sm:gap-x-4 sm:gap-y-0">
-                  <Button asChild className="sm:flex-1" variant="primary">
-                    <Link
-                      href={item.attributes.buyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Buy{' '}
-                    </Link>
-                  </Button>
+                <div className="mt-auto flex flex-col gap-y-4 pb-4 pt-2 sm:flex-row sm:gap-x-4 sm:gap-y-0">
                   <Button asChild className="sm:flex-1" variant="secondary">
                     <Link
                       href={item.attributes.videoUrl}
@@ -110,7 +100,17 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
                       Watch
                     </Link>
                   </Button>
+                  <Button asChild className="sm:flex-1" variant="primary">
+                    <Link
+                      href={item.attributes.buyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Buy{' '}
+                    </Link>
+                  </Button>
                 </div>
+                <p>{item.attributes.description}</p>
               </div>
             </article>
           </div>
