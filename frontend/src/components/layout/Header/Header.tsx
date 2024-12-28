@@ -37,10 +37,11 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
 
   return (
     <header className="fixed left-0 top-0 z-10 h-mobile-header w-full bg-background lg:h-header">
-      <div className="container flex h-full items-center justify-between gap-y-4">
+      {/* <div className="container flex h-full items-center justify-between gap-y-4"> */}
+      <div className="container flex h-full flex-col items-center justify-between gap-y-4">
         <Link href="/" title={routes.home.title}>
           <Image
-            className="rem:w-[152px] lg:rem:w-[264px]"
+            className="m-4 rem:w-[152px] lg:rem:w-[264px]"
             alt="Gerard Spencer - Handpan performances classes & wellbeing"
             src="/images/logo.png"
             width={264}
@@ -67,12 +68,12 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
 
         <nav
           className={cn(
-            'pointer-events-none fixed bottom-0 left-0 right-0 top-mobile-header -translate-y-6 overflow-y-auto border-t border-t-border bg-background px-4 py-10 opacity-0 transition-all lg:pointer-events-auto lg:relative lg:inset-auto lg:translate-y-0 lg:overflow-y-visible lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 lg:transition-none',
+            'pointer-events-none fixed bottom-0 left-0 right-0 top-mobile-header -translate-y-6 overflow-y-auto border-t border-t-border bg-background px-4 py-10  opacity-0 transition-all lg:pointer-events-auto lg:relative lg:inset-auto lg:translate-y-0 lg:overflow-y-visible lg:border-0 lg:bg-transparent lg:p-0 lg:opacity-100 lg:transition-none',
             isMenuOpen && 'pointer-events-auto translate-y-0 opacity-100',
           )}
           id="menu"
         >
-          <ul className="space-y-10 lg:flex lg:items-center lg:space-x-8 lg:space-y-0">
+          <ul className="space-y-10 pb-6 pt-2 lg:flex lg:items-center lg:space-x-8 lg:space-y-0">
             {ITEMS.map((item, index) => {
               const isActive = isActiveRoute(pathname, item.url)
               return (
