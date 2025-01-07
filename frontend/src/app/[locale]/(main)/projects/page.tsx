@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-
+import Link from 'next/link'
 import { Hero } from '@/components/common/Hero/Hero'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { strapiGet } from '@/data/strapi/common'
 import {
+  TStrapiImageField,
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
@@ -30,10 +31,17 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
       locale,
       deepPopulate: true,
     }),
-    strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
+    strapiGet<
+      TStrapiListResponse<{
+        title: string
+        content: string
+        coverImage: TStrapiImageField
+      }>
+    >('projects', {
       locale,
       query: {
-        fields: ['title'],
+        fields: ['title', 'content'],
+        populate: ['coverImage'], // Указываем связанные поля для загрузки
         pagination: {
           pageSize: 100,
         },
@@ -46,10 +54,54 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
     `projects/${projects[0].id}`,
   )
   const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  console.log('[projects]', projects)
+  projects.map((item) => {
+    console.log(item.attributes.coverImage)
+  })
 
   return (
     <>
-      <Hero
+      <div className="text-h1-title container">
+        <h1 className="font-serif text-[64px] leading-[270px]">
+          {pageData.attributes.title}
+        </h1>
+      </div>
+      <div className="container flex max-w-5xl flex-wrap justify-between gap-8 no-scrollbar">
+        {projects.map((item) => (
+          <div key={item.id}>
+            <article className="rem:max-w-[400px]">
+              {item.attributes.coverImage && (
+                <Image
+                  alt={
+                    item.attributes.coverImage.data.attributes
+                      .alternativeText || 'Image'
+                  }
+                  className="mb-8 object-cover"
+                  layout="responsive"
+                  width={4} // Aspect ratio width
+                  height={3} // Aspect ratio height
+                  sizes="(max-width: 768px) 95vw, 580px" // Adjust based on breakpoints
+                  style={{ maxHeight: '300px' }}
+                  src={item.attributes.coverImage.data.attributes.url}
+                />
+              )}
+
+              <h5 className="mb-4 font-sans leading-none rem:text-[36px]">
+                {item.attributes.title}
+              </h5>
+              <p className="mb-4 font-sans ">{item.attributes.content}</p>
+              <Link
+                className="max-w-fit underline underline-offset-2 hover:no-underline"
+                href={`/projects/${item.id}`}
+                title="Details"
+              >
+                Details
+              </Link>
+            </article>{' '}
+          </div>
+        ))}
+      </div>
+      {/* <Hero
         className="lg:py-0"
         contentClassName="py-8 lg:justify-center"
         bgImage={extractImageAttrs(pageData.attributes.heroImage)}
@@ -73,9 +125,9 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
               }
             : undefined
         }
-      />
+      /> */}
 
-      <div>
+      {/* <div>
         <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
           <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
             <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
@@ -119,7 +171,7 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="relative -z-[1] hidden select-none 2xl:flex"

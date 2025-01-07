@@ -54,7 +54,7 @@ const Project = async ({
 
   return (
     <>
-      <Hero
+      {/* <Hero
         className="lg:py-0"
         contentClassName="py-8 lg:justify-center"
         bgImage={extractImageAttrs(pageData.attributes.heroImage)}
@@ -78,7 +78,7 @@ const Project = async ({
               }
             : undefined
         }
-      />
+      /> */}
 
       <div>
         <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">

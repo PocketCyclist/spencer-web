@@ -12,7 +12,7 @@ const VARIANT_CLASSES_MAP = {
   primary:
     'bg-button-primary text-white hover:bg-button-primary-hover disabled:bg-button-primary-disabled disabled:text-white/80',
   secondary:
-    'bg-button-secondary text-black hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
+    'bg-button-secondary text-white hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
 } as const
 
 export const Button = ({
