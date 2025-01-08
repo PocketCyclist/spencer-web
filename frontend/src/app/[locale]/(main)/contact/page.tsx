@@ -3,17 +3,14 @@ import { Button } from '@/components/ui/Button/Button'
 import { Input } from '@/components/ui/Input/Input'
 import { ArrowRightSmallIcon, CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
+import Link from 'next/link'
 
 const Contact = () => (
   <>
-    <header>
-      <div className="container py-16 lg:py-28">
-        <h1 className="text-center font-serif rem:text-[36px] rem:leading-[44.5px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
-          Lorem ipsum dolor sit amet
-        </h1>
-      </div>
-    </header>
-    <div
+    <div className="text-h1-title container">
+      <h1 className="font-serif text-[64px] leading-[270px]">Contact</h1>
+    </div>
+    {/* <div
       className="relative -z-[1] hidden select-none 2xl:flex"
       role="presentation"
     >
@@ -33,27 +30,42 @@ const Contact = () => (
           />
         </div>
       </div>
-    </div>
+    </div> */}
     <section>
-      <div className="container py-16 lg:py-28">
-        <form
-          className="mx-auto space-y-6 rem:max-w-[432px] lg:space-y-8"
-          action="?"
-        >
-          <Input name="first-name" placeholder="First name" size="lg" />
-          <Input name="last-name" placeholder="Last name" size="lg" />
-          <Input name="email" placeholder="E-mail" size="lg" />
-          <Input as="textarea" name="message" placeholder="Message" size="lg" />
+      <div className="container pb-10  rem:max-w-[960px]">
+        <h3 className="form-header font-serif">Feel free to contact me</h3>
+        <form className="mx-auto space-y-6 lg:space-y-8" action="?">
+          <Input name="first-name" placeholder="Enter your name" size="lg" />
+          {/* <Input name="last-name" placeholder="Last name" size="lg" /> */}
+          <Input name="email" placeholder="Enter your email" size="lg" />
+          {/* <Input as="textarea" name="message" placeholder="Message" size="lg" /> */}
+          <Input name="message" placeholder="Enter your message" size="lg" />
           <div className="flex justify-center">
-            <Button variant="primary">
-              Submit
-              <ArrowRightSmallIcon
-                className="ml-14 rem:h-[8px] rem:w-[25px]"
-                viewBox="0 0 25 8"
-              />
+            <Button className="grow" variant="form">
+              Send
             </Button>
           </div>
         </form>
+        <div className="py-4 pt-8">
+          <h4 className="form-header font-serif">Booking</h4>
+          <Link
+            className="max-w-fit underline underline-offset-2 hover:no-underline"
+            href={`mailto:laurent@handpanharmony.com`}
+            title="Details"
+          >
+            laurent@handpanharmony.com
+          </Link>
+        </div>
+        <div className="pb-12 pt-8">
+          <h4 className="form-header font-serif">Informations générales</h4>
+          <Link
+            className="max-w-fit underline underline-offset-2 hover:no-underline"
+            href={`mailto:contact@handpanharmony.com`}
+            title="Details"
+          >
+            contact@handpanharmony.com
+          </Link>
+        </div>
       </div>
     </section>
     <Cymbal className="[&>*]:-translate-y-[72.429%]" right />

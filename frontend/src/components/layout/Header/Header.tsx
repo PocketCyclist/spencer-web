@@ -15,8 +15,10 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
     routes.about,
     routes.discography,
     routes.musicProjects,
+    routes.learnHandpan,
     routes.events,
     routes.news,
+    routes.contact,
   ]
 
   const pathname = usePathnameWithHash()

@@ -86,6 +86,10 @@ const config: Config = {
           'rgb(var(--button-secondary-hover) / <alpha-value>)',
         'button-secondary-disabled':
           'rgb(var(--button-secondary-disabled) / <alpha-value>)',
+        'button-form': 'rgb(var(--button-form) / <alpha-value>)',
+        'button-form-hover': 'rgb(var(--button-form-hover) / <alpha-value>)',
+        'button-form-disabled':
+          'rgb(var(--button-form-disabled) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-mulish)', ...defaultTheme.fontFamily.sans],

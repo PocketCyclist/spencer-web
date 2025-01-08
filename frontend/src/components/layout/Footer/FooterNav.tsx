@@ -13,7 +13,7 @@ export const FooterNav = ({ routes }: { routes: TRoutes }) => {
     routes.events,
     routes.news,
     routes.myCourse,
-    // routes.contact,
+    routes.contact,
     routes.handpanAcademy,
   ]
   const pathname = usePathnameWithHash()

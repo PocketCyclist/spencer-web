@@ -36,6 +36,9 @@
   --button-secondary: 13 70 117;
   --button-secondary-hover: 13 70 117;
   --button-secondary-disabled: 44 44 44;
+  --button-form: 226 212 199;
+  --button-form-hover: 234 222 211;
+  --button-form-disabled: 226 226 226;
 }
 
 @media (min-width: 1024px) and (max-width: 1535px) {

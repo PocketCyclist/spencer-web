@@ -21,6 +21,7 @@ import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaI
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
 import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
+import Link from 'next/link'
 
 const Project = async ({
   params: { slug, locale },
@@ -50,10 +51,24 @@ const Project = async ({
   ensureBestTranslation(project, 'projects', locale)
 
   if (!projects.length) return notFound()
-  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  //  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  console.log('project')
 
   return (
     <>
+      <div className="text-h1-title container">
+        <div className="py-12 font-sans text-[16px]">
+          <Link
+            href={'/projects/'}
+            title="Music Projects"
+            className="breadcrumps-link"
+          >
+            Music Projects
+          </Link>
+          <span className="px-4">&#x1F784;</span>
+          {project.attributes.title}
+        </div>
+      </div>
       {/* <Hero
         className="lg:py-0"
         contentClassName="py-8 lg:justify-center"
@@ -81,9 +96,9 @@ const Project = async ({
       /> */}
 
       <div>
-        <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
-          <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
-            <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
+        <div className="container flex flex-col-reverse justify-between  pb-8 lg:gap-8 lg:space-y-8 lg:pb-12">
+          <div className="space-y-8 lg:w-[calc(489*100%/1152)] ">
+            <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
               {project.attributes.title}
             </h2>
             <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">

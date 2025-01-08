@@ -4,14 +4,15 @@
   },
   "routes": {
     "home": "Accueil",
-    "about": "À propos",
+    "about": "Bio",
     "discography": "Discographie",
     "musicProjects": "Projets musicaux",
     "events": "Événements",
     "news": "Actualités",
     "myCourse": "Mon cours",
     "contact": "Contact",
-    "handpanAcademy": "Académie de handpan"
+    "handpanAcademy": "Académie de handpan",
+    "learnHandpan": "Learn Handpan"
   },
   "footer": {
     "followMe": "Suivez ma musique"
