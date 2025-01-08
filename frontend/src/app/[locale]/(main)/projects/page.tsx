@@ -54,49 +54,57 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
     `projects/${projects[0].id}`,
   )
   const [prevProject, nextProject] = getSurroundingItems(project, projects)
-  console.log('[projects]', projects)
-  projects.map((item) => {
-    console.log(item.attributes.coverImage)
-  })
+  //console.log('[projects]', projects)
+  // projects.map((item) => {
+  //   console.log(item.attributes.coverImage)
+  // })
 
   return (
     <>
       <div className="text-h1-title container">
-        <h1 className="font-serif text-[64px] leading-[270px]">
+        <h1 className="py-12 font-serif text-[48px] leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
           {pageData.attributes.title}
         </h1>
       </div>
-      <div className="container flex max-w-5xl flex-wrap justify-between gap-8 no-scrollbar">
+      <div className="container flex max-w-6xl flex-wrap justify-between gap-y-8 no-scrollbar">
         {projects.map((item) => (
           <div key={item.id}>
-            <article className="rem:max-w-[400px]">
-              {item.attributes.coverImage && (
-                <Image
-                  alt={
-                    item.attributes.coverImage.data.attributes
-                      .alternativeText || 'Image'
-                  }
-                  className="mb-8 object-cover"
-                  layout="responsive"
-                  width={4} // Aspect ratio width
-                  height={3} // Aspect ratio height
-                  sizes="(max-width: 768px) 95vw, 580px" // Adjust based on breakpoints
-                  style={{ maxHeight: '300px' }}
-                  src={item.attributes.coverImage.data.attributes.url}
-                />
-              )}
+            <article className="rem:max-w-[464px]">
+              <div className="relative z-0">
+                {item.attributes.coverImage && (
+                  <Image
+                    alt={
+                      item.attributes.coverImage.data.attributes.alternativeText
+                    }
+                    className="rounded-md object-cover"
+                    fill
+                    sizes="(min-width: 640px) 580px, 95vw"
+                    src={item.attributes.coverImage.data.attributes.url}
+                  />
+                )}
 
-              <h5 className="mb-4 font-sans leading-none rem:text-[36px]">
-                {item.attributes.title}
-              </h5>
-              <p className="mb-4 font-sans ">{item.attributes.content}</p>
-              <Link
-                className="max-w-fit underline underline-offset-2 hover:no-underline"
-                href={`/projects/${item.id}`}
-                title="Details"
-              >
-                Details
-              </Link>
+                <h5 className="mt-auto max-w-[362px] font-sans leading-none text-white opacity-0 rem:min-h-[410px] rem:text-[48px]">
+                  {item.attributes.title}
+                </h5>
+              </div>
+              <div className="flex min-w-[75vw] flex-1 flex-col pb-4 pt-8 md:min-w-[20vw]">
+                <h5 className="font-sans leading-none rem:text-[36px]">
+                  {item.attributes.title}
+                </h5>
+                <p className="my-3 font-sans rem:text-[20px]">
+                  <TruncateText
+                    text={item.attributes.content}
+                    maxLength={110}
+                  />
+                </p>
+                <Link
+                  className="max-w-fit underline underline-offset-2 hover:no-underline rem:text-[16px]"
+                  href={`/projects/${item.id}`}
+                  title="Details"
+                >
+                  Details
+                </Link>
+              </div>
             </article>{' '}
           </div>
         ))}
@@ -215,4 +223,20 @@ export const generateMetadata = async ({
   return {
     ...page.attributes.seo,
   }
+}
+
+interface TruncateTextProps {
+  text: string
+  maxLength?: number
+}
+export const TruncateText: React.FC<TruncateTextProps> = ({
+  text,
+  maxLength = 200,
+}) => {
+  if (!text) return null
+
+  const truncated =
+    text.length > maxLength ? text.slice(0, maxLength) + '...' : text
+
+  return <span>{truncated}</span>
 }

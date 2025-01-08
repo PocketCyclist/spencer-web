@@ -52,7 +52,7 @@ const Project = async ({
 
   if (!projects.length) return notFound()
   //  const [prevProject, nextProject] = getSurroundingItems(project, projects)
-  console.log('project')
+  console.log('[project]', project)
 
   return (
     <>
@@ -96,8 +96,8 @@ const Project = async ({
       /> */}
 
       <div>
-        <div className="container flex flex-col-reverse justify-between  pb-8 lg:gap-8 lg:space-y-8 lg:pb-12">
-          <div className="space-y-8 lg:w-[calc(489*100%/1152)] ">
+        <div className="container flex flex-col-reverse justify-between gap-8 pb-8 lg:gap-8 lg:space-y-8 lg:pb-12">
+          <div className="mx-auto space-y-8 lg:w-[calc(960*100%/1152)] ">
             <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
               {project.attributes.title}
             </h2>
@@ -105,7 +105,7 @@ const Project = async ({
               {project.attributes.content}
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 lg:w-[calc(542*100%/1152)] lg:gap-8">
+          <div className="mx-auto grid grid-cols-2 gap-4 lg:w-[calc(960*100%/1152)] lg:gap-8 ">
             <div className="relative col-span-2 aspect-[542/305]">
               <Image
                 {...extractImageAttrs(project.attributes.coverImage)}

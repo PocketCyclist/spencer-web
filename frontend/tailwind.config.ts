@@ -99,11 +99,11 @@ const config: Config = {
         ],
       },
       minHeight: {
-        'screen-minus-header': `calc(100vh - ${toRem(270)})`,
+        'screen-minus-header': `calc(100vh - ${toRem(244)})`,
         'screen-minus-mobile-header': `calc(100vh - ${toRem(94)})`,
       },
       spacing: {
-        header: toRem(270),
+        header: toRem(244),
         'mobile-header': toRem(94),
         18: '4.5rem',
       },

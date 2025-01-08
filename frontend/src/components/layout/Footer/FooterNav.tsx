@@ -6,16 +6,7 @@ import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
 import { TRoutes } from '@/constants/routes'
 
 export const FooterNav = ({ routes }: { routes: TRoutes }) => {
-  const ITEMS = [
-    routes.about,
-    routes.discography,
-    routes.musicProjects,
-    routes.events,
-    routes.news,
-    routes.myCourse,
-    routes.contact,
-    routes.handpanAcademy,
-  ]
+  const ITEMS = [routes.myCourse, routes.contact, routes.handpanAcademy]
   const pathname = usePathnameWithHash()
 
   return (
