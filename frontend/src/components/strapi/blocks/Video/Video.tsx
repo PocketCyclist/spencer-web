@@ -3,28 +3,48 @@ import Image from 'next/image'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 
-type VideoProps = { poster?: { alt: string; src: string }; src: string }
+type VideoProps = {
+  poster_alt?: string
+  poster_src?: string
+  src: string
+  title?: string
+}
 
-export const Video = ({ poster, src }: VideoProps) => (
-  <section className="relative overflow-hidden bg-red rem:h-[500px] lg:rem:h-[600px] xl:rem:h-[800px]">
-    <div className="min-h-full w-full overflow-hidden bg-background md:absolute md:right-0 md:top-1/2 md:w-3/4 md:max-w-[calc(50%+550px-175px)] md:-translate-y-1/2 md:rounded-l-full md:before:block md:before:pt-[120%]">
-      <div className="absolute top-1/2 w-full -translate-y-1/2 rem:h-[500px] lg:rem:h-[600px] xl:rem:h-[800px]">
-        {poster && (
-          <Image
-            alt={poster.alt}
-            className="object-cover"
-            fill
-            sizes="(min-width: 768px) 75vw, 100vw"
-            src={poster.src}
-          />
-        )}
+export const Video = ({
+  poster_alt = '',
+  poster_src,
+  src,
+  title = 'Video',
+}: VideoProps) => (
+  <article className="rem:max-w-[460px]">
+    <div className="relative z-0">
+      {poster_src && (
+        <Image
+          alt={poster_alt}
+          className="rounded-md object-cover rem:max-h-[410px]"
+          fill
+          sizes="(min-width: 640px) 580px, 95vw"
+          src={poster_src}
+        />
+      )}
+
+      <h5 className="mt-auto max-w-[410px] font-sans leading-none  text-white opacity-0 rem:max-h-[410px] rem:min-h-[400px] rem:text-[48px]  lg:min-w-[410px]">
+        {title}
+      </h5>
+    </div>
+    <div className="flex min-w-[75vw] flex-1 flex-col gap-8 pb-6 pt-12 md:min-w-[20vw]">
+      <p className="font-sans  rem:text-[36px]">{title}</p>
+      <p>
         <VideoDialog
           src={src}
           trigger={
-            <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rem:size-[104px] xl:rem:size-[237px]" />
+            <PlayButton
+              small={true}
+              className="rem:size-[32px] xl:rem:size-[32px]"
+            />
           }
         />
-      </div>
+      </p>
     </div>
-  </section>
+  </article>
 )

@@ -52,7 +52,6 @@ const Project = async ({
 
   if (!projects.length) return notFound()
   //  const [prevProject, nextProject] = getSurroundingItems(project, projects)
-  console.log('[project]', project)
 
   return (
     <>
@@ -110,6 +109,7 @@ const Project = async ({
               <Image
                 {...extractImageAttrs(project.attributes.coverImage)}
                 className="object-cover"
+                alt=""
                 fill
                 sizes="(min-width: 1024px) 542px, 100vw"
               />
