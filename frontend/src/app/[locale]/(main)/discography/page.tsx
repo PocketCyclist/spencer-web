@@ -35,7 +35,7 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
       },
     }),
   ])
-  //console.log('[albums]', albums)
+
   return (
     <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center lg:min-h-screen-minus-header">
       <div className="text-h1-title container">

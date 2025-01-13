@@ -5,7 +5,7 @@ import { cn } from '@/lib/cn'
 
 type ButtonProps = {
   asChild?: boolean
-  variant: 'primary' | 'secondary' | 'form'
+  variant: 'primary' | 'secondary' | 'form' | 'light'
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 const VARIANT_CLASSES_MAP = {
@@ -14,6 +14,7 @@ const VARIANT_CLASSES_MAP = {
   secondary:
     'bg-button-secondary text-white hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
   form: 'bg-button-form text-black hover:bg-button-form-hover disabled:bg-button-form-disabled disabled:text-black/80',
+  light: 'text-black button-light disabled:text-black/80',
 } as const
 
 export const Button = ({

@@ -7,6 +7,7 @@ import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { Video } from '@/components/strapi/blocks/Video/Video'
+import { ImageCTAMain } from '@/components/common/ImageCTAMain/ImageCTAMain'
 
 const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
@@ -17,7 +18,16 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   const blocks = pageData.attributes.blocks
 
   // В новом макете видео выводятся flex плиткой. Нужно их отфильтровать и поместить в контейнер.
+  // {
+  //   text: string
+  //   coverImage: TStrapiImageField
+  //   buyText: string
+  //   buyUrl: string
+  // }
 
+  const promoblock = {
+    text: '',
+  }
   const firstElement = [blocks[0]] // Первый элемент Hero
 
   const videoBlocks = blocks.filter(
@@ -54,6 +64,13 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
             </div>
           ))}
         </div>
+        <ImageCTAMain
+          text={'Leçons de handpan: Apprenez rapidement tout en vous amusant!'}
+          coverImageSrc={'/images/main-pic.png'}
+          coverImageAlt={'Learn Handpan'}
+          buyText={'Je me lance!'}
+          buyUrl={''}
+        />
       </section>
       <StrapiBlocks blocks={otherBlocks} />
     </>

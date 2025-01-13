@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
@@ -18,6 +19,7 @@ import { ArrowRightSmallIcon } from '@/icons'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
 import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
+import Image from 'next/image'
 
 const Event = async ({
   params: { slug, locale },
@@ -75,39 +77,65 @@ const Event = async ({
   ensureBestTranslation(event, 'events', locale)
 
   const parsedDate = parseDateToWords(event.attributes.date, true)
-
+  const imageAttrs = event.attributes.promoImage.data.attributes || undefined
+  const linkEvents = '/' + locale + '/events'
   return (
     <>
-      <section className="container py-[88px]">
-        <h1 className="mb-2 whitespace-pre-wrap font-serif rem:text-[48px] rem:leading-[59.33px] lg:rem:text-[88px] lg:rem:leading-[108.77px]">
+      <div className="text-h1-title container">
+        <div className="py-6 font-sans text-[16px] lg:py-12">
+          <Link
+            href={linkEvents}
+            title="Music Projects"
+            className="breadcrumps-link "
+          >
+            Events
+          </Link>
+          <span className="hidden px-4 md:inline-block">&#x1F784;</span>
+          <span className=" hidden md:inline-block">
+            {event.attributes.title}
+          </span>
+        </div>
+      </div>
+      <section className="container pb-[88px]">
+        {/* {!!event.attributes.media.length && (
+          <MediaSlider media={event.attributes.media} />
+        )} */}
+
+        <div className="relative row-start-1 rem:min-h-[358px] sm:min-h-[500px] lg:col-start-2">
+          <Image
+            src={imageAttrs.url || ''}
+            alt={imageAttrs.alternativeText || ''}
+            className="rounded-sm object-cover"
+            fill
+          />
+        </div>
+
+        <h2 className="mb-2 whitespace-pre-wrap font-sans rem:pt-[32px] rem:text-[24px] rem:leading-[30px] lg:mb-5 lg:rem:pt-[64px] lg:rem:text-[40px] lg:rem:leading-[50px]">
           {event.attributes.title}
-        </h1>
-        <h3 className="mb-12">
+        </h2>
+        <h3 className="mb-5 rem:text-[24px] rem:leading-[30px] lg:mb-5 lg:rem:text-[20px] lg:rem:leading-[28px]">
           {parsedDate.dayOfWeek} {parsedDate.date}
         </h3>
-        {!!event.attributes.media.length && (
-          <MediaSlider media={event.attributes.media} />
-        )}
-        <p className="mb-12 mt-[88px] whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
+        <p className="mw-[160px] mb-8 whitespace-pre-wrap rem:text-[20px] rem:leading-[25.1px]">
           {event.attributes.description}
         </p>
         {event.attributes.buyUrl && (
-          <Button asChild className="sm:flex-1" variant="primary">
+          <Button asChild className="min-w-40 sm:flex-1" variant="primary">
             <Link
               href={event.attributes.buyUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Buy
-              <ArrowRightSmallIcon
+              {/* <ArrowRightSmallIcon
                 className="ml-14 rem:h-[8px] rem:w-[25px]"
                 viewBox="0 0 25 8"
-              />
+              /> */}
             </Link>
           </Button>
         )}
       </section>
-      <Cymbal right={true} />
+      {/* 
       {otherEvents.length ? (
         <section className="container py-[88px]">
           <div className="2xl:rem:max-w-[820px]">
@@ -135,7 +163,7 @@ const Event = async ({
             </div>
           </div>
         </section>
-      ) : null}
+      ) : null} */}
     </>
   )
 }

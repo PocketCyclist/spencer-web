@@ -52,13 +52,14 @@ const Project = async ({
 
   if (!projects.length) return notFound()
   //  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  const linkProjects = '/' + locale + '/projects'
 
   return (
     <>
       <div className="text-h1-title container">
         <div className="py-12 font-sans text-[16px]">
           <Link
-            href={'/projects/'}
+            href={linkProjects}
             title="Music Projects"
             className="breadcrumps-link"
           >
