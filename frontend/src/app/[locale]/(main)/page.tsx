@@ -7,7 +7,6 @@ import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { Video } from '@/components/strapi/blocks/Video/Video'
-import { ImageCTAMain } from '@/components/common/ImageCTAMain/ImageCTAMain'
 
 const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
@@ -17,23 +16,14 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   )
   const blocks = pageData.attributes.blocks
 
-  // В новом макете видео выводятся flex плиткой. Нужно их отфильтровать и поместить в контейнер.
-  // {
-  //   text: string
-  //   coverImage: TStrapiImageField
-  //   buyText: string
-  //   buyUrl: string
-  // }
+  const firstElement = [blocks[0]] // First block in the list (should be Hero)
 
-  const promoblock = {
-    text: '',
-  }
-  const firstElement = [blocks[0]] // Первый элемент Hero
-
+  // All the Video blocks
   const videoBlocks = blocks.filter(
     (block) => block.__component === 'block.video',
   ) // Все элементы с компонентом 'block.video'
 
+  // The rest of the blocks in order
   const otherBlocks = blocks.filter(
     (block) => block.__component !== 'block.video' && block !== blocks[0],
   ) // Все элементы, которые не являются 'block.video' и не первый элемент
@@ -45,7 +35,7 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
       {/* <pre>{JSON.stringify(videoBlocks, null, 2)}</pre> */}
 
       <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center pt-24 lg:min-h-screen-minus-header">
-        <div className="container flex max-w-5xl flex-wrap justify-between gap-y-2 no-scrollbar">
+        <div className="container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar">
           {videoBlocks.map((item) => (
             <div key={item.id} className="">
               <Video
@@ -63,14 +53,14 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
               />
             </div>
           ))}
+          <div>
+            <article className="w-full rem:max-w-[460px]">
+              <div className="relative z-0 w-full  lg:rem:w-[460px]">
+                &nbsp;{' '}
+              </div>
+            </article>
+          </div>
         </div>
-        <ImageCTAMain
-          text={'Leçons de handpan: Apprenez rapidement tout en vous amusant!'}
-          coverImageSrc={'/images/main-pic.png'}
-          coverImageAlt={'Learn Handpan'}
-          buyText={'Je me lance!'}
-          buyUrl={''}
-        />
       </section>
       <StrapiBlocks blocks={otherBlocks} />
     </>

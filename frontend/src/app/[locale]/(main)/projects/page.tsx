@@ -66,7 +66,7 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           {pageData.attributes.title}
         </h1>
       </div>
-      <div className="container flex max-w-6xl flex-wrap justify-between gap-y-8 no-scrollbar">
+      <div className=" container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar lg:max-w-[71rem]">
         {projects.map((item) => (
           <div key={item.id}>
             <article className="rem:max-w-[464px]">
@@ -108,6 +108,13 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
             </article>{' '}
           </div>
         ))}
+        <div>
+          <article className=" w-full rem:max-w-[460px] lg:w-auto">
+            <div className="relative z-0 w-[320px] w-full lg:rem:w-[460px]">
+              &nbsp;{' '}
+            </div>
+          </article>
+        </div>
       </div>
       {/* <Hero
         className="lg:py-0"
