@@ -12,6 +12,7 @@ import { Metadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import InstaFeed from '@/components/common/InstaFeed/InstaFeed'
 
 const News = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
@@ -36,13 +37,17 @@ const News = async ({ params: { locale } }: TParamsWithLocale) => {
   return (
     <>
       <div className="text-h1-title container">
-        <h1 className="font-serif text-[64px] leading-[270px]">
-          {pageData.attributes.title}
-        </h1>
+        <div className="text-h1-title container">
+          <h1 className="py-12 font-serif rem:text-[48px] rem:leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
+            {pageData.attributes.title}
+          </h1>
+        </div>
       </div>
 
       <section>
-        <div className="container py-16 lg:py-28">INSTA FEED HERE</div>
+        <div className="pb-16 lg:pb-28">
+          <InstaFeed />
+        </div>
       </section>
     </>
   )
