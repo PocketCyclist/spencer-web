@@ -59,7 +59,6 @@ const Events = async ({ params, searchParams }: TParamsWithLocale) => {
 
   // const featuredEvent = futureEvents[futureEvents.length - 1]
   const featuredEvent = pastEvents[0] // заменить на futureEvents
-  console.log(featuredEvent)
   //const listEvents = past == '1' ? pastEvents : futureEvents
   const listEvents = past == '1' ? pastEvents : pastEvents
   const titleEvents = past == '1' ? 'Events archive' : 'Upcoming events'

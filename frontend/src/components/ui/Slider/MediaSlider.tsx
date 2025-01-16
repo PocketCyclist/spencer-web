@@ -9,11 +9,27 @@ import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 
 export const MediaSlider = ({
   media,
+  coverImage = '',
 }: {
   media: TStrapiProjectMediaItem[]
+  coverImage?: any
 }) => {
   return (
     <Slider>
+      {coverImage && (
+        <p>
+          <SliderSlide>
+            <div className="h-full w-full">
+              <Image
+                src={coverImage.attributes.url}
+                alt={coverImage.attributes.alternativeText}
+                className="object-cover"
+                fill
+              />
+            </div>
+          </SliderSlide>
+        </p>
+      )}
       {media.map((item, index) => {
         switch (item.__component) {
           case 'component.image':

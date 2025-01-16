@@ -53,11 +53,7 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `projects/${projects[0].id}`,
   )
-  const [prevProject, nextProject] = getSurroundingItems(project, projects)
-  //console.log('[projects]', projects)
-  // projects.map((item) => {
-  //   console.log(item.attributes.coverImage)
-  // })
+  //const [prevProject, nextProject] = getSurroundingItems(project, projects)
 
   return (
     <>
