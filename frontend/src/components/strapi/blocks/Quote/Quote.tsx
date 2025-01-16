@@ -12,7 +12,7 @@ const buyUrl =
 const buyText = "I'm Ready to Start!"
 
 export const Quote = ({ text, author }: QuoteProps) => (
-  <section className="bg-main-pic">
+  <section className="bg-main-pic lg:mb-30 mb-10">
     <div className="container flex flex-col justify-center pb-[3.125rem]  pt-[25rem] lg:mt-[6rem] lg:pb-[3rem] lg:pt-[17.5rem] ">
       <div className="mx-auto rem:max-w-[987px] ">
         <p className="text-center font-serif text-white rem:text-[36px] rem:leading-[44.5px] sm:whitespace-break-spaces lg:rem:text-[64px] lg:rem:leading-[79.1px]">

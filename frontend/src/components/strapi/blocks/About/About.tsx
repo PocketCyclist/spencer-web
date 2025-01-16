@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import { LogoHero } from '../LogoHero/LogoHero'
+
 // import { Hero } from '@/components/common/Hero/Hero'
 // import { CapaIcon } from '@/icons'
 // import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { LogoHero } from '../LogoHero/LogoHero'
 
 type TAboutImage = {
   alt: string

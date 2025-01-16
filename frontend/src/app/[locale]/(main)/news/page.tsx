@@ -1,13 +1,9 @@
-import { Hero } from '@/components/common/Hero/Hero'
-import { PostCard } from '@/components/common/PostCard/PostCard'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
 import { TStrapiNewsPage, TStrapiPost } from '@/data/strapi/types/posts'
-import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { CapaIcon } from '@/icons'
 import { Metadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { TLocale, TParamsWithLocale } from '@/navigation'
@@ -17,21 +13,21 @@ import InstaFeed from '@/components/common/InstaFeed/InstaFeed'
 const News = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
 
-  const [pageData, posts] = await Promise.all([
+  const [pageData] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page', {
       locale,
       deepPopulate: true,
     }),
-    strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
-      locale,
-      query: {
-        populate: 'deep',
-        sort: 'publishedAt:desc',
-        pagination: {
-          pageSize: 100,
-        },
-      },
-    }),
+    // strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+    //   locale,
+    //   query: {
+    //     populate: 'deep',
+    //     sort: 'publishedAt:desc',
+    //     pagination: {
+    //       pageSize: 100,
+    //     },
+    //   },
+    // }),
   ])
 
   return (

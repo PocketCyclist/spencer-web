@@ -33,7 +33,9 @@ a.breadcrumps-link {
     background-size: cover;
   }
 }
-
+.events > div:last-child > .event_item {
+  border-bottom: 0 !important;
+}
 .instagram-feed {
 }
 .instagram-post {
