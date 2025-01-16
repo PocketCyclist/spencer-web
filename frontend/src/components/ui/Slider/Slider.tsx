@@ -36,7 +36,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
         slidesPerView={1}
       >
         {children}
-        <SlideNavigation isBeginning={isBeginning} isEnd={isEnd} />
+        {/* <SlideNavigation isBeginning={isBeginning} isEnd={isEnd} /> */}
       </Swiper>
     </div>
   )

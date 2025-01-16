@@ -43,7 +43,8 @@ export type TStrapiImageAttachmentEntity = TStrapiEntity<{
   formats: Record<
     TStrapiImageFormats,
     {
-      urL: string
+      //urL: string
+      url: string
       width: number
       height: number
       name: string

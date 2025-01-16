@@ -1,4 +1,3 @@
-import { Hero } from '@/components/common/Hero/Hero'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
@@ -8,18 +7,23 @@ import { TStrapiEvent, TStrapiEventsPage } from '@/data/strapi/types/events'
 import { getTodayDate } from '@/data/strapi/utils/date'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { EventCard } from '@/components/common/EventCard/EventCard'
-import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
-import { cn } from '@/lib/cn'
+
 import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale, TParamsWithLocale } from '@/navigation'
+import { Button } from '@/components/ui/Button/Button'
+import { LogoHeroNoLogo } from '@/components/strapi/blocks/LogoHeroNoLogo/LogoHeroNoLogo'
+import EventsList from '@/components/common/EventsList/EventsList'
 
-const Events = async ({ params: { locale } }: TParamsWithLocale) => {
+const Events = async ({ params, searchParams }: TParamsWithLocale) => {
+  const { locale } = params
+  const { past } = searchParams
   unstable_setRequestLocale(locale)
 
   const today = getTodayDate()
+
   const [pageData, futureEvents, pastEvents] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiEventsPage>>('events-page', {
       locale,
@@ -53,98 +57,44 @@ const Events = async ({ params: { locale } }: TParamsWithLocale) => {
     }),
   ])
 
-  const featuredEvent = futureEvents[futureEvents.length - 1]
+  // const featuredEvent = futureEvents[futureEvents.length - 1]
+  const featuredEvent = pastEvents[0] // заменить на futureEvents
+  //const listEvents = past == '1' ? pastEvents : futureEvents
+  const listEvents = past == '1' ? pastEvents : pastEvents
+  const titleEvents = past == '1' ? 'Events archive' : 'Upcoming events'
+  const linkEvents =
+    past == '1' ? '/' + locale + '/events/' : '/' + locale + '/events?past=1'
+  const linkEventsTitle = past == '1' ? 'Upcoming events' : 'Events archive'
 
   return (
     <>
-      <Hero
-        bgImage={extractImageAttrs(
-          featuredEvent
-            ? featuredEvent.attributes.promoImage
-            : pageData.attributes.heroImage,
-        )}
-        title={
-          featuredEvent
-            ? featuredEvent.attributes.title
-            : pageData.attributes.title
-        }
-        description={
-          featuredEvent
-            ? featuredEvent.attributes.promoText
-            : pageData.attributes.description
-        }
-        contentAdditionalComponent={
-          featuredEvent ? (
-            <Link
-              className="max-w-fit underline underline-offset-2 hover:no-underline"
-              href={`/events/${featuredEvent.id}`}
-              title="Details"
-            >
-              details
-            </Link>
-          ) : undefined
-        }
-      />
+      <section className="relative flex flex-col items-center justify-center ">
+        <div className="text-h1-title container  mx-auto ">
+          <h2 className="py-12 font-serif rem:text-[40px] rem:leading-[49.44px] md:py-24 lg:rem:text-[64px] lg:rem:leading-[79.1px]">
+            {titleEvents}
+          </h2>
+        </div>
+      </section>
 
-      <div className="space-y-16 py-16 lg:space-y-[7.375rem] lg:py-28">
-        <section>
-          <div className="container">
-            <div className="2xl:rem:max-w-[820px]">
-              <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
-                Upcoming events
-              </h2>
-              <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 md:grid-cols-3 md:gap-y-16">
-                {futureEvents.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    date={event.attributes.date}
-                    image={extractImageAttrs(event.attributes.promoImage)}
-                    title={event.attributes.title}
-                    description={event.attributes.promoText}
-                    url={`/events/${event.id}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-        <Cymbal className="!mt-0 [&>*]:-mt-8" right />
-        <section>
-          <div className="container">
-            <div className="2xl:rem:max-w-[820px]">
-              <h2 className="mb-10 font-serif rem:text-[40px] rem:leading-[49.44px] lg:rem:text-[64px] lg:rem:leading-[79.1px]">
-                Past events
-              </h2>
-              <div
-                className={cn(
-                  'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:overflow-x-visible md:grid-cols-3 md:gap-y-16',
-                  pastEvents.length > 1 &&
-                    '-mx-4 flex snap-x snap-mandatory overflow-x-auto px-4 no-scrollbar',
-                )}
-              >
-                {pastEvents.map((event) => (
-                  <div
-                    key={event.id}
-                    className={pastEvents.length > 1 ? 'pl-4' : undefined}
-                  >
-                    <EventCard
-                      className={
-                        pastEvents.length > 1 ? 'w-[252px]' : undefined
-                      }
-                      date={event.attributes.date}
-                      dateType="past"
-                      image={extractImageAttrs(event.attributes.promoImage)}
-                      title={event.attributes.title}
-                      description={event.attributes.promoText}
-                      url={`/events/${event.id}`}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      {past !== '1' && (
+        <>
+          <LogoHeroNoLogo
+            bgImage={{
+              alt: '',
+              src: featuredEvent.attributes.promoImage.data.attributes.url,
+            }}
+          ></LogoHeroNoLogo>
+          <div className="rem:pb-[20px] lg:rem:pb-[80px]">&nbsp;</div>
+        </>
+      )}
+      <section className="relative mx-auto  flex w-full max-w-[1500px] flex-col items-center rem:pb-[88px] ">
+        <EventsList events={listEvents} />
+        <div className="w-full  px-4 text-left  rem:mt-[42px] lg:px-10">
+          <Link href={linkEvents} className=" underline underline-offset-2">
+            {linkEventsTitle}
+          </Link>
+        </div>
+      </section>
     </>
   )
 }

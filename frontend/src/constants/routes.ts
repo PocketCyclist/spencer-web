@@ -35,6 +35,10 @@ export const routesMap = {
     url: 'https://handpanharmony.com',
     title: 'Handpan Academy',
   },
+  learnHandpan: {
+    url: '/learn-handpan',
+    title: 'Learn Handpan',
+  },
 } as const
 
 export type TRoutes = typeof routesMap

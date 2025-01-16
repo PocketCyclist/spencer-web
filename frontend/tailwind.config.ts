@@ -86,6 +86,10 @@ const config: Config = {
           'rgb(var(--button-secondary-hover) / <alpha-value>)',
         'button-secondary-disabled':
           'rgb(var(--button-secondary-disabled) / <alpha-value>)',
+        'button-form': 'rgb(var(--button-form) / <alpha-value>)',
+        'button-form-hover': 'rgb(var(--button-form-hover) / <alpha-value>)',
+        'button-form-disabled':
+          'rgb(var(--button-form-disabled) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-mulish)', ...defaultTheme.fontFamily.sans],
@@ -95,11 +99,11 @@ const config: Config = {
         ],
       },
       minHeight: {
-        'screen-minus-header': `calc(100vh - ${toRem(160)})`,
+        'screen-minus-header': `calc(100vh - ${toRem(244)})`,
         'screen-minus-mobile-header': `calc(100vh - ${toRem(94)})`,
       },
       spacing: {
-        header: toRem(160),
+        header: toRem(244),
         'mobile-header': toRem(94),
         18: '4.5rem',
       },

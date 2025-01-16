@@ -13,7 +13,7 @@ export const getTodayDate = () => {
 export const parseDateToWords = (
   inputDate?: string,
   longDayOfWeek?: boolean,
-): { dayOfWeek?: string; date?: string } => {
+): { dayOfWeek?: string; date?: string; year?: string } => {
   if (!inputDate) return { dayOfWeek: undefined, date: undefined }
   const dateObj = parseISO(inputDate)
 
@@ -21,9 +21,6 @@ export const parseDateToWords = (
     ? format(dateObj, 'EEEE')
     : format(dateObj, 'EEE')
   const day = format(dateObj, 'do MMMM')
-
-  return {
-    dayOfWeek,
-    date: day,
-  }
+  const year = format(dateObj, 'yyyy')
+  return { dayOfWeek, date: day, year }
 }

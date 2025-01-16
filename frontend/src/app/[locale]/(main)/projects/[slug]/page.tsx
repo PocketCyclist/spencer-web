@@ -7,20 +7,16 @@ import {
   TStrapiProject,
   TStrapiProjectsPage,
 } from '@/data/strapi/types/projects'
-import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
+//import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
 import { notFound } from 'next/navigation'
-import { Hero } from '@/components/common/Hero/Hero'
-import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
-import Image from 'next/image'
-import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
-import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { CapaIcon } from '@/icons'
 import { Metadata } from 'next'
 import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TLocale } from '@/navigation'
 import { ensureBestTranslation } from '@/lib/ensureBestTranslation'
+import Link from 'next/link'
+import { MediaSlider } from '@/components/ui/Slider/MediaSlider'
 
 const Project = async ({
   params: { slug, locale },
@@ -47,78 +43,42 @@ const Project = async ({
     }),
   ])
 
+  const coverImage = project.attributes.coverImage.data
+  const media = project.attributes.media
+
   ensureBestTranslation(project, 'projects', locale)
 
   if (!projects.length) return notFound()
-  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  //  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  const linkProjects = '/' + locale + '/projects'
 
   return (
     <>
-      <Hero
-        className="lg:py-0"
-        contentClassName="py-8 lg:justify-center"
-        bgImage={extractImageAttrs(pageData.attributes.heroImage)}
-        title={pageData.attributes.title}
-      />
-
-      <PrevNextNavigation
-        prev={
-          prevProject
-            ? {
-                title: prevProject?.attributes.title,
-                url: `/projects/${prevProject.id}` || '#',
-              }
-            : undefined
-        }
-        next={
-          nextProject
-            ? {
-                title: nextProject.attributes.title,
-                url: `/projects/${nextProject.id}` || '#',
-              }
-            : undefined
-        }
-      />
-
+      <div className="text-h1-title container">
+        <div className="py-12 font-sans text-[16px]">
+          <Link
+            href={linkProjects}
+            title="Music Projects"
+            className="breadcrumps-link"
+          >
+            Music Projects
+          </Link>
+          <span className="px-4">&#x1F784;</span>
+          {project.attributes.title}
+        </div>
+      </div>
+      <div className="mx-auto lg:w-[calc(960*100%/1152)] ">
+        <MediaSlider media={media} coverImage={coverImage} />
+      </div>
       <div>
-        <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
-          <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
-            <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
+        <div className="container flex flex-col-reverse justify-between gap-8 pb-8 lg:gap-8 lg:space-y-8 lg:pb-12">
+          <div className="mx-auto space-y-8 lg:w-[calc(960*100%/1152)] ">
+            <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
               {project.attributes.title}
             </h2>
             <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
               {project.attributes.content}
             </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 lg:w-[calc(542*100%/1152)] lg:gap-8">
-            <div className="relative col-span-2 aspect-[542/305]">
-              <Image
-                {...extractImageAttrs(project.attributes.coverImage)}
-                className="object-cover"
-                fill
-                sizes="(min-width: 1024px) 542px, 100vw"
-              />
-            </div>
-            {project.attributes.media.map((item) => (
-              <div key={item.id} className="relative aspect-[255/143]">
-                {item.__component === 'component.image' && (
-                  <SmallMediaImage {...extractImageAttrs(item.image)} />
-                )}
-                {item.__component === 'component.video' && (
-                  <>
-                    <SmallMediaImage
-                      {...extractImageAttrs(item.previewImage)}
-                    />
-                    <VideoDialog
-                      src={item.url}
-                      trigger={
-                        <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rem:size-[56px] xl:rem:size-[80px]" />
-                      }
-                    />
-                  </>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -182,4 +142,38 @@ export const generateMetadata = async ({
       canonical: `/${project.attributes.locale}/projects/${project.id}`,
     },
   }
+}
+
+{
+  /* <div className="mx-auto grid grid-cols-2 gap-4 lg:w-[calc(960*100%/1152)] lg:gap-8 ">
+            <div className="relative col-span-2 aspect-[542/305]">
+              <Image
+                {...extractImageAttrs(project.attributes.coverImage)}
+                className="object-cover"
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 542px, 100vw"
+              />
+            </div>
+            {project.attributes.media.map((item) => (
+              <div key={item.id} className="relative aspect-[255/143]">
+                {item.__component === 'component.image' && (
+                  <SmallMediaImage {...extractImageAttrs(item.image)} />
+                )}
+                {item.__component === 'component.video' && (
+                  <>
+                    <SmallMediaImage
+                      {...extractImageAttrs(item.previewImage)}
+                    />
+                    <VideoDialog
+                      src={item.url}
+                      trigger={
+                        <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rem:size-[56px] xl:rem:size-[80px]" />
+                      }
+                    />
+                  </>
+                )}
+              </div>
+            ))}
+          </div> */
 }

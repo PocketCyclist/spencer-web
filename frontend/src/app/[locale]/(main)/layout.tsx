@@ -7,6 +7,7 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { locales } from '@/navigation'
 
 import '@/styles/globals.css'
+import '@/styles/update.css'
 
 export default function RootLayout({
   children,

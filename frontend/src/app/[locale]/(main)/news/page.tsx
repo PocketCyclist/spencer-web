@@ -1,90 +1,50 @@
-import { Hero } from '@/components/common/Hero/Hero'
-import { PostCard } from '@/components/common/PostCard/PostCard'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
 import { TStrapiNewsPage, TStrapiPost } from '@/data/strapi/types/posts'
-import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { CapaIcon } from '@/icons'
 import { Metadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
 import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import InstaFeed from '@/components/common/InstaFeed/InstaFeed'
 
 const News = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
 
-  const [pageData, posts] = await Promise.all([
+  const [pageData] = await Promise.all([
     strapiGet<TStrapiSingleResponse<TStrapiNewsPage>>('news-page', {
       locale,
       deepPopulate: true,
     }),
-    strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
-      locale,
-      query: {
-        populate: 'deep',
-        sort: 'publishedAt:desc',
-        pagination: {
-          pageSize: 100,
-        },
-      },
-    }),
+    // strapiGet<TStrapiListResponse<TStrapiPost>>('posts', {
+    //   locale,
+    //   query: {
+    //     populate: 'deep',
+    //     sort: 'publishedAt:desc',
+    //     pagination: {
+    //       pageSize: 100,
+    //     },
+    //   },
+    // }),
   ])
 
   return (
     <>
-      <div
-        className="pointer-events-none relative z-10 hidden select-none 2xl:flex"
-        role="presentation"
-      >
-        <div className="container relative">
-          <div className="absolute right-full top-0">
-            <CapaIcon
-              className="absolute text-yellow rem:-top-[73px] rem:right-[228px] rem:h-[264px] rem:w-[255px]"
-              viewBox="0 0 39 40"
-            />
-            <CapaIcon
-              className="absolute text-sand rem:right-[10px] rem:top-[220px] rem:h-[264px] rem:w-[255px]"
-              viewBox="0 0 39 40"
-            />
-            <CapaIcon
-              className="absolute text-green rem:right-[156px] rem:top-[556px] rem:h-[264px] rem:w-[255px]"
-              viewBox="0 0 39 40"
-            />
-          </div>
+      <div className="text-h1-title container">
+        <div className="text-h1-title container">
+          <h1 className="py-12 font-serif rem:text-[48px] rem:leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
+            {pageData.attributes.title}
+          </h1>
         </div>
       </div>
 
-      <Hero
-        bgImage={extractImageAttrs(pageData.attributes.heroImage)}
-        title={pageData.attributes.title}
-        description={pageData.attributes.description}
-      />
-
-      {posts.length > 0 && (
-        <section>
-          <div className="container py-16 lg:py-28">
-            <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-8 lg:gap-y-20">
-              {posts.map((post) => (
-                <PostCard
-                  key={post.id}
-                  description={post.attributes.promoText}
-                  image={extractImageAttrs(post.attributes.promoImage)}
-                  isLarge
-                  title={post.attributes.title}
-                  url={`/news/${post.id}`}
-                />
-              ))}
-            </div>
-
-            {/* <div className="mt-16 lg:mt-20">
-            <Pagination total={10} />
-          </div> */}
-          </div>
-        </section>
-      )}
+      <section>
+        <div className="pb-16 lg:pb-28">
+          <InstaFeed />
+        </div>
+      </section>
     </>
   )
 }
@@ -106,4 +66,28 @@ export const generateMetadata = async ({
   return {
     ...page.attributes.seo,
   }
+}
+
+{
+  /* <div
+        className="pointer-events-none relative z-10 hidden select-none 2xl:flex"
+        role="presentation"
+      >
+        <div className="container relative">
+          <div className="absolute right-full top-0">
+            <CapaIcon
+              className="absolute text-yellow rem:-top-[73px] rem:right-[228px] rem:h-[264px] rem:w-[255px]"
+              viewBox="0 0 39 40"
+            />
+            <CapaIcon
+              className="absolute text-sand rem:right-[10px] rem:top-[220px] rem:h-[264px] rem:w-[255px]"
+              viewBox="0 0 39 40"
+            />
+            <CapaIcon
+              className="absolute text-green rem:right-[156px] rem:top-[556px] rem:h-[264px] rem:w-[255px]"
+              viewBox="0 0 39 40"
+            />
+          </div>
+        </div>
+      </div> */
 }

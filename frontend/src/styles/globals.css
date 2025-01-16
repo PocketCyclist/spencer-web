@@ -12,6 +12,7 @@
   --green: 5 109 64;
   --gold: 187 102 0;
   --sand: 223 212 200;
+  --white: 255 255 255;
 
   --border: 217 216 216;
 
@@ -29,9 +30,15 @@
   --button-primary: var(--red);
   --button-primary-hover: 234 85 20;
   --button-primary-disabled: 229 133 92;
-  --button-secondary: 255 255 255;
+  /* --button-secondary: 255 255 255;
   --button-secondary-hover: 254 253 252;
-  --button-secondary-disabled: 254 253 252;
+  --button-secondary-disabled: 254 253 252; */
+  --button-secondary: 13 70 117;
+  --button-secondary-hover: 13 70 117;
+  --button-secondary-disabled: 44 44 44;
+  --button-form: 226 212 199;
+  --button-form-hover: 234 222 211;
+  --button-form-disabled: 226 226 226;
 }
 
 @media (min-width: 1024px) and (max-width: 1535px) {
@@ -90,4 +97,8 @@ textarea {
 .pinged {
   transform: scale(1.1);
   opacity: 0.7;
+}
+
+main {
+  background-color: #fff;
 }

@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-
+import Link from 'next/link'
 import { Hero } from '@/components/common/Hero/Hero'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { strapiGet } from '@/data/strapi/common'
 import {
+  TStrapiImageField,
   TStrapiListResponse,
   TStrapiSingleResponse,
 } from '@/data/strapi/types/common/api'
@@ -30,10 +31,17 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
       locale,
       deepPopulate: true,
     }),
-    strapiGet<TStrapiListResponse<{ title: string }>>('projects', {
+    strapiGet<
+      TStrapiListResponse<{
+        title: string
+        content: string
+        coverImage: TStrapiImageField
+      }>
+    >('projects', {
       locale,
       query: {
-        fields: ['title'],
+        fields: ['title', 'content'],
+        populate: ['coverImage'], // Указываем связанные поля для загрузки
         pagination: {
           pageSize: 100,
         },
@@ -45,11 +53,66 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `projects/${projects[0].id}`,
   )
-  const [prevProject, nextProject] = getSurroundingItems(project, projects)
+  //const [prevProject, nextProject] = getSurroundingItems(project, projects)
 
   return (
     <>
-      <Hero
+      <div className="text-h1-title container">
+        <h1 className="py-12 font-serif text-[48px] leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
+          {pageData.attributes.title}
+        </h1>
+      </div>
+      <div className=" container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar lg:max-w-[71rem]">
+        {projects.map((item) => (
+          <div key={item.id}>
+            <article className="rem:max-w-[464px]">
+              <div className="relative z-0">
+                {item.attributes.coverImage && (
+                  <Image
+                    alt={
+                      item.attributes.coverImage.data.attributes.alternativeText
+                    }
+                    className="rounded-md object-cover"
+                    fill
+                    sizes="(min-width: 640px) 580px, 95vw"
+                    src={item.attributes.coverImage.data.attributes.url}
+                  />
+                )}
+
+                <h5 className="mt-auto max-w-[362px] font-sans leading-none text-white opacity-0 rem:min-h-[410px] rem:text-[48px]">
+                  {item.attributes.title}
+                </h5>
+              </div>
+              <div className="flex min-w-[75vw] flex-1 flex-col pb-4 pt-8 md:min-w-[20vw]">
+                <h5 className="font-sans leading-none rem:text-[36px]">
+                  {item.attributes.title}
+                </h5>
+                <p className="my-3 font-sans rem:text-[20px]">
+                  <TruncateText
+                    text={item.attributes.content}
+                    maxLength={110}
+                  />
+                </p>
+                <Link
+                  className="max-w-fit underline underline-offset-2 hover:no-underline rem:text-[16px]"
+                  href={`/projects/${item.id}`}
+                  title="Details"
+                >
+                  Details
+                </Link>
+              </div>
+            </article>{' '}
+          </div>
+        ))}
+        <div>
+          <article className=" w-full rem:max-w-[460px] lg:w-auto">
+            <div className="relative z-0 w-[320px] w-full lg:rem:w-[460px]">
+              &nbsp;{' '}
+            </div>
+          </article>
+        </div>
+      </div>
+      {/* <Hero
         className="lg:py-0"
         contentClassName="py-8 lg:justify-center"
         bgImage={extractImageAttrs(pageData.attributes.heroImage)}
@@ -73,9 +136,9 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
               }
             : undefined
         }
-      />
+      /> */}
 
-      <div>
+      {/* <div>
         <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
           <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
             <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
@@ -119,7 +182,7 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="relative -z-[1] hidden select-none 2xl:flex"
@@ -163,4 +226,20 @@ export const generateMetadata = async ({
   return {
     ...page.attributes.seo,
   }
+}
+
+interface TruncateTextProps {
+  text: string
+  maxLength?: number
+}
+export const TruncateText: React.FC<TruncateTextProps> = ({
+  text,
+  maxLength = 200,
+}) => {
+  if (!text) return null
+
+  const truncated =
+    text.length > maxLength ? text.slice(0, maxLength) + '...' : text
+
+  return <span>{truncated}</span>
 }
