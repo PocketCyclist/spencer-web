@@ -36,7 +36,7 @@ export const routesMap = {
     title: 'Handpan Academy',
   },
   learnHandpan: {
-    url: 'https://handpanharmony.com',
+    url: '/learn-handpan',
     title: 'Learn Handpan',
   },
 } as const
