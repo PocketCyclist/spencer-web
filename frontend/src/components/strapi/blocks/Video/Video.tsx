@@ -38,11 +38,11 @@ export const Video = ({
         />
       )}
 
-      <h5 className="mt-auto max-w-[410px] font-sans leading-none  text-white opacity-0 rem:max-h-[410px] rem:min-h-[400px] rem:text-[48px]  lg:min-w-[410px]">
+      <h5 className="mt-auto min-w-[410px] min-w-[90vw] max-w-[410px]  font-sans leading-none text-white opacity-0 rem:max-h-[410px]  rem:min-h-[400px] rem:text-[48px] md:min-w-[20vw]">
         {title}
       </h5>
     </div>
-    <div className="flex min-w-[75vw] flex-1 flex-col gap-8 pb-6 pt-12 md:min-w-[20vw]">
+    <div className="flex min-w-[75vw] flex-1 flex-col gap-8 pb-6 pt-12 lg:rem:min-w-[410px]">
       <p className="font-sans  rem:text-[36px]">{title}</p>
       <p>
         <VideoDialog

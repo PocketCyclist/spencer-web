@@ -61,10 +61,10 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           {pageData.attributes.title}
         </h1>
       </div>
-      <div className=" container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar lg:max-w-[71rem]">
+      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar lg:max-w-[71rem]">
         {projects.map((item) => (
           <div key={item.id}>
-            <article className="rem:max-w-[464px]">
+            <article className="w-full rem:max-w-[460px] lg:w-auto">
               <div className="relative z-0">
                 {item.attributes.coverImage && (
                   <Image
@@ -104,9 +104,13 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           </div>
         ))}
         <div>
-          <article className=" w-full rem:max-w-[460px] lg:w-auto">
-            <div className="relative z-0 w-[320px] w-full lg:rem:w-[460px]">
-              &nbsp;{' '}
+          <article className="rem:max-w-[460px] sm:rem:w-[460px]">
+            <div className="w-full rem:max-w-[460px] sm:rem:w-[460px]">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <br />
+              </p>{' '}
             </div>
           </article>
         </div>
