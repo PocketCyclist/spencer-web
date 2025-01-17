@@ -40,12 +40,17 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
             <div key={item.id} className="">
               <Video
                 src={item.video.url}
-                poster_alt={
-                  item.video.previewImage.data.attributes.alternativeText
-                }
-                poster_src={
-                  item.video.previewImage.data.attributes.formats.small.url
-                }
+                poster={{
+                  alt: item.video.previewImage.data.attributes.alternativeText,
+                  src: item.video.previewImage.data.attributes.formats.small
+                    .url,
+                }}
+                // poster_alt={
+                //   item.video.previewImage.data.attributes.alternativeText
+                // }
+                // poster_src={
+                //   item.video.previewImage.data.attributes.formats.small.url
+                // }
                 title={
                   item.video.previewImage.data.attributes.alternativeText ||
                   'Video'

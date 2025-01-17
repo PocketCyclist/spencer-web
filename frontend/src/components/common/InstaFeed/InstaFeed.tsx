@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-
+import Image from 'next/image'
 interface InstagramPost {
   id: string
   caption: string
@@ -31,17 +31,19 @@ const InstaFeed = () => {
       <div className="instagram-feed grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
         {posts.map((post) => (
           <div key={post.id} className="instagram-post">
-            {/* <a
-              href={`https://instagram.com/p/${post.id}`}
+            <a
+              href={`https://www.instagram.com/p/${post.id}`}
               target="_blank"
               rel="noopener noreferrer"
-            > */}
-            <img
-              src={post.media_url}
-              alt={instagramUsername}
-              className="h-auto w-full"
-            />
-            {/* </a> */}
+            >
+              <Image
+                src={post.media_url}
+                alt={instagramUsername}
+                className="h-auto w-full"
+                width={300}
+                height={300}
+              />
+            </a>
           </div>
         ))}
       </div>

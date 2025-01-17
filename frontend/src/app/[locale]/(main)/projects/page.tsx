@@ -1,10 +1,6 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { Hero } from '@/components/common/Hero/Hero'
-import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
-import { PrevNextNavigation } from '@/components/common/PrevNextNavigation/PrevNextNavigation'
-import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { strapiGet } from '@/data/strapi/common'
 import {
   TStrapiImageField,
@@ -15,14 +11,13 @@ import {
   TStrapiProject,
   TStrapiProjectsPage,
 } from '@/data/strapi/types/projects'
-import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
-import { getSurroundingItems } from '@/data/strapi/utils/surroundingItems'
+//import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 import { CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import { TStrapiEventsPage } from '@/data/strapi/types/events'
-import { SmallMediaImage } from '@/components/common/SmallMediaImage/SmallMediaImage'
 import { TLocale, TParamsWithLocale } from '@/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import TruncateText from '@/components/common/TruncateText/TruncateText'
 
 const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   unstable_setRequestLocale(locale)
@@ -41,7 +36,7 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
       locale,
       query: {
         fields: ['title', 'content'],
-        populate: ['coverImage'], // Указываем связанные поля для загрузки
+        populate: ['coverImage'],
         pagination: {
           pageSize: 100,
         },
@@ -53,8 +48,12 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   const project = await strapiGet<TStrapiSingleResponse<TStrapiProject>>(
     `projects/${projects[0].id}`,
   )
-  //const [prevProject, nextProject] = getSurroundingItems(project, projects)
 
+  // const maxLength = 110
+  // const truncated =
+  //   item.attributes.content.length > maxLength
+  //     ? item.attributes.content.slice(0, maxLength) + '...'
+  //     : item.attributes.content
   return (
     <>
       <div className="text-h1-title container">
@@ -112,31 +111,6 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           </article>
         </div>
       </div>
-      {/* <Hero
-        className="lg:py-0"
-        contentClassName="py-8 lg:justify-center"
-        bgImage={extractImageAttrs(pageData.attributes.heroImage)}
-        title={pageData.attributes.title}
-      />
-
-      <PrevNextNavigation
-        prev={
-          prevProject
-            ? {
-                title: prevProject?.attributes.title,
-                url: `/projects/${prevProject.id}` || '#',
-              }
-            : undefined
-        }
-        next={
-          nextProject
-            ? {
-                title: nextProject.attributes.title,
-                url: `/projects/${nextProject.id}` || '#',
-              }
-            : undefined
-        }
-      /> */}
 
       {/* <div>
         <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
@@ -226,20 +200,4 @@ export const generateMetadata = async ({
   return {
     ...page.attributes.seo,
   }
-}
-
-interface TruncateTextProps {
-  text: string
-  maxLength?: number
-}
-export const TruncateText: React.FC<TruncateTextProps> = ({
-  text,
-  maxLength = 200,
-}) => {
-  if (!text) return null
-
-  const truncated =
-    text.length > maxLength ? text.slice(0, maxLength) + '...' : text
-
-  return <span>{truncated}</span>
 }

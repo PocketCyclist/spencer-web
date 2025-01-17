@@ -3,28 +3,38 @@ import Image from 'next/image'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 
+// type VideoProps = {
+//   // poster_alt?: string
+//   // poster_src?: string
+//   poster: ImageAtt
+//   src: string
+//   title?: string
+// }
+
 type VideoProps = {
-  poster_alt?: string
-  poster_src?: string
+  poster?: { alt: string; src: string }
   src: string
   title?: string
 }
 
+// export const Video = ({ poster, src }: VideoProps) => (
+
 export const Video = ({
-  poster_alt = '',
-  poster_src,
+  // poster_alt = '',
+  // poster_src,
+  poster,
   src,
   title = 'Video',
 }: VideoProps) => (
   <article className="rem:max-w-[460px]">
     <div className="relative z-0">
-      {poster_src && (
+      {poster && (
         <Image
-          alt={poster_alt}
+          alt={poster.alt}
           className="rounded-md object-cover rem:max-h-[410px]"
           fill
           sizes="(min-width: 640px) 580px, 95vw"
-          src={poster_src}
+          src={poster.src}
         />
       )}
 
