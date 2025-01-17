@@ -176,3 +176,28 @@ export const generateMetadata = async ({
 //     />
 //   )
 // }
+
+// {
+//   item.attributes.buyUrl && (
+//     <Link
+//       href={item.attributes.buyUrl}
+//       target="_blank"
+//       rel="noopener noreferrer"
+//       className="absolute right-4 top-4"
+//     >
+//       <CartIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
+//     </Link>
+//   )
+// }
+// {
+//   item.attributes.videoUrl && (
+//     <VideoDialog
+//       src={item.attributes.videoUrl}
+//       trigger={
+//         <button className="absolute bottom-4 right-4">
+//           <VideoIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
+//         </button>
+//       }
+//     />
+//   )
+// }

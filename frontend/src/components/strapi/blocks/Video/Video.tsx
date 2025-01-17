@@ -3,29 +3,13 @@ import Image from 'next/image'
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
 
-// type VideoProps = {
-//   // poster_alt?: string
-//   // poster_src?: string
-//   poster: ImageAtt
-//   src: string
-//   title?: string
-// }
-
 type VideoProps = {
   poster?: { alt: string; src: string }
   src: string
   title?: string
 }
 
-// export const Video = ({ poster, src }: VideoProps) => (
-
-export const Video = ({
-  // poster_alt = '',
-  // poster_src,
-  poster,
-  src,
-  title = 'Video',
-}: VideoProps) => (
+export const Video = ({ poster, src, title = 'Video' }: VideoProps) => (
   <article className="rem:max-w-[460px]">
     <div className="relative z-0">
       {poster && (
