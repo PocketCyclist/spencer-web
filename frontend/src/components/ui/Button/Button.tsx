@@ -10,9 +10,9 @@ type ButtonProps = {
 
 const VARIANT_CLASSES_MAP = {
   primary:
-    'bg-button-primary text-white hover:bg-button-primary-hover disabled:bg-button-primary-disabled disabled:text-white/80',
+    'bg-button-primary text-white font-bold  hover:bg-button-primary-hover disabled:bg-button-primary-disabled disabled:text-white/80',
   secondary:
-    'bg-button-secondary text-white hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
+    'bg-button-secondary text-white font-bold  hover:bg-button-secondary-hover disabled:bg-button-secondary-disabled disabled:text-black/[0.32]',
   form: 'bg-button-form text-black hover:bg-button-form-hover disabled:bg-button-form-disabled disabled:text-black/80',
   light: 'text-black button-light disabled:text-black/80',
 } as const
@@ -29,7 +29,7 @@ export const Button = ({
   return (
     <Component
       className={cn(
-        'inline-flex items-center justify-center font-bold transition-colors disabled:pointer-events-none rem:h-[60px] rem:px-[26px] rem:text-[20px] rem:leading-[25.1px]',
+        'inline-flex items-center justify-center transition-colors disabled:pointer-events-none rem:h-[60px] rem:px-[26px] rem:text-[20px] rem:leading-[25.1px]',
         VARIANT_CLASSES_MAP[variant],
         className,
       )}

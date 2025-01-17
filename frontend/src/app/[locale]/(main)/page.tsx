@@ -35,7 +35,7 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
       {/* <pre>{JSON.stringify(videoBlocks, null, 2)}</pre> */}
 
       <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center pt-24 lg:min-h-screen-minus-header">
-        <div className="container flex flex-wrap justify-center gap-8 no-scrollbar">
+        <div className="container flex flex-wrap justify-center gap-8 no-scrollbar lg:rem:w-[1092px]">
           {videoBlocks.map((item) => (
             <div key={item.id}>
               <Video

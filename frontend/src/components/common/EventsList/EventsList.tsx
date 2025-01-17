@@ -11,7 +11,7 @@ interface EventsListProps {
 
 const EventsList: React.FC<EventsListProps> = ({ events }) => {
   const [visibleCount, setVisibleCount] = useState(4) // Начинаем с 5 элементов
-  const [isShowMoreVisible, setIsShowMoreVisible] = useState(true) // Состояние кнопки Show More
+  const [isShowMoreVisible, setIsShowMoreVisible] = useState(true)
 
   const handleShowMore = () => {
     const newVisibleCount = visibleCount + 10 // Показываем еще 10 элементов
@@ -42,7 +42,7 @@ const EventsList: React.FC<EventsListProps> = ({ events }) => {
           </div>
         ))}
 
-        {isShowMoreVisible && (
+        {isShowMoreVisible && events.length > 0 && (
           <Button className="mt-4" variant={'light'} onClick={handleShowMore}>
             Show more
           </Button>

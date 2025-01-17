@@ -7,7 +7,10 @@ export const FooterSubscribe = () => (
       Subscribe for newsletter
     </h5>
     <Input placeholder="Enter your email" size="sm" type="email" />
-    <Button variant={'form'} className="mt-2 w-full rem:h-[40px]">
+    <Button
+      variant={'form'}
+      className="mt-4 w-full rem:h-[40px] lg:rem:h-[60px]"
+    >
       Send
     </Button>
   </form>

@@ -82,7 +82,7 @@ const Event = async ({
   return (
     <>
       <div className="text-h1-title container">
-        <div className="py-6 font-sans text-[16px] lg:py-12">
+        <div className="py-6 font-sans text-[16px] lg:py-14">
           <Link
             href={linkEvents}
             title="Music Projects"
@@ -90,26 +90,32 @@ const Event = async ({
           >
             Events
           </Link>
-          <span className="hidden px-4 md:inline-block">&#x1F784;</span>
+          <span className="hidden px-4 pb-1 md:inline-block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </span>
           <span className=" hidden md:inline-block">
             {event.attributes.title}
           </span>
         </div>
       </div>
-      <section className="container pb-[88px]">
-        {/* {!!event.attributes.media.length && (
-          <MediaSlider media={event.attributes.media} />
-        )} */}
-
-        <div className="relative row-start-1 rem:min-h-[358px] sm:min-h-[500px] lg:col-start-2">
+      <section className="container  overflow-hidden rounded-sm lg:rem:w-[1092px]">
+        <div className="relative  rem:min-h-[358px] sm:min-h-[500px] lg:col-start-2 lg:rem:w-[1092px] lg:rem:max-w-[1092px]">
           <Image
             src={imageAttrs.url || ''}
             alt={imageAttrs.alternativeText || ''}
-            className="rounded-sm object-cover"
+            className="max-w-[1092px] object-cover object-center"
             fill
           />
         </div>
-
+      </section>
+      <section className="container pb-[88px] lg:rem:w-[1092px]">
         <h2 className="mb-2 whitespace-pre-wrap font-sans rem:pt-[32px] rem:text-[24px] rem:leading-[30px] lg:mb-5 lg:rem:pt-[64px] lg:rem:text-[40px] lg:rem:leading-[50px]">
           {event.attributes.title}
         </h2>
