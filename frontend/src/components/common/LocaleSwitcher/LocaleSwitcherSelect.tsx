@@ -28,7 +28,7 @@ export default function LocaleSwitcherSelect({
     startTransition(() => {
       return router.replace(pathname, {
         ...params,
-        locale: locale,
+        locale: locale as 'fr' | 'en' | undefined,
         scroll: false,
       })
     })
