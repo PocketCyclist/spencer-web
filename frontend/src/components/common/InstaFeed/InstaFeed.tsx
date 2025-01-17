@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 interface InstagramPost {
   id: string
   caption: string
@@ -36,12 +35,12 @@ const InstaFeed = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
+              <img
                 src={post.media_url}
                 alt={instagramUsername}
                 className="h-auto w-full"
-                width={300}
-                height={300}
+                width="300"
+                height="300"
               />
             </a>
           </div>
