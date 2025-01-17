@@ -22,7 +22,7 @@ type InputProps = InputPropsAsInput | InputPropsAsTextarea
 
 const SIZE_CLASSES_MAP = {
   input: {
-    sm: 'h-10 py-1.5',
+    sm: 'rem:h-[40px] lg:rem:h-[60px] py-1.5',
     lg: 'rem:h-[61px] rem:py-[17px]',
   },
   textarea: {

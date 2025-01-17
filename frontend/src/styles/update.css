@@ -24,10 +24,18 @@ a.breadcrumps-link {
   /* background-color: var(--blue);
   background-image: url('/images/main-pic.jpg');   */
   background: #0c4876 url('/images/main-pic-sm.jpg') no-repeat;
-  background-size: contain;
+  background-size: contain; /* Растягиваем изображение по ширине на 100%, по высоте — на 200% */
+  background-position: top center; /* Фиксируем фоновое изображение сверху */
   background-repeat: no-repeat;
 }
-@media (min-width: 1024px) {
+
+@media (max-width: 767px) {
+  .bg-main-pic {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 768px) {
   .bg-main-pic {
     background: #0c4876 url('/images/main-pic.jpg') no-repeat;
     background-size: cover;

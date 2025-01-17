@@ -11,8 +11,8 @@ import { FooterSubscribe } from './FooterSubscribe'
 export const Footer = ({ routes }: { routes: TRoutes }) => {
   const locale = useLocale() as TLocale
   return (
-    <footer className="relative bg-white">
-      <div className="container grid grid-cols-1 gap-y-14 pb-4 pt-16 sm:pb-8 lg:py-[4.5rem]">
+    <footer className="relative bg-background">
+      <div className="container grid grid-cols-1 gap-y-14 pb-4 pt-16 sm:pb-8 lg:py-[4.5rem] lg:rem:w-[1092px]">
         <div>
           <Image
             className="rem:w-[180px] lg:rem:w-[292px]"
@@ -22,7 +22,7 @@ export const Footer = ({ routes }: { routes: TRoutes }) => {
             height={88}
           />
         </div>
-        <div className="grid grid-cols-1 gap-y-14 lg:flex lg:justify-between lg:gap-x-6">
+        <div className="grid grid-cols-1 gap-y-14 lg:flex lg:justify-between lg:gap-x-2">
           <div className="lg:rem:basis-[300px]">
             <FooterNav routes={routes} />
             <div className="mt-3">

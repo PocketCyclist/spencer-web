@@ -55,7 +55,7 @@ const Project = async ({
   return (
     <>
       <div className="text-h1-title container">
-        <div className="py-12 font-sans text-[16px]">
+        <div className="py-6 font-sans text-[16px] lg:py-14">
           <Link
             href={linkProjects}
             title="Music Projects"
@@ -63,45 +63,34 @@ const Project = async ({
           >
             Music Projects
           </Link>
-          <span className="px-4">&#x1F784;</span>
-          {project.attributes.title}
+          <span className="hidden px-4 pb-1 md:inline-block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </span>
+          <span className=" hidden md:inline-block">
+            {' '}
+            {project.attributes.title}
+          </span>
         </div>
       </div>
-      <div className="mx-auto lg:w-[calc(960*100%/1152)] ">
+      <div className="container mx-auto w-full lg:rem:w-[1092px]">
         <MediaSlider media={media} coverImage={coverImage} />
       </div>
-      <div>
-        <div className="container flex flex-col-reverse justify-between gap-8 pb-8 lg:gap-8 lg:space-y-8 lg:pb-12">
-          <div className="mx-auto space-y-8 lg:w-[calc(960*100%/1152)] ">
-            <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
-              {project.attributes.title}
-            </h2>
-            <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
-              {project.attributes.content}
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div
-        className="relative -z-[1] hidden select-none 2xl:flex"
-        role="presentation"
-      >
-        <div className="container relative">
-          <div className="absolute right-full rem:bottom-[35px]">
-            <CapaIcon
-              className="absolute text-blue rem:bottom-[435px] rem:right-[250px] rem:h-[300px] rem:w-[290px]"
-              viewBox="0 0 39 40"
-            />
-            <CapaIcon
-              className="absolute text-yellow rem:-right-[42px] rem:bottom-[326px] rem:h-[223px] rem:w-[216px]"
-              viewBox="0 0 39 40"
-            />
-            <CapaIcon
-              className="absolute text-red rem:bottom-[36px] rem:right-[100px] rem:h-[283px] rem:w-[274px]"
-              viewBox="0 0 39 40"
-            />
-          </div>
+      <div className="container flex flex-col-reverse justify-between  gap-8 pb-8 lg:gap-8 lg:space-y-8 lg:pb-12 lg:rem:w-[1092px]">
+        <div className="mx-auto space-y-8 ">
+          <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
+            {project.attributes.title}
+          </h2>
+          <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
+            {project.attributes.content}
+          </p>
         </div>
       </div>
     </>
@@ -177,3 +166,25 @@ export const generateMetadata = async ({
             ))}
           </div> */
 }
+
+//  ;<div
+//    className="relative -z-[1] hidden select-none 2xl:flex"
+//    role="presentation"
+//  >
+//    <div className="container relative">
+//      <div className="absolute right-full rem:bottom-[35px]">
+//        <CapaIcon
+//          className="absolute text-blue rem:bottom-[435px] rem:right-[250px] rem:h-[300px] rem:w-[290px]"
+//          viewBox="0 0 39 40"
+//        />
+//        <CapaIcon
+//          className="absolute text-yellow rem:-right-[42px] rem:bottom-[326px] rem:h-[223px] rem:w-[216px]"
+//          viewBox="0 0 39 40"
+//        />
+//        <CapaIcon
+//          className="absolute text-red rem:bottom-[36px] rem:right-[100px] rem:h-[283px] rem:w-[274px]"
+//          viewBox="0 0 39 40"
+//        />
+//      </div>
+//    </div>
+//  </div>

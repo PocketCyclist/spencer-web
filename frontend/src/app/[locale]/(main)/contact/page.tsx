@@ -1,38 +1,21 @@
 import { Cymbal } from '@/components/strapi/blocks/Cymbal/Cymbal'
 import { Button } from '@/components/ui/Button/Button'
 import { Input } from '@/components/ui/Input/Input'
-import { ArrowRightSmallIcon, CapaIcon } from '@/icons'
 import { Metadata, ResolvingMetadata } from 'next'
 import Link from 'next/link'
 
 const Contact = () => (
   <>
     <div className="text-h1-title container">
-      <h1 className="font-serif text-[64px] leading-[270px]">Contact</h1>
-    </div>
-    {/* <div
-      className="relative -z-[1] hidden select-none 2xl:flex"
-      role="presentation"
-    >
-      <div className="container relative">
-        <div className="absolute right-full top-0">
-          <CapaIcon
-            className="absolute text-red rem:-top-[15px] rem:right-[200px] rem:h-[217px] rem:w-[209px]"
-            viewBox="0 0 39 40"
-          />
-          <CapaIcon
-            className="absolute text-gold rem:right-[113px] rem:top-[297px] rem:h-[212px] rem:w-[205px]"
-            viewBox="0 0 39 40"
-          />
-          <CapaIcon
-            className="absolute text-green rem:right-[28px] rem:top-[550px] rem:h-[158px] rem:w-[153px]"
-            viewBox="0 0 39 40"
-          />
-        </div>
+      <div className="text-h1-title container">
+        <h1 className="py-12 font-serif text-[48px] leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
+          Contact
+        </h1>
       </div>
-    </div> */}
+    </div>
+
     <section>
-      <div className="container pb-10  rem:max-w-[960px]">
+      <div className="container pb-10  rem:max-w-[1092px]">
         <h3 className="form-header font-serif">Feel free to contact me</h3>
         <form className="mx-auto space-y-6 lg:space-y-8" action="?">
           <Input name="first-name" placeholder="Enter your name" size="lg" />

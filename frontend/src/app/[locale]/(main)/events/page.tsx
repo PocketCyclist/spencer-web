@@ -58,9 +58,9 @@ const Events = async ({ params, searchParams }: TParamsWithLocale) => {
   ])
 
   // const featuredEvent = futureEvents[futureEvents.length - 1]
-  const featuredEvent = pastEvents[0] // заменить на futureEvents
-  //const listEvents = past == '1' ? pastEvents : futureEvents
-  const listEvents = past == '1' ? pastEvents : pastEvents
+  const featuredEvent = futureEvents[0] || undefined
+  const listEvents = past == '1' ? pastEvents : futureEvents
+  //const listEvents = past == '1' ? pastEvents : pastEvents
   const titleEvents = past == '1' ? 'Events archive' : 'Upcoming events'
   const linkEvents =
     past == '1' ? '/' + locale + '/events/' : '/' + locale + '/events?past=1'
@@ -69,14 +69,14 @@ const Events = async ({ params, searchParams }: TParamsWithLocale) => {
   return (
     <>
       <section className="relative flex flex-col items-center justify-center ">
-        <div className="text-h1-title container  mx-auto ">
+        <div className="text-h1-title container  mx-auto">
           <h2 className="py-12 font-serif rem:text-[40px] rem:leading-[49.44px] md:py-24 lg:rem:text-[64px] lg:rem:leading-[79.1px]">
             {titleEvents}
           </h2>
         </div>
       </section>
 
-      {past !== '1' && (
+      {past !== '1' && featuredEvent && (
         <>
           <LogoHeroNoLogo
             bgImage={{
@@ -89,7 +89,7 @@ const Events = async ({ params, searchParams }: TParamsWithLocale) => {
       )}
       <section className="relative mx-auto  flex w-full max-w-[1500px] flex-col items-center rem:pb-[88px] ">
         <EventsList events={listEvents} />
-        <div className="w-full  px-4 text-left  rem:mt-[42px] lg:px-10">
+        <div className="mx-auto w-full max-w-[1500px] px-4 text-left  rem:mt-[42px] lg:px-10">
           <Link href={linkEvents} className=" underline underline-offset-2">
             {linkEventsTitle}
           </Link>
