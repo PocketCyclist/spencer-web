@@ -21,12 +21,12 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
   // All the Video blocks
   const videoBlocks = blocks.filter(
     (block) => block.__component === 'block.video',
-  ) // Все элементы с компонентом 'block.video'
+  )
 
   // The rest of the blocks in order
   const otherBlocks = blocks.filter(
     (block) => block.__component !== 'block.video' && block !== blocks[0],
-  ) // Все элементы, которые не являются 'block.video' и не первый элемент
+  )
 
   return (
     <>
@@ -35,17 +35,16 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
       {/* <pre>{JSON.stringify(videoBlocks, null, 2)}</pre> */}
 
       <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center pt-24 lg:min-h-screen-minus-header">
-        <div className="container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar">
+        <div className="container flex flex-wrap justify-center gap-8 no-scrollbar">
           {videoBlocks.map((item) => (
-            <div key={item.id} className="">
+            <div key={item.id}>
               <Video
                 src={item.video.url}
-                poster_alt={
-                  item.video.previewImage.data.attributes.alternativeText
-                }
-                poster_src={
-                  item.video.previewImage.data.attributes.formats.small.url
-                }
+                poster={{
+                  alt: item.video.previewImage.data.attributes.alternativeText,
+                  src: item.video.previewImage.data.attributes.formats.small
+                    .url,
+                }}
                 title={
                   item.video.previewImage.data.attributes.alternativeText ||
                   'Video'
@@ -54,9 +53,13 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
             </div>
           ))}
           <div>
-            <article className="w-full rem:max-w-[460px]">
-              <div className="relative z-0 w-full  lg:rem:w-[460px]">
-                &nbsp;{' '}
+            <article className="rem:max-w-[460px]">
+              <div className="relative z-0  w-[300px] lg:rem:w-[410px]">
+                <p>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;
+                  <br />
+                </p>{' '}
               </div>
             </article>
           </div>

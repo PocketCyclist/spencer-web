@@ -44,7 +44,7 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
           Discography
         </h1>
       </div>
-      <div className=" container flex flex-wrap justify-center gap-x-8 gap-y-8 no-scrollbar lg:max-w-[71rem]">
+      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar lg:max-w-[71rem]">
         {albums.map((item) => (
           <div key={item.id} className="">
             <article className="w-full rem:max-w-[460px] lg:w-auto">
@@ -118,9 +118,13 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
           </div>
         ))}
         <div>
-          <article className=" w-full rem:max-w-[460px] lg:w-auto">
-            <div className="relative z-0 w-[320px] w-full lg:rem:w-[460px]">
-              &nbsp;{' '}
+          <article className="rem:max-w-[460px] sm:rem:w-[460px]">
+            <div className="w-full rem:max-w-[460px] sm:rem:w-[460px]">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <br />
+              </p>{' '}
             </div>
           </article>
         </div>
@@ -147,6 +151,31 @@ export const generateMetadata = async ({
     ...page.attributes.seo,
   }
 }
+
+// {
+//   item.attributes.buyUrl && (
+//     <Link
+//       href={item.attributes.buyUrl}
+//       target="_blank"
+//       rel="noopener noreferrer"
+//       className="absolute right-4 top-4"
+//     >
+//       <CartIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
+//     </Link>
+//   )
+// }
+// {
+//   item.attributes.videoUrl && (
+//     <VideoDialog
+//       src={item.attributes.videoUrl}
+//       trigger={
+//         <button className="absolute bottom-4 right-4">
+//           <VideoIcon className="opacity-0 transition-opacity group-hover:opacity-100" />
+//         </button>
+//       }
+//     />
+//   )
+// }
 
 // {
 //   item.attributes.buyUrl && (

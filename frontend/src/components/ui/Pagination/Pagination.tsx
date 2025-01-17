@@ -26,8 +26,16 @@ export const Pagination = ({
   const items = usePagination({ boundaries, currentPage, siblings, total })
 
   const createPageUrl = (page: number) => {
-    const params = new URLSearchParams(searchParams)
+    const params = new URLSearchParams()
+
+    // Manually copy key-value pairs from `searchParams`
+    searchParams.forEach((value, key) => {
+      params.append(key, value)
+    })
+
+    // Now set the page parameter
     params.set('page', page.toString())
+
     return `${pathname}?${params.toString()}`
   }
 
