@@ -23,10 +23,12 @@ export default function LocaleSwitcherSelect({
 
   const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value
+    const validLocales = ['fr', 'en']
+    const locale = validLocales.includes(nextLocale) ? nextLocale : undefined
     startTransition(() => {
       return router.replace(pathname, {
         ...params,
-        locale: nextLocale,
+        locale: locale,
         scroll: false,
       })
     })
