@@ -1,9 +1,4 @@
 import Image from 'next/image'
-import { LogoHero } from '../LogoHero/LogoHero'
-
-// import { Hero } from '@/components/common/Hero/Hero'
-// import { CapaIcon } from '@/icons'
-// import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
 
 type TAboutImage = {
   alt: string
@@ -29,7 +24,7 @@ export const About = ({
 }: AboutProps) => (
   <>
     <div className="relative py-16 lg:py-0">
-      <div className={'absolute top-[-14px] lg:top-[-244px]'} id="about" />
+      <div className={'absolute top-[-14px] lg:top-[-15.25rem]'} id="about" />
       <section className="relative bg-gray-300 text-center text-white  rem:h-[500px] lg:min-h-screen-minus-header ">
         <Image
           alt={firstImage.alt}

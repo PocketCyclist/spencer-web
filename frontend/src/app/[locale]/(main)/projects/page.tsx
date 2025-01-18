@@ -49,11 +49,6 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
     `projects/${projects[0].id}`,
   )
 
-  // const maxLength = 110
-  // const truncated =
-  //   item.attributes.content.length > maxLength
-  //     ? item.attributes.content.slice(0, maxLength) + '...'
-  //     : item.attributes.content
   return (
     <>
       <div className="text-h1-title container">
@@ -84,14 +79,18 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
               </div>
               <div className="flex min-w-[75vw] flex-1 flex-col pb-4 pt-8 md:min-w-[20vw]">
                 <h5 className="font-sans leading-none rem:text-[36px]">
-                  {item.attributes.title}
+                  <Link href={`/projects/${item.id}`}>
+                    {item.attributes.title}
+                  </Link>
                 </h5>
-                <p className="my-3 font-sans rem:text-[20px]">
-                  <TruncateText
-                    text={item.attributes.content}
-                    maxLength={110}
-                  />
-                </p>
+                <Link href={`/projects/${item.id}`}>
+                  <p className="my-3 font-sans rem:text-[20px]">
+                    <TruncateText
+                      text={item.attributes.content}
+                      maxLength={110}
+                    />
+                  </p>
+                </Link>
                 <Link
                   className="max-w-fit underline underline-offset-2 hover:no-underline rem:text-[16px]"
                   href={`/projects/${item.id}`}

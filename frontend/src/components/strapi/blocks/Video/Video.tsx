@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { VideoDialog } from '@/components/common/VideoDialog/VideoDialog'
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton'
+import Link from 'next/link'
 
 type VideoProps = {
   poster?: { alt: string; src: string }
@@ -27,7 +28,11 @@ export const Video = ({ poster, src, title = 'Video' }: VideoProps) => (
       </h5>
     </div>
     <div className="flex min-w-[75vw] flex-1 flex-col gap-8 pb-6 pt-12 lg:rem:min-w-[410px]">
-      <p className="font-sans  rem:text-[36px]">{title}</p>
+      <p className=" font-sans rem:text-[36px]">
+        <Link href={src} target="_blank" rel="noopener noreferrer" className="">
+          {title}
+        </Link>
+      </p>
       <p>
         <VideoDialog
           src={src}
