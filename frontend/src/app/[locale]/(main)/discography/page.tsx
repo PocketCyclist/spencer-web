@@ -44,7 +44,7 @@ const Discography = async ({ params: { locale } }: TParamsWithLocale) => {
           Discography
         </h1>
       </div>
-      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar lg:max-w-[71rem]">
+      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar  lg:max-w-[71rem] lg:rem:pb-[112px]">
         {albums.map((item) => (
           <div key={item.id} className="">
             <article className="w-full rem:max-w-[460px] lg:w-auto">

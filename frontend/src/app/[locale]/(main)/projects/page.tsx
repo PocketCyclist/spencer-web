@@ -52,11 +52,11 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
   return (
     <>
       <div className="text-h1-title container">
-        <h1 className="py-12 font-serif text-[48px] leading-[60px] md:py-24 md:leading-[80px] md:rem:text-[64px]">
+        <h1 className="py-12 font-serif text-[48px] leading-[60px]  md:py-24 md:leading-[80px] md:rem:text-[64px]">
           {pageData.attributes.title}
         </h1>
       </div>
-      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar lg:max-w-[71rem]">
+      <div className=" container flex flex-wrap justify-center gap-8 no-scrollbar  lg:max-w-[71rem] lg:rem:pb-[112px]">
         {projects.map((item) => (
           <div key={item.id}>
             <article className="w-full rem:max-w-[460px] lg:w-auto">
@@ -114,52 +114,6 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           </article>
         </div>
       </div>
-
-      {/* <div>
-        <div className="container space-y-12 py-16 lg:flex lg:flex-row-reverse lg:justify-between lg:space-y-0 lg:py-28">
-          <div className="space-y-8 lg:w-[calc(489*100%/1152)]">
-            <h2 className="font-serif rem:text-[36px] rem:leading-[44.5px]">
-              {project.attributes.title}
-            </h2>
-            <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
-              {project.attributes.content}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 lg:w-[calc(542*100%/1152)] lg:gap-8">
-            <div className="relative col-span-2 aspect-[542/305]">
-              <Image
-                alt={
-                  project.attributes.coverImage.data.attributes.alternativeText
-                }
-                className="object-cover"
-                fill
-                sizes="(min-width: 1024px) 542px, 100vw"
-                src={project.attributes.coverImage.data.attributes.url}
-              />
-            </div>
-            {project.attributes.media.map((item) => (
-              <div key={item.id} className="relative aspect-[255/143]">
-                {item.__component === 'component.image' && (
-                  <SmallMediaImage {...extractImageAttrs(item.image)} />
-                )}
-                {item.__component === 'component.video' && (
-                  <>
-                    <SmallMediaImage
-                      {...extractImageAttrs(item.previewImage)}
-                    />
-                    <VideoDialog
-                      src={item.url}
-                      trigger={
-                        <PlayButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rem:size-[56px] xl:rem:size-[80px]" />
-                      }
-                    />
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
 
       <div
         className="relative -z-[1] hidden select-none 2xl:flex"
