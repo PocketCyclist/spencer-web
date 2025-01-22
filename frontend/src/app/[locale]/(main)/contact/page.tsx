@@ -51,7 +51,6 @@ const Contact = () => (
         </div>
       </div>
     </section>
-    <Cymbal className="[&>*]:-translate-y-[72.429%]" right />
   </>
 )
 
@@ -71,4 +70,8 @@ export const generateMetadata = async (
     // ...page.attributes.seo,
     title: 'Contact Us - The Gerard Spencer Project',
   }
+}
+
+{
+  /* <Cymbal className="[&>*]:-translate-y-[72.429%]" right /> */
 }

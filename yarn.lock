@@ -5576,6 +5576,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     prettier-plugin-tailwindcss: "npm:^0.5.12"
     react-instagram-feed: "npm:^0.1.3-alpha"
+    sendmail: "npm:^1.6.1"
   languageName: unknown
   linkType: soft
 

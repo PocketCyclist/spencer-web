@@ -44,7 +44,7 @@ export const CourseOverview = ({
   return (
     <section>
       <div className="flex flex-col items-center">
-        <div className="w-full justify-between gap-4 border-b border-gray-300 py-12 rem:min-h-[151px] sm:rem:min-h-[170px] lg:px-18 lg:rem:min-h-[149px] lg:rem:max-w-[1728px] xl:rem:min-h-[170px]">
+        <div className="w-full justify-between gap-4 border-b border-gray-300 bg-[#E0CFC5] py-12 rem:min-h-[151px]  sm:rem:min-h-[170px] lg:px-18 lg:rem:min-h-[149px] lg:rem:max-w-[1728px] xl:rem:min-h-[170px]">
           <Marquee {...marqueeProps}>
             {stats.map((stat) => (
               <p

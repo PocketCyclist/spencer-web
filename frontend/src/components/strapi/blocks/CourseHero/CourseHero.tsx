@@ -24,8 +24,8 @@ export const CourseHero = ({
         <Image
           src="/images/course-hero/top-left.png"
           className={cn(
-            'absolute -left-32 top-[5vh] scale-75 transition-all duration-1500 ease-in-out xl:scale-75 2xl:left-[3vw] 2xl:scale-100',
-            isServer && 'translate-x-[-120%] translate-y-[-75%] opacity-0',
+            'absolute left-[-65px] top-[5vh] scale-75 transition-all duration-1500 ease-in-out  xs:rem:left-[-15px] md:rem:left-[-15px] xl:scale-75 2xl:left-[3vw] 2xl:scale-100',
+            isServer && 'translate-x-[-110%] translate-y-[-75%] opacity-0',
           )}
           alt="Capture the synergy of music in this image featuring two artists in performance: Gerard mesmerizes with the handpan, while a woman accompanies him on guitar, her voice filling the air with melody. Witness the harmony of their collaboration as they create a captivating musical experience."
           width={337}
@@ -49,8 +49,8 @@ export const CourseHero = ({
           muted
           loop
           className={cn(
-            'absolute bottom-[-4vw] scale-75 rounded-[1.5rem] transition-all duration-1500 ease-in-out rem:left-[-180px] xs:bottom-8 xs:rem:left-[-135px] sm:scale-75 xl:scale-75 2xl:scale-100',
-            isServer && 'translate-x-[-100%] opacity-0',
+            'xs:scale-40 = absolute bottom-[-4vw] scale-75 rounded-[1.5rem] transition-all duration-1500 ease-in-out xs:bottom-8  xs:rem:left-[-15px] sm:scale-100 sm:rem:left-[25px] xl:scale-75  xl:rem:left-[65px] 2xl:scale-100',
+            isServer && 'translate-x-[-110%] opacity-0',
           )}
           width={400}
           height={376}
@@ -78,11 +78,12 @@ export const CourseHero = ({
         </Link>
       </div>
       <div className="relative flex h-full w-full flex-col items-center justify-center">
-        <div className="flex flex-col gap-6 px-4 text-center sm:mb-0 sm:px-12">
-          <h1 className="font-serif rem:text-[44px] rem:leading-[50px] sm:rem:text-[68px] sm:rem:leading-[70px] md:whitespace-break-spaces lg:rem:text-[88px] lg:rem:leading-[108px] ">
+        <div className="flex flex-col gap-6 px-4 text-center sm:mb-0 sm:px-12 md:max-w-[960px]">
+          <h1 className="glowing-text font-serif rem:leading-[50px] sm:rem:text-[68px] sm:rem:leading-[70px] md:whitespace-break-spaces lg:rem:text-[88px] lg:rem:leading-[108px] 2xl:rem:text-[80px] 2xl:rem:leading-[90px]">
             {title}
           </h1>
-          <h2 className="font-sans rem:rem:text-[22px] rem:leading-[25px] sm:whitespace-break-spaces md:rem:text-[36px] md:rem:leading-[44.5px]">
+
+          <h2 className="bg-[#FFF1E7] bg-opacity-50 font-sans rem:rem:text-[22px] rem:leading-[25px] sm:whitespace-break-spaces md:rem:text-[36px] md:rem:leading-[44.5px]">
             {subtitle}
           </h2>
           <Link
