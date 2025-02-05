@@ -38,7 +38,7 @@ export const About = ({
         <p className="whitespace-pre-wrap 2xl:rem:min-h-[200px]">
           {description}
         </p>
-        <div className="relative w-full rem:h-[300px] lg:rem:h-[500px] ">
+        <div className="relative mt-6 w-full rem:h-[300px] lg:rem:h-[500px] ">
           <Image
             alt={secondImage.alt}
             className="object-cover"

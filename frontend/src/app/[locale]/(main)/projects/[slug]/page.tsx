@@ -79,11 +79,11 @@ const Project = async ({
           </span>
         </div>
       </div>
-      <div className="container mx-auto w-full lg:rem:w-[1092px]">
+      <div className="container mx-auto w-full lg:rem:w-[960px]">
         <MediaSlider media={media} coverImage={coverImage} />
       </div>
 
-      <div className="container flex flex-col-reverse justify-between  gap-8 pb-8 lg:gap-8 lg:space-y-8 lg:pb-12 lg:rem:w-[1092px]">
+      <div className="container flex flex-col-reverse justify-between gap-8 pb-8 lg:gap-8 lg:pb-12 lg:pt-8 lg:rem:w-[960px]">
         <div className="mx-auto space-y-8 ">
           <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
             {project.attributes.title}

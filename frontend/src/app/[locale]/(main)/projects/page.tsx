@@ -61,21 +61,24 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
           <div key={item.id}>
             <article className="w-full rem:max-w-[460px] lg:w-auto">
               <div className="relative z-0">
-                {item.attributes.coverImage && (
-                  <Image
-                    alt={
-                      item.attributes.coverImage.data.attributes.alternativeText
-                    }
-                    className="rounded-md object-cover"
-                    fill
-                    sizes="(min-width: 640px) 580px, 95vw"
-                    src={item.attributes.coverImage.data.attributes.url}
-                  />
-                )}
+                <Link href={`/projects/${item.id}`}>
+                  {item.attributes.coverImage && (
+                    <Image
+                      alt={
+                        item.attributes.coverImage.data.attributes
+                          .alternativeText
+                      }
+                      className="rounded-md object-cover"
+                      fill
+                      sizes="(min-width: 640px) 580px, 95vw"
+                      src={item.attributes.coverImage.data.attributes.url}
+                    />
+                  )}
 
-                <h5 className="mt-auto max-w-[362px] font-sans leading-none text-white opacity-0 rem:min-h-[410px] rem:text-[48px]">
-                  {item.attributes.title}
-                </h5>
+                  <h5 className="mt-auto max-w-[362px] font-sans leading-none text-white opacity-0 rem:min-h-[410px] rem:text-[48px]">
+                    {item.attributes.title}
+                  </h5>
+                </Link>
               </div>
               <div className="flex min-w-[75vw] flex-1 flex-col pb-4 pt-8 md:min-w-[20vw]">
                 <h5 className="font-sans leading-none rem:text-[36px]">

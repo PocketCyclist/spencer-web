@@ -23,7 +23,7 @@ a.breadcrumps-link {
 .bg-main-pic {
   /* background-color: var(--blue);
   background-image: url('/images/main-pic.jpg');   */
-  background: #0c4876 url('/images/main-pic-sm.jpg') no-repeat;
+  background: #0c4876 url('/images/main-pic-sm2.jpg') no-repeat;
   background-size: contain; /* Растягиваем изображение по ширине на 100%, по высоте — на 200% */
   background-position: top center; /* Фиксируем фоновое изображение сверху */
   background-repeat: no-repeat;
@@ -37,7 +37,7 @@ a.breadcrumps-link {
 }
 @media (min-width: 768px) {
   .bg-main-pic {
-    background: #0c4876 url('/images/main-pic.jpg') no-repeat;
+    background: #0c4876 url('/images/main-pic2.jpg') no-repeat;
     background-size: cover;
   }
 }
@@ -50,6 +50,8 @@ a.breadcrumps-link {
 }
 
 .glowing-text {
-   text-shadow: 0 0 10px rgba(255, 241, 231, 0.25), 0 0 20px rgba(255, 241, 231, 0.25), 0 0 30px rgba(255, 241, 231, 0.25);
-
+  text-shadow:
+    0 0 10px rgba(255, 241, 231, 0.25),
+    0 0 20px rgba(255, 241, 231, 0.25),
+    0 0 30px rgba(255, 241, 231, 0.25);
 }

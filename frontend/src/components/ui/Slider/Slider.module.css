@@ -14,11 +14,11 @@
 }
 
 .root :global(.swiper-wrapper) {
-  @apply rem:h-[440px] lg:rem:h-[641px];
+  @apply rem:h-[440px] lg:rem:h-[541px];
 }
 
 .root :global(.swiper-pagination-horizontal) {
-  @apply text-[0] leading-[0] rem:top-[482px] lg:rem:top-[704px];
+  @apply text-[0] leading-[0] rem:top-[482px] lg:rem:top-[604px];
 }
 
 .root
