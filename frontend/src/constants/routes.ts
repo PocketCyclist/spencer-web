@@ -4,7 +4,7 @@ export const routesMap = {
     title: 'Home',
   },
   about: {
-    url: '/#about',
+    url: '/about',
     title: 'About',
   },
   discography: {
