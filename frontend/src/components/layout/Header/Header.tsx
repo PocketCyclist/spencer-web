@@ -14,8 +14,6 @@ import { locales } from '@/navigation'
 import LocaleSwitcherSelect from '@/components/common/LocaleSwitcher/LocaleSwitcherSelect'
 import { HeaderSubmenu } from './HeaderSubmenu'
 
-import { getProjectsMenuProps } from '@/components/common/ProjectsSubMenu/ProjectsSubMenu'
-
 type TSubroute = {
   id: number
   title: string
@@ -40,6 +38,8 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
   const [subroutes, setSubroutes] = useState<TSubroute[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [isDropdownOpen, setDropdownIsOpen] = useState(false)
+  const [isLargeScreen, setIsLargeScreen] = useState(false)
   useEffect(() => {
     if (isDesktopScreen) {
       setIsMenuOpen(false)
@@ -51,7 +51,6 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
       'overflow-hidden',
     )
   }, [isMenuOpen])
-  console.log('[mylocale0]', locale)
 
   // Fetch subroutes data
   useEffect(() => {
@@ -69,6 +68,31 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
 
     fetchSubroutes()
   }, [locale])
+
+  // Handle screen size changes
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024)
+      setDropdownIsOpen(window.innerWidth < 1024)
+    }
+
+    // Initial check
+    checkScreenSize()
+
+    // Add resize listener
+    window.addEventListener('resize', checkScreenSize)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
+  const handleMouseEnter = () => {
+    setDropdownIsOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    setDropdownIsOpen(false)
+  }
   return (
     <header className="fixed left-0 top-0 z-10 h-mobile-header w-full bg-background lg:h-header lg:py-6">
       {/* <div className="container flex h-full items-center justify-between gap-y-4"> */}
@@ -115,25 +139,36 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
                 <li key={index} className="relative">
                   <a
                     aria-current={isActive ? 'page' : undefined}
-                    className="relative"
+                    className="topmenu_link_link relative"
                     href={item.url}
                     title={item.title}
+                    onMouseEnter={isProjects ? handleMouseEnter : undefined}
+                    onMouseLeave={isProjects ? handleMouseLeave : undefined}
                   >
                     {isActive && (
                       <CapaIcon className="absolute -left-2 top-1/2 -translate-y-1/2 text-yellow lg:-left-[1.125rem]" />
                     )}
                     <span className="relative">{item.title}</span>
                   </a>
-                  {isProjects && (
+                  {isProjects && isDropdownOpen && (
                     <>
                       {loading ? (
-                        <p>Loading subroutes...</p>
+                        <p className="projects_submenu">
+                          <br />
+                          Loading projects...
+                        </p>
                       ) : error ? (
-                        <p>Error: {error}</p>
+                        // <p>Error: {error}</p>
+                        ''
                       ) : subroutes.length === 0 ? (
                         ''
                       ) : (
-                        <HeaderSubmenu subroutes={subroutes} />
+                        <div
+                          onMouseEnter={handleMouseEnter}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          <HeaderSubmenu subroutes={subroutes} />
+                        </div>
                       )}
                     </>
                   )}
