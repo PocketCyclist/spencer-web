@@ -1,8 +1,7 @@
 import { TStrapiListResponse } from '@/data/strapi/types/common/api'
 import { strapiGet } from '@/data/strapi/common'
 
-export async function getServerSideProps() {
-  const locale = 'en' // Здесь выберите нужный язык локализации
+export async function getProjectsMenuProps(locale: string) {
   const [projects] = await Promise.all([
     strapiGet<
       TStrapiListResponse<{
@@ -19,9 +18,10 @@ export async function getServerSideProps() {
     }),
   ])
 
-  return {
-    props: {
-      projects: projects,
-    },
-  }
+  const mapped_projects = projects.map((project) => ({
+    id: project.id,
+    title: project.attributes.title,
+  }))
+
+  return mapped_projects
 }

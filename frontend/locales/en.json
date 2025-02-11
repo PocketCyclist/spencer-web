@@ -15,7 +15,9 @@
     "learnHandpan": "Learn Handpan"
   },
   "footer": {
-    "followMe": "Follow my music"
+    "followMe": "Follow my music",
+    "subscribeTitle": "Subscribe for newsletter",
+    "subscribePlaceholder": "Enter your email"
   },
   "LocaleSwitcher": {
     "label": "Change language",
