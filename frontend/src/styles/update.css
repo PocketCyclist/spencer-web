@@ -8,6 +8,10 @@ a.breadcrumps-link {
   text-decoration: underline;
 }
 
+p {
+  letter-spacing: normal !important;
+}
+
 .event_item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -62,4 +66,8 @@ a.breadcrumps-link {
 .header_locales * {
   text-transform: capitalize;
   cursor: pointer;
+}
+
+select:focus-visible {
+  outline: none;
 }

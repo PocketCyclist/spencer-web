@@ -9,14 +9,12 @@ import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
 import { TLocale } from '@/navigation'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { locales } from '@/navigation'
 import LocaleSwitcherSelect from '@/components/common/LocaleSwitcher/LocaleSwitcherSelect'
 
 export const Header = ({ routes }: { routes: TRoutes }) => {
-  // const t = useTranslations('LocaleSwitcher')
   const locale = useLocale() as TLocale
-  console.log(locale, locales)
   const ITEMS = [
     routes.home,
     routes.about,
