@@ -88,7 +88,7 @@ const Project = async ({
           <h2 className="font-sans rem:text-[40px] rem:leading-[50px]">
             {project.attributes.title}
           </h2>
-          <p className="whitespace-pre-wrap rem:text-[16px] rem:leading-[20.08px]">
+          <p className="whitespace-pre-wrap rem:text-[16px] lg:rem:text-[20px]">
             {project.attributes.content}
           </p>
         </div>
