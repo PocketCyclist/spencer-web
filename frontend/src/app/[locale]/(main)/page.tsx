@@ -25,14 +25,15 @@ const Home = async ({ params: { locale } }: TParamsWithLocale) => {
 
   // The rest of the blocks in order
   const otherBlocks = blocks.filter(
-    (block) => block.__component !== 'block.video' && block !== blocks[0],
+    (block) =>
+      block.__component !== 'block.video' &&
+      block !== blocks[0] &&
+      block.__component !== 'block.about',
   )
 
   return (
     <>
       <StrapiBlocks blocks={firstElement} />
-
-      {/* <pre>{JSON.stringify(videoBlocks, null, 2)}</pre> */}
 
       <section className="relative flex min-h-screen-minus-mobile-header flex-col justify-center pt-24 lg:min-h-screen-minus-header">
         <div className="container flex flex-wrap justify-center gap-8 no-scrollbar lg:rem:w-[1092px]">

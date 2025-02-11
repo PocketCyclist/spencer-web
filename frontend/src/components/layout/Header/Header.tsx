@@ -8,8 +8,15 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { CapaIcon } from '@/icons'
 import { cn } from '@/lib/cn'
 import { isActiveRoute, usePathnameWithHash } from '@/lib/navigation'
+import { TLocale } from '@/navigation'
+import { useLocale, useTranslations } from 'next-intl'
+import { locales } from '@/navigation'
+import LocaleSwitcherSelect from '@/components/common/LocaleSwitcher/LocaleSwitcherSelect'
 
 export const Header = ({ routes }: { routes: TRoutes }) => {
+  // const t = useTranslations('LocaleSwitcher')
+  const locale = useLocale() as TLocale
+  console.log(locale, locales)
   const ITEMS = [
     routes.home,
     routes.about,
@@ -94,6 +101,17 @@ export const Header = ({ routes }: { routes: TRoutes }) => {
                 </li>
               )
             })}
+            <li className="header_locales">
+              {' '}
+              <LocaleSwitcherSelect defaultValue={locale} label={locale}>
+                {locales.map((cur) => (
+                  <option key={cur} value={cur}>
+                    {/* {t('locale', { locale: cur })} */}
+                    {cur}
+                  </option>
+                ))}
+              </LocaleSwitcherSelect>
+            </li>
           </ul>
         </nav>
       </div>

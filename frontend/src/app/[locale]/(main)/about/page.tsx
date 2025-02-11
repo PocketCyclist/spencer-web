@@ -1,6 +1,5 @@
 import { About } from '@/components/strapi/blocks/About/About'
 import { strapiGet } from '@/data/strapi/common'
-import { TStrapiDiscographyPage } from '@/data/strapi/types/albums'
 import { TStrapiSingleResponse } from '@/data/strapi/types/common/api'
 import { TStrapiLandingPage } from '@/data/strapi/types/landing'
 import { extractImageAttrs } from '@/data/strapi/utils/extractImageAttrs'
@@ -16,9 +15,7 @@ const AboutPage = async ({ params: { locale } }: TParamsWithLocale) => {
     { locale, deepPopulate: true },
   )
   const blocks = pageData.attributes.blocks
-
   const block = blocks.filter((item) => item.__component === 'block.about')[0]
-  console.log('aboutBlock', block)
 
   return (
     <>
@@ -50,8 +47,4 @@ export const generateMetadata = async (
     // ...page.attributes.seo,
     title: 'About - The Gerard Spencer Project',
   }
-}
-
-{
-  /* <Cymbal className="[&>*]:-translate-y-[72.429%]" right /> */
 }

@@ -55,3 +55,11 @@ a.breadcrumps-link {
     0 0 20px rgba(255, 241, 231, 0.25),
     0 0 30px rgba(255, 241, 231, 0.25);
 }
+
+.header_locales {
+  cursor: pointer;
+}
+.header_locales * {
+  text-transform: capitalize;
+  cursor: pointer;
+}
