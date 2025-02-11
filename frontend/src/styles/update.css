@@ -45,6 +45,7 @@ p {
     background-size: cover;
   }
 }
+
 .events > div:last-child > .event_item {
   border-bottom: 0 !important;
 }
@@ -70,4 +71,22 @@ p {
 
 select:focus-visible {
   outline: none;
+}
+
+@media (max-width: 1023px) {
+  .projects_submenu {
+    position: relative;
+  }
+  .projects_submenu li {
+    padding: 5px 5px 5px 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .projects_submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #faf7f2;
+    width: 300px;
+  }
 }
