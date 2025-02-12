@@ -15,7 +15,17 @@
     "learnHandpan": "Learn Handpan"
   },
   "footer": {
-    "followMe": "Suivez ma musique"
+    "followMe": "Suivez ma musique",
+    "newsletter": {
+      "error": "Erreur",
+      "success": "Abonnement réussi"
+    }
+  },
+  "contact": {
+    "form": {
+      "error": "Erreur",
+      "success": "Votre message a été envoyé"
+    }
   },
   "LocaleSwitcher": {
     "label": "Change language",
