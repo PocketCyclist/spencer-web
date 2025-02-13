@@ -16,6 +16,8 @@
   },
   "footer": {
     "followMe": "Suivez ma musique",
+    "subscribeTitle": "Abonnez-vous à la newsletter",
+    "subscribePlaceholder": "Votre email",
     "newsletter": {
       "error": "Erreur",
       "success": "Abonnement réussi"

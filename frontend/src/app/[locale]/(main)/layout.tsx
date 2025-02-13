@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl'
 import { getTranslatedRoutes } from '@/constants/routes'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { locales } from '@/navigation'
-
 import '@/styles/globals.css'
 import '@/styles/update.css'
 import { Toaster } from 'react-hot-toast'

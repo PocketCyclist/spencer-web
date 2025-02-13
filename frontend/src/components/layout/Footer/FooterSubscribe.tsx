@@ -44,10 +44,10 @@ export const FooterSubscribe = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h5 className="mb-4 font-serif text-footer-title font-bold">
-        Subscribe for newsletter
+        {t('subscribeTitle')}
       </h5>
       <Input
-        placeholder="Enter your email"
+        placeholder={t('subscribePlaceholder')}
         required
         size="sm"
         type="email"

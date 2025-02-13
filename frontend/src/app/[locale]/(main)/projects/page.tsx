@@ -87,10 +87,10 @@ const Projects = async ({ params: { locale } }: TParamsWithLocale) => {
                   </Link>
                 </h5>
                 <Link href={`/projects/${item.id}`}>
-                  <p className="my-3 font-sans rem:text-[20px]">
+                  <p className="my-5 font-sans rem:text-[20px]">
                     <TruncateText
                       text={item.attributes.content}
-                      maxLength={110}
+                      maxLength={91}
                     />
                   </p>
                 </Link>
