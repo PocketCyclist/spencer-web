@@ -7,6 +7,7 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { locales } from '@/navigation'
 import '@/styles/globals.css'
 import '@/styles/update.css'
+import { Toaster } from 'react-hot-toast'
 
 export default function RootLayout({
   children,
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <Header routes={routes} />
         <main className="pt-mobile-header lg:pt-header">{children}</main>
+        <Toaster position="top-right" />
         <Footer routes={routes} />
       </body>
     </html>
