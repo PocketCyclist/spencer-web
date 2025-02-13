@@ -17,7 +17,17 @@
   "footer": {
     "followMe": "Suivez ma musique",
     "subscribeTitle": "Abonnez-vous à la newsletter",
-    "subscribePlaceholder": "Votre email"
+    "subscribePlaceholder": "Votre email",
+    "newsletter": {
+      "error": "Erreur",
+      "success": "Abonnement réussi"
+    }
+  },
+  "contact": {
+    "form": {
+      "error": "Erreur",
+      "success": "Votre message a été envoyé"
+    }
   },
   "LocaleSwitcher": {
     "label": "Change language",
